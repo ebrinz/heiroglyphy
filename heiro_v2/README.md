@@ -35,7 +35,7 @@ heiro_v2/
 ├── data/           # Processed datasets (excluded from git)
 ├── models/         # Trained models (excluded from git)
 ├── results/        # Analysis results (excluded from git)
-└── src/            # Source code (see heiro_v1 for reference implementation)
+└── src/            # ACCIDENTALLY ERASED :/
 ```
 
 ## Note
