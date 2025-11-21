@@ -1,0 +1,12 @@
+{
+  "model": "V7 FastText + Visuals (Fused 1536d -> 300d)",
+  "test_samples": 1340,
+  "valid_anchors": 6700,
+  "total_anchors": 8541,
+  "anchor_coverage": 78.44514693829763,
+  "top1_accuracy": 29.1044776119403,
+  "top5_accuracy": 36.56716417910448,
+  "top10_accuracy": 41.19402985074627,
+  "r2_train": 0.07629372924566269,
+  "r2_test": 0.04452112317085266
+}

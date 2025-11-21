@@ -65,3 +65,34 @@ heiro_v5_getdata/data/processed/glove*
 !heiro_v5_getdata/data/processed/alignment_results.json
 !heiro_v5_getdata/data/processed/corpus_statistics.json
 
+# V6 Specific - BERT Models & Data
+heiro_v6_BERT/data/raw/*.parquet
+heiro_v6_BERT/data/raw/*.json
+heiro_v6_BERT/data/processed/*.txt
+heiro_v6_BERT/data/processed/*.pkl
+heiro_v6_BERT/data/processed/*.json
+heiro_v6_BERT/models/*.model
+heiro_v6_BERT/models/*.bin
+heiro_v6_BERT/models/*.safetensors
+heiro_v6_BERT/models/*.pth
+heiro_v6_BERT/models/*.pt
+heiro_v6_BERT/models/pytorch_model.bin
+heiro_v6_BERT/models/*/checkpoint-*/
+heiro_v6_BERT/models/hierobert_*/
+heiro_v6_BERT/models/alignment_matrix.pkl
+
+# V7 Specific - FastText Models & Fused Embeddings
+heiro_v7_FastTextVisual/data/raw/*.parquet
+heiro_v7_FastTextVisual/data/raw/*.json
+heiro_v7_FastTextVisual/data/processed/*.txt
+heiro_v7_FastTextVisual/data/processed/*.pkl
+heiro_v7_FastTextVisual/data/processed/*.json
+heiro_v7_FastTextVisual/models/*.model
+heiro_v7_FastTextVisual/models/*.model.*
+heiro_v7_FastTextVisual/models/*.vec
+heiro_v7_FastTextVisual/models/*.kv
+heiro_v7_FastTextVisual/models/*.npy
+
+# Keep small result files
+!heiro_v6_BERT/data/processed/anchors.json
+!heiro_v7_FastTextVisual/data/processed/alignment_results_v7.json
