@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+    
+    
+    
+    
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">               
+        <title>Ramses Online</title>
+        <!-- js -->      
+        <script type="text/javascript">
+            // Global variable to access this site URL.
+            var ramsesAppBase = "";
+        </script>
+
+        <!-- small fix for the static pages links -->
+        
+
+        
+        <style>
+            @font-face {
+                font-family: 'egyptoserifitalic';
+                src: url('/resources/egyptoSerif/egyptoserif-italic-webfont.eot');
+                src: url('/resources/egyptoSerif/egyptoserif-italic-webfont.eot?#iefix') format('embedded-opentype'),
+                    url('/resources/egyptoSerif/egyptoserif-italic-webfont.woff2') format('woff2'),
+                    url('/resources/egyptoSerif/egyptoserif-italic-webfont.woff') format('woff'),
+                    url('/resources/egyptoSerif/egyptoserif-italic-webfont.ttf') format('truetype');
+                font-weight: normal;
+                font-style: italic;
+            }
+            @font-face {
+                font-family: 'egyptoserifitalic';
+                src: url('/resources/egyptoSerif/egyptoserif-bold-webfont.eot');
+                src: url('/resources/egyptoSerif/egyptoserif-bold-webfont.eot?#iefix') format('embedded-opentype'),
+                    url('/resources/egyptoSerif/egyptoserif-bold-webfont.woff2') format('woff2'),
+                    url('/resources/egyptoSerif/egyptoserif-bold-webfont.woff') format('woff'),
+                    url('/resources/egyptoSerif/egyptoserif-bold-webfont.ttf') format('truetype');
+                font-weight: bold;
+                font-style: normal;
+            }
+        </style>
+
+        <!-- css -->
+        
+            <link rel="stylesheet" type="text/css" href="/resources/bower/bootstrap/dist/css/bootstrap.css?v=20180509">
+        
+            <link rel="stylesheet" type="text/css" href="/resources/css/ramses.css?v=20180509">
+        
+
+        
+            <script type="text/javascript" src="/resources/bower/jquery/dist/jquery.min.js?v=20180509"></script>
+        
+            <script type="text/javascript" src="/resources/bower/bootstrap/dist/js/bootstrap.min.js?v=20180509"></script>
+        
+            <script type="text/javascript" src="/resources/bower/bootbox/bootbox.js?v=20180509"></script>
+        
+            <script type="text/javascript" src="/resources/js/myGrid.js?v=20180509"></script>
+        
+
+           
+
+        <meta name="_csrf" content="f2e6d541-0551-473e-96e7-8372caf3788c"/>
+        <!-- default header name is X-CSRF-TOKEN -->
+        <meta name="_csrf_header" content="X-CSRF-TOKEN"/>
+    </head>
+    <body>       
+        <header class="container">
+
+            <h1 class="hidden-xs">
+                <a href="/">
+                    Ramses Online
+                    <small>un corpus annoté du néo-égyptien</small>
+                </a>
+            </h1>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" 
+                                class="navbar-toggle collapsed" data-toggle="collapse" 
+                                data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>                        
+                        <a class="navbar-brand visible-xs-inline" href="">Ramses Online</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" 
+                                   data-toggle="dropdown" role="button" aria-expanded="false">
+                                    À propos
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/site/aboutRamses">Présentation générale</a></li>
+                                    <li><a href="/site/news">Nouvelles</a></li>
+                                    <li><a href="/site/collaborators">Collaborateurs</a></li>
+                                    <li><a href="/site/institutions">Supports institutionnels</a></li>
+                                    <li><a href="/site/contact">Contact</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" 
+                                   data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Corpus
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">    
+                                    <li><a href="/site/corpus">Présentation du corpus</a>
+                                    <li><a href="/text">Chercher un texte</a></li> 
+                                    <li>
+                                        <a href="/text/viewReference">                                            
+                                            Voir Référence</a></li>
+                                </ul>
+                            </li>
+                            
+
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" 
+                                   data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Recherches
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">    
+                                    <li><a href="/site/searches">Présentation des recherches</a>
+
+                                    <li><a href="/search/simple">Recherche simple</a></li>
+                                    <li><a href='/search/complex'>Recherche avancée</a></li>
+                                </ul>
+                            </li>
+
+                            
+
+                            <li><a href="/site/help">Aide</a></li>
+
+                            <li><strong class="navbar-text">Version bêta</strong></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li style="border-right: 1px solid darkgray"><a href="/user/ask">Enregistrement</a></li>
+                                <li><a href="/user/recover">Mot de passe oublié</a></li>
+                                
+
+                            
+                            
+                                
+                                    <li>
+                                        <a href="/login">login</a>
+                                    </li>
+                                
+                            
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="container">
+            
+            
+
+
+
+
+<div class="row col-md-offset-1 col-md-10">
+
+    <h2>Chercher un texte</h2>
+
+    <div id="textForm">        
+    </div>
+
+    <script>
+        var t = new MyTable(
+                {
+                    "id": "textForm",
+                    "url": "/json/text/grid",
+                    "filterPlaceHolder": "Nom du document ou titre du texte",
+                    "buildRow": function (table, l) {
+                        var res = $("<tr></tr>").addClass("clickable");
+                        var s = "<td></td>";
+                        //res.append($(s).text(l.id));
+                        res.append($(s).text(l.displayTitle));
+                        res.click(function () {
+                            document.location = ramsesAppBase + "/text/legacy/" + l.legacyId;
+                        });
+                        return res;
+                    }
+                }
+        );
+        t.setup();
+    </script>
+</div>
+
+        </main>
+        <footer class="container navbar navbar-default navbar-fixed-bottom">
+            
+            <div class="logos">
+
+                <a href="http://www.egypto.ulg.ac.be/Ramses.htm">
+                    <img style="height: 5em;" src="/resources/images/Ramses2.jpg" alt="Projet Ramsès"/>
+                </a>
+                <a href="http://www.fnrs.be/">
+                    <img src="/resources/images/FRS-FNRS.png" alt="FNRS"/>
+                </a>                
+                <a href="http://www.ulg.ac.be/">
+                    <img src="/resources/images/uliege.jpg" alt="Ulg"/>
+                </a>
+                <a href="http://www.cnam.fr/">
+                    <img style="height: 2em;" src="/resources/images/cnam.svg" alt="CNAM" width="70"/>
+                </a>
+                <a href="http://cedric.cnam.fr/">
+                    <img src="/resources/images/logo_cedric.gif" alt="Cédric/ILJ"  width="70"/>
+                </a>
+                <a href="http://jsesh.qenherkhopeshef.org/">
+                    <img src="/resources/images/logoJSesh.png" alt="JSesh, an Open Source Hieroglyphic Editor"/>
+                </a>
+            </div>
+        </footer>
+
+        
+    </body>
+</html>

@@ -1,0 +1,24 @@
+Loading bbaw_egyptian dataset...
+
+Dataset Structure:
+DatasetDict({
+    train: Dataset({
+        features: ['transcription', 'translation', 'hieroglyphs'],
+        num_rows: 100736
+    })
+})
+
+Sample Data (first 3 items from train split):
+
+Total records with hieroglyphs: 35503/100736
+
+Sample records with hieroglyphs:
+
+--- Record 1 ---
+{'transcription': 'jr,j-pꜥ,t ḥꜣ,tj-ꜥ ḫtm,w-bj,tj smr-wꜥ,tj jm,j-rʾ-ḥm(,pl)-nṯr-n-Stj,t-nb,t-Ꜣb,w jmꜣḫ,y-ḫr-Jnp,w Zꜣ-rnp,wt.pl jri̯(.w) n Zꜣ,t-ṯnj  ḏd', 'translation': 'Hereditary noble and prince, royal seal-bearer and sole friend (of the king), overseer of the priests of Satet, Mistress of Elephantine, one distinguished in front of Anubis, Sarenput, born of Sat-tjeny, says:', 'hieroglyphs': 'D21 :Q3 :D36 F4 :D36 L2 -X1 :S19 S29 -U23 -T21 :X1 G17 -D21 :Z1 -R8 -U36 -S4 -F29 -X1 :X1 -B1 -V30 :X1 -U23 -D58 -G43 -N25 :O49 M17 -U1 -F39&Aa1 -M17 -M17 -Aa1 :D21 -E16 -A40 G39 -D21 :N35 :Q3 -G43 -X1 :Z3 -A1 D4\\ N35 G39&X1 -V13 :N35 :Z1 -M17 -B1  I10&D46'}
+
+--- Record 2 ---
+{'transcription': 'j ꜥnḫ.w[.pl] [tp,j].pl-tꜣ swꜣ.t(j) =sn ḥr jz pn m-ḫdi̯ m ḫsfi̯.t m mri̯ ṯn nṯr.pl =ṯn jw =ṯn 〈r〉 dwꜣ nṯr r pr,t-ḫrw n kꜣ n(,j)  jmꜣḫ(,w) ḥꜣ,tj-ꜥ Zꜣ-rnp,wt.pl ḏd', 'translation': 'O living ones, who are upon the earth, who shall pass along this tomb faring downstream or upstream, as your gods love you, you 〈should〉 praise god for an invocation offering for the ka of the distinguished one, the governor Sarenput, who says:', 'hieroglyphs': 'M17 -[? *A26 *?] S34 -/ :Aa1 -G43 -A1 -[? *Z3 *?] h/ :N17 :[? *N23 *?] -A1 -[? *Z2B *?] S29 -V4 -X1 S29 -N35 D2 *Z1 M17 -M40 -O34 :O1 *Z1 Q3 :N35 G17 -Aa1 :D46 :D54 G17 U34 -X1 :D54 G17 U6 -D21 V13 :N35 R8 -R8 -R8 V13 :N35 :Z2 M17 -G43 V13 :N35  N14 R8 D21 O3 -F63 *H1 :X4 :Z2 N35 D28 *Z1 N35  F39&Aa1 F4 :D36 G39 -D21 :N35 :Q3 -G43 -X1 :Z2B -A1 I10&D46'}
+
+--- Record 3 ---
+{'transcription': 'jnk mḥ-jb-n(,j)-nswt m ḥw,t-nṯr rʾ-Nḫn m pr Stj,t ⸢nḫb,y⸣ m pr-n[z]r ḥr,j-tp ḥm[,pl]-kꜣ ḫtm,w-bj,tj smr-wꜥ,tj ḥr,j-sštꜣ-n-nswt-m-mšꜥ  sḏm(.w) sḏm.t ⸮wꜥ? jwi̯ n =f tꜣ.du tm(.du) mn⸢mn⸣ =f ḫ[f]t rmṯ.pl r s,t.pl sḫr.t ḫft,j.pl nswt ꜥq-⸢jb⸣ [n]swt [m]-w[ꜥ]ꜥ(,w) [ḥqꜣ.pl] [n.w] spꜣ,t[.pl]  ⸮[ḥr]? ⸮⸢pri̯.t⸣?  ḥr,j ḏbꜥ,t.pl jm,j-rʾ g(ꜣw),t.pl nb(.t.pl) rʾ-ꜥꜣ ḫꜣs,t.pl m ẖkr,t-nswt smj [n] =f jn,w.pl Mḏꜣ m bꜣk.pl ḥqꜣ.pl [n.w] ḫꜣs,t.pl s[ḏ]r m-ẖn,w zḥ-nṯr hrw n(,j) ḥ(ꜣ)b ꜥꜣ šzp ḥnk,t.pl  m špss ḏḏ nswt m ꜥḥ ḥr(,j) ḥkn,w m dp,t-nṯr ḫft-ḥr nṯr ḥr,j bjꜣ,t nb(.t) Ztj.pl ḥr mw bšt', 'translation': "I was a trusted one of the king in the temple,\r\nmouth of Nekhen in the temple of Satet,\r\nthe Nekhbite in per-neser, chief of the ka-priests,\r\nRoyal seal-bearer and sole friend (of the King),\r\none over the secrets of the king in the army,\r\nwho hears what only a single (man) may hear,\r\nto whom the entire land comes (lit. the complete two lands) when he proceeds in front of the people to the places where the enemies of the king are smitten,\r\none who enters the heart of the king [in private, while the] nome [governors(?) ...],\r\none who is over the sealings,\r\noverseer of all duties of the door of the foreign countries consisting of the ornament of the king,\r\none to whom were reported the $jnw$-gifts of the Medja, consisting of the tribute of the rulers of the foreign countries,\r\none who spends the night in the god's booth on the day of the great festival,\r\none who received presents from the riches that the king gives out in the palace,\r\nchief of praise in the divine barge in front of the god,\r\none who is over every marvel of the Nubians from the cataract area (lit. who are upon troublesome water).", 'hieroglyphs': 'W24 :V31 V22 :F34 :N35 -M23 -X1 :N35 G17 R8 -O6 -X1 :O1 :Z1 D21 :Z1 :O47\\ *Z1 G17 O1 :Z1 F29 -X1 :X1 -B1 M22 -D58 -M17 -M17 G17 O1 *Z1 :N35 :h/ -D21 :O20 D2 :[? *D1 *?] [? *D31A *?] -A1 :h/ L2 -X1 :S19 S29 *U23 :T21 E16 *"lb" -S4 -M23 -X1 :N35 -G17 -A12  F21 F21 :X1 A1 M18 -G43 N35 I9 N17 :N17 X1 :U15 Y5 :N35 :Y5 :N35 I9 Aa1 *X1 :h/ A1 *B1 :Z2 D21 Q1 -X1 :Z2 S29 -Aa1 :D21 :X1 :A15 Aa1 *X1 :I9 :Z2 -A13 *"var" M23 -X1 :N35 G35 :h/ -[? *F34 *?] [? *M23 *?] :/ // -G43 -h/ :D36 :h/ // // [? *N24C *?] :X1 *[? *Z2 *?]  // [? *O1 *?] -h/ :X1 :h/  D2 :D21 D50\\ -X1 :S20 :Z2 G17 -D21 "⸮" *W11 *"?" -X1 -Z2 V30 D21 *Z1 :O31 N25 -// :Z2 G17 M23 -X1 :Aa31 S29 -W19 -A2 h/ I9 W25 -N35 -G43 -Z2 G17 -U28 -G1 -[? *N25 *?] G17 G29 :V31 -Y2 :Z2 S38 -N29 :Z2 h/ N25 :X1 *Z2 S29 -[? *M36 *?] :D21 -// G17 -F26 :W24 *Z1 R8 -O21 N5 *Z1 N35 W4 O29 O42C\\ :Q3 V28 *(V31 :X1 :D39) :N35 -Z3  G17 A50A -S29 -S29 D37 :D37 M23 -X1 :N35 G17 O12 D2 :D21 V28 *W24 :V31 -A2 G17 P112 *"var" Aa1 *X1 :I9 :D2 *Z1 R8 -A40 D2 :Z1 D58 -M17 -G1 -X1 -F18 V30 Aa32 :X1 -G4 -A1 :Z2 D2 -Z1 N35A D58 :X1 -N37A :D20'}

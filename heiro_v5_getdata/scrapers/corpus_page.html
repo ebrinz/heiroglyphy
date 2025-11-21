@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+    
+    
+    
+    
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">               
+        <title>Ramses Online</title>
+        <!-- js -->      
+        <script type="text/javascript">
+            // Global variable to access this site URL.
+            var ramsesAppBase = "";
+        </script>
+
+        <!-- small fix for the static pages links -->
+        
+
+        
+        <style>
+            @font-face {
+                font-family: 'egyptoserifitalic';
+                src: url('/resources/egyptoSerif/egyptoserif-italic-webfont.eot');
+                src: url('/resources/egyptoSerif/egyptoserif-italic-webfont.eot?#iefix') format('embedded-opentype'),
+                    url('/resources/egyptoSerif/egyptoserif-italic-webfont.woff2') format('woff2'),
+                    url('/resources/egyptoSerif/egyptoserif-italic-webfont.woff') format('woff'),
+                    url('/resources/egyptoSerif/egyptoserif-italic-webfont.ttf') format('truetype');
+                font-weight: normal;
+                font-style: italic;
+            }
+            @font-face {
+                font-family: 'egyptoserifitalic';
+                src: url('/resources/egyptoSerif/egyptoserif-bold-webfont.eot');
+                src: url('/resources/egyptoSerif/egyptoserif-bold-webfont.eot?#iefix') format('embedded-opentype'),
+                    url('/resources/egyptoSerif/egyptoserif-bold-webfont.woff2') format('woff2'),
+                    url('/resources/egyptoSerif/egyptoserif-bold-webfont.woff') format('woff'),
+                    url('/resources/egyptoSerif/egyptoserif-bold-webfont.ttf') format('truetype');
+                font-weight: bold;
+                font-style: normal;
+            }
+        </style>
+
+        <!-- css -->
+        
+            <link rel="stylesheet" type="text/css" href="/resources/bower/bootstrap/dist/css/bootstrap.css?v=20180509">
+        
+            <link rel="stylesheet" type="text/css" href="/resources/css/ramses.css?v=20180509">
+        
+
+        
+            <script type="text/javascript" src="/resources/bower/jquery/dist/jquery.min.js?v=20180509"></script>
+        
+            <script type="text/javascript" src="/resources/bower/bootstrap/dist/js/bootstrap.min.js?v=20180509"></script>
+        
+            <script type="text/javascript" src="/resources/bower/bootbox/bootbox.js?v=20180509"></script>
+        
+            <script type="text/javascript" src="/resources/js/myGrid.js?v=20180509"></script>
+        
+
+           
+
+        <meta name="_csrf" content="ee2b2f15-9077-4df7-a428-c08a8da67fa0"/>
+        <!-- default header name is X-CSRF-TOKEN -->
+        <meta name="_csrf_header" content="X-CSRF-TOKEN"/>
+    </head>
+    <body>       
+        <header class="container">
+
+            <h1 class="hidden-xs">
+                <a href="/">
+                    Ramses Online
+                    <small>un corpus annoté du néo-égyptien</small>
+                </a>
+            </h1>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" 
+                                class="navbar-toggle collapsed" data-toggle="collapse" 
+                                data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>                        
+                        <a class="navbar-brand visible-xs-inline" href="">Ramses Online</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" 
+                                   data-toggle="dropdown" role="button" aria-expanded="false">
+                                    À propos
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/site/aboutRamses">Présentation générale</a></li>
+                                    <li><a href="/site/news">Nouvelles</a></li>
+                                    <li><a href="/site/collaborators">Collaborateurs</a></li>
+                                    <li><a href="/site/institutions">Supports institutionnels</a></li>
+                                    <li><a href="/site/contact">Contact</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" 
+                                   data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Corpus
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">    
+                                    <li><a href="/site/corpus">Présentation du corpus</a>
+                                    <li><a href="/text">Chercher un texte</a></li> 
+                                    <li>
+                                        <a href="/text/viewReference">                                            
+                                            Voir Référence</a></li>
+                                </ul>
+                            </li>
+                            
+
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" 
+                                   data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Recherches
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">    
+                                    <li><a href="/site/searches">Présentation des recherches</a>
+
+                                    <li><a href="/search/simple">Recherche simple</a></li>
+                                    <li><a href='/search/complex'>Recherche avancée</a></li>
+                                </ul>
+                            </li>
+
+                            
+
+                            <li><a href="/site/help">Aide</a></li>
+
+                            <li><strong class="navbar-text">Version bêta</strong></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li style="border-right: 1px solid darkgray"><a href="/user/ask">Enregistrement</a></li>
+                                <li><a href="/user/recover">Mot de passe oublié</a></li>
+                                
+
+                            
+                            
+                                
+                                    <li>
+                                        <a href="/login">login</a>
+                                    </li>
+                                
+                            
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="container">
+            
+            
+
+
+
+
+
+<!-- Ici commence le texte -->            
+<div class="row col-md-offset-1 col-md-12" >
+    <div class="page-header">
+
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Le corpus de Ramses Online</h2>
+                <h3 id="beta">Les sous-corpus de la version <i>bêta</i> de Ramses Online</h3>
+                <p>
+                    En août 2015, le corpus annoté du <a href="http://www.egypto.ulg.ac.be/Ramses.htm">Projet Ramsès</a> comprend plus de 4200 textes, pour environ 520.000 occurrences. Les deux graphiques ci-dessous montrent l’évolution du nombre de textes encodés et du nombre d’occurrences analysées entre 2006 et 2014 :                            </p>
+                <br>
+
+                <figure align="center">
+                    <img src="/resources/pictures/Ramses_Texts.png" class="img-rounded" width="350">
+                    <figcaption align='center'>Nombre de textes dans Ramsès</figcaption>
+                </figure>
+                <br>
+
+                <figure align="center">
+                    <img src="/resources/pictures/Ramses_Tokens.png" class="img-rounded" width="350">
+                    <figcaption align='center'>Nombre d'occurrences dans Ramsès</figcaption>
+                </figure>
+                <br>
+                <p>
+                    Cependant, tous ces textes n’ont pas encore fait l’objet des relectures et des corrections nécessaires avant leur mise en ligne. La version bêta de Ramses Online ne donne par conséquent accès qu’à une (petite) partie des textes du corpus. Pour des raisons de cohérence, nous avons choisi de publier les textes par sous-corpus, en privilégiant les grands ensembles traditionnellement reçus en néo-égyptien :
+                </p>
+
+                <table class="table-condensed" align="center">
+                    <caption align="bottom"><center>Les corpus disponibles dans la version <i>bêta</i> de Ramses Online</center></caption>
+                    <thead>
+                        <tr>
+                            <th class="absorbing-column" align='center'></td>
+                            <th class="absorbing-column" align='center'><strong>Textes</strong></td>
+                            <th class="absorbing-column" align='center'><strong>Occurrences</strong></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>Late Egyptian Stories</i></td>
+                            <td>11</td>
+                            <td>16.584</td>
+                        </tr>
+                        <tr>
+                            <td><i>Late Ramesside Letters</i></td>
+                            <td>50</td>
+                            <td>12.866</td>
+                        </tr>
+                        <tr>
+                            <td><i>Late Ramesside Letters and Communications</i></td>
+                            <td>9</td>
+                            <td>1.439</td>
+                        </tr>
+                        <tr>
+                            <td><i>Ostraca non-littéraires de Deir el-Medina, vol. 1</i></td>
+                            <td>112</td>
+                            <td>8.665</td>
+                        </tr>
+                        <tr>
+                            <td><i>Great Tomb Robberies</i></td>
+                            <td>14</td>
+                            <td>25.641</td>
+                        </tr>
+                        <tr class="bg-success">
+                            <td><strong>Total</strong></td>
+                            <td>196</td>
+                            <td>65.195</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 id="next">Les sous-corpus qui seront prochainement mis en ligne</h3>
+                <p>
+                    Les sous-corpus ci-dessous sont en cours de relecture et commenceront à être mis en ligne dans un avenir proche&#8239;:
+                </p>
+                <table class="table-condensed" align="center">
+                    <caption align="bottom"><center>Les corpus disponibles prochainement dans Ramses Online</center></caption>
+                    <thead>
+                        <tr>
+                            <th class="absorbing-column" align='center'></td>
+                            <th class="absorbing-column" align='center'><strong>Textes</strong></td>
+                            <th class="absorbing-column" align='center'><strong>Occurrences</strong></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>Late Egyptian Miscellanies</i></td>
+                            <td>161</td>
+                            <td>23.065</td>
+                        </tr>
+                        <tr>
+                            <td><i>Ramesside Administrative Documents</i></td>
+                            <td>25</td>
+                            <td>10.807</td>
+                        </tr>
+                        <tr>
+                            <td><i>Lettres</i> (18<sup>e</sup>-21<sup>e</sup> dynastie, hors <i>LRL</i> et <i>LRLC</i>)</td>
+                            <td>566</td>
+                            <td>65.480</td>
+                        </tr>
+                        <tr>
+                            <td><i>Textes littéraires narratifs</i> (hors <i>LESt</i>)</td>
+                            <td>65</td>
+                            <td>6.452</td>
+                        </tr>
+                        <tr>
+                            <td><i>Sagesses du Nouvel Empire</i> (et textes apparentés, incluant les versions parallèles)</td>
+                            <td>252</td>
+                            <td>36.757</td>
+                        </tr>
+                        <tr class="bg-success">
+                            <td><strong>Total</strong></td>
+                            <td>1.069</td>
+                            <td>142.561</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    En parallèle, le corpus des ostraca et papyri administratifs provenant de Deir el-Médineh sera progressivement mis à disposition des utilisateurs.
+                </p>
+                <h3 id="browse">Parcourir les textes du corpus</h3>
+                <p>
+                    La page «&#8239;<a href="/text">Chercher un texte</a>&#8239;», qui est accessible dans le menu «&#8239;Corpus&#8239;», permet d’accéder aux textes du corpus Ramses Online en recherchant sur une chaîne de caractères renvoyant au(x) nom(s) du document, au titre du texte ou à l’abréviation de l’édition standard. Ainsi, il est possible de trouver le <i>Conte des deux frères</i> en recherchant : 
+                </p>
+                <ul>
+                    <li>le nom du document : P. d’Orbiney ou P. BM EA 10183 ;</li>
+                    <li>le titre de l’œuvre littéraire : <i>Les deux frères</i> ;</li>
+                    <li>ou l’abréviation de l’édition standard : <i>LESt</i> 02.</li>
+                </ul>
+                <p>
+                    Il va sans dire que tous les textes encodés n’ont pas de titres reçus (e.g. O. DeM 32), ni ne correspondent nécessairement à une abréviation standard (e.g. P. Chester Beatty 4).
+                </p>
+                <p>Le contenu de chaque texte du corpus est précédé de deux boîtes déroulantes :</p>
+                <ul>
+                    <li>la première («&#8239;Description du texte&#8239;») contient les métadonnées relatives au document (objet physique) et au texte annoté (objet philologique et linguistique) ;</li>
+                    <li>la seconde («&#8239;Bibliographie&#8239;») rassemble des références bibliographiques de base sur le texte en question (édition utilisée ; principales traductions ; etc.).</li>
+                </ul>
+                <p>En dessous de ces deux boîtes déroulantes, le texte égyptien se présente comme une suite de propositions où chaque occurrence reprend : la graphie hiéroglyphique, la translitération, l’analyse morphologique ainsi que la traduction du lemme. Pour plus de détails, on se reportera à la description de la <a href="aboutRamses#annotations">structure des données et des types d’annotations</a>.</p>
+            </div>
+            <div class="col-md-3">
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active"><a href="#beta">Corpus de la version beta</a></li>
+                    <li><a href="#next">Corpus à venir</a></li>
+                    <li><a href="#browse">Parcourir le corpus</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Ici finit le texte -->
+
+
+        </main>
+        <footer class="container navbar navbar-default navbar-fixed-bottom">
+            
+            <div class="logos">
+
+                <a href="http://www.egypto.ulg.ac.be/Ramses.htm">
+                    <img style="height: 5em;" src="/resources/images/Ramses2.jpg" alt="Projet Ramsès"/>
+                </a>
+                <a href="http://www.fnrs.be/">
+                    <img src="/resources/images/FRS-FNRS.png" alt="FNRS"/>
+                </a>                
+                <a href="http://www.ulg.ac.be/">
+                    <img src="/resources/images/uliege.jpg" alt="Ulg"/>
+                </a>
+                <a href="http://www.cnam.fr/">
+                    <img style="height: 2em;" src="/resources/images/cnam.svg" alt="CNAM" width="70"/>
+                </a>
+                <a href="http://cedric.cnam.fr/">
+                    <img src="/resources/images/logo_cedric.gif" alt="Cédric/ILJ"  width="70"/>
+                </a>
+                <a href="http://jsesh.qenherkhopeshef.org/">
+                    <img src="/resources/images/logoJSesh.png" alt="JSesh, an Open Source Hieroglyphic Editor"/>
+                </a>
+            </div>
+        </footer>
+
+        
+    </body>
+</html>

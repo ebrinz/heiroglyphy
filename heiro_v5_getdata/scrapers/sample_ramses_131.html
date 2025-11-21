@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html>
+    
+    
+    
+    
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">               
+        <title>Ramses Online</title>
+        <!-- js -->      
+        <script type="text/javascript">
+            // Global variable to access this site URL.
+            var ramsesAppBase = "";
+        </script>
+
+        <!-- small fix for the static pages links -->
+        
+
+        
+        <style>
+            @font-face {
+                font-family: 'egyptoserifitalic';
+                src: url('/resources/egyptoSerif/egyptoserif-italic-webfont.eot');
+                src: url('/resources/egyptoSerif/egyptoserif-italic-webfont.eot?#iefix') format('embedded-opentype'),
+                    url('/resources/egyptoSerif/egyptoserif-italic-webfont.woff2') format('woff2'),
+                    url('/resources/egyptoSerif/egyptoserif-italic-webfont.woff') format('woff'),
+                    url('/resources/egyptoSerif/egyptoserif-italic-webfont.ttf') format('truetype');
+                font-weight: normal;
+                font-style: italic;
+            }
+            @font-face {
+                font-family: 'egyptoserifitalic';
+                src: url('/resources/egyptoSerif/egyptoserif-bold-webfont.eot');
+                src: url('/resources/egyptoSerif/egyptoserif-bold-webfont.eot?#iefix') format('embedded-opentype'),
+                    url('/resources/egyptoSerif/egyptoserif-bold-webfont.woff2') format('woff2'),
+                    url('/resources/egyptoSerif/egyptoserif-bold-webfont.woff') format('woff'),
+                    url('/resources/egyptoSerif/egyptoserif-bold-webfont.ttf') format('truetype');
+                font-weight: bold;
+                font-style: normal;
+            }
+        </style>
+
+        <!-- css -->
+        
+            <link rel="stylesheet" type="text/css" href="/resources/bower/bootstrap/dist/css/bootstrap.css?v=20180509">
+        
+            <link rel="stylesheet" type="text/css" href="/resources/css/ramses.css?v=20180509">
+        
+
+        
+            <script type="text/javascript" src="/resources/bower/jquery/dist/jquery.min.js?v=20180509"></script>
+        
+            <script type="text/javascript" src="/resources/bower/bootstrap/dist/js/bootstrap.min.js?v=20180509"></script>
+        
+            <script type="text/javascript" src="/resources/bower/bootbox/bootbox.js?v=20180509"></script>
+        
+            <script type="text/javascript" src="/resources/js/myGrid.js?v=20180509"></script>
+        
+            <script type="text/javascript" src="/resources/js/preventCsrf.js?v=20180509"></script>
+        
+            <script type="text/javascript" src="/resources/js/comment.js?v=20180509"></script>
+        
+            <script type="text/javascript" src="/resources/js/bibliography.js?v=20180509"></script>
+        
+
+           
+
+        <meta name="_csrf" content="27090695-6915-422b-8dfd-4b85b3ad5c1d"/>
+        <!-- default header name is X-CSRF-TOKEN -->
+        <meta name="_csrf_header" content="X-CSRF-TOKEN"/>
+    </head>
+    <body>       
+        <header class="container">
+
+            <h1 class="hidden-xs">
+                <a href="/">
+                    Ramses Online
+                    <small>un corpus annoté du néo-égyptien</small>
+                </a>
+            </h1>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" 
+                                class="navbar-toggle collapsed" data-toggle="collapse" 
+                                data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>                        
+                        <a class="navbar-brand visible-xs-inline" href="">Ramses Online</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" 
+                                   data-toggle="dropdown" role="button" aria-expanded="false">
+                                    À propos
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/site/aboutRamses">Présentation générale</a></li>
+                                    <li><a href="/site/news">Nouvelles</a></li>
+                                    <li><a href="/site/collaborators">Collaborateurs</a></li>
+                                    <li><a href="/site/institutions">Supports institutionnels</a></li>
+                                    <li><a href="/site/contact">Contact</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" 
+                                   data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Corpus
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">    
+                                    <li><a href="/site/corpus">Présentation du corpus</a>
+                                    <li><a href="/text">Chercher un texte</a></li> 
+                                    <li>
+                                        <a href="/text/viewReference">                                            
+                                            Voir Référence</a></li>
+                                </ul>
+                            </li>
+                            
+
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" 
+                                   data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Recherches
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">    
+                                    <li><a href="/site/searches">Présentation des recherches</a>
+
+                                    <li><a href="/search/simple">Recherche simple</a></li>
+                                    <li><a href='/search/complex'>Recherche avancée</a></li>
+                                </ul>
+                            </li>
+
+                            
+
+                            <li><a href="/site/help">Aide</a></li>
+
+                            <li><strong class="navbar-text">Version bêta</strong></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li style="border-right: 1px solid darkgray"><a href="/user/ask">Enregistrement</a></li>
+                                <li><a href="/user/recover">Mot de passe oublié</a></li>
+                                
+
+                            
+                            
+                                
+                                    <li>
+                                        <a href="/login">login</a>
+                                    </li>
+                                
+                            
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="container">
+            
+            
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+
+    });
+</script>
+
+
+<div class="row"> <!-- formerly row col-md-offset-1 col-md-10 -->
+    <h2>6 B.45 ; LRL 30 ; P. BM 10100 ; P. Salt 1821/238/2
+        
+    </h2>
+
+    <!-- text meta information -->
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        
+                 
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="collapseTextInfo-label">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" 
+               href="#collapseTextInfo" aria-expanded="false" aria-controls="collapseTextInfo">
+                Description du texte
+            </a>
+        </h4>
+    </div>
+    <div id="collapseTextInfo" class="panel-collapse collapse " role="tabpanel" aria-labelledby="collapseTextInfo-label">
+        <div class="panel-body">
+            
+            
+
+
+
+
+
+
+
+
+
+<div>
+    
+        <div>
+            <span class="inline-title">Encodé par :</span><em> Anne-Claude Honnay, Laurence Neven</em>
+        </div>
+    
+    <ul class="list-group">                                               
+        <li class="list-group-item">
+            <span class="inline-title">Date :</span> Ramsès XI
+            
+        </li>
+        <li  class="list-group-item"><span class="inline-title">Genre :</span> Autre</li>
+        <li  class="list-group-item"><span class="inline-title">Support d'écriture :</span> Papyrus</li>
+        <li  class="list-group-item"><span class="inline-title">Système d'écriture :</span> hiératique</li>
+    </ul>    
+</div>
+        
+        </div>
+    </div>
+</div>
+
+
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="collapseBibliography-label">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" 
+               href="#collapseBibliography" aria-expanded="false" aria-controls="collapseBibliography">
+                Bibliographie
+            </a>
+        </h4>
+    </div>
+    <div id="collapseBibliography" class="panel-collapse collapse " role="tabpanel" aria-labelledby="collapseBibliography-label">
+        <div class="panel-body">
+            
+            <div id ='webography' class="row"></div>
+            <div id ='bibliography' class="row"></div>
+        
+        </div>
+    </div>
+</div>
+    </div>
+
+    <!-- text navigation -->
+    
+        <div class="input-group">
+            <div class="navPosDiv input-group-btn">
+
+                
+                    <div class="btn-group">
+                        <button class="btn btn-default btn-lg dropdown-toggle"
+                                type="button" data-toggle="dropdown" aria-haspopup="true" 
+                                aria-expanded="false">
+                            P. BM 10100
+                        </button>
+                        <ul class="dropdown-menu">
+                            
+                                
+                                <li><a href="/text/legacy/131/item/354">1</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/323">2</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/324">3</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/325">4</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/326">5</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/327">6</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/328">7</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/329">8</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/330">9</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/331">10</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/332">11</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/333">12</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/334">13</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/335">14</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/336">15</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/337">16</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/394">v° 1</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/395">v° 2</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/396">v° 3</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/397">v° 4</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/398">v° 5</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/399">v° 6</a></li>
+                            
+                        </ul>                    
+                    </div>
+                
+                    <div class="btn-group">
+                        <button class="btn btn-default btn-lg dropdown-toggle"
+                                type="button" data-toggle="dropdown" aria-haspopup="true" 
+                                aria-expanded="false">
+                            LRL
+                        </button>
+                        <ul class="dropdown-menu">
+                            
+                                
+                                <li><a href="/text/legacy/131/item/370">50, 3</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/371">50, 4</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/372">50, 5</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/373">50, 6</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/374">50, 7</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/375">50, 8</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/376">50, 9</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/377">50, 10</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/378">50, 11</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/379">50, 12</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/381">50, 13</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/382">50, 14</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/383">50, 15</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/384">50, 16</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/385">51, 1</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/386">51, 2</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/387">51, 3</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/388">51, 4</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/389">51, 5</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/390">51, 6</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/391">51, 7</a></li>
+                            
+                                
+                                <li><a href="/text/legacy/131/item/392">51, 8</a></li>
+                            
+                        </ul>                    
+                    </div>
+                
+            </div>
+        </div>
+    
+    
+        <p>page 1/6</p>
+        
+
+
+
+
+
+
+
+
+
+
+<ul class='paginationBar'>
+    <li class="previous page-item">
+        
+            
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+            
+            
+                
+            
+        
+        
+        
+            
+            
+                
+                
+            
+        
+        
+            
+            
+                <a  class=' disabled' href='#' >
+                    <span aria-hidden='true' class='glyphicon glyphicon-backward'></span>
+                </a>
+            
+        
+    
+
+        
+                
+    </li>
+    
+        <li>  
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+            
+            
+                
+            
+        
+        
+        
+            
+                
+                
+            
+            
+        
+        
+            
+                <a  class='' href='?page=1'>
+                    1
+                    <span aria-hidden='true' class=''></span>
+                </a>
+            
+            
+        
+    
+</li>
+        
+        <li>  
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+            
+            
+                
+            
+        
+        
+        
+            
+                
+                
+            
+            
+        
+        
+            
+                <a  class='' href='?page=2'>
+                    2
+                    <span aria-hidden='true' class=''></span>
+                </a>
+            
+            
+        
+    
+</li>
+        
+        <li>  
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+            
+            
+                
+            
+        
+        
+        
+            
+                
+                
+            
+            
+        
+        
+            
+                <a  class='' href='?page=3'>
+                    3
+                    <span aria-hidden='true' class=''></span>
+                </a>
+            
+            
+        
+    
+</li>
+        
+        <li>  
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+            
+            
+                
+            
+        
+        
+        
+            
+                
+                
+            
+            
+        
+        
+            
+                <a  class='' href='?page=4'>
+                    4
+                    <span aria-hidden='true' class=''></span>
+                </a>
+            
+            
+        
+    
+</li>
+        
+        <li>  
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+            
+            
+                
+            
+        
+        
+        
+            
+                
+                
+            
+            
+        
+        
+            
+                <a  class='' href='?page=5'>
+                    5
+                    <span aria-hidden='true' class=''></span>
+                </a>
+            
+            
+        
+    
+</li>
+        
+        <li>  
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+            
+            
+                
+            
+        
+        
+        
+            
+                
+                
+            
+            
+        
+        
+            
+                <a  class='' href='?page=6'>
+                    6
+                    <span aria-hidden='true' class=''></span>
+                </a>
+            
+            
+        
+    
+</li>
+                
+    <li class="next page-item">
+        
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+            
+            
+                
+            
+        
+        
+        
+            
+            
+                
+                
+            
+        
+        
+            
+                <a  class='' href='?page=2'>
+                    
+                    <span aria-hidden='true' class='glyphicon glyphicon-forward'></span>
+                </a>
+            
+            
+        
+    
+
+    </li>
+    <li class="pageNumberJump">
+        <form class="form-inline">
+            <input placeholder="page" type="text"
+                   value="1"
+                   name="page" class="form-control input-sm"/>
+            
+        </form>
+    </li>
+</ul>
+
+    
+    
+        <div class="text-right">
+            
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+    <button type="button" class="btn btn-default" data-toggle="popover"
+            data-placement="left"
+            data-container="body"
+            title="Pour citer ce passage"
+            data-html="true"
+            data-content=" Anne-Claude Honnay, Laurence Neven, dans &lt;em&gt;Ramses Online&lt;/em&gt;&amp;thinsp;; référence 
+            [legacy/131/quote/370/26]">
+        Citer
+    </button>
+
+
+        </div>
+        
+            <div class='glossedText'><table class='ramsesLine'><tr class='spelling'><td class='pos'><span>LRL</span></td><td class='pos'><span>P. BM 10100</span></td><td class='word spelling'><img src='/spelling/img/26939' alt='26939'/></td><td class='word spelling'><img src='/spelling/img/25682' alt='25682'/></td><td class='word spelling'><img src='/spelling/img/42130' alt='42130'/></td><td class='word spelling'><img src='/spelling/img/26985' alt='26985'/></td><td class='word spelling'><img src='/spelling/img/32031' alt='32031'/></td><td class='word spelling'><span class='parenthesis'></span><img src='/spelling/img/29703' alt='29703'/><span class='parenthesis'><sup>tr</sup></span></td><td class='word spelling'><span class='parenthesis'>[</span><img src='/spelling/img/0' alt='0'/><span class='parenthesis'>]</span></td><td class='word spelling'><img src='/spelling/img/26939' alt='26939'/></td></tr><tr class='transliteration'><td></td><td></td><td class='word'><div class='transliteration'>pꜣ</div></td><td class='word'><div class='transliteration'>(j)m(y)-r(ꜣ)</div></td><td class='word'><div class='transliteration'>mšꜥ.w</div></td><td class='word'><div class='transliteration'>n</div></td><td class='word'><div class='transliteration'>pr-ꜥꜣ</div></td><td class='word'><div class='transliteration'>ꜥ.w.s</div></td><td class='word'><div class='transliteration'>n</div></td><td class='word'><div class='transliteration'>pꜣ</div></td></tr><tr class='analysis'><td class='pos'> 50, 3</td><td class='pos'> 1</td><td class='word'><div class='partOfSpeech'>art</div></td><td class='word'><div class='partOfSpeech'>subst</div></td><td class='word'><div class='partOfSpeech'>subst</div></td><td class='word'><div class='partOfSpeech'>connect</div></td><td class='word'><div class='partOfSpeech'>subst</div></td><td class='word'><div class='partOfSpeech'>subst</div></td><td class='word'><div class='partOfSpeech'>connect</div></td><td class='word'><div class='partOfSpeech'>art</div></td></tr><tr class='translation'><td class='pos'></td><td class='pos'></td><td class='word'><span>le</span></td><td class='word'><span>responsable</span></td><td class='word'><span>armée</span></td><td class='word'><span>de</span></td><td class='word'><span>Pharaon</span></td><td class='word'><span>V,S,F</span></td><td class='word'><span>à, pour</span></td><td class='word'><span>le</span></td></tr></table><table class='ramsesLine'><tr class='spelling'><td class='word spelling'><img src='/spelling/img/29031' alt='29031'/></td><td class='word spelling'><img src='/spelling/img/26985' alt='26985'/></td><td class='word spelling'><img src='/spelling/img/32032' alt='32032'/></td><td class='word spelling'><img src='/spelling/img/29028' alt='29028'/></td><td class='word spelling'><img src='/spelling/img/29075' alt='29075'/></td><td class='word spelling'><span class='parenthesis'></span><img src='/spelling/img/32033' alt='32033'/><span class='parenthesis'><sup>tr</sup></span></td><td class='pos'><span>LRL</span></td><td class='pos'><span>P. BM 10100</span></td><td class='word spelling'><span class='parenthesis'></span><img src='/spelling/img/25910' alt='25910'/><span class='parenthesis'><sup>tr</sup></span></td><td class='word spelling'><span class='parenthesis'></span><img src='/spelling/img/29711' alt='29711'/><span class='parenthesis'><sup>tr</sup></span></td></tr><tr class='transliteration'><td class='word'><div class='transliteration'>ꜥꜣ</div></td><td class='word'><div class='transliteration'>n</div></td><td class='word'><div class='transliteration'>js.t</div></td><td class='word'><div class='transliteration'>2</div></td><td class='word'><div class='transliteration'>sš</div></td><td class='word'><div class='transliteration'>bw-thꜣ-jmn</div></td><td></td><td></td><td class='word'><div class='transliteration'>sꜣw</div></td><td class='word'><div class='transliteration'>kr</div></td></tr><tr class='analysis'><td class='word'><div class='partOfSpeech'>subst</div></td><td class='word'><div class='partOfSpeech'>connect</div></td><td class='word'><div class='partOfSpeech'>subst</div></td><td class='word'><div class='partOfSpeech'>quant</div></td><td class='word'><div class='partOfSpeech'>subst</div></td><td class='word'><div class='partOfSpeech'>subst</div></td><td class='pos'> 50, 4</td><td class='pos'> 2</td><td class='word'><div class='partOfSpeech'>subst</div></td><td class='word'><div class='partOfSpeech'>subst</div></td></tr><tr class='translation'><td class='word'><span>chef</span></td><td class='word'><span>de</span></td><td class='word'><span>équipe</span></td><td class='word'><span>2</span></td><td class='word'><span>scribe</span></td><td class='word'><span>bw-thꜣ-jmn</span></td><td class='pos'></td><td class='pos'></td><td class='word'><span>gardien</span></td><td class='word'><span>kr</span></td></tr></table><table class='ramsesLine'><tr class='spelling'><td class='word spelling'><span class='parenthesis'></span><img src='/spelling/img/29336' alt='29336'/><span class='parenthesis'><sup>tr</sup></span></td><td class='word spelling'><img src='/spelling/img/31174' alt='31174'/></td><td class='word spelling'><img src='/spelling/img/25749' alt='25749'/></td><td class='word spelling'><img src='/spelling/img/26985' alt='26985'/></td><td class='word spelling'><img src='/spelling/img/26939' alt='26939'/></td><td class='word spelling'><img src='/spelling/img/28502' alt='28502'/></td><td class='word spelling'><img src='/spelling/img/61801' alt='61801'/></td><td class='word spelling'><img src='/spelling/img/29202' alt='29202'/></td><td class='pos'><span>LRL</span></td></tr><tr class='transliteration'><td class='word'><div class='transliteration'>nꜣ</div></td><td class='word'><div class='transliteration'>rmṯ.w</div></td><td class='word'><div class='transliteration'>js.t</div></td><td class='word'><div class='transliteration'>n</div></td><td class='word'><div class='transliteration'>pꜣ</div></td><td class='word'><div class='transliteration'>ḫr</div></td><td class='word'><div class='transliteration'>r-ḏrw</div></td><td class='word'><div class='transliteration'>w</div></td><td></td></tr><tr class='analysis'><td class='word'><div class='partOfSpeech'>art</div></td><td class='word'><div class='partOfSpeech'>subst</div></td><td class='word'><div class='partOfSpeech'>subst</div></td><td class='word'><div class='partOfSpeech'>connect</div></td><td class='word'><div class='partOfSpeech'>art</div></td><td class='word'><div class='partOfSpeech'>subst</div></td><td class='word'><div class='partOfSpeech'>connect</div></td><td class='word'><div class='partOfSpeech'>pr.pers</div></td><td class='pos'> 50, 5</td></tr><tr class='translation'><td class='word'><span>les</span></td><td class='word'><span>homme</span></td><td class='word'><span>équipe</span></td><td class='word'><span>de</span></td><td class='word'><span>le</span></td><td class='word'><span>tombe, nécropole</span></td><td class='word'><span>dans (sa) totalité</span></td><td class='word'><span>ils </span></td><td class='pos'></td></tr></table><p class='translation' data-textRef='legacy/131' data-itemId='26'>Le général de Pharaon, VSF, [aux] deux chefs d'équipe, au scribe bw-thꜣ-jmn, au gardien kr et à tous les hommes d'équipe de la Tombe.</p></div>
+        
+    
+        <div class="text-right">
+            
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+    <button type="button" class="btn btn-default" data-toggle="popover"
+            data-placement="left"
+            data-container="body"
+            title="Pour citer ce passage"
+            data-html="true"
+            data-content=" Anne-Claude Honnay, Laurence Neven, dans &lt;em&gt;Ramses Online&lt;/em&gt;&amp;thinsp;; référence 
+            [legacy/131/quote/27/42]">
+        Citer
+    </button>
+
+
+        </div>
+        
+            <div class='glossedText'><table class='ramsesLine'><tr class='spelling'><td class='word spelling'><img src='/spelling/img/29720' alt='29720'/></td><td class='word spelling'><img src='/spelling/img/27402' alt='27402'/></td><td class='pos'><span>P. BM 10100</span></td><td class='word spelling'><img src='/spelling/img/29075' alt='29075'/></td><td class='word spelling'><img src='/spelling/img/29623' alt='29623'/></td><td class='word spelling'><img src='/spelling/img/26985' alt='26985'/></td><td class='word spelling'><img src='/spelling/img/26939' alt='26939'/></td><td class='word spelling'><img src='/spelling/img/28502' alt='28502'/></td><td class='word spelling'><img src='/spelling/img/30091' alt='30091'/></td><td class='word spelling'><img src='/spelling/img/31903' alt='31903'/></td></tr><tr class='transliteration'><td class='word'><div class='transliteration'>ḥnꜥ-ḏd</div></td><td class='word'><div class='transliteration'>r-nty</div></td><td></td><td class='word'><div class='transliteration'>sš</div></td><td class='word'><div class='transliteration'>ṯry</div></td><td class='word'><div class='transliteration'>n</div></td><td class='word'><div class='transliteration'>pꜣ</div></td><td class='word'><div class='transliteration'>ḫr</div></td><td class='word'><div class='transliteration'>ḥry</div></td><td class='word'><div class='transliteration'>pḏ.t</div></td></tr><tr class='analysis'><td class='word'><div class='partOfSpeech'>ind_init</div></td><td class='word'><div class='partOfSpeech'>ind_init</div></td><td class='pos'> 3</td><td class='word'><div class='partOfSpeech'>subst</div></td><td class='word'><div class='partOfSpeech'>subst</div></td><td class='word'><div class='partOfSpeech'>connect</div></td><td class='word'><div class='partOfSpeech'>art</div></td><td class='word'><div class='partOfSpeech'>subst</div></td><td class='word'><div class='partOfSpeech'>subst</div></td><td class='word'><div class='partOfSpeech'>subst</div></td></tr><tr class='translation'><td class='word'><span>par ailleurs</span></td><td class='word'><span>à savoir</span></td><td class='pos'></td><td class='word'><span>scribe</span></td><td class='word'><span>ṯry</span></td><td class='word'><span>de</span></td><td class='word'><span>le</span></td><td class='word'><span>tombe, nécropole</span></td><td class='word'><span>supérieur</span></td><td class='word'><span>troupe</span></td></tr></table><table class='ramsesLine'><tr class='spelling'><td class='word spelling'><img src='/spelling/img/32035' alt='32035'/></td><td class='word spelling'><img src='/spelling/img/32036' alt='32036'/></td><td class='pos'><span>LRL</span></td><td class='word spelling'><img src='/spelling/img/32037' alt='32037'/></td><td class='word spelling'><img src='/spelling/img/27331' alt='27331'/></td><td class='word spelling'><img src='/spelling/img/25640' alt='25640'/></td></tr><tr class='transliteration'><td class='word'><div class='transliteration'>ḥm-nṯr</div></td><td class='word'><div class='transliteration'>šd-sw-ḥr</div></td><td></td><td class='word'><div class='transliteration'>spr</div></td><td class='word'><div class='transliteration'>r</div></td><td class='word'><div class='transliteration'>j</div></td></tr><tr class='analysis'><td class='word'><div class='partOfSpeech'>subst</div></td><td class='word'><div class='partOfSpeech'>subst</div></td><td class='pos'> 50, 6</td><td class='word'><div class='partOfSpeech'>vb</div><div class='inflection'>res</div></td><td class='word'><div class='partOfSpeech'>connect</div></td><td class='word'><div class='partOfSpeech'>pr.pers</div></td></tr><tr class='translation'><td class='word'><span>prêtre</span></td><td class='word'><span>šd-sw-ḥr</span></td><td class='pos'></td><td class='word'><span>atteindre</span></td><td class='word'><span>vers, pour</span></td><td class='word'><span>je</span></td></tr></table><p class='translation' data-textRef='legacy/131' data-itemId='42'>Le scribe de la Tombe ṯry et le supérieur des troupes et prêtre šd-sw-ḥr m'ont rejoint.</p></div>
+        
+    
+        <div class="text-right">
+            
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+    <button type="button" class="btn btn-default" data-toggle="popover"
+            data-placement="left"
+            data-container="body"
+            title="Pour citer ce passage"
+            data-html="true"
+            data-content=" Anne-Claude Honnay, Laurence Neven, dans &lt;em&gt;Ramses Online&lt;/em&gt;&amp;thinsp;; référence 
+            [legacy/131/quote/43/53]">
+        Citer
+    </button>
+
+
+        </div>
+        
+            <div class='glossedText'><table class='ramsesLine'><tr class='spelling'><td class='word spelling'><img src='/spelling/img/32038' alt='32038'/></td><td class='word spelling'><img src='/spelling/img/29377' alt='29377'/></td><td class='word spelling'><img src='/spelling/img/26985' alt='26985'/></td><td class='word spelling'><img src='/spelling/img/25640' alt='25640'/></td><td class='word spelling'><span class='parenthesis'></span><img src='/spelling/img/29503' alt='29503'/><span class='parenthesis'><sup>tr</sup></span></td><td class='word spelling'><img src='/spelling/img/29202' alt='29202'/></td><td class='pos'><span>P. BM 10100</span></td><td class='word spelling'><img src='/spelling/img/26985' alt='26985'/></td><td class='word spelling'><span class='parenthesis'></span><img src='/spelling/img/26939' alt='26939'/><span class='parenthesis'><sup>tr</sup></span></td><td class='word spelling'><span class='parenthesis'></span><img src='/spelling/img/29230' alt='29230'/><span class='parenthesis'><sup>tr</sup></span></td></tr><tr class='transliteration'><td class='word'><div class='transliteration'>ꜥn</div></td><td class='word'><div class='transliteration'>w</div></td><td class='word'><div class='transliteration'>n</div></td><td class='word'><div class='transliteration'>j</div></td><td class='word'><div class='transliteration'>smj</div></td><td class='word'><div class='transliteration'>w</div></td><td></td><td class='word'><div class='transliteration'>n</div></td><td class='word'><div class='transliteration'>pꜣ</div></td><td class='word'><div class='transliteration'>j.jr</div></td></tr><tr class='analysis'><td class='word'><div class='partOfSpeech'>vb</div><div class='inflection'>pfv</div></td><td class='word'><div class='partOfSpeech'>pr.pers</div></td><td class='word'><div class='partOfSpeech'>connect</div></td><td class='word'><div class='partOfSpeech'>pr.pers</div></td><td class='word'><div class='partOfSpeech'>subst</div></td><td class='word'><div class='partOfSpeech'>pr.pers</div></td><td class='pos'> 4</td><td class='word'><div class='partOfSpeech'>connect</div></td><td class='word'><div class='partOfSpeech'>art</div></td><td class='word'><div class='partOfSpeech'>vb</div><div class='inflection'>rel.pfv</div></td></tr><tr class='translation'><td class='word'><span>revenir</span></td><td class='word'><span>ils </span></td><td class='word'><span>à, pour</span></td><td class='word'><span>je</span></td><td class='word'><span>rapport</span></td><td class='word'><span>ils </span></td><td class='pos'></td><td class='word'><span>de</span></td><td class='word'><span>le</span></td><td class='word'><span>faire</span></td></tr></table><table class='ramsesLine'><tr class='spelling'><td class='word spelling'><span class='parenthesis'>&#x2E22;</span><img src='/spelling/img/29334' alt='29334'/><span class='parenthesis'>&#x2E23;</span></td><td class='word spelling'><img src='/spelling/img/27076' alt='27076'/></td></tr><tr class='transliteration'><td class='word'><div class='transliteration'>tn</div></td><td class='word'><div class='transliteration'>nb</div></td></tr><tr class='analysis'><td class='word'><div class='partOfSpeech'>pr.pers</div></td><td class='word'><div class='partOfSpeech'>quant</div></td></tr><tr class='translation'><td class='word'><span>vous (suff.)</span></td><td class='word'><span>tout</span></td></tr></table><p class='translation' data-textRef='legacy/131' data-itemId='53'>Ils m'ont rendu leur rapport de tout ce que vous avez fait.</p></div>
+        
+    
+        <div class="text-right">
+            
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+    <button type="button" class="btn btn-default" data-toggle="popover"
+            data-placement="left"
+            data-container="body"
+            title="Pour citer ce passage"
+            data-html="true"
+            data-content=" Anne-Claude Honnay, Laurence Neven, dans &lt;em&gt;Ramses Online&lt;/em&gt;&amp;thinsp;; référence 
+            [legacy/131/quote/54/59]">
+        Citer
+    </button>
+
+
+        </div>
+        
+            <div class='glossedText'><table class='ramsesLine'><tr class='spelling'><td class='word spelling'><img src='/spelling/img/26353' alt='26353'/></td><td class='word spelling'><img src='/spelling/img/32040' alt='32040'/></td><td class='word spelling'><span class='parenthesis'>&#x2E22;</span><img src='/spelling/img/26939' alt='26939'/><span class='parenthesis'>&#x2E23;</span></td><td class='pos'><span>LRL</span></td><td class='word spelling'><span class='parenthesis'>&#x2E22;</span><img src='/spelling/img/29230' alt='29230'/><span class='parenthesis'>&#x2E23;</span></td><td class='word spelling'><img src='/spelling/img/29334' alt='29334'/></td></tr><tr class='transliteration'><td class='word'><div class='transliteration'>sw</div></td><td class='word'><div class='transliteration'>m-sšr</div></td><td class='word'><div class='transliteration'>pꜣ</div></td><td></td><td class='word'><div class='transliteration'>j.jr</div></td><td class='word'><div class='transliteration'>tn</div></td></tr><tr class='analysis'><td class='word'><div class='partOfSpeech'>pr.pers</div></td><td class='word'><div class='partOfSpeech'>advb</div></td><td class='word'><div class='partOfSpeech'>art</div></td><td class='pos'> 50, 7</td><td class='word'><div class='partOfSpeech'>vb</div><div class='inflection'>rel.pfv</div></td><td class='word'><div class='partOfSpeech'>pr.pers</div></td></tr><tr class='translation'><td class='word'><span>il (P1)</span></td><td class='word'><span>excellemment</span></td><td class='word'><span>le</span></td><td class='pos'></td><td class='word'><span>faire</span></td><td class='word'><span>vous (suff.)</span></td></tr></table><p class='translation' data-textRef='legacy/131' data-itemId='59'>C'est bien ce que vous avez fait ;</p></div>
+        
+    
+        <div class="text-right">
+            
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+    <button type="button" class="btn btn-default" data-toggle="popover"
+            data-placement="left"
+            data-container="body"
+            title="Pour citer ce passage"
+            data-html="true"
+            data-content=" Anne-Claude Honnay, Laurence Neven, dans &lt;em&gt;Ramses Online&lt;/em&gt;&amp;thinsp;; référence 
+            [legacy/131/quote/347/65]">
+        Citer
+    </button>
+
+
+        </div>
+        
+            <div class='glossedText'><table class='ramsesLine'><tr class='spelling'><td class='word spelling'><img src='/spelling/img/35473' alt='35473'/></td><td class='word spelling'><img src='/spelling/img/29334' alt='29334'/></td><td class='word spelling'><span class='parenthesis'>(</span><img src='/spelling/img/0' alt='0'/><span class='parenthesis'>)</span></td><td class='word spelling'><span class='parenthesis'>&#x2E22;</span><img src='/spelling/img/29231' alt='29231'/><span class='parenthesis'>&#x2E23;</span></td><td class='pos'><span>P. BM 10100</span></td><td class='word spelling'><img src='/spelling/img/26486' alt='26486'/></td></tr><tr class='transliteration'><td class='word'><div class='transliteration'>jw</div></td><td class='word'><div class='transliteration'>tn</div></td><td class='word'><div class='transliteration'>ḥr</div></td><td class='word'><div class='transliteration'>jrj.t</div></td><td></td><td class='word'><div class='transliteration'>wꜥ</div></td></tr><tr class='analysis'><td class='word'><div class='partOfSpeech'>connect</div><div class='partOfSpeech'>gram</div></td><td class='word'><div class='partOfSpeech'>pr.pers</div></td><td class='word'><div class='partOfSpeech'>gram</div><div class='partOfSpeech'>gram</div></td><td class='word'><div class='partOfSpeech'>vb</div><div class='inflection'>inf</div></td><td class='pos'> 5</td><td class='word'><div class='partOfSpeech'>art</div></td></tr><tr class='translation'><td class='word'><span>alors quejw (séq.)</span></td><td class='word'><span>vous (suff.)</span></td><td class='word'><span>ḥr (P1)ḥr (séq.)</span></td><td class='word'><span>faire</span></td><td class='pos'></td><td class='word'><span>un</span></td></tr></table><p class='translation' data-textRef='legacy/131' data-itemId='65'>vous vous êtes regroupés/en vous regroupant,</p></div>
+        
+    
+
+    
+        
+
+
+
+
+
+
+
+
+
+
+<ul class='paginationBar'>
+    <li class="previous page-item">
+        
+            
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+            
+            
+                
+            
+        
+        
+        
+            
+            
+                
+                
+            
+        
+        
+            
+            
+                <a  class=' disabled' href='#' >
+                    <span aria-hidden='true' class='glyphicon glyphicon-backward'></span>
+                </a>
+            
+        
+    
+
+        
+                
+    </li>
+    
+        <li>  
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+            
+            
+                
+            
+        
+        
+        
+            
+                
+                
+            
+            
+        
+        
+            
+                <a  class='' href='?page=1'>
+                    1
+                    <span aria-hidden='true' class=''></span>
+                </a>
+            
+            
+        
+    
+</li>
+        
+        <li>  
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+            
+            
+                
+            
+        
+        
+        
+            
+                
+                
+            
+            
+        
+        
+            
+                <a  class='' href='?page=2'>
+                    2
+                    <span aria-hidden='true' class=''></span>
+                </a>
+            
+            
+        
+    
+</li>
+        
+        <li>  
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+            
+            
+                
+            
+        
+        
+        
+            
+                
+                
+            
+            
+        
+        
+            
+                <a  class='' href='?page=3'>
+                    3
+                    <span aria-hidden='true' class=''></span>
+                </a>
+            
+            
+        
+    
+</li>
+        
+        <li>  
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+            
+            
+                
+            
+        
+        
+        
+            
+                
+                
+            
+            
+        
+        
+            
+                <a  class='' href='?page=4'>
+                    4
+                    <span aria-hidden='true' class=''></span>
+                </a>
+            
+            
+        
+    
+</li>
+        
+        <li>  
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+            
+            
+                
+            
+        
+        
+        
+            
+                
+                
+            
+            
+        
+        
+            
+                <a  class='' href='?page=5'>
+                    5
+                    <span aria-hidden='true' class=''></span>
+                </a>
+            
+            
+        
+    
+</li>
+        
+        <li>  
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+            
+            
+                
+            
+        
+        
+        
+            
+                
+                
+            
+            
+        
+        
+            
+                <a  class='' href='?page=6'>
+                    6
+                    <span aria-hidden='true' class=''></span>
+                </a>
+            
+            
+        
+    
+</li>
+                
+    <li class="next page-item">
+        
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+            
+            
+                
+            
+        
+        
+        
+            
+            
+                
+                
+            
+        
+        
+            
+                <a  class='' href='?page=2'>
+                    
+                    <span aria-hidden='true' class='glyphicon glyphicon-forward'></span>
+                </a>
+            
+            
+        
+    
+
+    </li>
+    <li class="pageNumberJump">
+        <form class="form-inline">
+            <input placeholder="page" type="text"
+                   value="1"
+                   name="page" class="form-control input-sm"/>
+            
+        </form>
+    </li>
+</ul>
+
+    
+</div>
+
+<script>
+    fillBibliography(
+            ramsesAppBase + "/json/bibliography/forText/",
+            ramsesAppBase + "/json/webography/forText/",
+    130616);
+</script>
+
+
+
+
+        </main>
+        <footer class="container navbar navbar-default navbar-fixed-bottom">
+            
+            <div class="logos">
+
+                <a href="http://www.egypto.ulg.ac.be/Ramses.htm">
+                    <img style="height: 5em;" src="/resources/images/Ramses2.jpg" alt="Projet Ramsès"/>
+                </a>
+                <a href="http://www.fnrs.be/">
+                    <img src="/resources/images/FRS-FNRS.png" alt="FNRS"/>
+                </a>                
+                <a href="http://www.ulg.ac.be/">
+                    <img src="/resources/images/uliege.jpg" alt="Ulg"/>
+                </a>
+                <a href="http://www.cnam.fr/">
+                    <img style="height: 2em;" src="/resources/images/cnam.svg" alt="CNAM" width="70"/>
+                </a>
+                <a href="http://cedric.cnam.fr/">
+                    <img src="/resources/images/logo_cedric.gif" alt="Cédric/ILJ"  width="70"/>
+                </a>
+                <a href="http://jsesh.qenherkhopeshef.org/">
+                    <img src="/resources/images/logoJSesh.png" alt="JSesh, an Open Source Hieroglyphic Editor"/>
+                </a>
+            </div>
+        </footer>
+
+        
+    </body>
+</html>

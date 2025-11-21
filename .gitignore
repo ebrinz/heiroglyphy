@@ -43,9 +43,25 @@ ENV/
 *.bin
 *.safetensors
 *.npy
+*.kv
+*.kv.*
 
 # Exclude large data/cache
 *.pkl
 *.csv
 cache/
 data/exports/
+
+# V5 Specific - Large Data Files
+heiro_v5_getdata/data/raw/*.parquet
+heiro_v5_getdata/data/raw/*.json
+heiro_v5_getdata/data/processed/*.txt
+heiro_v5_getdata/data/processed/*.tsv
+heiro_v5_getdata/data/processed/*.json
+heiro_v5_getdata/data/processed/*.zip
+heiro_v5_getdata/data/processed/glove*
+
+# Keep small metadata files
+!heiro_v5_getdata/data/processed/alignment_results.json
+!heiro_v5_getdata/data/processed/corpus_statistics.json
+
