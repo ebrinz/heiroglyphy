@@ -1,0 +1,1 @@
+/Users/crashy/Development/heiroglyphy/heiro_v5_getdata/data/processed/hieroglyphic_corpus.txt
