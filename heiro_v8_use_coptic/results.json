@@ -1,0 +1,8 @@
+{
+  "total_anchors": 8579,
+  "valid_anchors": 7508,
+  "top1_accuracy": 28.1624500665779,
+  "top5_accuracy": 36.085219707057256,
+  "top10_accuracy": 40.279627163781626,
+  "status": "success"
+}

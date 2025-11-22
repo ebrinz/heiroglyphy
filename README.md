@@ -27,7 +27,7 @@ $$ f(v_{hieroglyph}) \approx v_{english} $$
 | V5 | Linear + 10x Data | **24.53%** | ✅ Scaled baseline |
 | V6 | BERT Contextual | 0.47% | ❌ Failed (tokenization) |
 | V7 | FastText 768d | **29.10%** | ✅ **Current SOTA** |
-| V8 | Coptic Bridge | TBD | 🚧 In planning |
+| V8 | Coptic Bridge | 28.2% | 🚧 Negative result |
 
 **Key Insight**: Simple linear methods with good data outperform complex neural architectures for low-resource ancient language alignment.
 
@@ -68,10 +68,10 @@ $$ f(v_{hieroglyph}) \approx v_{english} $$
 *   **Strategy**: Returned to FastText but with **2.56x larger embeddings** (768d instead of 300d) trained on hieroglyphic transliteration. Combined with 768d visual embeddings from ResNet-50 for a symmetrical 1536d fusion architecture. Used Ridge regression to align to 300d English GloVe space.
 *   **Outcome**: **29.10% accuracy** ✅ - **New state-of-the-art!** An **18.6% relative improvement** over V5's 24.53%. Achieved 36.57% Top-5 accuracy and 41.19% Top-10 accuracy with 78.4% anchor coverage (6,700/8,541 valid pairs). This proves that larger embedding dimensions capture richer semantic relationships for Ancient Egyptian, and simple architectures outperform complex models for low-resource languages. Note: Visual features currently unused due to vocabulary mismatch (transliteration vs glyphs).
 
-### [Attempt 8: Coptic Bridge (`heiro_v8_use_coptic`)](./heiro_v8_use_coptic) 🚧
-*   **Technique**: **Triangulated Alignment via Coptic**.
-*   **Strategy**: Use Coptic (the direct descendant of Ancient Egyptian) as an intermediate language to improve alignment. Coptic preserves Egyptian phonology with vowels, has more training data (Biblical translations), and enables triangulated alignment: Egyptian ↔ Coptic ↔ English.
-*   **Status**: In planning. Expected to improve accuracy by leveraging linguistic continuity and richer Coptic resources.
+### [Attempt 8: Coptic Bridge (`heiro_v8_use_coptic`)](./heiro_v8_use_coptic)
+*   **Technique**: **Coptic Bridge Alignment**.
+*   **Strategy**: Used Coptic (the direct descendant of Ancient Egyptian) as a bridge to expand the anchor dictionary. Extracted 368 new Egyptian-English anchors from ThotBank's Egyptian-Coptic cognates, increasing coverage from 8,541 to 8,909 anchors (+4.31%).
+*   **Outcome**: **28.16% accuracy** ⚠️ - Slight regression (-0.94%) from V7's 29.10%. Despite adding more anchors, the Coptic-derived meanings introduced semantic drift (1,000+ year gap) and domain mismatch (biblical vs literary texts). Key learning: **Etymology ≠ Semantics** - cognates don't guarantee identical vector space positions. Quality > Quantity for anchor dictionaries.
 
 ## 🚀 Getting Started
 

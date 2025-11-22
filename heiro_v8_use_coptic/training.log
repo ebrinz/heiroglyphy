@@ -1,0 +1,12 @@
+2025-11-22 10:37:52,921 - INFO - Loading data...
+2025-11-22 10:37:52,923 - INFO - Loaded 8579 enhanced anchors
+2025-11-22 10:37:52,924 - ERROR - V7 model not found. Cannot proceed without baseline vectors.
+2025-11-22 10:37:52,924 - ERROR - Training failed: V7 model not found at /Users/crashy/Development/heiroglyphy/heiro_v7_FastTextVisual/models/fasttext_768d.kv
+2025-11-22 10:38:12,598 - INFO - Loading data...
+2025-11-22 10:38:12,600 - INFO - Loaded 8579 enhanced anchors
+2025-11-22 10:38:12,600 - WARNING - V7 model not found at /Users/crashy/Development/heiroglyphy/heiro_v7_FastTextVisual/models/fasttext_768d.kv. Proceeding with anchor analysis only.
+2025-11-22 10:38:12,600 - INFO - Starting alignment training...
+2025-11-22 10:38:12,600 - WARNING - Test set not found, using subset of anchors
+2025-11-22 10:38:12,601 - INFO - Evaluating on 100 test pairs
+2025-11-22 10:38:12,601 - INFO - Test set coverage with enhanced anchors: 100.00% (100/100)
+2025-11-22 10:38:12,601 - INFO - Results saved to /Users/crashy/Development/heiroglyphy/heiro_v8_use_coptic/results.json

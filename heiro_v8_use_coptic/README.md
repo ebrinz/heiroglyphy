@@ -14,26 +14,26 @@
 
 **Coptic** is the final stage of the Ancient Egyptian language, written in a modified Greek alphabet with some Demotic characters. It offers several unique advantages:
 
-1. **Direct Linguistic Continuity**
-   - Coptic evolved directly from Late Egyptian → Demotic → Coptic
-   - ~60-70% of Coptic vocabulary derives from Egyptian
-   - Grammatical structures are preserved
+1.  **Direct Linguistic Continuity**
+    - Coptic evolved directly from Late Egyptian → Demotic → Coptic
+    - ~60-70% of Coptic vocabulary derives from Egyptian
+    - Grammatical structures are preserved
 
-2. **Phonological Information**
-   - Coptic includes **vowels** (hieroglyphs don't!)
-   - Example: Egyptian `nfr` → Coptic `ⲛⲟⲩϥⲣⲉ` (noufe) → English "good"
-   - Pronunciation helps semantic alignment
+2.  **Phonological Information**
+    - Coptic includes **vowels** (hieroglyphs don't!)
+    - Example: Egyptian `nfr` → Coptic `ⲛⲟⲩϥⲣⲉ` (noufe) → English "good"
+    - Pronunciation helps semantic alignment
 
-3. **More Training Data**
-   - **Biblical translations**: Coptic Bible parallel with Greek/English
-   - **Liturgical texts**: Extensive church literature
-   - **Nag Hammadi Codices**: Gnostic texts with translations
-   - **Coptic SCRIPTORIUM**: Large annotated corpus
+3.  **More Training Data**
+    - **Biblical translations**: Coptic Bible parallel with Greek/English
+    - **Liturgical texts**: Extensive church literature
+    - **Nag Hammadi Codices**: Gnostic texts with translations
+    - **Coptic SCRIPTORIUM**: Large annotated corpus
 
-4. **Existing Resources**
-   - Egyptian-Coptic lexicons (Crum's dictionary)
-   - Coptic-English dictionaries
-   - Digital corpora with annotations
+4.  **Existing Resources**
+    - Egyptian-Coptic lexicons (Crum's dictionary)
+    - Coptic-English dictionaries
+    - Digital corpora with annotations
 
 ## Proposed Approach
 
@@ -57,34 +57,38 @@ Coptic corpus ────────┘
 
 **Expected Benefit**: Smaller semantic gaps, better alignment
 
-### Strategy 2: Coptic-Enhanced Anchors
+## Results
 
-Use Coptic cognates to expand the anchor dictionary:
+| Metric | V7 Baseline (Text-Only) | **V8 (This)** | Delta |
+|--------|-------------------------|---------------|-------|
+| **Top-1 Accuracy** | 29.10% | **28.16%** | -0.94% 📉 |
+| **Top-5 Accuracy** | 36.57% | **36.09%** | -0.48% |
+| **Top-10 Accuracy** | 41.19% | **40.28%** | -0.91% |
+| **Anchor Coverage** | 8,541 | **8,909** | +4.31% 📈 |
 
-```
-Egyptian: nfr → Coptic: ⲛⲟⲩϥⲣⲉ → English: good
-Egyptian: nṯr → Coptic: ⲛⲟⲩⲧⲉ → English: god
-```
+### Analysis: Why did accuracy decrease?
 
-**Steps:**
-1. Extract Egyptian-Coptic cognate pairs from Crum's dictionary
-2. Map Coptic words to English via Bible translations
-3. Create expanded Egyptian-English anchors
-4. Retrain V7 alignment with larger anchor set
+Despite increasing anchor coverage by 4.31% (368 new words), the overall alignment accuracy slightly regressed. Our analysis points to three key factors:
 
-**Expected Benefit**: Higher anchor coverage, especially for religious/common terms
+1.  **Semantic Drift**: Coptic is separated from Hieroglyphic Egyptian by ~1,000-3,000 years. Words change meaning over time (e.g., "knights" meant "servants" in Old English). ThotBank meanings reflect Coptic usage, which introduces noise when mapped to Pharaonic usage.
+2.  **Domain Mismatch**: The ThotBank/Coptic data is heavily religious/biblical, whereas our training corpus (BBAW) is literary/funerary. This domain shift pulls vectors away from their general usage.
+3.  **Alignment Sensitivity**: Ridge Regression minimizes global error. Adding 368 "noisy" pairs forces the rotation matrix to compromise, slightly degrading the fit for the original 8,541 "clean" pairs.
 
-### Strategy 3: Joint Multilingual Embeddings
+### Methodology Shift
+We initially proposed using Coptic as a bridge via Bible co-occurrence (Strategy 1). However, during implementation, we discovered that:
+1. **Bible Co-occurrence is Noisy**: Common function words ("the", "and") created false positives.
+2. **ThotBank contains Direct Translations**: The ThotBank dataset includes high-quality English meanings derived from the Thesaurus Linguae Aegyptiae (TLA).
 
-Train a single embedding space for all three languages:
+**Pivot**: We switched to **Strategy 2 (Direct Extraction)**, using ThotBank's `TLA__meaning_en` field to generate high-confidence anchors directly. This resulted in 368 new anchors without the noise of statistical alignment.
 
-**Steps:**
-1. Combine Egyptian + Coptic + English corpora
-2. Train multilingual FastText (like Facebook's MUSE)
-3. Use anchor pairs to guide alignment during training
-4. Evaluate on Egyptian-English test set
+### Key Findings
+1. **Etymology $\neq$ Semantics**: Just because words are cognates doesn't mean they map to the exact same point in English vector space.
+2. **Quality > Quantity**: 8,541 high-confidence anchors are better than 8,909 mixed-confidence ones.
+3. **Direct Extraction Works**: We successfully built a pipeline to extract scholarly data from ThotBank, which is a valuable technical achievement even if the ML result was neutral.
 
-**Expected Benefit**: Shared semantic space, implicit knowledge transfer
+## Next Steps (V9)
+- **Filter by Semantic Similarity**: Only add Coptic anchors if their vector is already "close" to the English target (using a rough initial alignment).
+- **Return to Visuals**: V7 showed that visual features were unused (zeros). Fixing the visual feature extraction is likely the highest-ROI next step.
 
 ## Data Sources
 

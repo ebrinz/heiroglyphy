@@ -96,3 +96,8 @@ heiro_v7_FastTextVisual/models/*.npy
 # Keep small result files
 !heiro_v6_BERT/data/processed/anchors.json
 !heiro_v7_FastTextVisual/data/processed/alignment_results_v7.json
+
+
+heiro_v8_use_coptic/data/raw/*
+heiro_v8_use_coptic/data/processed/*
+heiro_v8_use_coptic/models/*
