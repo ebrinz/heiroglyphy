@@ -27,7 +27,7 @@ $$ f(v_{hieroglyph}) \approx v_{english} $$
 | V5 | Linear + 10x Data | **24.53%** | ✅ Scaled baseline |
 | V6 | BERT Contextual | 0.47% | ❌ Failed (tokenization) |
 | V7 | FastText 768d | **29.10%** | ✅ **Current SOTA** |
-| V8 | Coptic Bridge | 28.2% | 🚧 Negative result |
+| V8 | Coptic Bridge | 28.2% | ⚠️ Negative result |
 
 **Key Insight**: Simple linear methods with good data outperform complex neural architectures for low-resource ancient language alignment.
 
