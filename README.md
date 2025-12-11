@@ -28,6 +28,7 @@ $$ f(v_{hieroglyph}) \approx v_{english} $$
 | V6 | BERT Contextual | 0.47% | ❌ Failed (tokenization) |
 | V7 | FastText 768d | **29.10%** | ✅ **Current SOTA** |
 | V8 | Coptic Bridge | 28.2% | ⚠️ Negative result |
+| V9 | Filtered Anchors | 29.10% | ✅ Export & analysis |
 
 **Key Insight**: Simple linear methods with good data outperform complex neural architectures for low-resource ancient language alignment.
 
@@ -73,13 +74,49 @@ $$ f(v_{hieroglyph}) \approx v_{english} $$
 *   **Strategy**: Used Coptic (the direct descendant of Ancient Egyptian) as a bridge to expand the anchor dictionary. Extracted 368 new Egyptian-English anchors from ThotBank's Egyptian-Coptic cognates, increasing coverage from 8,541 to 8,909 anchors (+4.31%).
 *   **Outcome**: **28.16% accuracy** ⚠️ - Slight regression (-0.94%) from V7's 29.10%. Despite adding more anchors, the Coptic-derived meanings introduced semantic drift (1,000+ year gap) and domain mismatch (biblical vs literary texts). Key learning: **Etymology ≠ Semantics** - cognates don't guarantee identical vector space positions. Quality > Quantity for anchor dictionaries.
 
+### [Attempt 9: Filtered Alignment & Export (`heiro_v9_filtered`)](./heiro_v9_filtered)
+*   **Technique**: **Anchor Filtering Analysis + Production Export**.
+*   **Strategy**: Investigated whether removing "function word pollution" (51% of anchors are articles/pronouns like "the", "he", "you") would improve alignment. Tested strict filtering (content words only, conf >= 0.60), hybrid filtering, and confidence weighting approaches.
+*   **Outcome**: **29.10% accuracy** - Filtering did **not** improve results. Strict filtering dropped to 23.16%, hybrid to 24.43%. The function words, despite being semantically uninteresting, provide crucial signal for learning the transformation. V7's methodology confirmed as optimal.
+*   **Export**: Created production-ready output files for downstream applications.
+
+### [Final Output (`final_output`)](./final_output)
+
+Production-ready Egyptian word vectors aligned to GloVe 300d space:
+
+| File | Size | Description |
+|------|------|-------------|
+| `egyptian_aligned_vectors.npz` | 43 MB | 80,662 Egyptian words (float16 compressed) |
+| `egyptian_aligned_vocab.pkl` | 1.5 MB | Word → vector index mapping |
+| `egyptian_lookup.py` | 9 KB | Full lookup utility (requires gensim) |
+| `egyptian_lookup_lite.py` | 6 KB | Edge/mobile version (numpy only) |
+| `esoteric_glove_vectors.npz` | 62 KB | 113 pre-computed concept vectors |
+
+**Quick Usage:**
+```python
+from egyptian_lookup import EgyptianLookup
+
+lookup = EgyptianLookup(
+    vectors_path="egyptian_aligned_vectors.npz",
+    vocab_path="egyptian_aligned_vocab.pkl",
+    glove=glove  # any GloVe 300d model
+)
+
+# Find Egyptian words for English concepts
+lookup.find("sun")  # [('ḥrw-nbw', 0.40), ('ḥrw', 0.39), ...]
+lookup.find_relationship(["death", "rebirth"])  # semantic combinations
+lookup.find_blend({"power": 0.7, "wisdom": 0.3})  # weighted blends
+```
+
 ## 🚀 Getting Started
 
-We recommend starting with **`heiro_v7_FastTextVisual`** as it represents the current state-of-the-art, achieving **29.10% accuracy** with 768d FastText embeddings.
+**For using the pre-trained vectors**, start with **`final_output`** - it contains production-ready files and lookup utilities that work with any GloVe 300d model.
 
-For understanding the data collection and baseline methodology, **`heiro_v5_getdata`** provides comprehensive documentation of the corpus assembly and anchor extraction process.
+**For understanding the methodology**, **`heiro_v7_FastTextVisual`** documents the current state-of-the-art achieving **29.10% accuracy**.
 
-For a simpler introduction to the core alignment technique, **`heiro_v3`** offers the most accessible starting point.
+**For the data pipeline**, **`heiro_v5_getdata`** provides comprehensive documentation of corpus assembly and anchor extraction.
+
+**For a simpler introduction**, **`heiro_v3`** offers the most accessible starting point for the core alignment technique.
 
 ### Prerequisites
 *   Python 3.8+
