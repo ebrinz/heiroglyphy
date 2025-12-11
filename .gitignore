@@ -119,7 +119,6 @@ heiro_v11/notebooks/*.ipynb
 
 # V12 Specific - Embeddings & Alignment
 heiro_v12/data/
-heiro_v12/notebooks/*.ipynb
 heiro_v12/notebooks/aligned_models/
 heiro_v12/notebooks/models/
 
