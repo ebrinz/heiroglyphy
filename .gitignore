@@ -36,38 +36,64 @@ ENV/
 *.swp
 .DS_Store
 
-# Project Specific (Large Data/Models)
-# Exclude large model files
+# ============================================
+# FINAL OUTPUT - KEEP THESE (checked in)
+# ============================================
+# These are the production output files
+!final_output/
+!final_output/**
+
+# ============================================
+# GLOBAL LARGE FILE EXCLUSIONS
+# ============================================
+# Model files
 *.model
 *.model.*
 *.bin
 *.safetensors
-*.npy
 *.kv
 *.kv.*
+*.vec
+*.pt
+*.pth
 
-# Exclude large data/cache
-*.pkl
-*.csv
+# Large data files
+*.parquet
+*.ttf
+
+# Cache
 cache/
 data/exports/
 
-# V5 Specific - Large Data Files
+# ============================================
+# V1 - Neural Vec2Vec
+# ============================================
+heiro_v1/models/*.pt
+heiro_v1/models/*.bin
+heiro_v1/models/*/*.json
+heiro_v1/models/*/*/*.json
+
+# ============================================
+# V5 - Data Collection & Baseline
+# ============================================
 heiro_v5_getdata/data/raw/*.parquet
 heiro_v5_getdata/data/raw/*.json
 heiro_v5_getdata/data/processed/*.txt
 heiro_v5_getdata/data/processed/*.tsv
-heiro_v5_getdata/data/processed/*.json
 heiro_v5_getdata/data/processed/*.zip
 heiro_v5_getdata/data/processed/glove*
+heiro_v5_getdata/scrapers/data/raw/*.json
 
-# Keep small metadata files
+# Keep small metadata
 !heiro_v5_getdata/data/processed/alignment_results.json
 !heiro_v5_getdata/data/processed/corpus_statistics.json
 
-# V6 Specific - BERT Models & Data
+# ============================================
+# V6 - BERT
+# ============================================
 heiro_v6_BERT/data/raw/*.parquet
 heiro_v6_BERT/data/raw/*.json
+heiro_v6_BERT/data/raw/*.ttf
 heiro_v6_BERT/data/processed/*.txt
 heiro_v6_BERT/data/processed/*.pkl
 heiro_v6_BERT/data/processed/*.json
@@ -79,25 +105,46 @@ heiro_v6_BERT/models/*.pt
 heiro_v6_BERT/models/pytorch_model.bin
 heiro_v6_BERT/models/*/checkpoint-*/
 heiro_v6_BERT/models/hierobert_*/
+heiro_v6_BERT/models/heirobert_*/*.json
+heiro_v6_BERT/models/heirobert_*/*.txt
 heiro_v6_BERT/models/alignment_matrix.pkl
 
-# V7 Specific - FastText Models & Fused Embeddings
+# Keep anchors (needed for reference)
+!heiro_v6_BERT/data/processed/anchors.json
+
+# ============================================
+# V7 - FastText + Visual
+# ============================================
 heiro_v7_FastTextVisual/data/raw/*.parquet
 heiro_v7_FastTextVisual/data/raw/*.json
 heiro_v7_FastTextVisual/data/processed/*.txt
 heiro_v7_FastTextVisual/data/processed/*.pkl
-heiro_v7_FastTextVisual/data/processed/*.json
 heiro_v7_FastTextVisual/models/*.model
 heiro_v7_FastTextVisual/models/*.model.*
 heiro_v7_FastTextVisual/models/*.vec
 heiro_v7_FastTextVisual/models/*.kv
+heiro_v7_FastTextVisual/models/*.kv.*
 heiro_v7_FastTextVisual/models/*.npy
 
-# Keep small result files
-!heiro_v6_BERT/data/processed/anchors.json
+# Keep results
 !heiro_v7_FastTextVisual/data/processed/alignment_results_v7.json
 
-
+# ============================================
+# V8 - Coptic Bridge
+# ============================================
 heiro_v8_use_coptic/data/raw/*
 heiro_v8_use_coptic/data/processed/*
 heiro_v8_use_coptic/models/*
+
+# Keep results
+!heiro_v8_use_coptic/results.json
+
+# ============================================
+# V9 - Filtered Alignment
+# ============================================
+heiro_v9_filtered/outputs/*.npy
+heiro_v9_filtered/outputs/*.pkl
+heiro_v9_filtered/data/processed/*.json
+
+# Keep README
+!heiro_v9_filtered/README.md
