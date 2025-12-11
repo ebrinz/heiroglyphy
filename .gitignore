@@ -101,3 +101,45 @@ heiro_v7_FastTextVisual/models/*.npy
 heiro_v8_use_coptic/data/raw/*
 heiro_v8_use_coptic/data/processed/*
 heiro_v8_use_coptic/models/*
+
+# V9 Specific - Visual Data & Models
+heiro_v9_use_visuals_again/data/raw/
+heiro_v9_use_visuals_again/data/processed/
+heiro_v9_use_visuals_again/models/
+
+# V10 Specific - Refinement Data
+heiro_v10_refinement/data/
+heiro_v10_refinement/results*.json
+heiro_v10_refinement/notebooks/*.ipynb
+
+# V11 Specific - Training Data & Models
+heiro_v11/data/
+heiro_v11/notebooks/processed_data/
+heiro_v11/notebooks/*.ipynb
+
+# V12 Specific - Embeddings & Alignment
+heiro_v12/data/
+heiro_v12/notebooks/*.ipynb
+heiro_v12/notebooks/aligned_models/
+heiro_v12/notebooks/models/
+
+# General patterns for all versions
+**/data/raw/
+**/data/processed/
+**/*.parquet
+**/*.pth
+**/models/*.json
+**/aligned_models/
+**/*.pt
+
+# Jupyter notebooks (optional - remove if you want to track them)
+# *.ipynb
+
+# Duplicate/misspelled files
+discover_anomolies.ipynb
+
+# Result JSON files (large outputs)
+**/results*.json
+!heiro_v5_getdata/data/processed/alignment_results.json
+!heiro_v5_getdata/data/processed/corpus_statistics.json
+!heiro_v7_FastTextVisual/data/processed/alignment_results_v7.json

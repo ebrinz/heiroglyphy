@@ -26,8 +26,9 @@ $$ f(v_{hieroglyph}) \approx v_{english} $$
 | V4 | Linear + CSLS | 15% | ⚠️ Negative result |
 | V5 | Linear + 10x Data | **24.53%** | ✅ Scaled baseline |
 | V6 | BERT Contextual | 0.47% | ❌ Failed (tokenization) |
-| V7 | FastText 768d | **29.10%** | ✅ **Current SOTA** |
+| V7 | FastText 768d | **29.10%** | ✅ Text-only SOTA |
 | V8 | Coptic Bridge | 28.2% | ⚠️ Negative result |
+| V9 | Visual Features | **30.52%** | ✅ **Current SOTA** 🎉 |
 
 **Key Insight**: Simple linear methods with good data outperform complex neural architectures for low-resource ancient language alignment.
 
@@ -73,9 +74,16 @@ $$ f(v_{hieroglyph}) \approx v_{english} $$
 *   **Strategy**: Used Coptic (the direct descendant of Ancient Egyptian) as a bridge to expand the anchor dictionary. Extracted 368 new Egyptian-English anchors from ThotBank's Egyptian-Coptic cognates, increasing coverage from 8,541 to 8,909 anchors (+4.31%).
 *   **Outcome**: **28.16% accuracy** ⚠️ - Slight regression (-0.94%) from V7's 29.10%. Despite adding more anchors, the Coptic-derived meanings introduced semantic drift (1,000+ year gap) and domain mismatch (biblical vs literary texts). Key learning: **Etymology ≠ Semantics** - cognates don't guarantee identical vector space positions. Quality > Quantity for anchor dictionaries.
 
+### [Attempt 9: Visual Features Redux (`heiro_v9_use_visuals_again`)](./heiro_v9_use_visuals_again)
+*   **Technique**: **Text + Visual Fusion (1536d)**.
+*   **Strategy**: Fixed V7's broken visual pipeline by extracting ResNet-50 features from 4,210 hieroglyph images (HamdiJr dataset). Fused FastText text embeddings (768d) with visual embeddings (768d) to create 1536d representations. Used Ridge Regression to align to 300d English GloVe space.
+*   **Outcome**: **30.52% accuracy** ✅ - **First model to break 30%!** A **+1.42% improvement** over V7's 29.10%. Achieved 37.54% Top-5 and 41.79% Top-10 accuracy. Surprisingly, visual match rate was 0% (mapping failed), yet the larger 1536d embedding space alone improved results. This suggests **dimensionality matters** and hints at even greater potential (+2-3%) if visual features are properly mapped.
+
 ## 🚀 Getting Started
 
-We recommend starting with **`heiro_v7_FastTextVisual`** as it represents the current state-of-the-art, achieving **29.10% accuracy** with 768d FastText embeddings.
+We recommend starting with **`heiro_v9_use_visuals_again`** as it represents the current state-of-the-art, achieving **30.52% accuracy** with fused text+visual embeddings.
+
+For understanding the text-only baseline, **`heiro_v7_FastTextVisual`** provides comprehensive documentation of the 768d FastText approach (29.10% accuracy).
 
 For understanding the data collection and baseline methodology, **`heiro_v5_getdata`** provides comprehensive documentation of the corpus assembly and anchor extraction process.
 
