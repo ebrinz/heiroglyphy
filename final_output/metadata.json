@@ -1,0 +1,15 @@
+{
+  "methodology": "V10 SOTA (1536d fused \u2192 300d GloVe)",
+  "text_embeddings": "768d FastText (V7)",
+  "visual_embeddings": "768d ResNet-50 (V9)",
+  "alignment": "Ridge Regression (alpha=1.0)",
+  "accuracy": {
+    "top1": 30.671641791044774,
+    "top5": 37.6865671641791,
+    "top10": 41.492537313432834
+  },
+  "vocab_size": 80662,
+  "vector_dim": 300,
+  "anchor_coverage": "6700/8541 (78.4%)",
+  "visual_match_rate": "0.08%"
+}
