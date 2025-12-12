@@ -4,11 +4,23 @@ Pre-trained word vectors for 80,662 ancient Egyptian hieroglyphic words, aligned
 
 ## Files
 
+### Core Vectors
 | File | Size | Description |
 |------|------|-------------|
 | `egyptian_aligned_vectors.npz` | 43 MB | 80,662 × 300 float16 matrix (compressed) |
 | `egyptian_aligned_vocab.pkl` | 1.5 MB | Dictionary: Egyptian word → vector index |
-| `egyptian_lookup.py` | 9 KB | Python utility for semantic lookup |
+| `egyptian_lookup.py` | 9 KB | Python utility for semantic lookup (requires gensim) |
+| `egyptian_lookup_lite.py` | 6 KB | Lightweight version (numpy only, for edge/mobile) |
+
+### Reference Data
+| File | Size | Description |
+|------|------|-------------|
+| `concept_vectors.npz` | 157 KB | 279 pre-computed English concept vectors (organized by category) |
+| `concept_categories.json` | 4 KB | Category metadata (elements, deities, royalty, etc.) |
+| `hieroglyph_dictionary.tsv` | 720 KB | 11,727 entries: hieroglyph → transliteration → English |
+| `hieroglyph_dictionary.json` | 2 MB | Same data in JSON format for programmatic access |
+| `EgyptianHiero.ttf` | 2.7 MB | Hieroglyphic font (EgyptianHiero 4.03) |
+| `esoteric_glove_vectors.npz` | 62 KB | Legacy 113-concept vectors (superseded by concept_vectors.npz) |
 
 ## Quick Start
 
@@ -154,6 +166,45 @@ This is the **V10 SOTA** of the Heiroglyphy project, representing the culminatio
 | V8 | Coptic bridge (regression) | 28.2% |
 | V9 | Text + Visual (1536d) | 30.5% |
 | **V10** | **V9 + Gardiner mapping** | **30.67%** |
+
+## Hieroglyph Dictionary
+
+The `hieroglyph_dictionary.tsv` provides a lookup table from hieroglyphs to English:
+
+| Column | Description |
+|--------|-------------|
+| `hieroglyph` | Unicode hieroglyph character(s) |
+| `gardiner_codes` | Gardiner sign list codes (e.g., "M17", "G1,X1") |
+| `transliteration` | Egyptological transliteration |
+| `english` | English translation/meaning |
+| `occurrence` | Frequency score in corpus |
+
+Sample entries (sorted by frequency):
+```
+𓇋  M17   i     I, me, my
+𓏏  X1    t     you, your
+𓆑  I9    f     he, him, his
+𓂋  D21   r     to, at, concerning
+𓁹  D4    iri   create, make, do
+```
+
+## Concept Categories
+
+The 279 pre-computed concept vectors are organized into 18 semantic categories:
+
+| Category | Examples | Count |
+|----------|----------|-------|
+| elements | fire, water, earth, air, light | 14 |
+| celestial | sun, moon, star, sky, heaven | 14 |
+| geography | river, nile, mountain, desert | 14 |
+| animals | lion, snake, cobra, falcon, scarab | 22 |
+| deities | god, goddess, divine, sacred | 12 |
+| afterlife | death, rebirth, soul, spirit, tomb | 16 |
+| royalty | king, queen, pharaoh, throne | 13 |
+| virtues | truth, justice, wisdom, power | 12 |
+| body | head, eye, heart, hand, blood | 15 |
+| objects | temple, pyramid, boat, sword, gold | 21 |
+| ... | (see concept_categories.json) | ... |
 
 ## License
 
