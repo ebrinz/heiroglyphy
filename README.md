@@ -1,20 +1,25 @@
-# Heiroglyphy: Computational Translation of Ancient Egyptian
+<p align="center">
+  <img src="docs/heiroglyphy_logo.svg" alt="Heiroglyphy" width="700">
+</p>
 
-**Heiroglyphy** is a digital humanities research project exploring the application of **Vector-to-Vector (vec2vec)** alignment techniques to the translation of Ancient Egyptian Hieroglyphs.
+# Heiroglyphy
 
-The core research question is: **Can we map the geometric "shape" of the Ancient Egyptian language onto Modern English to discover meanings without a traditional dictionary?**
+**Ancient Egyptian has been translated by scholars for centuries — but translation is lossy.** Nuance, connotation, and the web of relationships between words get compressed into a single modern equivalent. The word *nṯr* becomes "god," but its proximity to *nsw* (king), *ḥtp* (offering), and *mꜣꜥ.t* (truth/order) — the semantic neighborhood that defined what divinity *meant* to an Egyptian speaker — is lost.
 
-This repository documents 12 experimental iterations, from complex neural models to elegant linear algebra, achieving **30.67% Top-1 accuracy** on unsupervised hieroglyphic-to-English translation.
+**Word embeddings preserve that geometry.** Every word lives in a high-dimensional space where distance encodes meaning. Words that appear in similar contexts cluster together — not by definition, but by *usage*. If we can train embeddings on Ancient Egyptian texts and align that space to English, we don't just get translations. We recover the *structure of meaning* that literal translation left behind.
+
+**That is what this project attempts.** Across 12 experimental iterations, from failed neural networks to elegant linear algebra, we built a system that aligns 80,662 Egyptian word vectors to English — achieving **31.57% Top-1 accuracy** on unsupervised cross-lingual alignment across a 4,000-year language gap.
 
 ## 🧬 The Vec2Vec Hypothesis
 
-All attempts in this project are grounded in the **Distributional Hypothesis**: that words with similar meanings appear in similar contexts. By training vector embeddings (Word2Vec/FastText), we turn languages into geometric shapes.
+The core challenge is to find a transformation $f$ such that:
 
-The "vec2vec" challenge is to find a transformation function $f$ such that:
 $$ f(v_{hieroglyph}) \approx v_{english} $$
 
-*   **Attempts 1 & 2** explored **Neural Vec2Vec**: Using deep neural networks to learn non-linear mappings between the spaces.
-*   **Attempts 3-12** explored **Linear Alignment (Procrustes)**: Using the analytic solution (SVD) rather than neural networks.
+Every language, when embedded, forms a geometric shape. The **Distributional Hypothesis** tells us that similar shapes emerge across languages — words for "water" cluster near words for "river" whether in Egyptian or English. The vec2vec approach exploits this: find the rotation that best overlays one shape onto the other.
+
+*   **Attempts 1 & 2** explored **Neural Vec2Vec**: Deep networks to learn non-linear mappings between spaces. Both failed.
+*   **Attempts 3-12** explored **Linear Alignment (Procrustes/Ridge)**: Analytic solutions that consistently outperformed neural approaches.
 
 ## 📊 Progress Summary
 
@@ -29,11 +34,12 @@ $$ f(v_{hieroglyph}) \approx v_{english} $$
 | V7 | FastText 768d | 29.10% | ✅ Text-only breakthrough |
 | V8 | Coptic Bridge | 28.16% | ⚠️ Negative result |
 | V9 | Visual Features (1536d) | 30.52% | ✅ First 30%+ |
-| V10 | Vocab Normalization | **30.67%** | ✅ **Current SOTA** 🎉 |
+| V10 | Vocab Normalization | 30.67% | ✅ Previous SOTA |
 | V11 | MLP + N-grams | 28.76% | ⚠️ Regression |
 | V12 | Egyptian→German | 12.90% | 🧪 Exploratory |
+| V13 | Alpha Tuning + Ablation | **31.57%** | ✅ **Current SOTA** 🎉 |
 
-**Key Insight**: Simple linear methods with good data outperform complex neural architectures for low-resource ancient language alignment.
+**Key Insight**: Simple linear methods with good data outperform complex neural architectures for low-resource ancient language alignment. Retrieval accuracy and regression loss are anti-correlated — optimize for retrieval directly.
 
 ## 📂 Project Structure
 
@@ -108,8 +114,14 @@ Production-ready Egyptian word vectors aligned to GloVe 300d space:
 | `egyptian_aligned_vectors.npz` | 43 MB | 80,662 Egyptian words (float16 compressed) |
 | `egyptian_aligned_vocab.pkl` | 1.5 MB | Word → vector index mapping |
 | `egyptian_lookup.py` | 9 KB | Full lookup utility (requires gensim) |
-| `egyptian_lookup_lite.py` | 6 KB | Edge/mobile version (numpy only) |
-| `esoteric_glove_vectors.npz` | 62 KB | 113 pre-computed concept vectors |
+| `egyptian_lookup_lite.py` | 6 KB | Lightweight version (numpy only, for edge/mobile) |
+| `concept_vectors.npz` | 157 KB | 279 pre-computed concept vectors (18 categories) |
+| `concept_categories.json` | 4 KB | Category metadata (elements, deities, royalty, etc.) |
+| `hieroglyph_dictionary.tsv` | 720 KB | 11,727 entries: hieroglyph → transliteration → English |
+| `hieroglyph_dictionary.json` | 2 MB | Same data in JSON for programmatic access |
+| `EgyptianHiero.ttf` | 2.7 MB | Hieroglyphic font (EgyptianHiero 4.03) |
+| `esoteric_glove_vectors.npz` | 62 KB | Legacy 113-concept vectors (superseded by concept_vectors) |
+| `metadata.json` | 432 B | V10 SOTA methodology and evaluation metrics |
 
 **Quick Usage:**
 ```python
@@ -139,7 +151,7 @@ lookup.find_blend({"power": 0.7, "wisdom": 0.3})  # weighted blends
 
 ### Prerequisites
 *   Python 3.8+
-*   `gensim`, `numpy`, `scikit-learn`, `pandas`, `jupyter`
+*   Install dependencies: `pip install -r requirements.txt`
 
 ### Usage
 ```bash
