@@ -1,0 +1,96 @@
+{
+  "sanity_check": {
+    "top1": 30.67,
+    "top5": 37.69,
+    "top10": 41.49,
+    "anchors_loaded": 8541,
+    "valid_anchors": 6700,
+    "train_size": 5360,
+    "test_size": 1340,
+    "passed": true
+  },
+  "baseline_v10": {
+    "top1": 30.67,
+    "top5": 37.69,
+    "top10": 41.49
+  },
+  "exp1_ridge_cv": {
+    "best_alpha": 100.0,
+    "cv_folds": 5,
+    "top1": 29.63,
+    "top5": 35.45,
+    "top10": 39.18,
+    "delta_v10": -1.04
+  },
+  "exp2_weighted": {
+    "weighting": true,
+    "alpha": 100.0,
+    "top1": 29.03,
+    "top5": 35.15,
+    "top10": 38.51,
+    "delta_v10": -1.64
+  },
+  "exp3_csls": {
+    "csls_k": 10,
+    "hubness_check_passed": true,
+    "top20_hub_words": [
+      "the",
+      "so",
+      ".",
+      "2",
+      "i",
+      "1",
+      "10",
+      "you",
+      "but",
+      "and",
+      "well",
+      "both",
+      "it",
+      "god",
+      "what",
+      "time",
+      "des",
+      "is",
+      "not",
+      "me"
+    ],
+    "hub_pct": 83.36,
+    "top1": 29.63,
+    "top5": 35.45,
+    "top10": 39.18,
+    "delta_v10": -1.04
+  },
+  "exp4_768d_ablation": {
+    "input_dim": 768,
+    "best_alpha_768d": 100.0,
+    "top1": 29.63,
+    "top5": 35.6,
+    "top10": 39.18,
+    "delta_v10": -1.04
+  },
+  "exp5_glove_840b": {
+    "skipped": true,
+    "reason": "file not found"
+  },
+  "best_config": {
+    "description": "v10_baseline",
+    "top1": 30.67
+  },
+  "exp6a_alpha01": {
+    "alpha": 0.1,
+    "top1": 31.57,
+    "top5": 38.81,
+    "top10": 42.61,
+    "delta_v10": 0.9
+  },
+  "exp6b_csls_proper": {
+    "alpha": 0.1,
+    "csls_k": 10,
+    "csls_version": "proper (r_T + r_S)",
+    "top1": 26.27,
+    "top5": 33.88,
+    "top10": 37.39,
+    "delta_v10": -4.4
+  }
+}
