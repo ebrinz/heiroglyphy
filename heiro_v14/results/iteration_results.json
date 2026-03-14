@@ -1,0 +1,23 @@
+{
+  "iterative_procrustes": {
+    "iterations": [
+      {
+        "iteration": 0,
+        "n_anchors": 5360,
+        "top1": 31.57,
+        "top5": 38.81,
+        "top10": 42.61,
+        "mnn_found": 79,
+        "new_pairs_added": 18
+      },
+      {
+        "iteration": 1,
+        "n_anchors": 5378,
+        "top1": 31.34,
+        "top5": 38.66,
+        "top10": 42.61,
+        "mnn_found": 79,
+        "new_pairs_added": 0
+      }
+    ],
+    "best": 

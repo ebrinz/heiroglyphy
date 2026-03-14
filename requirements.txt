@@ -1,0 +1,23 @@
+# Core
+numpy
+scipy
+scikit-learn
+pandas
+jupyter
+
+# NLP / Embeddings
+gensim
+tqdm
+
+# Visualization
+matplotlib
+seaborn
+
+# Data collection (V5 scrapers)
+requests
+beautifulsoup4
+datasets
+
+# Deep learning (V6 BERT, V11 MLP)
+torch
+transformers

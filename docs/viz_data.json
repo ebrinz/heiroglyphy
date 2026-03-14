@@ -1,0 +1,5452 @@
+{
+  "metadata": {
+    "x_axis": "mortal \u2190 \u2192 divine (god \u2212 man)",
+    "y_axis": "death \u2190 \u2192 life (life \u2212 death, orthogonalized)",
+    "n_egyptian": 247,
+    "n_english": 279,
+    "n_anchors": 247,
+    "n_highlights": 3
+  },
+  "axes": {
+    "x_label_pos": "divine",
+    "x_label_neg": "mortal",
+    "y_label_pos": "life",
+    "y_label_neg": "death"
+  },
+  "category_colors": {
+    "elements": "#e74c3c",
+    "celestial": "#f39c12",
+    "geography": "#27ae60",
+    "plants": "#2ecc71",
+    "animals": "#e67e22",
+    "deities": "#9b59b6",
+    "afterlife": "#8e44ad",
+    "magic": "#c0392b",
+    "royalty": "#f1c40f",
+    "titles": "#d4ac0d",
+    "society": "#3498db",
+    "virtues": "#1abc9c",
+    "emotions": "#e91e63",
+    "states": "#607d8b",
+    "actions": "#795548",
+    "body": "#ff7043",
+    "objects": "#78909c",
+    "time": "#5c6bc0",
+    "numbers": "#90a4ae",
+    "egyptian": "#f5c518"
+  },
+  "egyptian": [
+    {
+      "word": "=f",
+      "x": -0.1634,
+      "y": 0.0893,
+      "nearest_concept": "man",
+      "similarity": 3.8881
+    },
+    {
+      "word": "n",
+      "x": -0.0273,
+      "y": 0.0422,
+      "nearest_concept": "first",
+      "similarity": 3.4397
+    },
+    {
+      "word": "m",
+      "x": -0.0434,
+      "y": 0.0776,
+      "nearest_concept": "first",
+      "similarity": 3.4535
+    },
+    {
+      "word": "=k",
+      "x": 0.2028,
+      "y": 0.1558,
+      "nearest_concept": "see",
+      "similarity": 3.8407
+    },
+    {
+      "word": "=j",
+      "x": -0.0353,
+      "y": 0.1299,
+      "nearest_concept": "see",
+      "similarity": 3.2635
+    },
+    {
+      "word": "r",
+      "x": -0.1241,
+      "y": -0.0392,
+      "nearest_concept": "last",
+      "similarity": 3.4418
+    },
+    {
+      "word": "\u1e25r",
+      "x": -0.0306,
+      "y": -0.0016,
+      "nearest_concept": "first",
+      "similarity": 3.3192
+    },
+    {
+      "word": "jw",
+      "x": 0.0546,
+      "y": 0.0208,
+      "nearest_concept": "make",
+      "similarity": 2.5515
+    },
+    {
+      "word": "1",
+      "x": -0.0805,
+      "y": 0.0312,
+      "nearest_concept": "million",
+      "similarity": 3.0478
+    },
+    {
+      "word": "=s",
+      "x": -0.0466,
+      "y": 0.0751,
+      "nearest_concept": "mother",
+      "similarity": 3.3361
+    },
+    {
+      "word": "=sn",
+      "x": -0.0363,
+      "y": 0.0153,
+      "nearest_concept": "mother",
+      "similarity": 3.8497
+    },
+    {
+      "word": "nb",
+      "x": -0.123,
+      "y": 0.0464,
+      "nearest_concept": "year",
+      "similarity": 3.2693
+    },
+    {
+      "word": "p\ua723",
+      "x": -0.0447,
+      "y": 0.0005,
+      "nearest_concept": "first",
+      "similarity": 3.2937
+    },
+    {
+      "word": "2",
+      "x": -0.0607,
+      "y": 0.0253,
+      "nearest_concept": "million",
+      "similarity": 3.7593
+    },
+    {
+      "word": "n(,j)",
+      "x": 0.036,
+      "y": 0.0725,
+      "nearest_concept": "first",
+      "similarity": 3.0192
+    },
+    {
+      "word": "jm",
+      "x": -0.0553,
+      "y": 0.0055,
+      "nearest_concept": "official",
+      "similarity": 2.9635
+    },
+    {
+      "word": "pw",
+      "x": 0.0057,
+      "y": 0.1062,
+      "nearest_concept": "child",
+      "similarity": 2.4523
+    },
+    {
+      "word": "jr",
+      "x": -0.0062,
+      "y": -0.0003,
+      "nearest_concept": "first",
+      "similarity": 3.0706
+    },
+    {
+      "word": "t\ua723",
+      "x": -0.0606,
+      "y": -0.067,
+      "nearest_concept": "people",
+      "similarity": 3.3734
+    },
+    {
+      "word": "sw",
+      "x": -0.1657,
+      "y": 0.0372,
+      "nearest_concept": "son",
+      "similarity": 1.4874
+    },
+    {
+      "word": "nn",
+      "x": -0.0449,
+      "y": 0.0814,
+      "nearest_concept": "make",
+      "similarity": 3.7329
+    },
+    {
+      "word": "pn",
+      "x": 0.1529,
+      "y": 0.1068,
+      "nearest_concept": "see",
+      "similarity": 2.8897
+    },
+    {
+      "word": "Wsjr",
+      "x": 0.1461,
+      "y": -0.1087,
+      "nearest_concept": "obelisk",
+      "similarity": 1.5836
+    },
+    {
+      "word": "jri\u032f",
+      "x": -0.1311,
+      "y": 0.0077,
+      "nearest_concept": "first",
+      "similarity": 3.4329
+    },
+    {
+      "word": "\ua725n\u1e2b",
+      "x": 0.0792,
+      "y": 0.0415,
+      "nearest_concept": "people",
+      "similarity": 3.2868
+    },
+    {
+      "word": "rn",
+      "x": -0.0329,
+      "y": -0.0116,
+      "nearest_concept": "first",
+      "similarity": 3.454
+    },
+    {
+      "word": "\ua725",
+      "x": -0.1376,
+      "y": 0.0644,
+      "nearest_concept": "king",
+      "similarity": 2.1882
+    },
+    {
+      "word": "\u1e0fd",
+      "x": -0.0936,
+      "y": 0.0112,
+      "nearest_concept": "people",
+      "similarity": 2.8142
+    },
+    {
+      "word": "Ppy",
+      "x": -0.0188,
+      "y": 0.1203,
+      "nearest_concept": "queen",
+      "similarity": 3.0678
+    },
+    {
+      "word": "mj",
+      "x": 0.165,
+      "y": 0.0149,
+      "nearest_concept": "incantation",
+      "similarity": 1.098
+    },
+    {
+      "word": "jn",
+      "x": 0.1902,
+      "y": 0.0001,
+      "nearest_concept": "god",
+      "similarity": 2.2171
+    },
+    {
+      "word": "=[f]",
+      "x": -0.1094,
+      "y": 0.1518,
+      "nearest_concept": "father",
+      "similarity": 3.8092
+    },
+    {
+      "word": "[n]",
+      "x": 0.0041,
+      "y": 0.0914,
+      "nearest_concept": "take",
+      "similarity": 2.9361
+    },
+    {
+      "word": "=(j)",
+      "x": -0.1145,
+      "y": 0.1248,
+      "nearest_concept": "see",
+      "similarity": 3.5084
+    },
+    {
+      "word": "\u1e2b\ua723",
+      "x": 0.0431,
+      "y": 0.031,
+      "nearest_concept": "thousand",
+      "similarity": 5.6959
+    },
+    {
+      "word": "\u1e2br",
+      "x": 0.2317,
+      "y": 0.0816,
+      "nearest_concept": "god",
+      "similarity": 3.7563
+    },
+    {
+      "word": "4",
+      "x": -0.1101,
+      "y": -0.0392,
+      "nearest_concept": "million",
+      "similarity": 3.2119
+    },
+    {
+      "word": "z\ua723",
+      "x": -0.1841,
+      "y": -0.1948,
+      "nearest_concept": "son",
+      "similarity": 5.6905
+    },
+    {
+      "word": "m\ua723\ua725-\u1e2brw",
+      "x": 0.0148,
+      "y": -0.0267,
+      "nearest_concept": "one",
+      "similarity": 2.4921
+    },
+    {
+      "word": "n\u1e6fr",
+      "x": 0.6535,
+      "y": 0.0498,
+      "nearest_concept": "god",
+      "similarity": 6.6057
+    },
+    {
+      "word": "n\u1e6fr.pl",
+      "x": 0.4506,
+      "y": 0.0321,
+      "nearest_concept": "god",
+      "similarity": 5.4805
+    },
+    {
+      "word": "\u1e24r,w",
+      "x": 0.1995,
+      "y": -0.0532,
+      "nearest_concept": "deity",
+      "similarity": 2.6844
+    },
+    {
+      "word": "=[k]",
+      "x": 0.0178,
+      "y": 0.1992,
+      "nearest_concept": "love",
+      "similarity": 3.6678
+    },
+    {
+      "word": "jb",
+      "x": -0.0058,
+      "y": 0.0346,
+      "nearest_concept": "people",
+      "similarity": 3.0003
+    },
+    {
+      "word": "n,tj",
+      "x": -0.057,
+      "y": 0.0105,
+      "nearest_concept": "water",
+      "similarity": 3.3276
+    },
+    {
+      "word": "\u1e0fi\u032f",
+      "x": -0.0693,
+      "y": 0.0171,
+      "nearest_concept": "year",
+      "similarity": 3.1319
+    },
+    {
+      "word": "\u1e25n\ua725",
+      "x": -0.0982,
+      "y": 0.058,
+      "nearest_concept": "wife",
+      "similarity": 2.7761
+    },
+    {
+      "word": "r\u02be",
+      "x": -0.0408,
+      "y": 0.0065,
+      "nearest_concept": "official",
+      "similarity": 2.5667
+    },
+    {
+      "word": "[m]",
+      "x": -0.0677,
+      "y": 0.039,
+      "nearest_concept": "year",
+      "similarity": 3.3194
+    },
+    {
+      "word": "nfr",
+      "x": 0.0378,
+      "y": 0.1176,
+      "nearest_concept": "people",
+      "similarity": 3.8303
+    },
+    {
+      "word": "p,t",
+      "x": 0.0082,
+      "y": 0.0578,
+      "nearest_concept": "sky",
+      "similarity": 3.7682
+    },
+    {
+      "word": "n.t",
+      "x": 0.0169,
+      "y": 0.0454,
+      "nearest_concept": "river",
+      "similarity": 2.0328
+    },
+    {
+      "word": "jnk",
+      "x": -0.0351,
+      "y": 0.0742,
+      "nearest_concept": "see",
+      "similarity": 3.4773
+    },
+    {
+      "word": "=tw",
+      "x": -0.2841,
+      "y": 0.0174,
+      "nearest_concept": "man",
+      "similarity": 4.4502
+    },
+    {
+      "word": "\u1e25m",
+      "x": 0.1956,
+      "y": 0.0208,
+      "nearest_concept": "king",
+      "similarity": 3.5435
+    },
+    {
+      "word": "k\ua723",
+      "x": -0.0208,
+      "y": 0.0933,
+      "nearest_concept": "ram",
+      "similarity": 2.2584
+    },
+    {
+      "word": "=w",
+      "x": -0.0567,
+      "y": 0.1122,
+      "nearest_concept": "mother",
+      "similarity": 4.0635
+    },
+    {
+      "word": "\u1e0f,t",
+      "x": -0.1053,
+      "y": -0.034,
+      "nearest_concept": "peace",
+      "similarity": 3.307
+    },
+    {
+      "word": "j",
+      "x": 0.0935,
+      "y": -0.0146,
+      "nearest_concept": "god",
+      "similarity": 2.9217
+    },
+    {
+      "word": "pri\u032f",
+      "x": -0.0495,
+      "y": -0.0257,
+      "nearest_concept": "first",
+      "similarity": 2.7796
+    },
+    {
+      "word": "p\ua723y",
+      "x": -0.1463,
+      "y": 0.0437,
+      "nearest_concept": "year",
+      "similarity": 3.4123
+    },
+    {
+      "word": "=\u1e6fn",
+      "x": 0.0545,
+      "y": 0.172,
+      "nearest_concept": "see",
+      "similarity": 3.807
+    },
+    {
+      "word": "hrw",
+      "x": -0.0443,
+      "y": -0.0257,
+      "nearest_concept": "day",
+      "similarity": 1.7838
+    },
+    {
+      "word": "R\ua725w",
+      "x": 0.2611,
+      "y": 0.0989,
+      "nearest_concept": "god",
+      "similarity": 3.8507
+    },
+    {
+      "word": "\u1e6fw",
+      "x": -0.037,
+      "y": 0.0242,
+      "nearest_concept": "tree",
+      "similarity": 1.7985
+    },
+    {
+      "word": "Nfr-k\ua723-R\ua725w",
+      "x": 0.0903,
+      "y": 0.1569,
+      "nearest_concept": "change",
+      "similarity": 2.6599
+    },
+    {
+      "word": "mw",
+      "x": 0.0473,
+      "y": 0.1081,
+      "nearest_concept": "water",
+      "similarity": 6.0077
+    },
+    {
+      "word": "wr",
+      "x": -0.2259,
+      "y": -0.0144,
+      "nearest_concept": "lion",
+      "similarity": 2.4661
+    },
+    {
+      "word": "nswt",
+      "x": 0.0376,
+      "y": -0.0904,
+      "nearest_concept": "king",
+      "similarity": 5.6987
+    },
+    {
+      "word": "n\ua723",
+      "x": -0.1766,
+      "y": 0.0108,
+      "nearest_concept": "last",
+      "similarity": 3.1505
+    },
+    {
+      "word": "nb.t",
+      "x": -0.1499,
+      "y": 0.0491,
+      "nearest_concept": "two",
+      "similarity": 3.5387
+    },
+    {
+      "word": "t\u02be",
+      "x": -0.0427,
+      "y": 0.0571,
+      "nearest_concept": "take",
+      "similarity": 2.1982
+    },
+    {
+      "word": "=st",
+      "x": -0.0646,
+      "y": 0.11,
+      "nearest_concept": "mother",
+      "similarity": 4.0687
+    },
+    {
+      "word": "\u1e2bpr",
+      "x": 0.0188,
+      "y": 0.0354,
+      "nearest_concept": "one",
+      "similarity": 3.1802
+    },
+    {
+      "word": "tp",
+      "x": -0.1232,
+      "y": -0.072,
+      "nearest_concept": "last",
+      "similarity": 2.9678
+    },
+    {
+      "word": "jri\u032f.n",
+      "x": -0.1023,
+      "y": 0.0415,
+      "nearest_concept": "last",
+      "similarity": 3.5225
+    },
+    {
+      "word": "wn",
+      "x": -0.044,
+      "y": 0.0148,
+      "nearest_concept": "first",
+      "similarity": 3.2611
+    },
+    {
+      "word": "(j)\u1e2b,t",
+      "x": -0.0237,
+      "y": 0.0822,
+      "nearest_concept": "take",
+      "similarity": 2.3459
+    },
+    {
+      "word": "=tn",
+      "x": -0.0409,
+      "y": 0.1271,
+      "nearest_concept": "man",
+      "similarity": 3.4203
+    },
+    {
+      "word": "\ua725\ua723",
+      "x": 0.0818,
+      "y": 0.0252,
+      "nearest_concept": "god",
+      "similarity": 3.1145
+    },
+    {
+      "word": "wnn",
+      "x": -0.0129,
+      "y": 0.0375,
+      "nearest_concept": "time",
+      "similarity": 3.6141
+    },
+    {
+      "word": "\u1e96r",
+      "x": -0.0237,
+      "y": 0.0157,
+      "nearest_concept": "people",
+      "similarity": 3.6631
+    },
+    {
+      "word": "r\u1e2b",
+      "x": 0.0135,
+      "y": 0.0794,
+      "nearest_concept": "see",
+      "similarity": 3.472
+    },
+    {
+      "word": "s,t",
+      "x": -0.0557,
+      "y": -0.0235,
+      "nearest_concept": "king",
+      "similarity": 3.3774
+    },
+    {
+      "word": "m\ua723\ua723",
+      "x": -0.0807,
+      "y": 0.0549,
+      "nearest_concept": "first",
+      "similarity": 3.3592
+    },
+    {
+      "word": "=\u1e6f",
+      "x": 0.0272,
+      "y": 0.2067,
+      "nearest_concept": "see",
+      "similarity": 3.6055
+    },
+    {
+      "word": "tw",
+      "x": -0.0676,
+      "y": 0.0304,
+      "nearest_concept": "man",
+      "similarity": 2.1707
+    },
+    {
+      "word": "jmi\u032f",
+      "x": -0.001,
+      "y": 0.1508,
+      "nearest_concept": "make",
+      "similarity": 4.0568
+    },
+    {
+      "word": "k.t",
+      "x": -0.0763,
+      "y": 0.1029,
+      "nearest_concept": "take",
+      "similarity": 3.119
+    },
+    {
+      "word": "jri\u032f.t",
+      "x": -0.0902,
+      "y": 0.0152,
+      "nearest_concept": "first",
+      "similarity": 3.5506
+    },
+    {
+      "word": "\u1e25tp-\u1e0fi\u032f",
+      "x": 0.0488,
+      "y": -0.057,
+      "nearest_concept": "king",
+      "similarity": 3.9396
+    },
+    {
+      "word": "st",
+      "x": -0.1696,
+      "y": 0.0796,
+      "nearest_concept": "mother",
+      "similarity": 3.7242
+    },
+    {
+      "word": "\u1e25tp",
+      "x": -0.0797,
+      "y": 0.0268,
+      "nearest_concept": "peace",
+      "similarity": 3.9717
+    },
+    {
+      "word": "pr",
+      "x": 0.0843,
+      "y": 0.1872,
+      "nearest_concept": "see",
+      "similarity": 3.9022
+    },
+    {
+      "word": "js",
+      "x": 0.0297,
+      "y": 0.0323,
+      "nearest_concept": "change",
+      "similarity": 2.9709
+    },
+    {
+      "word": "m-\ua725",
+      "x": -0.1666,
+      "y": 0.0153,
+      "nearest_concept": "time",
+      "similarity": 3.3571
+    },
+    {
+      "word": "w\ua725",
+      "x": -0.0294,
+      "y": 0.0308,
+      "nearest_concept": "people",
+      "similarity": 3.5762
+    },
+    {
+      "word": "=n",
+      "x": 0.0391,
+      "y": 0.1704,
+      "nearest_concept": "take",
+      "similarity": 2.9792
+    },
+    {
+      "word": "(\u1e25r)",
+      "x": -0.1135,
+      "y": 0.0229,
+      "nearest_concept": "woman",
+      "similarity": 3.3314
+    },
+    {
+      "word": "\ua725\u1e25\ua725",
+      "x": -0.1044,
+      "y": 0.0058,
+      "nearest_concept": "year",
+      "similarity": 3.5696
+    },
+    {
+      "word": "\u1e0f(d)-mdw",
+      "x": 0.0234,
+      "y": -0.0453,
+      "nearest_concept": "million",
+      "similarity": 3.5934
+    },
+    {
+      "word": "bw",
+      "x": 0.0176,
+      "y": 0.1218,
+      "nearest_concept": "make",
+      "similarity": 3.858
+    },
+    {
+      "word": "R\ua725,w",
+      "x": 0.1588,
+      "y": 0.0725,
+      "nearest_concept": "god",
+      "similarity": 4.1796
+    },
+    {
+      "word": "wj",
+      "x": 0.0063,
+      "y": 0.1333,
+      "nearest_concept": "see",
+      "similarity": 3.0979
+    },
+    {
+      "word": "n\u1e25\u1e25",
+      "x": -0.0313,
+      "y": 0.0896,
+      "nearest_concept": "people",
+      "similarity": 3.3966
+    },
+    {
+      "word": "s\u1e0fm",
+      "x": -0.0077,
+      "y": -0.0282,
+      "nearest_concept": "people",
+      "similarity": 3.5555
+    },
+    {
+      "word": "Wnjs",
+      "x": 0.0588,
+      "y": 0.151,
+      "nearest_concept": "see",
+      "similarity": 3.0808
+    },
+    {
+      "word": "[\u1e25r]",
+      "x": 0.1068,
+      "y": 0.0235,
+      "nearest_concept": "god",
+      "similarity": 3.0062
+    },
+    {
+      "word": "\u1e96,t",
+      "x": 0.0094,
+      "y": 0.0106,
+      "nearest_concept": "heart",
+      "similarity": 3.5549
+    },
+    {
+      "word": "Jnp,w",
+      "x": 0.1517,
+      "y": 0.0066,
+      "nearest_concept": "god",
+      "similarity": 3.874
+    },
+    {
+      "word": "(W)sr(,w)",
+      "x": 0.102,
+      "y": 0.0566,
+      "nearest_concept": "god",
+      "similarity": 4.026
+    },
+    {
+      "word": "r\u1e0fi\u032f",
+      "x": -0.0253,
+      "y": 0.0627,
+      "nearest_concept": "one",
+      "similarity": 3.2787
+    },
+    {
+      "word": "\u1e0fi\u032f.t",
+      "x": -0.0978,
+      "y": 0.0042,
+      "nearest_concept": "year",
+      "similarity": 3.5448
+    },
+    {
+      "word": "sn",
+      "x": -0.0983,
+      "y": -0.032,
+      "nearest_concept": "mother",
+      "similarity": 4.2357
+    },
+    {
+      "word": "\u1e25(n)q,t",
+      "x": 0.0406,
+      "y": -0.1115,
+      "nearest_concept": "bread",
+      "similarity": 2.2275
+    },
+    {
+      "word": "mtw",
+      "x": -0.1577,
+      "y": 0.0485,
+      "nearest_concept": "people",
+      "similarity": 3.7746
+    },
+    {
+      "word": "m-b\ua723\u1e25",
+      "x": 0.0187,
+      "y": 0.0168,
+      "nearest_concept": "offering",
+      "similarity": 2.703
+    },
+    {
+      "word": "[r]",
+      "x": -0.0813,
+      "y": 0.0181,
+      "nearest_concept": "year",
+      "similarity": 3.2752
+    },
+    {
+      "word": "\u1e0fd-mdw",
+      "x": 0.0332,
+      "y": 0.0614,
+      "nearest_concept": "take",
+      "similarity": 3.1384
+    },
+    {
+      "word": "\ua723\u1e2b,t",
+      "x": 0.0835,
+      "y": -0.0078,
+      "nearest_concept": "peace",
+      "similarity": 2.6973
+    },
+    {
+      "word": "jwi\u032f",
+      "x": -0.009,
+      "y": 0.0491,
+      "nearest_concept": "year",
+      "similarity": 3.7359
+    },
+    {
+      "word": "r\ua725w-nb",
+      "x": 0.1164,
+      "y": 0.1578,
+      "nearest_concept": "day",
+      "similarity": 3.4069
+    },
+    {
+      "word": "\ua725n\u1e2b-(w)\u1e0f\ua723-s(nb)",
+      "x": 0.0373,
+      "y": 0.0512,
+      "nearest_concept": "peace",
+      "similarity": 2.846
+    },
+    {
+      "word": "jt",
+      "x": 0.133,
+      "y": -0.0795,
+      "nearest_concept": "son",
+      "similarity": 3.666
+    },
+    {
+      "word": "z",
+      "x": -0.2182,
+      "y": 0.024,
+      "nearest_concept": "man",
+      "similarity": 4.3721
+    },
+    {
+      "word": "jni\u032f",
+      "x": -0.0807,
+      "y": -0.0086,
+      "nearest_concept": "last",
+      "similarity": 3.3295
+    },
+    {
+      "word": "b\ua723",
+      "x": -0.033,
+      "y": 0.0325,
+      "nearest_concept": "master",
+      "similarity": 2.0043
+    },
+    {
+      "word": "=[j]",
+      "x": 0.0015,
+      "y": 0.152,
+      "nearest_concept": "love",
+      "similarity": 3.6944
+    },
+    {
+      "word": "nb(.t)",
+      "x": -0.0756,
+      "y": 0.0906,
+      "nearest_concept": "people",
+      "similarity": 4.0475
+    },
+    {
+      "word": "\u1e25m-k\ua723",
+      "x": -0.1263,
+      "y": 0.0815,
+      "nearest_concept": "head",
+      "similarity": 3.0836
+    },
+    {
+      "word": "zp-2",
+      "x": 0.0519,
+      "y": 0.2157,
+      "nearest_concept": "eat",
+      "similarity": 3.3886
+    },
+    {
+      "word": "\u2e22m\u2e23",
+      "x": -0.0991,
+      "y": 0.1006,
+      "nearest_concept": "water",
+      "similarity": 3.4406
+    },
+    {
+      "word": "n\ua723y",
+      "x": -0.2055,
+      "y": -0.0014,
+      "nearest_concept": "two",
+      "similarity": 3.8745
+    },
+    {
+      "word": "N(j),t",
+      "x": 0.0148,
+      "y": 0.0699,
+      "nearest_concept": "moment",
+      "similarity": 2.3052
+    },
+    {
+      "word": "\ua725n\u1e2b-w\u1e0f\ua723-s(nb)",
+      "x": 0.0325,
+      "y": 0.0352,
+      "nearest_concept": "peace",
+      "similarity": 3.2277
+    },
+    {
+      "word": "3",
+      "x": -0.0545,
+      "y": -0.0213,
+      "nearest_concept": "million",
+      "similarity": 3.8953
+    },
+    {
+      "word": "jt(j)",
+      "x": 0.1516,
+      "y": -0.0447,
+      "nearest_concept": "son",
+      "similarity": 4.6693
+    },
+    {
+      "word": "w\ua725b",
+      "x": -0.0303,
+      "y": 0.0157,
+      "nearest_concept": "water",
+      "similarity": 3.2391
+    },
+    {
+      "word": "m\u1e25",
+      "x": -0.2443,
+      "y": -0.0005,
+      "nearest_concept": "million",
+      "similarity": 3.1564
+    },
+    {
+      "word": "s\u1e2bm",
+      "x": -0.0248,
+      "y": 0.0459,
+      "nearest_concept": "people",
+      "similarity": 3.934
+    },
+    {
+      "word": "w\ua723,t",
+      "x": -0.1174,
+      "y": 0.0494,
+      "nearest_concept": "first",
+      "similarity": 3.2742
+    },
+    {
+      "word": "\ua725q",
+      "x": -0.1026,
+      "y": 0.0686,
+      "nearest_concept": "year",
+      "similarity": 3.6949
+    },
+    {
+      "word": "n(,j).t",
+      "x": -0.0316,
+      "y": 0.0104,
+      "nearest_concept": "first",
+      "similarity": 3.2916
+    },
+    {
+      "word": "tn",
+      "x": 0.0409,
+      "y": 0.0934,
+      "nearest_concept": "order",
+      "similarity": 3.3377
+    },
+    {
+      "word": "tm",
+      "x": -0.0666,
+      "y": -0.0124,
+      "nearest_concept": "water",
+      "similarity": 3.5441
+    },
+    {
+      "word": "n\u1e6fr-\ua725\ua723",
+      "x": 0.6389,
+      "y": 0.0859,
+      "nearest_concept": "god",
+      "similarity": 6.5913
+    },
+    {
+      "word": "jrp",
+      "x": 0.0424,
+      "y": 0.024,
+      "nearest_concept": "bread",
+      "similarity": 1.808
+    },
+    {
+      "word": "Ttj",
+      "x": -0.0626,
+      "y": 0.1178,
+      "nearest_concept": "water",
+      "similarity": 2.8874
+    },
+    {
+      "word": "r\u1e0fi\u032f.t",
+      "x": -0.064,
+      "y": 0.057,
+      "nearest_concept": "year",
+      "similarity": 3.4131
+    },
+    {
+      "word": "\u2329m\u232a",
+      "x": -0.0408,
+      "y": 0.0425,
+      "nearest_concept": "last",
+      "similarity": 3.5801
+    },
+    {
+      "word": "[Ppy]",
+      "x": 0.1279,
+      "y": 0.1298,
+      "nearest_concept": "snake",
+      "similarity": 2.1546
+    },
+    {
+      "word": "\u1e25\ua723,tj",
+      "x": -0.0486,
+      "y": 0.0886,
+      "nearest_concept": "heart",
+      "similarity": 3.6417
+    },
+    {
+      "word": "mr\u1e25,t",
+      "x": 0.0527,
+      "y": 0.1552,
+      "nearest_concept": "beer",
+      "similarity": 2.6406
+    },
+    {
+      "word": "\u1e25\u1e0f",
+      "x": -0.1351,
+      "y": -0.0182,
+      "nearest_concept": "gold",
+      "similarity": 4.2176
+    },
+    {
+      "word": "s\u1e0f,t",
+      "x": 0.0356,
+      "y": -0.0192,
+      "nearest_concept": "fire",
+      "similarity": 4.2057
+    },
+    {
+      "word": "z\ua723,t",
+      "x": -0.1578,
+      "y": -0.0855,
+      "nearest_concept": "son",
+      "similarity": 4.5638
+    },
+    {
+      "word": "nbw",
+      "x": -0.1381,
+      "y": 0.0299,
+      "nearest_concept": "gold",
+      "similarity": 5.1975
+    },
+    {
+      "word": "jmn,t",
+      "x": 0.0112,
+      "y": 0.0948,
+      "nearest_concept": "river",
+      "similarity": 3.8757
+    },
+    {
+      "word": "jr,t-\u1e24r,w",
+      "x": 0.2282,
+      "y": 0.1425,
+      "nearest_concept": "snake",
+      "similarity": 2.1434
+    },
+    {
+      "word": "R\ua725",
+      "x": 0.3065,
+      "y": 0.0863,
+      "nearest_concept": "magic",
+      "similarity": 2.459
+    },
+    {
+      "word": "jr,t.du",
+      "x": 0.0125,
+      "y": 0.1016,
+      "nearest_concept": "eye",
+      "similarity": 3.3769
+    },
+    {
+      "word": "w\ua723s",
+      "x": 0.1511,
+      "y": 0.1015,
+      "nearest_concept": "truth",
+      "similarity": 3.0508
+    },
+    {
+      "word": "[nswt]",
+      "x": 0.1066,
+      "y": -0.037,
+      "nearest_concept": "king",
+      "similarity": 5.1535
+    },
+    {
+      "word": "n\u1e6fr-nfr",
+      "x": 0.5045,
+      "y": 0.0902,
+      "nearest_concept": "soul",
+      "similarity": 2.9893
+    },
+    {
+      "word": "tw\u2261j",
+      "x": -0.0295,
+      "y": 0.1408,
+      "nearest_concept": "love",
+      "similarity": 4.0151
+    },
+    {
+      "word": "bj\ua723",
+      "x": 0.0075,
+      "y": 0.0673,
+      "nearest_concept": "falcon",
+      "similarity": 1.4106
+    },
+    {
+      "word": "[p,t]",
+      "x": 0.0137,
+      "y": 0.0629,
+      "nearest_concept": "sky",
+      "similarity": 2.9614
+    },
+    {
+      "word": "[\u1e2br]",
+      "x": 0.1224,
+      "y": 0.0461,
+      "nearest_concept": "truth",
+      "similarity": 3.0973
+    },
+    {
+      "word": "[jb]",
+      "x": 0.0728,
+      "y": 0.1245,
+      "nearest_concept": "heart",
+      "similarity": 3.5939
+    },
+    {
+      "word": "bjk",
+      "x": 0.0773,
+      "y": 0.1372,
+      "nearest_concept": "falcon",
+      "similarity": 1.5052
+    },
+    {
+      "word": "\u1e25mt",
+      "x": -0.1228,
+      "y": 0.0377,
+      "nearest_concept": "gold",
+      "similarity": 4.0083
+    },
+    {
+      "word": "n\u1e6fr,t",
+      "x": 0.372,
+      "y": 0.036,
+      "nearest_concept": "spirit",
+      "similarity": 3.05
+    },
+    {
+      "word": "s\u1e0fb",
+      "x": -0.0705,
+      "y": 0.0054,
+      "nearest_concept": "fear",
+      "similarity": 3.0562
+    },
+    {
+      "word": "dw\ua723,w",
+      "x": 0.0616,
+      "y": 0.0575,
+      "nearest_concept": "sun",
+      "similarity": 3.0843
+    },
+    {
+      "word": "jmn,tj",
+      "x": 0.0427,
+      "y": 0.027,
+      "nearest_concept": "river",
+      "similarity": 3.9938
+    },
+    {
+      "word": "\u2e22nswt\u2e23",
+      "x": 0.0347,
+      "y": -0.0409,
+      "nearest_concept": "king",
+      "similarity": 4.9632
+    },
+    {
+      "word": "btj",
+      "x": -0.1798,
+      "y": 0.0539,
+      "nearest_concept": "beer",
+      "similarity": 2.4718
+    },
+    {
+      "word": "Nb,tj",
+      "x": 0.0558,
+      "y": -0.083,
+      "nearest_concept": "sword",
+      "similarity": 2.6782
+    },
+    {
+      "word": "Nb,t",
+      "x": 0.0581,
+      "y": -0.0077,
+      "nearest_concept": "sword",
+      "similarity": 2.6855
+    },
+    {
+      "word": "rw",
+      "x": -0.0145,
+      "y": -0.0154,
+      "nearest_concept": "snake",
+      "similarity": 2.3049
+    },
+    {
+      "word": "nswt-bj,t",
+      "x": 0.0495,
+      "y": -0.1006,
+      "nearest_concept": "queen",
+      "similarity": 3.8731
+    },
+    {
+      "word": "[\u1e25\ua723,t]",
+      "x": -0.127,
+      "y": 0.0657,
+      "nearest_concept": "star",
+      "similarity": 2.8873
+    },
+    {
+      "word": "=[st]",
+      "x": -0.0292,
+      "y": 0.1416,
+      "nearest_concept": "love",
+      "similarity": 3.9252
+    },
+    {
+      "word": "n\u1e6fr.w",
+      "x": 0.4965,
+      "y": 0.0369,
+      "nearest_concept": "wisdom",
+      "similarity": 2.8206
+    },
+    {
+      "word": "jm\ua723\u1e2b,w(.w)",
+      "x": -0.0494,
+      "y": 0.0571,
+      "nearest_concept": "house",
+      "similarity": 3.6894
+    },
+    {
+      "word": "n\u1e6fri\u032f",
+      "x": 0.4044,
+      "y": 0.0499,
+      "nearest_concept": "spirit",
+      "similarity": 3.1233
+    },
+    {
+      "word": "m-b\ua723\u1e25-\ua725",
+      "x": -0.0078,
+      "y": 0.0135,
+      "nearest_concept": "offering",
+      "similarity": 2.6135
+    },
+    {
+      "word": "\u1e2bft(,j).pl",
+      "x": 0.0938,
+      "y": 0.0143,
+      "nearest_concept": "fear",
+      "similarity": 3.1328
+    },
+    {
+      "word": "s,t-jb",
+      "x": -0.1483,
+      "y": 0.0456,
+      "nearest_concept": "justice",
+      "similarity": 3.0108
+    },
+    {
+      "word": "n\u1e6fr,pl",
+      "x": 0.3518,
+      "y": 0.0829,
+      "nearest_concept": "spirit",
+      "similarity": 3.1389
+    },
+    {
+      "word": "\u1e24q,t",
+      "x": 0.0423,
+      "y": -0.1213,
+      "nearest_concept": "tomb",
+      "similarity": 2.3081
+    },
+    {
+      "word": "z\u1e25-n\u1e6fr",
+      "x": 0.3147,
+      "y": -0.0446,
+      "nearest_concept": "temple",
+      "similarity": 3.5248
+    },
+    {
+      "word": "[m-b\ua723\u1e25]",
+      "x": -0.0289,
+      "y": 0.0223,
+      "nearest_concept": "offering",
+      "similarity": 2.6217
+    },
+    {
+      "word": "jr,t.j",
+      "x": 0.0551,
+      "y": 0.1218,
+      "nearest_concept": "eye",
+      "similarity": 3.4356
+    },
+    {
+      "word": "msi\u032f.t.n",
+      "x": -0.088,
+      "y": 0.0094,
+      "nearest_concept": "priest",
+      "similarity": 2.5045
+    },
+    {
+      "word": "n\u1e6fr-dw\ua723(,wj)",
+      "x": 0.2715,
+      "y": 0.0691,
+      "nearest_concept": "moon",
+      "similarity": 2.7177
+    },
+    {
+      "word": "[\u1e2bft]",
+      "x": 0.05,
+      "y": 0.032,
+      "nearest_concept": "justice",
+      "similarity": 2.9789
+    },
+    {
+      "word": "z\ua723,t-nzw",
+      "x": -0.1373,
+      "y": 0.0149,
+      "nearest_concept": "death",
+      "similarity": 3.6467
+    },
+    {
+      "word": "d",
+      "x": -0.002,
+      "y": 0.0235,
+      "nearest_concept": "lion",
+      "similarity": 3.0277
+    },
+    {
+      "word": "n\u1e6fr-\ua725\ua723-\ua725n\u1e2b",
+      "x": 0.4796,
+      "y": 0.0412,
+      "nearest_concept": "tomb",
+      "similarity": 2.3222
+    },
+    {
+      "word": "n\u1e6f",
+      "x": 0.4518,
+      "y": 0.0374,
+      "nearest_concept": "earth",
+      "similarity": 3.3892
+    },
+    {
+      "word": "jr,t.\u1e71",
+      "x": 0.0158,
+      "y": 0.1033,
+      "nearest_concept": "eye",
+      "similarity": 3.3571
+    },
+    {
+      "word": "ms,t",
+      "x": -0.037,
+      "y": -0.1577,
+      "nearest_concept": "tomb",
+      "similarity": 2.3326
+    },
+    {
+      "word": "jtw",
+      "x": -0.0091,
+      "y": 0.0221,
+      "nearest_concept": "priest",
+      "similarity": 2.5925
+    },
+    {
+      "word": "n\u1e6fr-dw\ua723,w",
+      "x": 0.3512,
+      "y": 0.0714,
+      "nearest_concept": "sun",
+      "similarity": 2.9585
+    },
+    {
+      "word": "\u1e25p,t",
+      "x": -0.0119,
+      "y": 0.0356,
+      "nearest_concept": "sky",
+      "similarity": 2.9381
+    },
+    {
+      "word": "jy.tw",
+      "x": 0.0035,
+      "y": 0.094,
+      "nearest_concept": "truth",
+      "similarity": 3.007
+    },
+    {
+      "word": "\u1e25rw-nbw",
+      "x": 0.0484,
+      "y": 0.0823,
+      "nearest_concept": "sun",
+      "similarity": 3.0072
+    },
+    {
+      "word": "n\u1e6fr.j",
+      "x": 0.4758,
+      "y": 0.054,
+      "nearest_concept": "moon",
+      "similarity": 2.7371
+    },
+    {
+      "word": "sn\u0161",
+      "x": -0.0392,
+      "y": 0.0086,
+      "nearest_concept": "death",
+      "similarity": 3.6486
+    },
+    {
+      "word": "jm\ua723\u1e2b,wt(.w)",
+      "x": -0.0385,
+      "y": 0.0626,
+      "nearest_concept": "house",
+      "similarity": 3.6595
+    },
+    {
+      "word": "mn,tj",
+      "x": -0.0077,
+      "y": -0.021,
+      "nearest_concept": "river",
+      "similarity": 3.814
+    },
+    {
+      "word": "Nfr-nfr,pl-Jtn-[Nfr,t-jy,tj]",
+      "x": -0.0146,
+      "y": 0.0882,
+      "nearest_concept": "life",
+      "similarity": 3.9927
+    },
+    {
+      "word": "\ua725\u1e25-n\u1e6fr",
+      "x": 0.2712,
+      "y": -0.0071,
+      "nearest_concept": "temple",
+      "similarity": 3.5746
+    },
+    {
+      "word": "\u1e2bft.\u2329pl\u232a",
+      "x": 0.0669,
+      "y": 0.0113,
+      "nearest_concept": "fear",
+      "similarity": 3.0642
+    },
+    {
+      "word": "s\u1e0f,tj",
+      "x": 0.0285,
+      "y": -0.0035,
+      "nearest_concept": "fire",
+      "similarity": 3.5734
+    },
+    {
+      "word": "\u2e22dw\ua723,w\u2e23",
+      "x": 0.0116,
+      "y": 0.0504,
+      "nearest_concept": "star",
+      "similarity": 2.8686
+    },
+    {
+      "word": "jt-m\u1e25",
+      "x": -0.0871,
+      "y": 0.02,
+      "nearest_concept": "beer",
+      "similarity": 2.4463
+    },
+    {
+      "word": "[Nfr-nfr.pl]-Jtn-[Nfr.t-jy.tj]",
+      "x": -0.0187,
+      "y": 0.0967,
+      "nearest_concept": "life",
+      "similarity": 4.0011
+    },
+    {
+      "word": "mri\u032f.[t]",
+      "x": -0.0156,
+      "y": 0.0548,
+      "nearest_concept": "justice",
+      "similarity": 2.9545
+    },
+    {
+      "word": "\u1e25(n)q(,t)",
+      "x": -0.0158,
+      "y": 0.0344,
+      "nearest_concept": "bread",
+      "similarity": 3.2068
+    },
+    {
+      "word": "n\u1e6fr-\ua725n\u1e2b",
+      "x": 0.5272,
+      "y": 0.0551,
+      "nearest_concept": "sacred",
+      "similarity": 3.4609
+    },
+    {
+      "word": "n\u1e6fr-\u0161ps",
+      "x": 0.4508,
+      "y": 0.0575,
+      "nearest_concept": "earth",
+      "similarity": 3.3958
+    },
+    {
+      "word": "\u1e25tp(.t)",
+      "x": -0.0231,
+      "y": 0.0809,
+      "nearest_concept": "peace",
+      "similarity": 3.8335
+    },
+    {
+      "word": "kmw",
+      "x": -0.0786,
+      "y": 0.0661,
+      "nearest_concept": "water",
+      "similarity": 4.4024
+    },
+    {
+      "word": "n\u1e6fr-wr",
+      "x": 0.549,
+      "y": 0.0772,
+      "nearest_concept": "sacred",
+      "similarity": 3.5188
+    },
+    {
+      "word": "z\ua723,t-nzw-n-\u1e96,t\u2261\u2329f\u232a",
+      "x": -0.1085,
+      "y": 0.0243,
+      "nearest_concept": "death",
+      "similarity": 3.6165
+    },
+    {
+      "word": "n\u1e6fr-n\u1e6fr,j",
+      "x": 0.4615,
+      "y": 0.0579,
+      "nearest_concept": "sacred",
+      "similarity": 3.4333
+    },
+    {
+      "word": "[Nfr,t-jy.tj]",
+      "x": -0.0377,
+      "y": 0.1073,
+      "nearest_concept": "life",
+      "similarity": 4.0154
+    },
+    {
+      "word": "=[s]n(j)",
+      "x": -0.0159,
+      "y": 0.1574,
+      "nearest_concept": "love",
+      "similarity": 3.9039
+    },
+    {
+      "word": "n\u1e6fr.tpl",
+      "x": 0.3356,
+      "y": 0.0761,
+      "nearest_concept": "magic",
+      "similarity": 2.4034
+    },
+    {
+      "word": "n\u1e6fr-\u0161m\ua725(,w)",
+      "x": 0.3543,
+      "y": 0.0471,
+      "nearest_concept": "temple",
+      "similarity": 3.5276
+    },
+    {
+      "word": "n\u1e6fr+",
+      "x": 0.5514,
+      "y": 0.0496,
+      "nearest_concept": "god",
+      "similarity": 6.6235
+    },
+    {
+      "word": "[[\u1e25(n)q,t]]",
+      "x": -0.0306,
+      "y": -0.0295,
+      "nearest_concept": "bread",
+      "similarity": 3.1779
+    },
+    {
+      "word": "dw\ua723,wt",
+      "x": 0.0108,
+      "y": 0.04,
+      "nearest_concept": "star",
+      "similarity": 2.9088
+    },
+    {
+      "word": "jm\ua723\u1e2b,(w)t(.w)",
+      "x": -0.0488,
+      "y": 0.0469,
+      "nearest_concept": "house",
+      "similarity": 3.6952
+    },
+    {
+      "word": "n\u1e6frw",
+      "x": 0.5568,
+      "y": 0.0431,
+      "nearest_concept": "god",
+      "similarity": 6.665
+    },
+    {
+      "word": "\u1e25[(n)q,t]",
+      "x": -0.0189,
+      "y": -0.0146,
+      "nearest_concept": "bread",
+      "similarity": 3.22
+    },
+    {
+      "word": "n\u1e6fr-nfr(w)",
+      "x": 0.3865,
+      "y": 0.0804,
+      "nearest_concept": "soul",
+      "similarity": 2.8867
+    },
+    {
+      "word": "\u1e25tpp",
+      "x": -0.0073,
+      "y": 0.0392,
+      "nearest_concept": "peace",
+      "similarity": 3.8746
+    },
+    {
+      "word": "\u1e2bft,j-n-\u1e24r,w",
+      "x": 0.1992,
+      "y": -0.0103,
+      "nearest_concept": "sword",
+      "similarity": 2.6791
+    },
+    {
+      "word": "s\u1e0f,ty",
+      "x": 0.0316,
+      "y": 0.0337,
+      "nearest_concept": "fire",
+      "similarity": 3.5527
+    },
+    {
+      "word": "n\u1e6fri\u032f.n",
+      "x": 0.2747,
+      "y": 0.09,
+      "nearest_concept": "magic",
+      "similarity": 2.3977
+    },
+    {
+      "word": "rmw",
+      "x": -0.0522,
+      "y": 0.0714,
+      "nearest_concept": "water",
+      "similarity": 4.416
+    },
+    {
+      "word": "Nb,t-jtj",
+      "x": -0.0272,
+      "y": 0.0388,
+      "nearest_concept": "mother",
+      "similarity": 4.3349
+    },
+    {
+      "word": "n\u1e6fr-\ua724\ua722",
+      "x": 0.5254,
+      "y": 0.0658,
+      "nearest_concept": "god",
+      "similarity": 6.6387
+    },
+    {
+      "word": "n\u1e6fr.t",
+      "x": 0.4456,
+      "y": 0.0502,
+      "nearest_concept": "earth",
+      "similarity": 3.393
+    }
+  ],
+  "english": [
+    {
+      "word": "fire",
+      "x": -0.1577,
+      "y": -0.7802,
+      "category": "elements"
+    },
+    {
+      "word": "water",
+      "x": -0.2162,
+      "y": 1.0944,
+      "category": "elements"
+    },
+    {
+      "word": "earth",
+      "x": 1.2969,
+      "y": 1.131,
+      "category": "elements"
+    },
+    {
+      "word": "air",
+      "x": -0.3231,
+      "y": 0.0144,
+      "category": "elements"
+    },
+    {
+      "word": "light",
+      "x": -0.0694,
+      "y": 0.6193,
+      "category": "elements"
+    },
+    {
+      "word": "darkness",
+      "x": 1.1258,
+      "y": 0.2892,
+      "category": "elements"
+    },
+    {
+      "word": "shadow",
+      "x": 0.2366,
+      "y": 0.1211,
+      "category": "elements"
+    },
+    {
+      "word": "wind",
+      "x": 0.6178,
+      "y": 0.0591,
+      "category": "elements"
+    },
+    {
+      "word": "storm",
+      "x": 0.0273,
+      "y": -0.5599,
+      "category": "elements"
+    },
+    {
+      "word": "rain",
+      "x": 0.6745,
+      "y": 0.0374,
+      "category": "elements"
+    },
+    {
+      "word": "flood",
+      "x": 0.2332,
+      "y": -0.3332,
+      "category": "elements"
+    },
+    {
+      "word": "drought",
+      "x": -0.1598,
+      "y": -0.102,
+      "category": "elements"
+    },
+    {
+      "word": "heat",
+      "x": -0.2206,
+      "y": -0.3499,
+      "category": "elements"
+    },
+    {
+      "word": "cold",
+      "x": -0.7282,
+      "y": -0.1817,
+      "category": "elements"
+    },
+    {
+      "word": "sun",
+      "x": 0.7511,
+      "y": 0.5461,
+      "category": "celestial"
+    },
+    {
+      "word": "moon",
+      "x": 0.7095,
+      "y": 0.574,
+      "category": "celestial"
+    },
+    {
+      "word": "star",
+      "x": -0.7498,
+      "y": 0.8186,
+      "category": "celestial"
+    },
+    {
+      "word": "sky",
+      "x": 0.5231,
+      "y": 0.3004,
+      "category": "celestial"
+    },
+    {
+      "word": "heaven",
+      "x": 2.5403,
+      "y": -0.1636,
+      "category": "celestial"
+    },
+    {
+      "word": "cosmos",
+      "x": 1.0399,
+      "y": 1.0801,
+      "category": "celestial"
+    },
+    {
+      "word": "universe",
+      "x": 1.3303,
+      "y": 1.208,
+      "category": "celestial"
+    },
+    {
+      "word": "dawn",
+      "x": 0.024,
+      "y": -0.1619,
+      "category": "celestial"
+    },
+    {
+      "word": "dusk",
+      "x": 0.3587,
+      "y": 0.018,
+      "category": "celestial"
+    },
+    {
+      "word": "night",
+      "x": -0.6917,
+      "y": 0.0908,
+      "category": "celestial"
+    },
+    {
+      "word": "day",
+      "x": -0.2515,
+      "y": 0.3066,
+      "category": "time"
+    },
+    {
+      "word": "horizon",
+      "x": 0.2629,
+      "y": 0.7125,
+      "category": "celestial"
+    },
+    {
+      "word": "eclipse",
+      "x": 0.8204,
+      "y": 0.4979,
+      "category": "celestial"
+    },
+    {
+      "word": "constellation",
+      "x": 0.5896,
+      "y": 0.2854,
+      "category": "celestial"
+    },
+    {
+      "word": "river",
+      "x": -0.0456,
+      "y": 0.2224,
+      "category": "geography"
+    },
+    {
+      "word": "nile",
+      "x": 0.173,
+      "y": -0.4975,
+      "category": "egyptian"
+    },
+    {
+      "word": "mountain",
+      "x": -0.1087,
+      "y": 0.0727,
+      "category": "geography"
+    },
+    {
+      "word": "desert",
+      "x": 0.057,
+      "y": 0.4431,
+      "category": "geography"
+    },
+    {
+      "word": "valley",
+      "x": 0.2947,
+      "y": 0.2934,
+      "category": "geography"
+    },
+    {
+      "word": "oasis",
+      "x": 0.3641,
+      "y": 1.2576,
+      "category": "geography"
+    },
+    {
+      "word": "sea",
+      "x": 0.0771,
+      "y": 0.4512,
+      "category": "geography"
+    },
+    {
+      "word": "ocean",
+      "x": 0.2344,
+      "y": 0.903,
+      "category": "geography"
+    },
+    {
+      "word": "lake",
+      "x": -0.1714,
+      "y": 0.5465,
+      "category": "geography"
+    },
+    {
+      "word": "island",
+      "x": -0.6437,
+      "y": 0.3855,
+      "category": "geography"
+    },
+    {
+      "word": "field",
+      "x": -0.4697,
+      "y": 0.6154,
+      "category": "geography"
+    },
+    {
+      "word": "land",
+      "x": 0.3231,
+      "y": 0.8303,
+      "category": "geography"
+    },
+    {
+      "word": "shore",
+      "x": -0.181,
+      "y": 0.9066,
+      "category": "geography"
+    },
+    {
+      "word": "bank",
+      "x": -0.774,
+      "y": 0.542,
+      "category": "geography"
+    },
+    {
+      "word": "tree",
+      "x": 0.1588,
+      "y": 0.124,
+      "category": "plants"
+    },
+    {
+      "word": "flower",
+      "x": -0.4121,
+      "y": 0.3519,
+      "category": "plants"
+    },
+    {
+      "word": "lotus",
+      "x": 0.1887,
+      "y": 0.6744,
+      "category": "plants"
+    },
+    {
+      "word": "papyrus",
+      "x": 0.0119,
+      "y": -0.0033,
+      "category": "plants"
+    },
+    {
+      "word": "reed",
+      "x": -0.7189,
+      "y": 0.1995,
+      "category": "plants"
+    },
+    {
+      "word": "grain",
+      "x": -0.0236,
+      "y": 0.7166,
+      "category": "plants"
+    },
+    {
+      "word": "wheat",
+      "x": -0.1884,
+      "y": 0.3533,
+      "category": "plants"
+    },
+    {
+      "word": "barley",
+      "x": -0.0984,
+      "y": -0.0386,
+      "category": "plants"
+    },
+    {
+      "word": "vine",
+      "x": 0.0289,
+      "y": 0.2312,
+      "category": "plants"
+    },
+    {
+      "word": "fruit",
+      "x": 0.3424,
+      "y": 0.692,
+      "category": "plants"
+    },
+    {
+      "word": "seed",
+      "x": -0.3144,
+      "y": 0.6491,
+      "category": "plants"
+    },
+    {
+      "word": "root",
+      "x": 0.624,
+      "y": 0.0583,
+      "category": "plants"
+    },
+    {
+      "word": "leaf",
+      "x": 0.3646,
+      "y": 0.5639,
+      "category": "plants"
+    },
+    {
+      "word": "wood",
+      "x": -0.3803,
+      "y": 0.1303,
+      "category": "plants"
+    },
+    {
+      "word": "lion",
+      "x": -0.1939,
+      "y": -0.1746,
+      "category": "animals"
+    },
+    {
+      "word": "snake",
+      "x": 0.2463,
+      "y": 0.022,
+      "category": "animals"
+    },
+    {
+      "word": "cobra",
+      "x": -0.2316,
+      "y": -0.211,
+      "category": "animals"
+    },
+    {
+      "word": "crocodile",
+      "x": -0.1779,
+      "y": 0.516,
+      "category": "animals"
+    },
+    {
+      "word": "hippopotamus",
+      "x": 0.0911,
+      "y": 0.0189,
+      "category": "animals"
+    },
+    {
+      "word": "bull",
+      "x": -0.3239,
+      "y": -0.0524,
+      "category": "animals"
+    },
+    {
+      "word": "cow",
+      "x": -0.0943,
+      "y": -0.4888,
+      "category": "animals"
+    },
+    {
+      "word": "ram",
+      "x": 0.7453,
+      "y": -0.1963,
+      "category": "animals"
+    },
+    {
+      "word": "goat",
+      "x": 0.2481,
+      "y": -0.1928,
+      "category": "animals"
+    },
+    {
+      "word": "dog",
+      "x": -0.6588,
+      "y": -0.026,
+      "category": "animals"
+    },
+    {
+      "word": "cat",
+      "x": -0.1844,
+      "y": 0.2605,
+      "category": "animals"
+    },
+    {
+      "word": "bird",
+      "x": -0.3462,
+      "y": -0.5339,
+      "category": "animals"
+    },
+    {
+      "word": "falcon",
+      "x": -0.2134,
+      "y": 0.3041,
+      "category": "animals"
+    },
+    {
+      "word": "ibis",
+      "x": -0.2747,
+      "y": 0.1997,
+      "category": "animals"
+    },
+    {
+      "word": "vulture",
+      "x": -0.118,
+      "y": 0.2874,
+      "category": "animals"
+    },
+    {
+      "word": "scarab",
+      "x": 0.5494,
+      "y": -0.0893,
+      "category": "egyptian"
+    },
+    {
+      "word": "beetle",
+      "x": -0.6353,
+      "y": 0.2896,
+      "category": "animals"
+    },
+    {
+      "word": "fish",
+      "x": -0.3876,
+      "y": 0.8971,
+      "category": "animals"
+    },
+    {
+      "word": "frog",
+      "x": -0.22,
+      "y": 0.0619,
+      "category": "animals"
+    },
+    {
+      "word": "jackal",
+      "x": -0.0661,
+      "y": 0.1713,
+      "category": "animals"
+    },
+    {
+      "word": "baboon",
+      "x": 0.3265,
+      "y": -0.1046,
+      "category": "animals"
+    },
+    {
+      "word": "monkey",
+      "x": 0.3424,
+      "y": 0.2199,
+      "category": "animals"
+    },
+    {
+      "word": "god",
+      "x": 4.7368,
+      "y": 0.2582,
+      "category": "deities"
+    },
+    {
+      "word": "goddess",
+      "x": 3.1218,
+      "y": 0.3835,
+      "category": "deities"
+    },
+    {
+      "word": "divine",
+      "x": 3.3103,
+      "y": 0.2216,
+      "category": "deities"
+    },
+    {
+      "word": "sacred",
+      "x": 2.0366,
+      "y": 0.4002,
+      "category": "deities"
+    },
+    {
+      "word": "holy",
+      "x": 2.2564,
+      "y": -0.5447,
+      "category": "deities"
+    },
+    {
+      "word": "deity",
+      "x": 3.2611,
+      "y": -0.1051,
+      "category": "deities"
+    },
+    {
+      "word": "immortal",
+      "x": 1.2002,
+      "y": -0.0912,
+      "category": "deities"
+    },
+    {
+      "word": "eternal",
+      "x": 2.1582,
+      "y": 0.3428,
+      "category": "time"
+    },
+    {
+      "word": "creator",
+      "x": 1.3379,
+      "y": 0.2724,
+      "category": "deities"
+    },
+    {
+      "word": "destroyer",
+      "x": 0.4665,
+      "y": 0.5893,
+      "category": "deities"
+    },
+    {
+      "word": "protector",
+      "x": 1.1271,
+      "y": -0.1004,
+      "category": "deities"
+    },
+    {
+      "word": "guardian",
+      "x": 0.6916,
+      "y": -0.1155,
+      "category": "deities"
+    },
+    {
+      "word": "death",
+      "x": -0.4485,
+      "y": -3.4697,
+      "category": "states"
+    },
+    {
+      "word": "life",
+      "x": 0.0181,
+      "y": 2.5833,
+      "category": "states"
+    },
+    {
+      "word": "rebirth",
+      "x": 1.4061,
+      "y": 0.2204,
+      "category": "afterlife"
+    },
+    {
+      "word": "resurrection",
+      "x": 1.5049,
+      "y": -0.4845,
+      "category": "afterlife"
+    },
+    {
+      "word": "soul",
+      "x": 0.8036,
+      "y": 0.4996,
+      "category": "afterlife"
+    },
+    {
+      "word": "spirit",
+      "x": 1.1404,
+      "y": 0.7529,
+      "category": "afterlife"
+    },
+    {
+      "word": "afterlife",
+      "x": 1.6794,
+      "y": 0.2653,
+      "category": "afterlife"
+    },
+    {
+      "word": "underworld",
+      "x": 0.5559,
+      "y": 0.2127,
+      "category": "afterlife"
+    },
+    {
+      "word": "paradise",
+      "x": 0.7159,
+      "y": 0.7243,
+      "category": "afterlife"
+    },
+    {
+      "word": "judgment",
+      "x": 0.8077,
+      "y": -0.2608,
+      "category": "afterlife"
+    },
+    {
+      "word": "eternity",
+      "x": 1.5664,
+      "y": 0.6578,
+      "category": "afterlife"
+    },
+    {
+      "word": "mummy",
+      "x": 0.2923,
+      "y": -0.2301,
+      "category": "afterlife"
+    },
+    {
+      "word": "tomb",
+      "x": 0.8442,
+      "y": -0.7626,
+      "category": "afterlife"
+    },
+    {
+      "word": "coffin",
+      "x": 0.0291,
+      "y": -1.1659,
+      "category": "afterlife"
+    },
+    {
+      "word": "burial",
+      "x": 0.4258,
+      "y": -1.3345,
+      "category": "afterlife"
+    },
+    {
+      "word": "funeral",
+      "x": -0.1236,
+      "y": -1.6413,
+      "category": "afterlife"
+    },
+    {
+      "word": "magic",
+      "x": 0.7468,
+      "y": 0.3079,
+      "category": "magic"
+    },
+    {
+      "word": "spell",
+      "x": 0.264,
+      "y": 0.2173,
+      "category": "magic"
+    },
+    {
+      "word": "curse",
+      "x": 1.7392,
+      "y": -0.6186,
+      "category": "magic"
+    },
+    {
+      "word": "blessing",
+      "x": 2.0278,
+      "y": 0.0332,
+      "category": "magic"
+    },
+    {
+      "word": "amulet",
+      "x": 1.294,
+      "y": -0.1118,
+      "category": "magic"
+    },
+    {
+      "word": "charm",
+      "x": -0.3017,
+      "y": 1.245,
+      "category": "magic"
+    },
+    {
+      "word": "ritual",
+      "x": 1.5187,
+      "y": -0.3363,
+      "category": "magic"
+    },
+    {
+      "word": "ceremony",
+      "x": 0.336,
+      "y": -0.5667,
+      "category": "magic"
+    },
+    {
+      "word": "offering",
+      "x": 0.4137,
+      "y": 0.9164,
+      "category": "magic"
+    },
+    {
+      "word": "sacrifice",
+      "x": 1.7576,
+      "y": 0.176,
+      "category": "magic"
+    },
+    {
+      "word": "prayer",
+      "x": 2.4418,
+      "y": -0.0565,
+      "category": "magic"
+    },
+    {
+      "word": "incantation",
+      "x": 1.0379,
+      "y": -0.7443,
+      "category": "magic"
+    },
+    {
+      "word": "king",
+      "x": 0.4549,
+      "y": -1.0209,
+      "category": "royalty"
+    },
+    {
+      "word": "queen",
+      "x": 0.3295,
+      "y": -0.5182,
+      "category": "royalty"
+    },
+    {
+      "word": "pharaoh",
+      "x": 1.6349,
+      "y": -0.7771,
+      "category": "royalty"
+    },
+    {
+      "word": "prince",
+      "x": -0.4079,
+      "y": -0.7393,
+      "category": "royalty"
+    },
+    {
+      "word": "princess",
+      "x": 0.1354,
+      "y": -0.5523,
+      "category": "royalty"
+    },
+    {
+      "word": "ruler",
+      "x": 0.5511,
+      "y": -1.1163,
+      "category": "royalty"
+    },
+    {
+      "word": "lord",
+      "x": 2.0886,
+      "y": -1.0444,
+      "category": "royalty"
+    },
+    {
+      "word": "throne",
+      "x": 0.6988,
+      "y": -1.1986,
+      "category": "royalty"
+    },
+    {
+      "word": "crown",
+      "x": -0.3761,
+      "y": -0.1183,
+      "category": "royalty"
+    },
+    {
+      "word": "scepter",
+      "x": 0.5671,
+      "y": -0.1859,
+      "category": "royalty"
+    },
+    {
+      "word": "palace",
+      "x": -0.28,
+      "y": 0.0294,
+      "category": "royalty"
+    },
+    {
+      "word": "dynasty",
+      "x": 0.5303,
+      "y": -0.4042,
+      "category": "royalty"
+    },
+    {
+      "word": "reign",
+      "x": 0.4754,
+      "y": -0.803,
+      "category": "royalty"
+    },
+    {
+      "word": "priest",
+      "x": 0.3458,
+      "y": -0.5235,
+      "category": "titles"
+    },
+    {
+      "word": "priestess",
+      "x": 1.5008,
+      "y": -0.4732,
+      "category": "titles"
+    },
+    {
+      "word": "scribe",
+      "x": 0.4311,
+      "y": 0.4025,
+      "category": "titles"
+    },
+    {
+      "word": "vizier",
+      "x": 0.8731,
+      "y": -0.8648,
+      "category": "titles"
+    },
+    {
+      "word": "governor",
+      "x": -0.6476,
+      "y": -0.9822,
+      "category": "titles"
+    },
+    {
+      "word": "official",
+      "x": -0.7089,
+      "y": -0.9352,
+      "category": "titles"
+    },
+    {
+      "word": "servant",
+      "x": 0.0815,
+      "y": 0.142,
+      "category": "titles"
+    },
+    {
+      "word": "slave",
+      "x": 0.268,
+      "y": 0.2744,
+      "category": "titles"
+    },
+    {
+      "word": "master",
+      "x": -0.1563,
+      "y": 0.1918,
+      "category": "titles"
+    },
+    {
+      "word": "overseer",
+      "x": 0.4054,
+      "y": -0.1095,
+      "category": "titles"
+    },
+    {
+      "word": "commander",
+      "x": -0.1604,
+      "y": -0.5128,
+      "category": "titles"
+    },
+    {
+      "word": "general",
+      "x": -0.2181,
+      "y": -0.3137,
+      "category": "titles"
+    },
+    {
+      "word": "people",
+      "x": -0.2527,
+      "y": 0.0658,
+      "category": "society"
+    },
+    {
+      "word": "man",
+      "x": -2.4087,
+      "y": 0.2582,
+      "category": "society"
+    },
+    {
+      "word": "woman",
+      "x": -1.619,
+      "y": 0.2346,
+      "category": "society"
+    },
+    {
+      "word": "child",
+      "x": -0.0168,
+      "y": -0.3229,
+      "category": "society"
+    },
+    {
+      "word": "elder",
+      "x": 0.1131,
+      "y": -0.8789,
+      "category": "society"
+    },
+    {
+      "word": "family",
+      "x": -0.4146,
+      "y": 0.7451,
+      "category": "society"
+    },
+    {
+      "word": "mother",
+      "x": 0.0842,
+      "y": 0.0291,
+      "category": "society"
+    },
+    {
+      "word": "father",
+      "x": -0.1975,
+      "y": -0.3844,
+      "category": "society"
+    },
+    {
+      "word": "son",
+      "x": -0.4696,
+      "y": -1.0619,
+      "category": "society"
+    },
+    {
+      "word": "daughter",
+      "x": -0.3809,
+      "y": -0.5868,
+      "category": "society"
+    },
+    {
+      "word": "brother",
+      "x": -0.6293,
+      "y": -1.1052,
+      "category": "society"
+    },
+    {
+      "word": "sister",
+      "x": 0.0782,
+      "y": -0.2541,
+      "category": "society"
+    },
+    {
+      "word": "wife",
+      "x": -0.5206,
+      "y": -0.3545,
+      "category": "society"
+    },
+    {
+      "word": "husband",
+      "x": -0.3905,
+      "y": -0.1416,
+      "category": "society"
+    },
+    {
+      "word": "truth",
+      "x": 1.2607,
+      "y": 0.1066,
+      "category": "virtues"
+    },
+    {
+      "word": "justice",
+      "x": 0.3782,
+      "y": -0.5439,
+      "category": "virtues"
+    },
+    {
+      "word": "order",
+      "x": 0.4422,
+      "y": 0.3156,
+      "category": "virtues"
+    },
+    {
+      "word": "balance",
+      "x": 0.0612,
+      "y": 1.0321,
+      "category": "virtues"
+    },
+    {
+      "word": "harmony",
+      "x": 1.1711,
+      "y": 1.3561,
+      "category": "virtues"
+    },
+    {
+      "word": "peace",
+      "x": 1.0825,
+      "y": 0.3152,
+      "category": "virtues"
+    },
+    {
+      "word": "wisdom",
+      "x": 1.672,
+      "y": 0.8272,
+      "category": "virtues"
+    },
+    {
+      "word": "knowledge",
+      "x": 0.845,
+      "y": 0.9363,
+      "category": "virtues"
+    },
+    {
+      "word": "power",
+      "x": 0.0895,
+      "y": 0.2753,
+      "category": "virtues"
+    },
+    {
+      "word": "strength",
+      "x": 0.673,
+      "y": 0.5609,
+      "category": "virtues"
+    },
+    {
+      "word": "courage",
+      "x": 0.7697,
+      "y": 0.608,
+      "category": "virtues"
+    },
+    {
+      "word": "honor",
+      "x": 0.829,
+      "y": -0.4079,
+      "category": "virtues"
+    },
+    {
+      "word": "love",
+      "x": 1.0061,
+      "y": 0.939,
+      "category": "emotions"
+    },
+    {
+      "word": "hate",
+      "x": 1.0521,
+      "y": -0.5253,
+      "category": "emotions"
+    },
+    {
+      "word": "fear",
+      "x": 0.7396,
+      "y": -0.3401,
+      "category": "emotions"
+    },
+    {
+      "word": "joy",
+      "x": 1.1863,
+      "y": 0.3071,
+      "category": "emotions"
+    },
+    {
+      "word": "sorrow",
+      "x": 1.5111,
+      "y": -0.6551,
+      "category": "emotions"
+    },
+    {
+      "word": "anger",
+      "x": 0.3755,
+      "y": -0.4563,
+      "category": "emotions"
+    },
+    {
+      "word": "hope",
+      "x": 0.6964,
+      "y": 0.5617,
+      "category": "emotions"
+    },
+    {
+      "word": "desire",
+      "x": 0.6191,
+      "y": 0.5446,
+      "category": "emotions"
+    },
+    {
+      "word": "passion",
+      "x": 0.5363,
+      "y": 0.7103,
+      "category": "emotions"
+    },
+    {
+      "word": "happiness",
+      "x": 1.5212,
+      "y": 1.2923,
+      "category": "emotions"
+    },
+    {
+      "word": "grief",
+      "x": 1.0033,
+      "y": -0.6474,
+      "category": "emotions"
+    },
+    {
+      "word": "terror",
+      "x": -0.1806,
+      "y": -0.8493,
+      "category": "emotions"
+    },
+    {
+      "word": "birth",
+      "x": 0.4892,
+      "y": -0.6032,
+      "category": "states"
+    },
+    {
+      "word": "transformation",
+      "x": 0.2398,
+      "y": 1.2222,
+      "category": "states"
+    },
+    {
+      "word": "change",
+      "x": 0.1347,
+      "y": 0.8303,
+      "category": "states"
+    },
+    {
+      "word": "growth",
+      "x": -0.4269,
+      "y": 1.1558,
+      "category": "states"
+    },
+    {
+      "word": "decay",
+      "x": 0.4162,
+      "y": -0.155,
+      "category": "states"
+    },
+    {
+      "word": "beginning",
+      "x": 0.1657,
+      "y": 0.2894,
+      "category": "states"
+    },
+    {
+      "word": "ending",
+      "x": 0.1482,
+      "y": 0.1777,
+      "category": "states"
+    },
+    {
+      "word": "creation",
+      "x": 1.1083,
+      "y": 0.2507,
+      "category": "states"
+    },
+    {
+      "word": "destruction",
+      "x": 1.2541,
+      "y": -0.8285,
+      "category": "states"
+    },
+    {
+      "word": "speak",
+      "x": 0.7071,
+      "y": 0.2354,
+      "category": "actions"
+    },
+    {
+      "word": "see",
+      "x": 0.3681,
+      "y": 0.6671,
+      "category": "actions"
+    },
+    {
+      "word": "hear",
+      "x": 0.7587,
+      "y": -0.4495,
+      "category": "actions"
+    },
+    {
+      "word": "eat",
+      "x": 0.679,
+      "y": 1.1459,
+      "category": "actions"
+    },
+    {
+      "word": "drink",
+      "x": 0.0403,
+      "y": 0.5495,
+      "category": "actions"
+    },
+    {
+      "word": "sleep",
+      "x": 0.0952,
+      "y": 0.4869,
+      "category": "actions"
+    },
+    {
+      "word": "wake",
+      "x": 0.1571,
+      "y": -0.6324,
+      "category": "actions"
+    },
+    {
+      "word": "walk",
+      "x": -0.0949,
+      "y": 0.839,
+      "category": "actions"
+    },
+    {
+      "word": "run",
+      "x": -0.6046,
+      "y": 0.5639,
+      "category": "actions"
+    },
+    {
+      "word": "fight",
+      "x": -0.215,
+      "y": -0.3025,
+      "category": "actions"
+    },
+    {
+      "word": "kill",
+      "x": 0.1411,
+      "y": -1.2033,
+      "category": "actions"
+    },
+    {
+      "word": "heal",
+      "x": 1.0527,
+      "y": 0.4231,
+      "category": "actions"
+    },
+    {
+      "word": "build",
+      "x": -0.0442,
+      "y": 1.0449,
+      "category": "actions"
+    },
+    {
+      "word": "make",
+      "x": -0.1228,
+      "y": 1.1157,
+      "category": "actions"
+    },
+    {
+      "word": "give",
+      "x": 0.3482,
+      "y": 0.6664,
+      "category": "actions"
+    },
+    {
+      "word": "take",
+      "x": -0.1962,
+      "y": 0.6461,
+      "category": "actions"
+    },
+    {
+      "word": "open",
+      "x": -0.3555,
+      "y": 0.7177,
+      "category": "actions"
+    },
+    {
+      "word": "close",
+      "x": -0.2732,
+      "y": 0.3345,
+      "category": "actions"
+    },
+    {
+      "word": "rise",
+      "x": -0.0494,
+      "y": -0.0899,
+      "category": "actions"
+    },
+    {
+      "word": "fall",
+      "x": -0.0156,
+      "y": -0.1032,
+      "category": "actions"
+    },
+    {
+      "word": "head",
+      "x": -0.7891,
+      "y": -0.3571,
+      "category": "body"
+    },
+    {
+      "word": "face",
+      "x": -0.7336,
+      "y": 0.1665,
+      "category": "body"
+    },
+    {
+      "word": "eye",
+      "x": -0.1184,
+      "y": 0.5657,
+      "category": "body"
+    },
+    {
+      "word": "mouth",
+      "x": -0.0407,
+      "y": -0.3168,
+      "category": "body"
+    },
+    {
+      "word": "ear",
+      "x": 0.1051,
+      "y": -0.1591,
+      "category": "body"
+    },
+    {
+      "word": "nose",
+      "x": -0.5306,
+      "y": -0.08,
+      "category": "body"
+    },
+    {
+      "word": "hand",
+      "x": -0.2894,
+      "y": -0.0994,
+      "category": "body"
+    },
+    {
+      "word": "arm",
+      "x": -0.6965,
+      "y": 0.7638,
+      "category": "body"
+    },
+    {
+      "word": "foot",
+      "x": -0.8635,
+      "y": 0.0162,
+      "category": "body"
+    },
+    {
+      "word": "leg",
+      "x": -1.789,
+      "y": -0.2322,
+      "category": "body"
+    },
+    {
+      "word": "heart",
+      "x": 0.0651,
+      "y": -0.2055,
+      "category": "body"
+    },
+    {
+      "word": "blood",
+      "x": 0.4263,
+      "y": -0.4076,
+      "category": "body"
+    },
+    {
+      "word": "bone",
+      "x": -0.0013,
+      "y": -0.0242,
+      "category": "body"
+    },
+    {
+      "word": "flesh",
+      "x": 0.3525,
+      "y": 0.179,
+      "category": "body"
+    },
+    {
+      "word": "body",
+      "x": -0.6515,
+      "y": -0.6263,
+      "category": "body"
+    },
+    {
+      "word": "house",
+      "x": -0.7886,
+      "y": 0.0825,
+      "category": "objects"
+    },
+    {
+      "word": "temple",
+      "x": 1.7445,
+      "y": -0.2878,
+      "category": "objects"
+    },
+    {
+      "word": "pyramid",
+      "x": 0.1072,
+      "y": 0.3849,
+      "category": "egyptian"
+    },
+    {
+      "word": "obelisk",
+      "x": 0.3276,
+      "y": -0.8589,
+      "category": "egyptian"
+    },
+    {
+      "word": "statue",
+      "x": 0.6876,
+      "y": -0.5762,
+      "category": "objects"
+    },
+    {
+      "word": "boat",
+      "x": -1.0545,
+      "y": 0.3542,
+      "category": "objects"
+    },
+    {
+      "word": "ship",
+      "x": -0.2606,
+      "y": 0.3511,
+      "category": "objects"
+    },
+    {
+      "word": "chariot",
+      "x": 1.1367,
+      "y": -0.1015,
+      "category": "objects"
+    },
+    {
+      "word": "weapon",
+      "x": -0.2513,
+      "y": -0.6869,
+      "category": "objects"
+    },
+    {
+      "word": "sword",
+      "x": 0.6191,
+      "y": -0.8597,
+      "category": "objects"
+    },
+    {
+      "word": "spear",
+      "x": 0.2333,
+      "y": 0.0295,
+      "category": "objects"
+    },
+    {
+      "word": "bow",
+      "x": 0.0744,
+      "y": -0.1206,
+      "category": "objects"
+    },
+    {
+      "word": "arrow",
+      "x": 0.2859,
+      "y": -0.231,
+      "category": "objects"
+    },
+    {
+      "word": "shield",
+      "x": 0.5808,
+      "y": 0.2723,
+      "category": "objects"
+    },
+    {
+      "word": "bread",
+      "x": 0.5101,
+      "y": 0.8227,
+      "category": "objects"
+    },
+    {
+      "word": "beer",
+      "x": -0.8912,
+      "y": 0.1901,
+      "category": "objects"
+    },
+    {
+      "word": "wine",
+      "x": 0.147,
+      "y": 0.402,
+      "category": "objects"
+    },
+    {
+      "word": "gold",
+      "x": -0.7406,
+      "y": 0.4638,
+      "category": "objects"
+    },
+    {
+      "word": "silver",
+      "x": -0.4878,
+      "y": 0.1077,
+      "category": "objects"
+    },
+    {
+      "word": "copper",
+      "x": -0.5435,
+      "y": 0.0821,
+      "category": "objects"
+    },
+    {
+      "word": "stone",
+      "x": -0.0604,
+      "y": -0.109,
+      "category": "objects"
+    },
+    {
+      "word": "time",
+      "x": -0.3745,
+      "y": 0.7238,
+      "category": "time"
+    },
+    {
+      "word": "year",
+      "x": -0.6278,
+      "y": -0.0244,
+      "category": "time"
+    },
+    {
+      "word": "month",
+      "x": -0.837,
+      "y": -0.1495,
+      "category": "time"
+    },
+    {
+      "word": "hour",
+      "x": -0.7764,
+      "y": 0.6756,
+      "category": "time"
+    },
+    {
+      "word": "moment",
+      "x": 0.2102,
+      "y": 0.7186,
+      "category": "time"
+    },
+    {
+      "word": "forever",
+      "x": 0.9132,
+      "y": 0.9403,
+      "category": "time"
+    },
+    {
+      "word": "past",
+      "x": -0.4282,
+      "y": 0.6978,
+      "category": "time"
+    },
+    {
+      "word": "present",
+      "x": 0.3852,
+      "y": 0.2692,
+      "category": "time"
+    },
+    {
+      "word": "future",
+      "x": 0.4031,
+      "y": 1.0045,
+      "category": "time"
+    },
+    {
+      "word": "ancient",
+      "x": 1.276,
+      "y": 0.7445,
+      "category": "time"
+    },
+    {
+      "word": "one",
+      "x": -0.7441,
+      "y": 0.4483,
+      "category": "numbers"
+    },
+    {
+      "word": "two",
+      "x": -1.0954,
+      "y": 0.2921,
+      "category": "numbers"
+    },
+    {
+      "word": "three",
+      "x": -1.0442,
+      "y": 0.215,
+      "category": "numbers"
+    },
+    {
+      "word": "four",
+      "x": -1.0597,
+      "y": 0.1426,
+      "category": "numbers"
+    },
+    {
+      "word": "five",
+      "x": -0.9637,
+      "y": 0.1138,
+      "category": "numbers"
+    },
+    {
+      "word": "six",
+      "x": -1.0226,
+      "y": 0.0713,
+      "category": "numbers"
+    },
+    {
+      "word": "seven",
+      "x": -0.7844,
+      "y": -0.0156,
+      "category": "numbers"
+    },
+    {
+      "word": "eight",
+      "x": -1.0734,
+      "y": 0.0093,
+      "category": "numbers"
+    },
+    {
+      "word": "nine",
+      "x": -0.8108,
+      "y": -0.1677,
+      "category": "numbers"
+    },
+    {
+      "word": "ten",
+      "x": -0.0954,
+      "y": -0.0023,
+      "category": "numbers"
+    },
+    {
+      "word": "hundred",
+      "x": -0.2482,
+      "y": 0.0442,
+      "category": "numbers"
+    },
+    {
+      "word": "thousand",
+      "x": 0.4062,
+      "y": 0.1465,
+      "category": "numbers"
+    },
+    {
+      "word": "million",
+      "x": -0.6702,
+      "y": 0.3398,
+      "category": "numbers"
+    },
+    {
+      "word": "first",
+      "x": -0.8464,
+      "y": 0.2454,
+      "category": "numbers"
+    },
+    {
+      "word": "last",
+      "x": -0.875,
+      "y": -0.1761,
+      "category": "numbers"
+    },
+    {
+      "word": "egypt",
+      "x": 0.3037,
+      "y": -0.7577,
+      "category": "egyptian"
+    },
+    {
+      "word": "sphinx",
+      "x": 0.5281,
+      "y": 0.4874,
+      "category": "egyptian"
+    },
+    {
+      "word": "hieroglyph",
+      "x": 0.6898,
+      "y": 0.2111,
+      "category": "egyptian"
+    },
+    {
+      "word": "cartouche",
+      "x": 0.6333,
+      "y": -0.0894,
+      "category": "egyptian"
+    },
+    {
+      "word": "ankh",
+      "x": 0.7313,
+      "y": 0.8635,
+      "category": "egyptian"
+    },
+    {
+      "word": "uraeus",
+      "x": 0.2943,
+      "y": 0.0584,
+      "category": "egyptian"
+    },
+    {
+      "word": "crook",
+      "x": -0.4186,
+      "y": 0.0292,
+      "category": "egyptian"
+    },
+    {
+      "word": "flail",
+      "x": 0.0795,
+      "y": 0.1445,
+      "category": "egyptian"
+    }
+  ],
+  "anchors": [
+    {
+      "egyptian": "=f",
+      "english": "man",
+      "eg_x": -0.1634,
+      "eg_y": 0.0893,
+      "en_x": -2.4087,
+      "en_y": 0.2582
+    },
+    {
+      "egyptian": "n",
+      "english": "first",
+      "eg_x": -0.0273,
+      "eg_y": 0.0422,
+      "en_x": -0.8464,
+      "en_y": 0.2454
+    },
+    {
+      "egyptian": "m",
+      "english": "first",
+      "eg_x": -0.0434,
+      "eg_y": 0.0776,
+      "en_x": -0.8464,
+      "en_y": 0.2454
+    },
+    {
+      "egyptian": "=k",
+      "english": "see",
+      "eg_x": 0.2028,
+      "eg_y": 0.1558,
+      "en_x": 0.3681,
+      "en_y": 0.6671
+    },
+    {
+      "egyptian": "=j",
+      "english": "see",
+      "eg_x": -0.0353,
+      "eg_y": 0.1299,
+      "en_x": 0.3681,
+      "en_y": 0.6671
+    },
+    {
+      "egyptian": "r",
+      "english": "last",
+      "eg_x": -0.1241,
+      "eg_y": -0.0392,
+      "en_x": -0.875,
+      "en_y": -0.1761
+    },
+    {
+      "egyptian": "\u1e25r",
+      "english": "first",
+      "eg_x": -0.0306,
+      "eg_y": -0.0016,
+      "en_x": -0.8464,
+      "en_y": 0.2454
+    },
+    {
+      "egyptian": "jw",
+      "english": "make",
+      "eg_x": 0.0546,
+      "eg_y": 0.0208,
+      "en_x": -0.1228,
+      "en_y": 1.1157
+    },
+    {
+      "egyptian": "1",
+      "english": "million",
+      "eg_x": -0.0805,
+      "eg_y": 0.0312,
+      "en_x": -0.6702,
+      "en_y": 0.3398
+    },
+    {
+      "egyptian": "=s",
+      "english": "mother",
+      "eg_x": -0.0466,
+      "eg_y": 0.0751,
+      "en_x": 0.0842,
+      "en_y": 0.0291
+    },
+    {
+      "egyptian": "=sn",
+      "english": "mother",
+      "eg_x": -0.0363,
+      "eg_y": 0.0153,
+      "en_x": 0.0842,
+      "en_y": 0.0291
+    },
+    {
+      "egyptian": "nb",
+      "english": "year",
+      "eg_x": -0.123,
+      "eg_y": 0.0464,
+      "en_x": -0.6278,
+      "en_y": -0.0244
+    },
+    {
+      "egyptian": "p\ua723",
+      "english": "first",
+      "eg_x": -0.0447,
+      "eg_y": 0.0005,
+      "en_x": -0.8464,
+      "en_y": 0.2454
+    },
+    {
+      "egyptian": "2",
+      "english": "million",
+      "eg_x": -0.0607,
+      "eg_y": 0.0253,
+      "en_x": -0.6702,
+      "en_y": 0.3398
+    },
+    {
+      "egyptian": "n(,j)",
+      "english": "first",
+      "eg_x": 0.036,
+      "eg_y": 0.0725,
+      "en_x": -0.8464,
+      "en_y": 0.2454
+    },
+    {
+      "egyptian": "jm",
+      "english": "official",
+      "eg_x": -0.0553,
+      "eg_y": 0.0055,
+      "en_x": -0.7089,
+      "en_y": -0.9352
+    },
+    {
+      "egyptian": "pw",
+      "english": "child",
+      "eg_x": 0.0057,
+      "eg_y": 0.1062,
+      "en_x": -0.0168,
+      "en_y": -0.3229
+    },
+    {
+      "egyptian": "jr",
+      "english": "first",
+      "eg_x": -0.0062,
+      "eg_y": -0.0003,
+      "en_x": -0.8464,
+      "en_y": 0.2454
+    },
+    {
+      "egyptian": "t\ua723",
+      "english": "people",
+      "eg_x": -0.0606,
+      "eg_y": -0.067,
+      "en_x": -0.2527,
+      "en_y": 0.0658
+    },
+    {
+      "egyptian": "sw",
+      "english": "son",
+      "eg_x": -0.1657,
+      "eg_y": 0.0372,
+      "en_x": -0.4696,
+      "en_y": -1.0619
+    },
+    {
+      "egyptian": "nn",
+      "english": "make",
+      "eg_x": -0.0449,
+      "eg_y": 0.0814,
+      "en_x": -0.1228,
+      "en_y": 1.1157
+    },
+    {
+      "egyptian": "pn",
+      "english": "see",
+      "eg_x": 0.1529,
+      "eg_y": 0.1068,
+      "en_x": 0.3681,
+      "en_y": 0.6671
+    },
+    {
+      "egyptian": "Wsjr",
+      "english": "obelisk",
+      "eg_x": 0.1461,
+      "eg_y": -0.1087,
+      "en_x": 0.3276,
+      "en_y": -0.8589
+    },
+    {
+      "egyptian": "jri\u032f",
+      "english": "first",
+      "eg_x": -0.1311,
+      "eg_y": 0.0077,
+      "en_x": -0.8464,
+      "en_y": 0.2454
+    },
+    {
+      "egyptian": "\ua725n\u1e2b",
+      "english": "people",
+      "eg_x": 0.0792,
+      "eg_y": 0.0415,
+      "en_x": -0.2527,
+      "en_y": 0.0658
+    },
+    {
+      "egyptian": "rn",
+      "english": "first",
+      "eg_x": -0.0329,
+      "eg_y": -0.0116,
+      "en_x": -0.8464,
+      "en_y": 0.2454
+    },
+    {
+      "egyptian": "\ua725",
+      "english": "king",
+      "eg_x": -0.1376,
+      "eg_y": 0.0644,
+      "en_x": 0.4549,
+      "en_y": -1.0209
+    },
+    {
+      "egyptian": "\u1e0fd",
+      "english": "people",
+      "eg_x": -0.0936,
+      "eg_y": 0.0112,
+      "en_x": -0.2527,
+      "en_y": 0.0658
+    },
+    {
+      "egyptian": "Ppy",
+      "english": "queen",
+      "eg_x": -0.0188,
+      "eg_y": 0.1203,
+      "en_x": 0.3295,
+      "en_y": -0.5182
+    },
+    {
+      "egyptian": "mj",
+      "english": "incantation",
+      "eg_x": 0.165,
+      "eg_y": 0.0149,
+      "en_x": 1.0379,
+      "en_y": -0.7443
+    },
+    {
+      "egyptian": "jn",
+      "english": "god",
+      "eg_x": 0.1902,
+      "eg_y": 0.0001,
+      "en_x": 4.7368,
+      "en_y": 0.2582
+    },
+    {
+      "egyptian": "=[f]",
+      "english": "father",
+      "eg_x": -0.1094,
+      "eg_y": 0.1518,
+      "en_x": -0.1975,
+      "en_y": -0.3844
+    },
+    {
+      "egyptian": "[n]",
+      "english": "take",
+      "eg_x": 0.0041,
+      "eg_y": 0.0914,
+      "en_x": -0.1962,
+      "en_y": 0.6461
+    },
+    {
+      "egyptian": "=(j)",
+      "english": "see",
+      "eg_x": -0.1145,
+      "eg_y": 0.1248,
+      "en_x": 0.3681,
+      "en_y": 0.6671
+    },
+    {
+      "egyptian": "\u1e2b\ua723",
+      "english": "thousand",
+      "eg_x": 0.0431,
+      "eg_y": 0.031,
+      "en_x": 0.4062,
+      "en_y": 0.1465
+    },
+    {
+      "egyptian": "\u1e2br",
+      "english": "god",
+      "eg_x": 0.2317,
+      "eg_y": 0.0816,
+      "en_x": 4.7368,
+      "en_y": 0.2582
+    },
+    {
+      "egyptian": "4",
+      "english": "million",
+      "eg_x": -0.1101,
+      "eg_y": -0.0392,
+      "en_x": -0.6702,
+      "en_y": 0.3398
+    },
+    {
+      "egyptian": "z\ua723",
+      "english": "son",
+      "eg_x": -0.1841,
+      "eg_y": -0.1948,
+      "en_x": -0.4696,
+      "en_y": -1.0619
+    },
+    {
+      "egyptian": "m\ua723\ua725-\u1e2brw",
+      "english": "one",
+      "eg_x": 0.0148,
+      "eg_y": -0.0267,
+      "en_x": -0.7441,
+      "en_y": 0.4483
+    },
+    {
+      "egyptian": "n\u1e6fr",
+      "english": "god",
+      "eg_x": 0.6535,
+      "eg_y": 0.0498,
+      "en_x": 4.7368,
+      "en_y": 0.2582
+    },
+    {
+      "egyptian": "n\u1e6fr.pl",
+      "english": "god",
+      "eg_x": 0.4506,
+      "eg_y": 0.0321,
+      "en_x": 4.7368,
+      "en_y": 0.2582
+    },
+    {
+      "egyptian": "\u1e24r,w",
+      "english": "deity",
+      "eg_x": 0.1995,
+      "eg_y": -0.0532,
+      "en_x": 3.2611,
+      "en_y": -0.1051
+    },
+    {
+      "egyptian": "=[k]",
+      "english": "love",
+      "eg_x": 0.0178,
+      "eg_y": 0.1992,
+      "en_x": 1.0061,
+      "en_y": 0.939
+    },
+    {
+      "egyptian": "jb",
+      "english": "people",
+      "eg_x": -0.0058,
+      "eg_y": 0.0346,
+      "en_x": -0.2527,
+      "en_y": 0.0658
+    },
+    {
+      "egyptian": "n,tj",
+      "english": "water",
+      "eg_x": -0.057,
+      "eg_y": 0.0105,
+      "en_x": -0.2162,
+      "en_y": 1.0944
+    },
+    {
+      "egyptian": "\u1e0fi\u032f",
+      "english": "year",
+      "eg_x": -0.0693,
+      "eg_y": 0.0171,
+      "en_x": -0.6278,
+      "en_y": -0.0244
+    },
+    {
+      "egyptian": "\u1e25n\ua725",
+      "english": "wife",
+      "eg_x": -0.0982,
+      "eg_y": 0.058,
+      "en_x": -0.5206,
+      "en_y": -0.3545
+    },
+    {
+      "egyptian": "r\u02be",
+      "english": "official",
+      "eg_x": -0.0408,
+      "eg_y": 0.0065,
+      "en_x": -0.7089,
+      "en_y": -0.9352
+    },
+    {
+      "egyptian": "[m]",
+      "english": "year",
+      "eg_x": -0.0677,
+      "eg_y": 0.039,
+      "en_x": -0.6278,
+      "en_y": -0.0244
+    },
+    {
+      "egyptian": "nfr",
+      "english": "people",
+      "eg_x": 0.0378,
+      "eg_y": 0.1176,
+      "en_x": -0.2527,
+      "en_y": 0.0658
+    },
+    {
+      "egyptian": "p,t",
+      "english": "sky",
+      "eg_x": 0.0082,
+      "eg_y": 0.0578,
+      "en_x": 0.5231,
+      "en_y": 0.3004
+    },
+    {
+      "egyptian": "n.t",
+      "english": "river",
+      "eg_x": 0.0169,
+      "eg_y": 0.0454,
+      "en_x": -0.0456,
+      "en_y": 0.2224
+    },
+    {
+      "egyptian": "jnk",
+      "english": "see",
+      "eg_x": -0.0351,
+      "eg_y": 0.0742,
+      "en_x": 0.3681,
+      "en_y": 0.6671
+    },
+    {
+      "egyptian": "=tw",
+      "english": "man",
+      "eg_x": -0.2841,
+      "eg_y": 0.0174,
+      "en_x": -2.4087,
+      "en_y": 0.2582
+    },
+    {
+      "egyptian": "\u1e25m",
+      "english": "king",
+      "eg_x": 0.1956,
+      "eg_y": 0.0208,
+      "en_x": 0.4549,
+      "en_y": -1.0209
+    },
+    {
+      "egyptian": "k\ua723",
+      "english": "ram",
+      "eg_x": -0.0208,
+      "eg_y": 0.0933,
+      "en_x": 0.7453,
+      "en_y": -0.1963
+    },
+    {
+      "egyptian": "=w",
+      "english": "mother",
+      "eg_x": -0.0567,
+      "eg_y": 0.1122,
+      "en_x": 0.0842,
+      "en_y": 0.0291
+    },
+    {
+      "egyptian": "\u1e0f,t",
+      "english": "peace",
+      "eg_x": -0.1053,
+      "eg_y": -0.034,
+      "en_x": 1.0825,
+      "en_y": 0.3152
+    },
+    {
+      "egyptian": "j",
+      "english": "god",
+      "eg_x": 0.0935,
+      "eg_y": -0.0146,
+      "en_x": 4.7368,
+      "en_y": 0.2582
+    },
+    {
+      "egyptian": "pri\u032f",
+      "english": "first",
+      "eg_x": -0.0495,
+      "eg_y": -0.0257,
+      "en_x": -0.8464,
+      "en_y": 0.2454
+    },
+    {
+      "egyptian": "p\ua723y",
+      "english": "year",
+      "eg_x": -0.1463,
+      "eg_y": 0.0437,
+      "en_x": -0.6278,
+      "en_y": -0.0244
+    },
+    {
+      "egyptian": "=\u1e6fn",
+      "english": "see",
+      "eg_x": 0.0545,
+      "eg_y": 0.172,
+      "en_x": 0.3681,
+      "en_y": 0.6671
+    },
+    {
+      "egyptian": "hrw",
+      "english": "day",
+      "eg_x": -0.0443,
+      "eg_y": -0.0257,
+      "en_x": -0.2515,
+      "en_y": 0.3066
+    },
+    {
+      "egyptian": "R\ua725w",
+      "english": "god",
+      "eg_x": 0.2611,
+      "eg_y": 0.0989,
+      "en_x": 4.7368,
+      "en_y": 0.2582
+    },
+    {
+      "egyptian": "\u1e6fw",
+      "english": "tree",
+      "eg_x": -0.037,
+      "eg_y": 0.0242,
+      "en_x": 0.1588,
+      "en_y": 0.124
+    },
+    {
+      "egyptian": "Nfr-k\ua723-R\ua725w",
+      "english": "change",
+      "eg_x": 0.0903,
+      "eg_y": 0.1569,
+      "en_x": 0.1347,
+      "en_y": 0.8303
+    },
+    {
+      "egyptian": "mw",
+      "english": "water",
+      "eg_x": 0.0473,
+      "eg_y": 0.1081,
+      "en_x": -0.2162,
+      "en_y": 1.0944
+    },
+    {
+      "egyptian": "wr",
+      "english": "lion",
+      "eg_x": -0.2259,
+      "eg_y": -0.0144,
+      "en_x": -0.1939,
+      "en_y": -0.1746
+    },
+    {
+      "egyptian": "nswt",
+      "english": "king",
+      "eg_x": 0.0376,
+      "eg_y": -0.0904,
+      "en_x": 0.4549,
+      "en_y": -1.0209
+    },
+    {
+      "egyptian": "n\ua723",
+      "english": "last",
+      "eg_x": -0.1766,
+      "eg_y": 0.0108,
+      "en_x": -0.875,
+      "en_y": -0.1761
+    },
+    {
+      "egyptian": "nb.t",
+      "english": "two",
+      "eg_x": -0.1499,
+      "eg_y": 0.0491,
+      "en_x": -1.0954,
+      "en_y": 0.2921
+    },
+    {
+      "egyptian": "t\u02be",
+      "english": "take",
+      "eg_x": -0.0427,
+      "eg_y": 0.0571,
+      "en_x": -0.1962,
+      "en_y": 0.6461
+    },
+    {
+      "egyptian": "=st",
+      "english": "mother",
+      "eg_x": -0.0646,
+      "eg_y": 0.11,
+      "en_x": 0.0842,
+      "en_y": 0.0291
+    },
+    {
+      "egyptian": "\u1e2bpr",
+      "english": "one",
+      "eg_x": 0.0188,
+      "eg_y": 0.0354,
+      "en_x": -0.7441,
+      "en_y": 0.4483
+    },
+    {
+      "egyptian": "tp",
+      "english": "last",
+      "eg_x": -0.1232,
+      "eg_y": -0.072,
+      "en_x": -0.875,
+      "en_y": -0.1761
+    },
+    {
+      "egyptian": "jri\u032f.n",
+      "english": "last",
+      "eg_x": -0.1023,
+      "eg_y": 0.0415,
+      "en_x": -0.875,
+      "en_y": -0.1761
+    },
+    {
+      "egyptian": "wn",
+      "english": "first",
+      "eg_x": -0.044,
+      "eg_y": 0.0148,
+      "en_x": -0.8464,
+      "en_y": 0.2454
+    },
+    {
+      "egyptian": "(j)\u1e2b,t",
+      "english": "take",
+      "eg_x": -0.0237,
+      "eg_y": 0.0822,
+      "en_x": -0.1962,
+      "en_y": 0.6461
+    },
+    {
+      "egyptian": "=tn",
+      "english": "man",
+      "eg_x": -0.0409,
+      "eg_y": 0.1271,
+      "en_x": -2.4087,
+      "en_y": 0.2582
+    },
+    {
+      "egyptian": "\ua725\ua723",
+      "english": "god",
+      "eg_x": 0.0818,
+      "eg_y": 0.0252,
+      "en_x": 4.7368,
+      "en_y": 0.2582
+    },
+    {
+      "egyptian": "wnn",
+      "english": "time",
+      "eg_x": -0.0129,
+      "eg_y": 0.0375,
+      "en_x": -0.3745,
+      "en_y": 0.7238
+    },
+    {
+      "egyptian": "\u1e96r",
+      "english": "people",
+      "eg_x": -0.0237,
+      "eg_y": 0.0157,
+      "en_x": -0.2527,
+      "en_y": 0.0658
+    },
+    {
+      "egyptian": "r\u1e2b",
+      "english": "see",
+      "eg_x": 0.0135,
+      "eg_y": 0.0794,
+      "en_x": 0.3681,
+      "en_y": 0.6671
+    },
+    {
+      "egyptian": "s,t",
+      "english": "king",
+      "eg_x": -0.0557,
+      "eg_y": -0.0235,
+      "en_x": 0.4549,
+      "en_y": -1.0209
+    },
+    {
+      "egyptian": "m\ua723\ua723",
+      "english": "first",
+      "eg_x": -0.0807,
+      "eg_y": 0.0549,
+      "en_x": -0.8464,
+      "en_y": 0.2454
+    },
+    {
+      "egyptian": "=\u1e6f",
+      "english": "see",
+      "eg_x": 0.0272,
+      "eg_y": 0.2067,
+      "en_x": 0.3681,
+      "en_y": 0.6671
+    },
+    {
+      "egyptian": "tw",
+      "english": "man",
+      "eg_x": -0.0676,
+      "eg_y": 0.0304,
+      "en_x": -2.4087,
+      "en_y": 0.2582
+    },
+    {
+      "egyptian": "jmi\u032f",
+      "english": "make",
+      "eg_x": -0.001,
+      "eg_y": 0.1508,
+      "en_x": -0.1228,
+      "en_y": 1.1157
+    },
+    {
+      "egyptian": "k.t",
+      "english": "take",
+      "eg_x": -0.0763,
+      "eg_y": 0.1029,
+      "en_x": -0.1962,
+      "en_y": 0.6461
+    },
+    {
+      "egyptian": "jri\u032f.t",
+      "english": "first",
+      "eg_x": -0.0902,
+      "eg_y": 0.0152,
+      "en_x": -0.8464,
+      "en_y": 0.2454
+    },
+    {
+      "egyptian": "\u1e25tp-\u1e0fi\u032f",
+      "english": "king",
+      "eg_x": 0.0488,
+      "eg_y": -0.057,
+      "en_x": 0.4549,
+      "en_y": -1.0209
+    },
+    {
+      "egyptian": "st",
+      "english": "mother",
+      "eg_x": -0.1696,
+      "eg_y": 0.0796,
+      "en_x": 0.0842,
+      "en_y": 0.0291
+    },
+    {
+      "egyptian": "\u1e25tp",
+      "english": "peace",
+      "eg_x": -0.0797,
+      "eg_y": 0.0268,
+      "en_x": 1.0825,
+      "en_y": 0.3152
+    },
+    {
+      "egyptian": "pr",
+      "english": "see",
+      "eg_x": 0.0843,
+      "eg_y": 0.1872,
+      "en_x": 0.3681,
+      "en_y": 0.6671
+    },
+    {
+      "egyptian": "js",
+      "english": "change",
+      "eg_x": 0.0297,
+      "eg_y": 0.0323,
+      "en_x": 0.1347,
+      "en_y": 0.8303
+    },
+    {
+      "egyptian": "m-\ua725",
+      "english": "time",
+      "eg_x": -0.1666,
+      "eg_y": 0.0153,
+      "en_x": -0.3745,
+      "en_y": 0.7238
+    },
+    {
+      "egyptian": "w\ua725",
+      "english": "people",
+      "eg_x": -0.0294,
+      "eg_y": 0.0308,
+      "en_x": -0.2527,
+      "en_y": 0.0658
+    },
+    {
+      "egyptian": "=n",
+      "english": "take",
+      "eg_x": 0.0391,
+      "eg_y": 0.1704,
+      "en_x": -0.1962,
+      "en_y": 0.6461
+    },
+    {
+      "egyptian": "(\u1e25r)",
+      "english": "woman",
+      "eg_x": -0.1135,
+      "eg_y": 0.0229,
+      "en_x": -1.619,
+      "en_y": 0.2346
+    },
+    {
+      "egyptian": "\ua725\u1e25\ua725",
+      "english": "year",
+      "eg_x": -0.1044,
+      "eg_y": 0.0058,
+      "en_x": -0.6278,
+      "en_y": -0.0244
+    },
+    {
+      "egyptian": "\u1e0f(d)-mdw",
+      "english": "million",
+      "eg_x": 0.0234,
+      "eg_y": -0.0453,
+      "en_x": -0.6702,
+      "en_y": 0.3398
+    },
+    {
+      "egyptian": "bw",
+      "english": "make",
+      "eg_x": 0.0176,
+      "eg_y": 0.1218,
+      "en_x": -0.1228,
+      "en_y": 1.1157
+    },
+    {
+      "egyptian": "R\ua725,w",
+      "english": "god",
+      "eg_x": 0.1588,
+      "eg_y": 0.0725,
+      "en_x": 4.7368,
+      "en_y": 0.2582
+    },
+    {
+      "egyptian": "wj",
+      "english": "see",
+      "eg_x": 0.0063,
+      "eg_y": 0.1333,
+      "en_x": 0.3681,
+      "en_y": 0.6671
+    },
+    {
+      "egyptian": "n\u1e25\u1e25",
+      "english": "people",
+      "eg_x": -0.0313,
+      "eg_y": 0.0896,
+      "en_x": -0.2527,
+      "en_y": 0.0658
+    },
+    {
+      "egyptian": "s\u1e0fm",
+      "english": "people",
+      "eg_x": -0.0077,
+      "eg_y": -0.0282,
+      "en_x": -0.2527,
+      "en_y": 0.0658
+    },
+    {
+      "egyptian": "Wnjs",
+      "english": "see",
+      "eg_x": 0.0588,
+      "eg_y": 0.151,
+      "en_x": 0.3681,
+      "en_y": 0.6671
+    },
+    {
+      "egyptian": "[\u1e25r]",
+      "english": "god",
+      "eg_x": 0.1068,
+      "eg_y": 0.0235,
+      "en_x": 4.7368,
+      "en_y": 0.2582
+    },
+    {
+      "egyptian": "\u1e96,t",
+      "english": "heart",
+      "eg_x": 0.0094,
+      "eg_y": 0.0106,
+      "en_x": 0.0651,
+      "en_y": -0.2055
+    },
+    {
+      "egyptian": "Jnp,w",
+      "english": "god",
+      "eg_x": 0.1517,
+      "eg_y": 0.0066,
+      "en_x": 4.7368,
+      "en_y": 0.2582
+    },
+    {
+      "egyptian": "(W)sr(,w)",
+      "english": "god",
+      "eg_x": 0.102,
+      "eg_y": 0.0566,
+      "en_x": 4.7368,
+      "en_y": 0.2582
+    },
+    {
+      "egyptian": "r\u1e0fi\u032f",
+      "english": "one",
+      "eg_x": -0.0253,
+      "eg_y": 0.0627,
+      "en_x": -0.7441,
+      "en_y": 0.4483
+    },
+    {
+      "egyptian": "\u1e0fi\u032f.t",
+      "english": "year",
+      "eg_x": -0.0978,
+      "eg_y": 0.0042,
+      "en_x": -0.6278,
+      "en_y": -0.0244
+    },
+    {
+      "egyptian": "sn",
+      "english": "mother",
+      "eg_x": -0.0983,
+      "eg_y": -0.032,
+      "en_x": 0.0842,
+      "en_y": 0.0291
+    },
+    {
+      "egyptian": "\u1e25(n)q,t",
+      "english": "bread",
+      "eg_x": 0.0406,
+      "eg_y": -0.1115,
+      "en_x": 0.5101,
+      "en_y": 0.8227
+    },
+    {
+      "egyptian": "mtw",
+      "english": "people",
+      "eg_x": -0.1577,
+      "eg_y": 0.0485,
+      "en_x": -0.2527,
+      "en_y": 0.0658
+    },
+    {
+      "egyptian": "m-b\ua723\u1e25",
+      "english": "offering",
+      "eg_x": 0.0187,
+      "eg_y": 0.0168,
+      "en_x": 0.4137,
+      "en_y": 0.9164
+    },
+    {
+      "egyptian": "[r]",
+      "english": "year",
+      "eg_x": -0.0813,
+      "eg_y": 0.0181,
+      "en_x": -0.6278,
+      "en_y": -0.0244
+    },
+    {
+      "egyptian": "\u1e0fd-mdw",
+      "english": "take",
+      "eg_x": 0.0332,
+      "eg_y": 0.0614,
+      "en_x": -0.1962,
+      "en_y": 0.6461
+    },
+    {
+      "egyptian": "\ua723\u1e2b,t",
+      "english": "peace",
+      "eg_x": 0.0835,
+      "eg_y": -0.0078,
+      "en_x": 1.0825,
+      "en_y": 0.3152
+    },
+    {
+      "egyptian": "jwi\u032f",
+      "english": "year",
+      "eg_x": -0.009,
+      "eg_y": 0.0491,
+      "en_x": -0.6278,
+      "en_y": -0.0244
+    },
+    {
+      "egyptian": "r\ua725w-nb",
+      "english": "day",
+      "eg_x": 0.1164,
+      "eg_y": 0.1578,
+      "en_x": -0.2515,
+      "en_y": 0.3066
+    },
+    {
+      "egyptian": "\ua725n\u1e2b-(w)\u1e0f\ua723-s(nb)",
+      "english": "peace",
+      "eg_x": 0.0373,
+      "eg_y": 0.0512,
+      "en_x": 1.0825,
+      "en_y": 0.3152
+    },
+    {
+      "egyptian": "jt",
+      "english": "son",
+      "eg_x": 0.133,
+      "eg_y": -0.0795,
+      "en_x": -0.4696,
+      "en_y": -1.0619
+    },
+    {
+      "egyptian": "z",
+      "english": "man",
+      "eg_x": -0.2182,
+      "eg_y": 0.024,
+      "en_x": -2.4087,
+      "en_y": 0.2582
+    },
+    {
+      "egyptian": "jni\u032f",
+      "english": "last",
+      "eg_x": -0.0807,
+      "eg_y": -0.0086,
+      "en_x": -0.875,
+      "en_y": -0.1761
+    },
+    {
+      "egyptian": "b\ua723",
+      "english": "master",
+      "eg_x": -0.033,
+      "eg_y": 0.0325,
+      "en_x": -0.1563,
+      "en_y": 0.1918
+    },
+    {
+      "egyptian": "=[j]",
+      "english": "love",
+      "eg_x": 0.0015,
+      "eg_y": 0.152,
+      "en_x": 1.0061,
+      "en_y": 0.939
+    },
+    {
+      "egyptian": "nb(.t)",
+      "english": "people",
+      "eg_x": -0.0756,
+      "eg_y": 0.0906,
+      "en_x": -0.2527,
+      "en_y": 0.0658
+    },
+    {
+      "egyptian": "\u1e25m-k\ua723",
+      "english": "head",
+      "eg_x": -0.1263,
+      "eg_y": 0.0815,
+      "en_x": -0.7891,
+      "en_y": -0.3571
+    },
+    {
+      "egyptian": "zp-2",
+      "english": "eat",
+      "eg_x": 0.0519,
+      "eg_y": 0.2157,
+      "en_x": 0.679,
+      "en_y": 1.1459
+    },
+    {
+      "egyptian": "\u2e22m\u2e23",
+      "english": "water",
+      "eg_x": -0.0991,
+      "eg_y": 0.1006,
+      "en_x": -0.2162,
+      "en_y": 1.0944
+    },
+    {
+      "egyptian": "n\ua723y",
+      "english": "two",
+      "eg_x": -0.2055,
+      "eg_y": -0.0014,
+      "en_x": -1.0954,
+      "en_y": 0.2921
+    },
+    {
+      "egyptian": "N(j),t",
+      "english": "moment",
+      "eg_x": 0.0148,
+      "eg_y": 0.0699,
+      "en_x": 0.2102,
+      "en_y": 0.7186
+    },
+    {
+      "egyptian": "\ua725n\u1e2b-w\u1e0f\ua723-s(nb)",
+      "english": "peace",
+      "eg_x": 0.0325,
+      "eg_y": 0.0352,
+      "en_x": 1.0825,
+      "en_y": 0.3152
+    },
+    {
+      "egyptian": "3",
+      "english": "million",
+      "eg_x": -0.0545,
+      "eg_y": -0.0213,
+      "en_x": -0.6702,
+      "en_y": 0.3398
+    },
+    {
+      "egyptian": "jt(j)",
+      "english": "son",
+      "eg_x": 0.1516,
+      "eg_y": -0.0447,
+      "en_x": -0.4696,
+      "en_y": -1.0619
+    },
+    {
+      "egyptian": "w\ua725b",
+      "english": "water",
+      "eg_x": -0.0303,
+      "eg_y": 0.0157,
+      "en_x": -0.2162,
+      "en_y": 1.0944
+    },
+    {
+      "egyptian": "m\u1e25",
+      "english": "million",
+      "eg_x": -0.2443,
+      "eg_y": -0.0005,
+      "en_x": -0.6702,
+      "en_y": 0.3398
+    },
+    {
+      "egyptian": "s\u1e2bm",
+      "english": "people",
+      "eg_x": -0.0248,
+      "eg_y": 0.0459,
+      "en_x": -0.2527,
+      "en_y": 0.0658
+    },
+    {
+      "egyptian": "w\ua723,t",
+      "english": "first",
+      "eg_x": -0.1174,
+      "eg_y": 0.0494,
+      "en_x": -0.8464,
+      "en_y": 0.2454
+    },
+    {
+      "egyptian": "\ua725q",
+      "english": "year",
+      "eg_x": -0.1026,
+      "eg_y": 0.0686,
+      "en_x": -0.6278,
+      "en_y": -0.0244
+    },
+    {
+      "egyptian": "n(,j).t",
+      "english": "first",
+      "eg_x": -0.0316,
+      "eg_y": 0.0104,
+      "en_x": -0.8464,
+      "en_y": 0.2454
+    },
+    {
+      "egyptian": "tn",
+      "english": "order",
+      "eg_x": 0.0409,
+      "eg_y": 0.0934,
+      "en_x": 0.4422,
+      "en_y": 0.3156
+    },
+    {
+      "egyptian": "tm",
+      "english": "water",
+      "eg_x": -0.0666,
+      "eg_y": -0.0124,
+      "en_x": -0.2162,
+      "en_y": 1.0944
+    },
+    {
+      "egyptian": "n\u1e6fr-\ua725\ua723",
+      "english": "god",
+      "eg_x": 0.6389,
+      "eg_y": 0.0859,
+      "en_x": 4.7368,
+      "en_y": 0.2582
+    },
+    {
+      "egyptian": "jrp",
+      "english": "bread",
+      "eg_x": 0.0424,
+      "eg_y": 0.024,
+      "en_x": 0.5101,
+      "en_y": 0.8227
+    },
+    {
+      "egyptian": "Ttj",
+      "english": "water",
+      "eg_x": -0.0626,
+      "eg_y": 0.1178,
+      "en_x": -0.2162,
+      "en_y": 1.0944
+    },
+    {
+      "egyptian": "r\u1e0fi\u032f.t",
+      "english": "year",
+      "eg_x": -0.064,
+      "eg_y": 0.057,
+      "en_x": -0.6278,
+      "en_y": -0.0244
+    },
+    {
+      "egyptian": "\u2329m\u232a",
+      "english": "last",
+      "eg_x": -0.0408,
+      "eg_y": 0.0425,
+      "en_x": -0.875,
+      "en_y": -0.1761
+    },
+    {
+      "egyptian": "[Ppy]",
+      "english": "snake",
+      "eg_x": 0.1279,
+      "eg_y": 0.1298,
+      "en_x": 0.2463,
+      "en_y": 0.022
+    },
+    {
+      "egyptian": "\u1e25\ua723,tj",
+      "english": "heart",
+      "eg_x": -0.0486,
+      "eg_y": 0.0886,
+      "en_x": 0.0651,
+      "en_y": -0.2055
+    },
+    {
+      "egyptian": "mr\u1e25,t",
+      "english": "beer",
+      "eg_x": 0.0527,
+      "eg_y": 0.1552,
+      "en_x": -0.8912,
+      "en_y": 0.1901
+    },
+    {
+      "egyptian": "\u1e25\u1e0f",
+      "english": "gold",
+      "eg_x": -0.1351,
+      "eg_y": -0.0182,
+      "en_x": -0.7406,
+      "en_y": 0.4638
+    },
+    {
+      "egyptian": "s\u1e0f,t",
+      "english": "fire",
+      "eg_x": 0.0356,
+      "eg_y": -0.0192,
+      "en_x": -0.1577,
+      "en_y": -0.7802
+    },
+    {
+      "egyptian": "z\ua723,t",
+      "english": "son",
+      "eg_x": -0.1578,
+      "eg_y": -0.0855,
+      "en_x": -0.4696,
+      "en_y": -1.0619
+    },
+    {
+      "egyptian": "nbw",
+      "english": "gold",
+      "eg_x": -0.1381,
+      "eg_y": 0.0299,
+      "en_x": -0.7406,
+      "en_y": 0.4638
+    },
+    {
+      "egyptian": "jmn,t",
+      "english": "river",
+      "eg_x": 0.0112,
+      "eg_y": 0.0948,
+      "en_x": -0.0456,
+      "en_y": 0.2224
+    },
+    {
+      "egyptian": "jr,t-\u1e24r,w",
+      "english": "snake",
+      "eg_x": 0.2282,
+      "eg_y": 0.1425,
+      "en_x": 0.2463,
+      "en_y": 0.022
+    },
+    {
+      "egyptian": "R\ua725",
+      "english": "magic",
+      "eg_x": 0.3065,
+      "eg_y": 0.0863,
+      "en_x": 0.7468,
+      "en_y": 0.3079
+    },
+    {
+      "egyptian": "jr,t.du",
+      "english": "eye",
+      "eg_x": 0.0125,
+      "eg_y": 0.1016,
+      "en_x": -0.1184,
+      "en_y": 0.5657
+    },
+    {
+      "egyptian": "w\ua723s",
+      "english": "truth",
+      "eg_x": 0.1511,
+      "eg_y": 0.1015,
+      "en_x": 1.2607,
+      "en_y": 0.1066
+    },
+    {
+      "egyptian": "[nswt]",
+      "english": "king",
+      "eg_x": 0.1066,
+      "eg_y": -0.037,
+      "en_x": 0.4549,
+      "en_y": -1.0209
+    },
+    {
+      "egyptian": "n\u1e6fr-nfr",
+      "english": "soul",
+      "eg_x": 0.5045,
+      "eg_y": 0.0902,
+      "en_x": 0.8036,
+      "en_y": 0.4996
+    },
+    {
+      "egyptian": "tw\u2261j",
+      "english": "love",
+      "eg_x": -0.0295,
+      "eg_y": 0.1408,
+      "en_x": 1.0061,
+      "en_y": 0.939
+    },
+    {
+      "egyptian": "bj\ua723",
+      "english": "falcon",
+      "eg_x": 0.0075,
+      "eg_y": 0.0673,
+      "en_x": -0.2134,
+      "en_y": 0.3041
+    },
+    {
+      "egyptian": "[p,t]",
+      "english": "sky",
+      "eg_x": 0.0137,
+      "eg_y": 0.0629,
+      "en_x": 0.5231,
+      "en_y": 0.3004
+    },
+    {
+      "egyptian": "[\u1e2br]",
+      "english": "truth",
+      "eg_x": 0.1224,
+      "eg_y": 0.0461,
+      "en_x": 1.2607,
+      "en_y": 0.1066
+    },
+    {
+      "egyptian": "[jb]",
+      "english": "heart",
+      "eg_x": 0.0728,
+      "eg_y": 0.1245,
+      "en_x": 0.0651,
+      "en_y": -0.2055
+    },
+    {
+      "egyptian": "bjk",
+      "english": "falcon",
+      "eg_x": 0.0773,
+      "eg_y": 0.1372,
+      "en_x": -0.2134,
+      "en_y": 0.3041
+    },
+    {
+      "egyptian": "\u1e25mt",
+      "english": "gold",
+      "eg_x": -0.1228,
+      "eg_y": 0.0377,
+      "en_x": -0.7406,
+      "en_y": 0.4638
+    },
+    {
+      "egyptian": "n\u1e6fr,t",
+      "english": "spirit",
+      "eg_x": 0.372,
+      "eg_y": 0.036,
+      "en_x": 1.1404,
+      "en_y": 0.7529
+    },
+    {
+      "egyptian": "s\u1e0fb",
+      "english": "fear",
+      "eg_x": -0.0705,
+      "eg_y": 0.0054,
+      "en_x": 0.7396,
+      "en_y": -0.3401
+    },
+    {
+      "egyptian": "dw\ua723,w",
+      "english": "sun",
+      "eg_x": 0.0616,
+      "eg_y": 0.0575,
+      "en_x": 0.7511,
+      "en_y": 0.5461
+    },
+    {
+      "egyptian": "jmn,tj",
+      "english": "river",
+      "eg_x": 0.0427,
+      "eg_y": 0.027,
+      "en_x": -0.0456,
+      "en_y": 0.2224
+    },
+    {
+      "egyptian": "\u2e22nswt\u2e23",
+      "english": "king",
+      "eg_x": 0.0347,
+      "eg_y": -0.0409,
+      "en_x": 0.4549,
+      "en_y": -1.0209
+    },
+    {
+      "egyptian": "btj",
+      "english": "beer",
+      "eg_x": -0.1798,
+      "eg_y": 0.0539,
+      "en_x": -0.8912,
+      "en_y": 0.1901
+    },
+    {
+      "egyptian": "Nb,tj",
+      "english": "sword",
+      "eg_x": 0.0558,
+      "eg_y": -0.083,
+      "en_x": 0.6191,
+      "en_y": -0.8597
+    },
+    {
+      "egyptian": "Nb,t",
+      "english": "sword",
+      "eg_x": 0.0581,
+      "eg_y": -0.0077,
+      "en_x": 0.6191,
+      "en_y": -0.8597
+    },
+    {
+      "egyptian": "rw",
+      "english": "snake",
+      "eg_x": -0.0145,
+      "eg_y": -0.0154,
+      "en_x": 0.2463,
+      "en_y": 0.022
+    },
+    {
+      "egyptian": "nswt-bj,t",
+      "english": "queen",
+      "eg_x": 0.0495,
+      "eg_y": -0.1006,
+      "en_x": 0.3295,
+      "en_y": -0.5182
+    },
+    {
+      "egyptian": "[\u1e25\ua723,t]",
+      "english": "star",
+      "eg_x": -0.127,
+      "eg_y": 0.0657,
+      "en_x": -0.7498,
+      "en_y": 0.8186
+    },
+    {
+      "egyptian": "=[st]",
+      "english": "love",
+      "eg_x": -0.0292,
+      "eg_y": 0.1416,
+      "en_x": 1.0061,
+      "en_y": 0.939
+    },
+    {
+      "egyptian": "n\u1e6fr.w",
+      "english": "wisdom",
+      "eg_x": 0.4965,
+      "eg_y": 0.0369,
+      "en_x": 1.672,
+      "en_y": 0.8272
+    },
+    {
+      "egyptian": "jm\ua723\u1e2b,w(.w)",
+      "english": "house",
+      "eg_x": -0.0494,
+      "eg_y": 0.0571,
+      "en_x": -0.7886,
+      "en_y": 0.0825
+    },
+    {
+      "egyptian": "n\u1e6fri\u032f",
+      "english": "spirit",
+      "eg_x": 0.4044,
+      "eg_y": 0.0499,
+      "en_x": 1.1404,
+      "en_y": 0.7529
+    },
+    {
+      "egyptian": "m-b\ua723\u1e25-\ua725",
+      "english": "offering",
+      "eg_x": -0.0078,
+      "eg_y": 0.0135,
+      "en_x": 0.4137,
+      "en_y": 0.9164
+    },
+    {
+      "egyptian": "\u1e2bft(,j).pl",
+      "english": "fear",
+      "eg_x": 0.0938,
+      "eg_y": 0.0143,
+      "en_x": 0.7396,
+      "en_y": -0.3401
+    },
+    {
+      "egyptian": "s,t-jb",
+      "english": "justice",
+      "eg_x": -0.1483,
+      "eg_y": 0.0456,
+      "en_x": 0.3782,
+      "en_y": -0.5439
+    },
+    {
+      "egyptian": "n\u1e6fr,pl",
+      "english": "spirit",
+      "eg_x": 0.3518,
+      "eg_y": 0.0829,
+      "en_x": 1.1404,
+      "en_y": 0.7529
+    },
+    {
+      "egyptian": "\u1e24q,t",
+      "english": "tomb",
+      "eg_x": 0.0423,
+      "eg_y": -0.1213,
+      "en_x": 0.8442,
+      "en_y": -0.7626
+    },
+    {
+      "egyptian": "z\u1e25-n\u1e6fr",
+      "english": "temple",
+      "eg_x": 0.3147,
+      "eg_y": -0.0446,
+      "en_x": 1.7445,
+      "en_y": -0.2878
+    },
+    {
+      "egyptian": "[m-b\ua723\u1e25]",
+      "english": "offering",
+      "eg_x": -0.0289,
+      "eg_y": 0.0223,
+      "en_x": 0.4137,
+      "en_y": 0.9164
+    },
+    {
+      "egyptian": "jr,t.j",
+      "english": "eye",
+      "eg_x": 0.0551,
+      "eg_y": 0.1218,
+      "en_x": -0.1184,
+      "en_y": 0.5657
+    },
+    {
+      "egyptian": "msi\u032f.t.n",
+      "english": "priest",
+      "eg_x": -0.088,
+      "eg_y": 0.0094,
+      "en_x": 0.3458,
+      "en_y": -0.5235
+    },
+    {
+      "egyptian": "n\u1e6fr-dw\ua723(,wj)",
+      "english": "moon",
+      "eg_x": 0.2715,
+      "eg_y": 0.0691,
+      "en_x": 0.7095,
+      "en_y": 0.574
+    },
+    {
+      "egyptian": "[\u1e2bft]",
+      "english": "justice",
+      "eg_x": 0.05,
+      "eg_y": 0.032,
+      "en_x": 0.3782,
+      "en_y": -0.5439
+    },
+    {
+      "egyptian": "z\ua723,t-nzw",
+      "english": "death",
+      "eg_x": -0.1373,
+      "eg_y": 0.0149,
+      "en_x": -0.4485,
+      "en_y": -3.4697
+    },
+    {
+      "egyptian": "d",
+      "english": "lion",
+      "eg_x": -0.002,
+      "eg_y": 0.0235,
+      "en_x": -0.1939,
+      "en_y": -0.1746
+    },
+    {
+      "egyptian": "n\u1e6fr-\ua725\ua723-\ua725n\u1e2b",
+      "english": "tomb",
+      "eg_x": 0.4796,
+      "eg_y": 0.0412,
+      "en_x": 0.8442,
+      "en_y": -0.7626
+    },
+    {
+      "egyptian": "n\u1e6f",
+      "english": "earth",
+      "eg_x": 0.4518,
+      "eg_y": 0.0374,
+      "en_x": 1.2969,
+      "en_y": 1.131
+    },
+    {
+      "egyptian": "jr,t.\u1e71",
+      "english": "eye",
+      "eg_x": 0.0158,
+      "eg_y": 0.1033,
+      "en_x": -0.1184,
+      "en_y": 0.5657
+    },
+    {
+      "egyptian": "ms,t",
+      "english": "tomb",
+      "eg_x": -0.037,
+      "eg_y": -0.1577,
+      "en_x": 0.8442,
+      "en_y": -0.7626
+    },
+    {
+      "egyptian": "jtw",
+      "english": "priest",
+      "eg_x": -0.0091,
+      "eg_y": 0.0221,
+      "en_x": 0.3458,
+      "en_y": -0.5235
+    },
+    {
+      "egyptian": "n\u1e6fr-dw\ua723,w",
+      "english": "sun",
+      "eg_x": 0.3512,
+      "eg_y": 0.0714,
+      "en_x": 0.7511,
+      "en_y": 0.5461
+    },
+    {
+      "egyptian": "\u1e25p,t",
+      "english": "sky",
+      "eg_x": -0.0119,
+      "eg_y": 0.0356,
+      "en_x": 0.5231,
+      "en_y": 0.3004
+    },
+    {
+      "egyptian": "jy.tw",
+      "english": "truth",
+      "eg_x": 0.0035,
+      "eg_y": 0.094,
+      "en_x": 1.2607,
+      "en_y": 0.1066
+    },
+    {
+      "egyptian": "\u1e25rw-nbw",
+      "english": "sun",
+      "eg_x": 0.0484,
+      "eg_y": 0.0823,
+      "en_x": 0.7511,
+      "en_y": 0.5461
+    },
+    {
+      "egyptian": "n\u1e6fr.j",
+      "english": "moon",
+      "eg_x": 0.4758,
+      "eg_y": 0.054,
+      "en_x": 0.7095,
+      "en_y": 0.574
+    },
+    {
+      "egyptian": "sn\u0161",
+      "english": "death",
+      "eg_x": -0.0392,
+      "eg_y": 0.0086,
+      "en_x": -0.4485,
+      "en_y": -3.4697
+    },
+    {
+      "egyptian": "jm\ua723\u1e2b,wt(.w)",
+      "english": "house",
+      "eg_x": -0.0385,
+      "eg_y": 0.0626,
+      "en_x": -0.7886,
+      "en_y": 0.0825
+    },
+    {
+      "egyptian": "mn,tj",
+      "english": "river",
+      "eg_x": -0.0077,
+      "eg_y": -0.021,
+      "en_x": -0.0456,
+      "en_y": 0.2224
+    },
+    {
+      "egyptian": "Nfr-nfr,pl-Jtn-[Nfr,t-jy,tj]",
+      "english": "life",
+      "eg_x": -0.0146,
+      "eg_y": 0.0882,
+      "en_x": 0.0181,
+      "en_y": 2.5833
+    },
+    {
+      "egyptian": "\ua725\u1e25-n\u1e6fr",
+      "english": "temple",
+      "eg_x": 0.2712,
+      "eg_y": -0.0071,
+      "en_x": 1.7445,
+      "en_y": -0.2878
+    },
+    {
+      "egyptian": "\u1e2bft.\u2329pl\u232a",
+      "english": "fear",
+      "eg_x": 0.0669,
+      "eg_y": 0.0113,
+      "en_x": 0.7396,
+      "en_y": -0.3401
+    },
+    {
+      "egyptian": "s\u1e0f,tj",
+      "english": "fire",
+      "eg_x": 0.0285,
+      "eg_y": -0.0035,
+      "en_x": -0.1577,
+      "en_y": -0.7802
+    },
+    {
+      "egyptian": "\u2e22dw\ua723,w\u2e23",
+      "english": "star",
+      "eg_x": 0.0116,
+      "eg_y": 0.0504,
+      "en_x": -0.7498,
+      "en_y": 0.8186
+    },
+    {
+      "egyptian": "jt-m\u1e25",
+      "english": "beer",
+      "eg_x": -0.0871,
+      "eg_y": 0.02,
+      "en_x": -0.8912,
+      "en_y": 0.1901
+    },
+    {
+      "egyptian": "[Nfr-nfr.pl]-Jtn-[Nfr.t-jy.tj]",
+      "english": "life",
+      "eg_x": -0.0187,
+      "eg_y": 0.0967,
+      "en_x": 0.0181,
+      "en_y": 2.5833
+    },
+    {
+      "egyptian": "mri\u032f.[t]",
+      "english": "justice",
+      "eg_x": -0.0156,
+      "eg_y": 0.0548,
+      "en_x": 0.3782,
+      "en_y": -0.5439
+    },
+    {
+      "egyptian": "\u1e25(n)q(,t)",
+      "english": "bread",
+      "eg_x": -0.0158,
+      "eg_y": 0.0344,
+      "en_x": 0.5101,
+      "en_y": 0.8227
+    },
+    {
+      "egyptian": "n\u1e6fr-\ua725n\u1e2b",
+      "english": "sacred",
+      "eg_x": 0.5272,
+      "eg_y": 0.0551,
+      "en_x": 2.0366,
+      "en_y": 0.4002
+    },
+    {
+      "egyptian": "n\u1e6fr-\u0161ps",
+      "english": "earth",
+      "eg_x": 0.4508,
+      "eg_y": 0.0575,
+      "en_x": 1.2969,
+      "en_y": 1.131
+    },
+    {
+      "egyptian": "\u1e25tp(.t)",
+      "english": "peace",
+      "eg_x": -0.0231,
+      "eg_y": 0.0809,
+      "en_x": 1.0825,
+      "en_y": 0.3152
+    },
+    {
+      "egyptian": "kmw",
+      "english": "water",
+      "eg_x": -0.0786,
+      "eg_y": 0.0661,
+      "en_x": -0.2162,
+      "en_y": 1.0944
+    },
+    {
+      "egyptian": "n\u1e6fr-wr",
+      "english": "sacred",
+      "eg_x": 0.549,
+      "eg_y": 0.0772,
+      "en_x": 2.0366,
+      "en_y": 0.4002
+    },
+    {
+      "egyptian": "z\ua723,t-nzw-n-\u1e96,t\u2261\u2329f\u232a",
+      "english": "death",
+      "eg_x": -0.1085,
+      "eg_y": 0.0243,
+      "en_x": -0.4485,
+      "en_y": -3.4697
+    },
+    {
+      "egyptian": "n\u1e6fr-n\u1e6fr,j",
+      "english": "sacred",
+      "eg_x": 0.4615,
+      "eg_y": 0.0579,
+      "en_x": 2.0366,
+      "en_y": 0.4002
+    },
+    {
+      "egyptian": "[Nfr,t-jy.tj]",
+      "english": "life",
+      "eg_x": -0.0377,
+      "eg_y": 0.1073,
+      "en_x": 0.0181,
+      "en_y": 2.5833
+    },
+    {
+      "egyptian": "=[s]n(j)",
+      "english": "love",
+      "eg_x": -0.0159,
+      "eg_y": 0.1574,
+      "en_x": 1.0061,
+      "en_y": 0.939
+    },
+    {
+      "egyptian": "n\u1e6fr.tpl",
+      "english": "magic",
+      "eg_x": 0.3356,
+      "eg_y": 0.0761,
+      "en_x": 0.7468,
+      "en_y": 0.3079
+    },
+    {
+      "egyptian": "n\u1e6fr-\u0161m\ua725(,w)",
+      "english": "temple",
+      "eg_x": 0.3543,
+      "eg_y": 0.0471,
+      "en_x": 1.7445,
+      "en_y": -0.2878
+    },
+    {
+      "egyptian": "n\u1e6fr+",
+      "english": "god",
+      "eg_x": 0.5514,
+      "eg_y": 0.0496,
+      "en_x": 4.7368,
+      "en_y": 0.2582
+    },
+    {
+      "egyptian": "[[\u1e25(n)q,t]]",
+      "english": "bread",
+      "eg_x": -0.0306,
+      "eg_y": -0.0295,
+      "en_x": 0.5101,
+      "en_y": 0.8227
+    },
+    {
+      "egyptian": "dw\ua723,wt",
+      "english": "star",
+      "eg_x": 0.0108,
+      "eg_y": 0.04,
+      "en_x": -0.7498,
+      "en_y": 0.8186
+    },
+    {
+      "egyptian": "jm\ua723\u1e2b,(w)t(.w)",
+      "english": "house",
+      "eg_x": -0.0488,
+      "eg_y": 0.0469,
+      "en_x": -0.7886,
+      "en_y": 0.0825
+    },
+    {
+      "egyptian": "n\u1e6frw",
+      "english": "god",
+      "eg_x": 0.5568,
+      "eg_y": 0.0431,
+      "en_x": 4.7368,
+      "en_y": 0.2582
+    },
+    {
+      "egyptian": "\u1e25[(n)q,t]",
+      "english": "bread",
+      "eg_x": -0.0189,
+      "eg_y": -0.0146,
+      "en_x": 0.5101,
+      "en_y": 0.8227
+    },
+    {
+      "egyptian": "n\u1e6fr-nfr(w)",
+      "english": "soul",
+      "eg_x": 0.3865,
+      "eg_y": 0.0804,
+      "en_x": 0.8036,
+      "en_y": 0.4996
+    },
+    {
+      "egyptian": "\u1e25tpp",
+      "english": "peace",
+      "eg_x": -0.0073,
+      "eg_y": 0.0392,
+      "en_x": 1.0825,
+      "en_y": 0.3152
+    },
+    {
+      "egyptian": "\u1e2bft,j-n-\u1e24r,w",
+      "english": "sword",
+      "eg_x": 0.1992,
+      "eg_y": -0.0103,
+      "en_x": 0.6191,
+      "en_y": -0.8597
+    },
+    {
+      "egyptian": "s\u1e0f,ty",
+      "english": "fire",
+      "eg_x": 0.0316,
+      "eg_y": 0.0337,
+      "en_x": -0.1577,
+      "en_y": -0.7802
+    },
+    {
+      "egyptian": "n\u1e6fri\u032f.n",
+      "english": "magic",
+      "eg_x": 0.2747,
+      "eg_y": 0.09,
+      "en_x": 0.7468,
+      "en_y": 0.3079
+    },
+    {
+      "egyptian": "rmw",
+      "english": "water",
+      "eg_x": -0.0522,
+      "eg_y": 0.0714,
+      "en_x": -0.2162,
+      "en_y": 1.0944
+    },
+    {
+      "egyptian": "Nb,t-jtj",
+      "english": "mother",
+      "eg_x": -0.0272,
+      "eg_y": 0.0388,
+      "en_x": 0.0842,
+      "en_y": 0.0291
+    },
+    {
+      "egyptian": "n\u1e6fr-\ua724\ua722",
+      "english": "god",
+      "eg_x": 0.5254,
+      "eg_y": 0.0658,
+      "en_x": 4.7368,
+      "en_y": 0.2582
+    },
+    {
+      "egyptian": "n\u1e6fr.t",
+      "english": "earth",
+      "eg_x": 0.4456,
+      "eg_y": 0.0502,
+      "en_x": 1.2969,
+      "en_y": 1.131
+    }
+  ],
+  "highlights": [
+    {
+      "egyptian": "mw",
+      "english": "water",
+      "eg_x": 0.0473,
+      "eg_y": 0.1081,
+      "en_x": -0.2162,
+      "en_y": 1.0944,
+      "note": "Perfect hit \u2014 'mw' maps to 'water' across 4,000 years"
+    },
+    {
+      "egyptian": "n\u1e6fr",
+      "english": "god",
+      "eg_x": 0.6535,
+      "eg_y": 0.0498,
+      "en_x": 4.7368,
+      "en_y": 0.2582,
+      "note": "n\u1e6fr \u2014 'god/divine' in Egyptian"
+    },
+    {
+      "egyptian": "nswt",
+      "english": "king",
+      "eg_x": 0.0376,
+      "eg_y": -0.0904,
+      "en_x": 0.4549,
+      "en_y": -1.0209,
+      "note": "nsw \u2014 'king' in Egyptian"
+    }
+  ]
+}
