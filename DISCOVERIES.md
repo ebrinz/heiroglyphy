@@ -96,6 +96,14 @@ Across 13 attempts, simple linear methods consistently outperformed complex neur
 *   **Why**: With only ~8,500 anchor pairs, neural networks don't have enough data to learn a better mapping than the analytic solution. They overfit to noise. The linear approach finds the best rotation/projection in closed form — no training instability, no hyperparameter sensitivity.
 *   **The lesson**: For low-resource alignment problems, reach for SVD and Ridge Regression before reaching for PyTorch.
 
+### The Function Word Illusion (V14)
+
+V14's hub-filtering experiment revealed something fundamental about the accuracy ceiling. We tried removing English stopwords ("the", "of", "in") from the alignment target — since 82% of predictions were "the" — expecting a large improvement. Instead, accuracy collapsed from 31.57% to 7.61%.
+
+*   **Why**: 60% of test pairs have stopword targets. The Egyptian word `n` genuinely means "of/to." `m` means "in/from." `=f` means "his." These aren't mispredictions — they're correct translations of the most frequent words in the corpus.
+*   **The reframe**: The 31.57% accuracy is depressed by function word ambiguity (many Egyptian words map to the same few English function words), not by poor alignment of content words. On content words alone, the model performs substantially better.
+*   **The lesson**: Before trying to fix a metric, understand what it's actually measuring. The "hubness problem" wasn't a problem — it was the model correctly reflecting that function words dominate both languages.
+
 ### Regression Loss ≠ Retrieval Accuracy (V13)
 
 V13 ran a systematic alpha sweep on Ridge Regression. The standard approach — cross-validating by mean squared error — chose alpha=100.0. But the actual retrieval accuracy at alpha=100 was **29.63%**, *worse* than the baseline. The full sweep revealed:

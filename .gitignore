@@ -195,3 +195,9 @@ heiro_v1/data/
 # ============================================
 heiro_v13/data/
 heiro_v13/notebooks/*.ipynb
+
+# ============================================
+# V14 - Iterative Procrustes + Hub Filtering
+# ============================================
+heiro_v14/data/
+heiro_v14/notebooks/*.ipynb
