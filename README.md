@@ -8,7 +8,9 @@
 
 **Word embeddings preserve that geometry.** Every word lives in a high-dimensional space where distance encodes meaning. Words that appear in similar contexts cluster together — not by definition, but by *usage*. If we can train embeddings on Ancient Egyptian texts and align that space to English, we don't just get translations. We recover the *structure of meaning* that literal translation left behind.
 
-**That is what this project attempts.** Across 12 experimental iterations, from failed neural networks to elegant linear algebra, we built a system that aligns 80,662 Egyptian word vectors to English — achieving **32.35% Top-1 accuracy** on unsupervised cross-lingual alignment across a 4,000-year language gap.
+**That is what this project attempts.** Across 15 experimental iterations, from failed neural networks to elegant linear algebra, we built a system that aligns 80,662 Egyptian word vectors to English — achieving **32.35% Top-1 accuracy** on unsupervised cross-lingual alignment across a 4,000-year language gap.
+
+> **Read the full paper:** [Recovering the Conceptual Geometry of Ancient Egyptian Through Vector Space Alignment (PDF)](docs/paper/heiroglyphy.pdf)
 
 ## 🧬 The Vec2Vec Hypothesis
 
@@ -93,7 +95,7 @@ Every language, when embedded, forms a geometric shape. The **Distributional Hyp
 ### [Attempt 10: Vocabulary Refinement (`heiro_v10_refinement`)](./heiro_v10_refinement)
 *   **Technique**: **Vocabulary Normalization + Lexicon Integration**.
 *   **Strategy**: Cleaned vocabulary, integrated HamdiJr lexicon, normalized transliteration variants.
-*   **Outcome**: **30.67% accuracy** ✅ - **Current SOTA**. Minor gains from data cleaning.
+*   **Outcome**: **30.67% accuracy** ✅ - Minor gains from data cleaning.
 
 ### [Attempt 11: MLP Training (`heiro_v11`)](./heiro_v11)
 *   **Technique**: **MLP + N-gram Features**.
@@ -104,6 +106,21 @@ Every language, when embedded, forms a geometric shape. The **Distributional Hyp
 *   **Technique**: **Procrustes with German Target**.
 *   **Strategy**: Minimal 80-anchor alignment directly to German (original translation language).
 *   **Outcome**: **12.90% accuracy** 🧪 - Exploratory work, not SOTA attempt.
+
+### [Attempt 13: Alpha Tuning + Ablation (`heiro_v13`)](./heiro_v13)
+*   **Technique**: **Ridge Alpha Cross-Validation + CSLS + 768d Ablation**.
+*   **Strategy**: Systematic hyperparameter sweep. Discovered MSE is anti-correlated with retrieval accuracy.
+*   **Outcome**: **31.57% accuracy** ✅ - Alpha=0.1 beats V10's alpha=1.0. CSLS definitively harmful.
+
+### [Attempt 14: Iterative Procrustes + Hub Filtering (`heiro_v14`)](./heiro_v14)
+*   **Technique**: **MNN Bootstrapping + Stopword Filtering**.
+*   **Strategy**: Bootstrap new anchors via mutual nearest neighbors; filter function words from alignment.
+*   **Outcome**: **31.57% accuracy** ⚠️ - No improvement. Revealed 60% of test set is function words.
+
+### [Attempt 15: FastText Retraining (`heiro_v15`)](./heiro_v15)
+*   **Technique**: **FastText Parameter Sweep (min_count, window, epochs)**.
+*   **Strategy**: Filtered 87% of vocabulary as noise (hapax legomena), widened context window.
+*   **Outcome**: **32.35% accuracy** ✅ - **Current SOTA**. Cleaner embeddings + alpha=0.001.
 
 ---
 
@@ -145,9 +162,9 @@ lookup.find_blend({"power": 0.7, "wisdom": 0.3})  # weighted blends
 
 **For using pre-trained vectors**, start with **`final_output`** - production-ready files and lookup utilities.
 
-**For the SOTA methodology**, see **`heiro_v9_use_visuals_again`** (30.52%) or **`heiro_v10_refinement`** (30.67%).
+**For the SOTA methodology**, see **`heiro_v15`** (32.35%) — retrained FastText with optimized parameters.
 
-**For understanding the baseline**, **`heiro_v7_FastTextVisual`** documents the 768d FastText approach (29.10%).
+**For understanding the baseline**, **`heiro_v7_FastTextVisual`** documents the original 768d FastText approach (29.10%).
 
 **For the data pipeline**, **`heiro_v5_getdata`** covers corpus assembly and anchor extraction.
 
