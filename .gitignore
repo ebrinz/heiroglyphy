@@ -187,5 +187,11 @@ heiro_v12/notebooks/models/
 **/aligned_models/
 **/results*.json
 
-# Duplicate/misspelled files
-discover_anomolies.ipynb
+# V1 data exports (large CSVs)
+heiro_v1/data/
+
+# ============================================
+# V13 - Accuracy Push
+# ============================================
+heiro_v13/data/
+heiro_v13/notebooks/*.ipynb
