@@ -1,8 +1,7 @@
 \documentclass[11pt, a4paper]{article}
 
 % ── Packages ──────────────────────────────────────────────────────────────────
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+\usepackage{fontspec}
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
 \usepackage{booktabs}
@@ -12,7 +11,6 @@
 \usepackage{xcolor}
 \usepackage{enumitem}
 \usepackage{float}
-% \usepackage{microtype}  % requires full TeX install with scalable fonts
 
 \hypersetup{
     colorlinks=true,
@@ -21,15 +19,23 @@
     urlcolor=blue!60!black,
 }
 
+% ── Hieroglyphic font ─────────────────────────────────────────────────────────
+\newfontfamily\hierofont{EgyptianHiero}[
+    Path=../../final_output/,
+    Extension=.ttf,
+]
+\newcommand{\hiero}[1]{{\normalfont\hierofont #1}}
+
 % ── Title ─────────────────────────────────────────────────────────────────────
 \title{
     \textbf{Heiroglyphy: Recovering the Conceptual Geometry\\of Ancient Egyptian Through Vector Space Alignment}
 }
 
 \author{
-    Erik Brinsmead\textsuperscript{1} \and Claude\textsuperscript{2} \\[6pt]
-    \textsuperscript{1}Independent Researcher \\
-    \textsuperscript{2}Anthropic \\[6pt]
+    Erik Brinsmead \\
+    Independent Researcher \\[6pt]
+    Claude \\
+    Anthropic \\[12pt]
     \texttt{github.com/ebrinz/heiroglyphy}
 }
 
@@ -246,49 +252,49 @@ V & Technique & Top-1 & Status \\
 
 The following findings emerge from probing the aligned V15 embedding space with semantic analogies, concept midpoints, and cross-domain cluster analysis. They represent what literal translation cannot capture: the relational structure of how Egyptians connected ideas.
 
-\subsection{Gold Is Divine Flesh}
+\subsection{Gold Is Divine Flesh \hfill \hiero{𓋴𓈖𓃀𓅱}}
 
 The midpoint of ``gold'' and ``divine'' in English, projected into the Egyptian space, finds \textit{n\d{t}ri} (divine, similarity 0.642) and \textit{nbw} (gold, similarity 0.617) as the top results. They are geometrically colocated.
 
 Modern readers treat the Egyptian statement ``the flesh of the gods is gold'' as poetic metaphor. The embedding space suggests otherwise. Gold and divinity are not \textit{compared} in the Egyptian textual record---they are \textit{colocated}. The same linguistic contexts that invoke divinity invoke gold, and vice versa. The model cannot distinguish them because the corpus does not distinguish them. This is not metaphor. It is ontology.
 
-\subsection{Silence Is the Condition of the Dead}
+\subsection{Silence Is the Condition of the Dead \hfill \hiero{𓇯𓂋𓊽}}
 
 The midpoint of ``silence'' and ``death'' returns variants of \textit{m(w)t} (die/dead) as all five nearest neighbors. There is no Egyptian word between silence and death---they occupy the same point in semantic space.
 
 The Egyptians called the necropolis \textit{t\=a-sgr}---``the silent land.'' The dead were \textit{sgr.w}---``the silent ones.'' The embedding space confirms that this was not euphemism. Silence was death's defining quality. What the dead lost was not life in some abstract sense. It was voice.
 
-\subsection{Seeing Was an Act of Magical Power}
+\subsection{Seeing Was an Act of Magical Power \hfill \hiero{𓂀𓎛𓋴}}
 
 The midpoint of ``eye'' and ``knowledge'' finds \textit{jr,t} (eyes) at the top, then \textit{\d{h}k\=a} (heka/magic) as the third-nearest word. Egyptian sight sits between knowing and spellcasting.
 
 The Eye of Horus (\textit{w\underline{d}\=a,t}) was simultaneously an organ of perception, a protective amulet, and a unit of mathematical measurement. Seeing, in the Egyptian worldview, was not passive reception. It was an active, potent act---closer to divination than observation. The embedding space captures this without being told.
 
-\subsection{The Snake Is Divine, Not Wise}
+\subsection{The Snake Is Divine, Not Wise \hfill \hiero{𓆙𓊽𓋴}}
 
 The midpoint of ``snake'' and ``wisdom'' finds gods and divinity---not wisdom, knowledge, or cunning. Every top result is a \textit{n\d{t}r} variant.
 
 This directly contradicts the Greek-influenced reading of serpent symbolism. In the Greek tradition, the snake is associated with wisdom (the serpent of Asclepius, the caduceus). In the Egyptian tradition, the serpent---the uraeus cobra on the pharaoh's brow, the Apophis serpent of chaos---is associated with \textit{divine power}. The embedding space separates these cultural readings without any awareness of Greek mythology.
 
-\subsection{Temple Is to House as God Is to Man}
+\subsection{Temple Is to House as God Is to Man \hfill \hiero{𓉐𓊽𓀀}}
 
 The vector analogy \textit{house : temple :: man : ?} returns \textit{n\d{t}r} (god). The proportional relationship is preserved across the 4,000-year alignment: a temple is a god's house, in the same geometric sense that a house is a man's dwelling.
 
 This is one of the few cases where vector arithmetic---the technique that produces ``king $-$ man $+$ woman $=$ queen'' in English---works across an ancient language boundary.
 
-\subsection{Mother Is Royalty, Not Earth}
+\subsection{Mother Is Royalty, Not Earth \hfill \hiero{𓅭𓏏𓀀}}
 
 The midpoint of ``mother'' and ``earth'' does not find earth, soil, or land. It finds \textit{\d{h}m,t-nzw} (royal wife) and \textit{z\=a,t-nzw} (king's daughter). In the Egyptian textual record, motherhood is a \textit{royal} concept.
 
 The ``earth mother''---the fertile, nurturing ground-goddess---is an Indo-European archetype (Gaia, Terra, Demeter). The Egyptian mother-goddess (Isis, Hathor) is not earthy. She is regal. The embedding space reveals this cultural divergence without being told about either tradition.
 
-\subsection{Truth and Power Are the Same Force}
+\subsection{Truth and Power Are the Same Force \hfill \hiero{𓁹𓋴𓊽}}
 
 The midpoint of ``truth'' and ``power'' finds \textit{s\underline{h}m} (power/authority) at \#1 and \textit{\underline{h}ft.pl} (enemies) at \#4. Truth, power, and the defeat of enemies occupy the same semantic region.
 
 This reflects \textit{m\=a\c{a}.t}---usually translated as ``truth'' or ``justice'' but encompassing cosmic order, righteous authority, and the subduing of chaos. Truth in the Egyptian worldview is not passive correctness. It is the active force that maintains the universe against its enemies.
 
-\subsection{Love and Fear Meet at Eternity}
+\subsection{Love and Fear Meet at Eternity \hfill \hiero{𓆣𓇯𓋴}}
 
 The midpoint of ``love'' and ``fear'' finds \textit{r-(n)\d{h}\d{h}} (eternal/forever) as the second-nearest word. Between love and fear, the Egyptians placed eternity.
 
