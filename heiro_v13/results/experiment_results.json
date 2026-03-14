@@ -70,8 +70,15 @@
     "delta_v10": -1.04
   },
   "exp5_glove_840b": {
-    "skipped": true,
-    "reason": "file not found"
+    "glove_vocab_size": 2196018,
+    "anchor_coverage_840b": 6720,
+    "anchor_coverage_delta": 20,
+    "best_alpha_840b": 100.0,
+    "weighted": false,
+    "top1": 27.68,
+    "top5": 33.56,
+    "top10": 36.83,
+    "delta_v10": -2.99
   },
   "best_config": {
     "description": "v10_baseline",
