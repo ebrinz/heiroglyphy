@@ -1,0 +1,454 @@
+{
+  "bridges": [
+    {
+      "word": "z\ua723,t.du",
+      "known": "the",
+      "cluster1": "family",
+      "sim1": 0.701846433125204,
+      "cluster2": "body",
+      "sim2": 0.6618361098957548,
+      "bridge_score": 0.6618361098957548
+    },
+    {
+      "word": "sbjw",
+      "known": "with",
+      "cluster1": "warfare",
+      "sim1": 0.6528739881598451,
+      "cluster2": "body",
+      "sim2": 0.6845236110497133,
+      "bridge_score": 0.6528739881598451
+    },
+    {
+      "word": "[z\ua723,t-nzw]",
+      "known": "she",
+      "cluster1": "family",
+      "sim1": 0.6926372893352163,
+      "cluster2": "body",
+      "sim2": 0.6516487438591172,
+      "bridge_score": 0.6516487438591172
+    },
+    {
+      "word": "sbjw{.pl}",
+      "known": "frevler",
+      "cluster1": "warfare",
+      "sim1": 0.6490927527550592,
+      "cluster2": "body",
+      "sim2": 0.7111396253659865,
+      "bridge_score": 0.6490927527550592
+    },
+    {
+      "word": "[\u1e25r,t]",
+      "known": "sky",
+      "cluster1": "celestial",
+      "sim1": 0.6455995573137085,
+      "cluster2": "body",
+      "sim2": 0.6468764604490772,
+      "bridge_score": 0.6455995573137085
+    },
+    {
+      "word": "\u1e25m,t-nzw",
+      "known": "live",
+      "cluster1": "family",
+      "sim1": 0.6603716747946695,
+      "cluster2": "body",
+      "sim2": 0.6416820664827854,
+      "bridge_score": 0.6416820664827854
+    },
+    {
+      "word": "sm\ua723m.n",
+      "known": "killed",
+      "cluster1": "warfare",
+      "sim1": 0.6339991277682666,
+      "cluster2": "body",
+      "sim2": 0.6469633376999764,
+      "bridge_score": 0.6339991277682666
+    },
+    {
+      "word": "\u1e25\u1e0f-t\ua723",
+      "known": "dawn",
+      "cluster1": "celestial",
+      "sim1": 0.6496495627845396,
+      "cluster2": "body",
+      "sim2": 0.6263987703162918,
+      "bridge_score": 0.6263987703162918
+    },
+    {
+      "word": "\u1e25rr,t",
+      "known": "?",
+      "cluster1": "celestial",
+      "sim1": 0.614567332182264,
+      "cluster2": "body",
+      "sim2": 0.6536286191051798,
+      "bridge_score": 0.614567332182264
+    },
+    {
+      "word": "jm\ua723\u1e2b,(w)t-\u1e2br-n\u1e6fr-\ua725\ua723",
+      "known": "at",
+      "cluster1": "religion",
+      "sim1": 0.6157662479982423,
+      "cluster2": "body",
+      "sim2": 0.6091276568849813,
+      "bridge_score": 0.6091276568849813
+    },
+    {
+      "word": "[jm\ua723\u1e2b,w]-\u1e2br-n\u1e6fr-\ua725\ua723",
+      "known": "god",
+      "cluster1": "religion",
+      "sim1": 0.6041362422593449,
+      "cluster2": "body",
+      "sim2": 0.6304671603513818,
+      "bridge_score": 0.6041362422593449
+    },
+    {
+      "word": "jm\ua723\u1e2b,wt-\u1e2br-n\u1e6fr-\ua725\ua723",
+      "known": "large",
+      "cluster1": "religion",
+      "sim1": 0.6193573503532223,
+      "cluster2": "body",
+      "sim2": 0.600208082464287,
+      "bridge_score": 0.600208082464287
+    },
+    {
+      "word": "\u2e22\u1e25m,t-nzw-wr.t\u2e23",
+      "known": "royal",
+      "cluster1": "warfare",
+      "sim1": 0.5929123546505743,
+      "cluster2": "family",
+      "sim2": 0.6127353515662617,
+      "bridge_score": 0.5929123546505743
+    },
+    {
+      "word": "[\u1e25m,t-nzw-wr,t]",
+      "known": "she",
+      "cluster1": "family",
+      "sim1": 0.6078198795111113,
+      "cluster2": "celestial",
+      "sim2": 0.5864328124999261,
+      "bridge_score": 0.5864328124999261
+    },
+    {
+      "word": "hr,t",
+      "known": "?",
+      "cluster1": "warfare",
+      "sim1": 0.5857706478385909,
+      "cluster2": "celestial",
+      "sim2": 0.6040146030087361,
+      "bridge_score": 0.5857706478385909
+    },
+    {
+      "word": "[s\ua723]",
+      "known": "son",
+      "cluster1": "family",
+      "sim1": 0.6751045801709852,
+      "cluster2": "celestial",
+      "sim2": 0.5843423495170053,
+      "bridge_score": 0.5843423495170053
+    },
+    {
+      "word": "\u1e25r,y(t)",
+      "known": "frighten",
+      "cluster1": "warfare",
+      "sim1": 0.5835866685446076,
+      "cluster2": "celestial",
+      "sim2": 0.5837561738303442,
+      "bridge_score": 0.5835866685446076
+    },
+    {
+      "word": "\u1e25m,t-nzw-[wr,t]",
+      "known": "live",
+      "cluster1": "family",
+      "sim1": 0.628713433967904,
+      "cluster2": "celestial",
+      "sim2": 0.5834554903658236,
+      "bridge_score": 0.5834554903658236
+    },
+    {
+      "word": "[\u1e25m,t-nzw-wr,t]",
+      "known": "she",
+      "cluster1": "warfare",
+      "sim1": 0.5830293501107998,
+      "cluster2": "family",
+      "sim2": 0.6078198795111113,
+      "bridge_score": 0.5830293501107998
+    },
+    {
+      "word": "[\u1e25m,t-nzw-wr,t]",
+      "known": "she",
+      "cluster1": "warfare",
+      "sim1": 0.5830293501107998,
+      "cluster2": "celestial",
+      "sim2": 0.5864328124999261,
+      "bridge_score": 0.5830293501107998
+    },
+    {
+      "word": "\u1e25m,t-nzw-wr.t",
+      "known": "ground",
+      "cluster1": "warfare",
+      "sim1": 0.5827870096882442,
+      "cluster2": "family",
+      "sim2": 0.6145045603380801,
+      "bridge_score": 0.5827870096882442
+    },
+    {
+      "word": "rm.w.pl",
+      "known": "fish",
+      "cluster1": "water/river",
+      "sim1": 0.5810781082020162,
+      "cluster2": "body",
+      "sim2": 0.5850021642939406,
+      "bridge_score": 0.5810781082020162
+    },
+    {
+      "word": "n\u1e6fr.j",
+      "known": "?",
+      "cluster1": "religion",
+      "sim1": 0.7254659001792868,
+      "cluster2": "magic/ritual",
+      "sim2": 0.5802147743429595,
+      "bridge_score": 0.5802147743429595
+    },
+    {
+      "word": "[n\u1e6fr,t]",
+      "known": "g\u00f6ttin",
+      "cluster1": "religion",
+      "sim1": 0.6140546658645987,
+      "cluster2": "celestial",
+      "sim2": 0.5794843341885031,
+      "bridge_score": 0.5794843341885031
+    },
+    {
+      "word": "{n\u1e6fr}",
+      "known": "the",
+      "cluster1": "religion",
+      "sim1": 0.6475805815492195,
+      "cluster2": "celestial",
+      "sim2": 0.5781671140965732,
+      "bridge_score": 0.5781671140965732
+    },
+    {
+      "word": "\u1e0fd\ua723",
+      "known": "meat",
+      "cluster1": "agriculture",
+      "sim1": 0.588343251134162,
+      "cluster2": "body",
+      "sim2": 0.5781604444845315,
+      "bridge_score": 0.5781604444845315
+    },
+    {
+      "word": "j\u1e25.pl",
+      "known": "cattle",
+      "cluster1": "agriculture",
+      "sim1": 0.5773069860805762,
+      "cluster2": "body",
+      "sim2": 0.5902096972347871,
+      "bridge_score": 0.5773069860805762
+    },
+    {
+      "word": "\u2329\u2329jm\ua723\u1e2b,w\u232a\u232a-\u1e2br-n\u1e6fr-\ua725\ua723",
+      "known": "god",
+      "cluster1": "religion",
+      "sim1": 0.5912926650243019,
+      "cluster2": "celestial",
+      "sim2": 0.5761697030900951,
+      "bridge_score": 0.5761697030900951
+    },
+    {
+      "word": "rm.w",
+      "known": "fish",
+      "cluster1": "water/river",
+      "sim1": 0.5755257164389094,
+      "cluster2": "body",
+      "sim2": 0.5878902020874802,
+      "bridge_score": 0.5755257164389094
+    },
+    {
+      "word": "jm\ua723\u1e2b,w-\u1e2br-Jnp,w-tp,j-\u1e0fw\u2261f",
+      "known": "?",
+      "cluster1": "royalty",
+      "sim1": 0.5815484288742864,
+      "cluster2": "body",
+      "sim2": 0.5750748608986618,
+      "bridge_score": 0.5750748608986618
+    },
+    {
+      "word": "jwf.pl",
+      "known": "?",
+      "cluster1": "agriculture",
+      "sim1": 0.5724870727623946,
+      "cluster2": "body",
+      "sim2": 0.6409444395332202,
+      "bridge_score": 0.5724870727623946
+    },
+    {
+      "word": "m\u1e96n(,t)",
+      "known": "ferry",
+      "cluster1": "water/river",
+      "sim1": 0.5721831044451737,
+      "cluster2": "body",
+      "sim2": 0.5713926934772072,
+      "bridge_score": 0.5713926934772072
+    },
+    {
+      "word": "nzw-bj,tj",
+      "known": "lower egypt",
+      "cluster1": "royalty",
+      "sim1": 0.5733850570650177,
+      "cluster2": "body",
+      "sim2": 0.5697528864693954,
+      "bridge_score": 0.5697528864693954
+    },
+    {
+      "word": "\u2329\u2329jm\ua723\u1e2b,w-\u232a\u232a\u1e2br-n\u1e6fr-\ua725\ua723",
+      "known": "large",
+      "cluster1": "religion",
+      "sim1": 0.5918371153292399,
+      "cluster2": "warfare",
+      "sim2": 0.5664840447215579,
+      "bridge_score": 0.5664840447215579
+    },
+    {
+      "word": "nswt-bj.tj",
+      "known": "of",
+      "cluster1": "royalty",
+      "sim1": 0.6084588240499691,
+      "cluster2": "body",
+      "sim2": 0.5632854527958279,
+      "bridge_score": 0.5632854527958279
+    },
+    {
+      "word": "n\u1e6frj",
+      "known": "and",
+      "cluster1": "religion",
+      "sim1": 0.778543789163096,
+      "cluster2": "magic/ritual",
+      "sim2": 0.5629668718352265,
+      "bridge_score": 0.5629668718352265
+    },
+    {
+      "word": "\u2329\u2329jm\ua723\u1e2b,w\u232a\u232a-\u1e2br-n\u1e6fr-\ua725\ua723",
+      "known": "god",
+      "cluster1": "religion",
+      "sim1": 0.5912926650243019,
+      "cluster2": "warfare",
+      "sim2": 0.5623998453451423,
+      "bridge_score": 0.5623998453451423
+    },
+    {
+      "word": "[jm\ua723\u1e2b,w]-\u1e2br-n\u1e6fr-\ua725\ua723",
+      "known": "god",
+      "cluster1": "religion",
+      "sim1": 0.6041362422593449,
+      "cluster2": "warfare",
+      "sim2": 0.5610115844038877,
+      "bridge_score": 0.5610115844038877
+    },
+    {
+      "word": "jt(j)-n\u1e6fr.pl",
+      "known": "the",
+      "cluster1": "religion",
+      "sim1": 0.5787598560911777,
+      "cluster2": "family",
+      "sim2": 0.5607517797846586,
+      "bridge_score": 0.5607517797846586
+    },
+    {
+      "word": "[swt]",
+      "known": "the",
+      "cluster1": "royalty",
+      "sim1": 0.5864241781736861,
+      "cluster2": "family",
+      "sim2": 0.5599245916703319,
+      "bridge_score": 0.5599245916703319
+    },
+    {
+      "word": "nsw[t]",
+      "known": "?",
+      "cluster1": "royalty",
+      "sim1": 0.6664459674548433,
+      "cluster2": "family",
+      "sim2": 0.5597696500764189,
+      "bridge_score": 0.5597696500764189
+    },
+    {
+      "word": "m\u1e96n(,t)",
+      "known": "ferry",
+      "cluster1": "water/river",
+      "sim1": 0.5721831044451737,
+      "cluster2": "celestial",
+      "sim2": 0.5594296272270765,
+      "bridge_score": 0.5594296272270765
+    },
+    {
+      "word": "\u1e2answ",
+      "known": "?",
+      "cluster1": "royalty",
+      "sim1": 0.6123779252704593,
+      "cluster2": "family",
+      "sim2": 0.556787467844075,
+      "bridge_score": 0.556787467844075
+    },
+    {
+      "word": "mk(,t)",
+      "known": "?",
+      "cluster1": "water/river",
+      "sim1": 0.5560106928897266,
+      "cluster2": "celestial",
+      "sim2": 0.598783202438505,
+      "bridge_score": 0.5560106928897266
+    },
+    {
+      "word": "n\u1e6fr.w",
+      "known": "gods",
+      "cluster1": "religion",
+      "sim1": 0.7251775528709619,
+      "cluster2": "magic/ritual",
+      "sim2": 0.5558175928278667,
+      "bridge_score": 0.5558175928278667
+    },
+    {
+      "word": "jm\ua723\u1e2b,w-\u1e2br-Jnp,w-tp,j-\u1e0fw\u2261f",
+      "known": "?",
+      "cluster1": "royalty",
+      "sim1": 0.5815484288742864,
+      "cluster2": "warfare",
+      "sim2": 0.5535395586342081,
+      "bridge_score": 0.5535395586342081
+    },
+    {
+      "word": "\u1e25m,t-n\u1e6fr-Nj,t",
+      "known": "?",
+      "cluster1": "religion",
+      "sim1": 0.5528536059235053,
+      "cluster2": "family",
+      "sim2": 0.5781959593552198,
+      "bridge_score": 0.5528536059235053
+    },
+    {
+      "word": "\u1e0fw.pl",
+      "known": "mountains",
+      "cluster1": "water/river",
+      "sim1": 0.5528518381661693,
+      "cluster2": "warfare",
+      "sim2": 0.5593081488189382,
+      "bridge_score": 0.5528518381661693
+    },
+    {
+      "word": "\u2e22\u1e2bnt,j-\u0161\u2e23",
+      "known": "chentischi",
+      "cluster1": "royalty",
+      "sim1": 0.5500521436629938,
+      "cluster2": "warfare",
+      "sim2": 0.5693126666366259,
+      "bridge_score": 0.5500521436629938
+    },
+    {
+      "word": "nsw-n\u1e6fr.pl",
+      "known": "the",
+      "cluster1": "royalty",
+      "sim1": 0.5673852579499463,
+      "cluster2": "religion",
+      "sim2": 0.5499969380034639,
+      "bridge_score": 0.5499969380034639
+    }
+  ]
+}

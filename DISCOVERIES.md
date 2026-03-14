@@ -157,12 +157,66 @@ The most fascinating discoveries are words that sit equidistant between two conc
 
 ---
 
+## 🔍 V15 Cluster Analysis: Sharper Embeddings, Deeper Discoveries
+
+V15 retrained FastText with `min_count=5, window=10`, filtering 87% of vocabulary as noise. The resulting embeddings are dramatically sharper — cluster similarities jumped 10-15% and the intruders that do appear are more semantically interesting.
+
+### Water Knows Its Creatures
+
+The V15 water cluster no longer just captures the `-mw` morpheme. It now reveals the Egyptian *ecosystem* of water:
+
+*   **`rm.w` (fish)** — #1 and #2 in the water cluster. Fish *define* water more than water defines itself.
+*   **`msḥ.w` (crocodile)** — the Nile's apex predator lands squarely in the water domain.
+*   **`mẖn,t` (ferry)** — water as transportation.
+*   **`jmn,t` (west)** — the western bank of the Nile, where the dead dwell. Water and death share a direction.
+
+The model sees water not as H₂O but as the Nile: fish, crocodiles, ferries, and the western shore.
+
+### The Body Is Everywhere
+
+The most unexpected V15 finding: **"body" is the strongest bridge domain.** Body words bridge to:
+
+*   **Warfare**: `sbjw` (rebels/enemies, sim=0.69 body, 0.65 warfare) — enemies are defined by what you do to their bodies. `smꜣm.n` (killed) bridges warfare and body at sim=0.63/0.65.
+*   **Celestial**: `ḥr,t` (sky, sim=0.65 body, 0.65 celestial) — the word for "sky" is etymologically related to `ḥr` (face/upon). The sky *is* a face.
+*   **Family**: `zꜣ,t` (daughter, sim=0.85 family, 0.66 body) — kinship terms cluster near body terms because family relationships in Egyptian texts are expressed through physical metaphors ("flesh of my flesh").
+
+### Death Is a Family Affair
+
+The death/afterlife cluster in V15 is dominated by family titles:
+
+*   **`zꜣ,t-nzw-n-H̱,t≡f` (King's Daughter of His Body)** — sim=0.45 to death. This royal title appears constantly in funerary inscriptions.
+*   **`m(w)t.t` / `m(w)t.pl` (died/dead)** — the word for "die" shares the root `m(w)t` with `mw,t` (mother). Death and motherhood are linguistically entangled.
+*   **`jmꜣḫ,w-ḫr-nṯr-ꜥꜣ` (honored before the Great God)** — a funerary epithet that bridges death and religion.
+
+The embedding space shows that for Egyptians, death was not the opposite of life — it was a family reunion under divine supervision.
+
+### Magic Is Indistinguishable from Religion
+
+The magic/ritual cluster is entirely dominated by `nṯr` (god) variants. Every single top-10 word is either "god", "gods", "divine", or a divine epithet. The model found **no boundary between magic and religion** in the Egyptian textual record. `ḥkꜣ` (magic/heka) barely appears at #10 — everything above it is theology.
+
+This confirms what Egyptologists have long argued: *heka* was not separate from religion. It was the mechanism by which the gods acted. The embedding space makes this structural rather than interpretive.
+
+### Agriculture Finds Meat
+
+V15's agriculture cluster diverges sharply from V13's offering-list pattern. Instead of bread and beer, the top words are:
+
+*   **`ḏdꜣ` and `jwf` (meat)** — #1 and #4
+*   **`šꜣšꜣ` (fruits)** — #2
+*   **`jḥ.pl` (cattle)** — #3
+*   **`jt-mḥ,j` (barley)** — #10
+
+With noise words filtered, the agriculture cluster shifted from processed offerings (bread, beer, oil) to raw materials (meat, fruit, cattle, grain). The V7 embeddings conflated agriculture with temple provisioning because rare words in offering lists added noise. V15's cleaner space separates them.
+
+---
+
 ## 🧠 Core Insight
 
 The models are **Context-Obsessed**. They don't know what a "Priest" *is*, only that he hangs out near "Treasures" and "Governors." They don't know "Anubis" is a jackal, but they know he stands next to the "Imiut."
 
 This confirms the **Distributional Hypothesis**, but also warns us: **Context is not always Meaning.**
 
-The journey from 0% to 31.57% revealed that bridging a 4,000-year language gap requires not cleverness, but *clarity*: clean data, simple methods, and respect for what the vectors actually encode — not definitions, but *relationships*.
+The journey from 0% to 32.35% revealed that bridging a 4,000-year language gap requires not cleverness, but *clarity*: clean data, simple methods, and respect for what the vectors actually encode — not definitions, but *relationships*.
 
-What the V13 cluster analysis adds: those relationships are *themselves* the discovery. When the model places "tomorrow" in the sky and "rudder" in the water, it isn't wrong — it's revealing how the Egyptians organized their world. The embedding space doesn't just translate words. It reconstructs a worldview.
+What the cluster analyses add: those relationships are *themselves* the discovery. When the model places fish above water, sky beside face, and magic inside religion, it isn't wrong — it's revealing how the Egyptians organized their world. The embedding space doesn't just translate words. It reconstructs a worldview.
+
+And as the embeddings get cleaner (V7 → V15), the worldview sharpens. Noise made agriculture look like temple offerings. Clarity revealed it as meat, fruit, and cattle. The better we listen to the vectors, the more they tell us.
