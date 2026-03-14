@@ -1,0 +1,214 @@
+{
+  "experiments": [
+    {
+      "name": "V7_baseline",
+      "config": {
+        "vector_size": 768,
+        "window": 5,
+        "min_count": 1,
+        "sg": 1,
+        "epochs": 10,
+        "name": "V7_baseline"
+      },
+      "train_time_s": 92.6,
+      "top1": 30.6,
+      "top5": 38.43,
+      "top10": 43.13,
+      "vocab_size": 80662,
+      "valid_anchors": 6700,
+      "train_anchors": 5360,
+      "fused_dim": 1536,
+      "visual_matches": 68,
+      "delta_v13": -0.97
+    },
+    {
+      "name": "mc3_w5",
+      "config": {
+        "vector_size": 768,
+        "window": 5,
+        "min_count": 3,
+        "sg": 1,
+        "epochs": 10,
+        "name": "mc3_w5"
+      },
+      "train_time_s": 70.0,
+      "top1": 28.96,
+      "top5": 37.71,
+      "top10": 43.09,
+      "vocab_size": 17746,
+      "valid_anchors": 6509,
+      "train_anchors": 5207,
+      "fused_dim": 1536,
+      "visual_matches": 66,
+      "delta_v13": -2.61
+    },
+    {
+      "name": "mc5_w5",
+      "config": {
+        "vector_size": 768,
+        "window": 5,
+        "min_count": 5,
+        "sg": 1,
+        "epochs": 10,
+        "name": "mc5_w5"
+      },
+      "train_time_s": 61.0,
+      "top1": 31.41,
+      "top5": 40.45,
+      "top10": 44.51,
+      "vocab_size": 10833,
+      "valid_anchors": 6415,
+      "train_anchors": 5132,
+      "fused_dim": 1536,
+      "visual_matches": 64,
+      "delta_v13": -0.16
+    },
+    {
+      "name": "mc3_w10",
+      "config": {
+        "vector_size": 768,
+        "window": 10,
+        "min_count": 3,
+        "sg": 1,
+        "epochs": 10,
+        "name": "mc3_w10"
+      },
+      "train_time_s": 80.3,
+      "top1": 30.34,
+      "top5": 38.48,
+      "top10": 43.47,
+      "vocab_size": 17746,
+      "valid_anchors": 6509,
+      "train_anchors": 5207,
+      "fused_dim": 1536,
+      "visual_matches": 66,
+      "delta_v13": -1.23
+    },
+    {
+      "name": "mc3_w15",
+      "config": {
+        "vector_size": 768,
+        "window": 15,
+        "min_count": 3,
+        "sg": 1,
+        "epochs": 10,
+        "name": "mc3_w15"
+      },
+      "train_time_s": 83.2,
+      "top1": 30.41,
+      "top5": 39.17,
+      "top10": 44.09,
+      "vocab_size": 17746,
+      "valid_anchors": 6509,
+      "train_anchors": 5207,
+      "fused_dim": 1536,
+      "visual_matches": 66,
+      "delta_v13": -1.16
+    },
+    {
+      "name": "mc5_w10",
+      "config": {
+        "vector_size": 768,
+        "window": 10,
+        "min_count": 5,
+        "sg": 1,
+        "epochs": 10,
+        "name": "mc5_w10"
+      },
+      "train_time_s": 661.7,
+      "top1": 31.88,
+      "top5": 41.54,
+      "top10": 44.74,
+      "vocab_size": 10833,
+      "valid_anchors": 6415,
+      "train_anchors": 5132,
+      "fused_dim": 1536,
+      "visual_matches": 64,
+      "delta_v13": 0.31
+    },
+    {
+      "name": "mc3_w10_e20",
+      "config": {
+        "vector_size": 768,
+        "window": 10,
+        "min_count": 3,
+        "sg": 1,
+        "epochs": 20,
+        "name": "mc3_w10_e20"
+      },
+      "train_time_s": 180.0,
+      "top1": 30.57,
+      "top5": 40.55,
+      "top10": 44.7,
+      "vocab_size": 17746,
+      "valid_anchors": 6509,
+      "train_anchors": 5207,
+      "fused_dim": 1536,
+      "visual_matches": 66,
+      "delta_v13": -1.0
+    },
+    {
+      "name": "mc3_w10_e50",
+      "config": {
+        "vector_size": 768,
+        "window": 10,
+        "min_count": 3,
+        "sg": 1,
+        "epochs": 50,
+        "name": "mc3_w10_e50"
+      },
+      "train_time_s": 370.3,
+      "top1": 27.73,
+      "top5": 39.25,
+      "top10": 43.93,
+      "vocab_size": 17746,
+      "valid_anchors": 6509,
+      "train_anchors": 5207,
+      "fused_dim": 1536,
+      "visual_matches": 66,
+      "delta_v13": -3.84
+    },
+    {
+      "name": "mc3_w10_cbow",
+      "config": {
+        "vector_size": 768,
+        "window": 10,
+        "min_count": 3,
+        "sg": 0,
+        "epochs": 20,
+        "name": "mc3_w10_cbow"
+      },
+      "train_time_s": 115.2,
+      "top1": 29.72,
+      "top5": 38.02,
+      "top10": 41.4,
+      "vocab_size": 17746,
+      "valid_anchors": 6509,
+      "train_anchors": 5207,
+      "fused_dim": 1536,
+      "visual_matches": 66,
+      "delta_v13": -1.85
+    }
+  ],
+  "best": {
+    "name": "mc5_w10",
+    "config": {
+      "vector_size": 768,
+      "window": 10,
+      "min_count": 5,
+      "sg": 1,
+      "epochs": 10,
+      "name": "mc5_w10"
+    },
+    "train_time_s": 661.7,
+    "top1": 31.88,
+    "top5": 41.54,
+    "top10": 44.74,
+    "vocab_size": 10833,
+    "valid_anchors": 6415,
+    "train_anchors": 5132,
+    "fused_dim": 1536,
+    "visual_matches": 64,
+    "delta_v13": 0.31
+  }
+}

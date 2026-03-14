@@ -8,7 +8,7 @@
 
 **Word embeddings preserve that geometry.** Every word lives in a high-dimensional space where distance encodes meaning. Words that appear in similar contexts cluster together — not by definition, but by *usage*. If we can train embeddings on Ancient Egyptian texts and align that space to English, we don't just get translations. We recover the *structure of meaning* that literal translation left behind.
 
-**That is what this project attempts.** Across 12 experimental iterations, from failed neural networks to elegant linear algebra, we built a system that aligns 80,662 Egyptian word vectors to English — achieving **31.57% Top-1 accuracy** on unsupervised cross-lingual alignment across a 4,000-year language gap.
+**That is what this project attempts.** Across 12 experimental iterations, from failed neural networks to elegant linear algebra, we built a system that aligns 80,662 Egyptian word vectors to English — achieving **32.35% Top-1 accuracy** on unsupervised cross-lingual alignment across a 4,000-year language gap.
 
 ## 🧬 The Vec2Vec Hypothesis
 
@@ -37,7 +37,9 @@ Every language, when embedded, forms a geometric shape. The **Distributional Hyp
 | V10 | Vocab Normalization | 30.67% | ✅ Previous SOTA |
 | V11 | MLP + N-grams | 28.76% | ⚠️ Regression |
 | V12 | Egyptian→German | 12.90% | 🧪 Exploratory |
-| V13 | Alpha Tuning + Ablation | **31.57%** | ✅ **Current SOTA** 🎉 |
+| V13 | Alpha Tuning + Ablation | 31.57% | ✅ Previous SOTA |
+| V14 | Iterative Procrustes + Hub Filter | 31.57% | ⚠️ No improvement |
+| V15 | FastText Retraining (mc5_w10) | **32.35%** | ✅ **Current SOTA** 🎉 |
 
 **Key Insight**: Simple linear methods with good data outperform complex neural architectures for low-resource ancient language alignment. Retrieval accuracy and regression loss are anti-correlated — optimize for retrieval directly.
 

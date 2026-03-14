@@ -207,3 +207,9 @@ heiro_v13/notebooks/*.ipynb
 # ============================================
 heiro_v14/data/
 heiro_v14/notebooks/*.ipynb
+
+# ============================================
+# V15 - FastText Retraining
+# ============================================
+heiro_v15/models/
+heiro_v15/data/
