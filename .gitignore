@@ -195,6 +195,9 @@ heiro_v1/data/
 # ============================================
 docs/media/
 docs/__pycache__/
+docs/paper/*.aux
+docs/paper/*.log
+docs/paper/*.out
 
 # ============================================
 # V13 - Accuracy Push
