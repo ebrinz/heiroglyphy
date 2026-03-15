@@ -6,97 +6,154 @@
     {
       "id": "S1_Hook",
       "start": 0.0,
-      "end": 25.5,
+      "end": 25.0,
       "narration_segments": [
         {"id": "s1_01", "text": "These symbols are four thousand years old.", "start": 0.0},
-        {"id": "s1_02", "text": "Scholars have been translating them for two centuries.", "start": 6.0},
-        {"id": "s1_03", "text": "But translation is lossy. When you compress a word into a single English equivalent, the web of meaning around it disappears.", "start": 12.0},
-        {"id": "s1_04", "text": "What if we could get it back?", "start": 19.5}
+        {"id": "s1_02", "text": "Scholars have been translating them for two centuries.", "start": 5.5},
+        {"id": "s1_03", "text": "But translation is lossy. When you compress a word into a single English equivalent, the web of meaning around it disappears.", "start": 11.0},
+        {"id": "s1_04", "text": "What if we could get it back?", "start": 19.0}
       ],
-      "cues": [
-        {"type": "scene_start", "time": 0.0},
-        {"type": "subtitle_drop", "time": 6.0},
-        {"type": "subtitle_drop", "time": 12.0},
-        {"type": "subtitle_drop", "time": 19.5}
-      ]
+      "cues": [{"type": "scene_start", "time": 0.0}]
     },
     {
       "id": "S2_Idea",
-      "start": 26.0,
-      "end": 48.5,
+      "start": 25.5,
+      "end": 46.0,
       "narration_segments": [
-        {"id": "s2_01", "text": "Here's the key insight. If you train a computer on enough text, every word ends up as a point in space.", "start": 26.0},
-        {"id": "s2_02", "text": "And words with similar meanings cluster together. Water, river, flood, they're neighbors. King, throne, crown, another cluster.", "start": 33.5},
-        {"id": "s2_03", "text": "This works for every language. Including Ancient Egyptian.", "start": 44.5}
+        {"id": "s2_01", "text": "Here's the key insight. If you train a computer on enough text, every word ends up as a point in space.", "start": 25.5},
+        {"id": "s2_02", "text": "And words with similar meanings cluster together. Water, river, flood, they're neighbors. King, throne, crown, another cluster.", "start": 32.5},
+        {"id": "s2_03", "text": "This works for every language. Including Ancient Egyptian.", "start": 42.0}
       ],
-      "cues": [
-        {"type": "scene_start", "time": 26.0},
-        {"type": "subtitle_drop", "time": 33.5},
-        {"type": "subtitle_drop", "time": 44.5}
-      ]
+      "cues": [{"type": "scene_start", "time": 25.5}]
     },
     {
       "id": "S3_Alignment",
-      "start": 49.0,
-      "end": 88.6,
+      "start": 46.5,
+      "end": 83.0,
       "narration_segments": [
-        {"id": "s3_01", "text": "So we trained embeddings on a hundred thousand Ancient Egyptian sentences. And we trained them separately on English.", "start": 49.0},
-        {"id": "s3_02", "text": "Both languages form a shape, a cloud of points where similar words cluster. The shapes are similar, but rotated.", "start": 59.0},
-        {"id": "s3_03", "text": "The challenge is to find that rotation.", "start": 66.3},
-        {"id": "s3_04", "text": "If you get it right, Egyptian words land next to their English meanings.", "start": 75.3},
-        {"id": "s3_05", "text": "We got it right thirty-two percent of the time, without ever using a dictionary.", "start": 82.6}
+        {"id": "s3_01", "text": "So we trained embeddings on a hundred thousand Ancient Egyptian sentences. And we trained them separately on English.", "start": 46.5},
+        {"id": "s3_02", "text": "Both languages form a shape, a cloud of points where similar words cluster. The shapes are similar, but rotated.", "start": 55.0},
+        {"id": "s3_03", "text": "The challenge is to find that rotation.", "start": 63.0},
+        {"id": "s3_04", "text": "If you get it right, Egyptian words land next to their English meanings.", "start": 70.0},
+        {"id": "s3_05", "text": "We got it right thirty-two percent of the time, without ever using a dictionary.", "start": 77.0}
       ],
-      "cues": [
-        {"type": "scene_start", "time": 49.0},
-        {"type": "subtitle_drop", "time": 59.0},
-        {"type": "subtitle_drop", "time": 66.3},
-        {"type": "subtitle_drop", "time": 75.3},
-        {"type": "subtitle_drop", "time": 82.6}
-      ]
+      "cues": [{"type": "scene_start", "time": 46.5}]
     },
     {
       "id": "S4_Journey",
-      "start": 89.1,
-      "end": 110.4,
+      "start": 83.5,
+      "end": 101.0,
       "narration_segments": [
-        {"id": "s4_01", "text": "It took fifteen attempts to get there. We tried neural networks, they failed.", "start": 89.1},
-        {"id": "s4_02", "text": "We tried the latest language models, they failed spectacularly.", "start": 96.4},
-        {"id": "s4_03", "text": "In the end, simple linear algebra outperformed everything. Sometimes the best tool is the oldest one.", "start": 104.4}
+        {"id": "s4_01", "text": "It took fifteen attempts to get there. We tried neural networks, they failed.", "start": 83.5},
+        {"id": "s4_02", "text": "We tried the latest language models, they failed spectacularly.", "start": 89.5},
+        {"id": "s4_03", "text": "In the end, simple linear algebra outperformed everything. Sometimes the best tool is the oldest one.", "start": 95.0}
       ],
-      "cues": [
-        {"type": "scene_start", "time": 89.1},
-        {"type": "subtitle_drop", "time": 96.4},
-        {"type": "subtitle_drop", "time": 104.4}
-      ]
+      "cues": [{"type": "scene_start", "time": 83.5}]
     },
     {
-      "id": "S5_Discoveries",
-      "start": 110.9,
-      "end": 172.4,
+      "id": "D1_Gold",
+      "start": 101.5,
+      "end": 131.0,
       "narration_segments": [
-        {"id": "s5_01", "text": "Here's what the geometry revealed. The midpoint of gold and divine in English maps to the same region of the Egyptian space. This isn't metaphor. The texts don't distinguish them. Gold is divinity.", "start": 113.9},
-        {"id": "s5_02", "text": "The midpoint of silence and death, every single result is a variant of to die. The Egyptians called the necropolis the silent land. What the dead lost was not life. It was voice.", "start": 126.9},
-        {"id": "s5_03", "text": "The Eye of Horus sits between knowledge and spellcasting. Seeing was not observation. It was an act of magical power.", "start": 139.9},
-        {"id": "s5_04", "text": "In Greek tradition, the snake means wisdom. In Egyptian vectors, it means the gods. Two cultures, separated by geometry.", "start": 149.9},
-        {"id": "s5_05", "text": "Translation gave us the words. The vectors gave us the world between them.", "start": 159.9}
+        {"id": "d1_01", "text": "What happens when you find the midpoint of gold and divine in English, then look for the nearest Egyptian words?", "start": 103.0},
+        {"id": "d1_02", "text": "You find n-t-r-i, meaning divine, and n-b-w, meaning gold. They're in the same place.", "start": 112.0},
+        {"id": "d1_03", "text": "Modern readers call the phrase, the flesh of the gods is gold, a metaphor. The embedding space says it's not. Gold and divinity aren't compared in the texts. They're the same concept. Not metaphor. Ontology.", "start": 119.0}
       ],
-      "cues": [
-        {"type": "scene_start", "time": 110.9},
-        {"type": "discovery_reveal", "time": 113.9},
-        {"type": "discovery_reveal", "time": 126.9},
-        {"type": "discovery_reveal", "time": 139.9},
-        {"type": "discovery_reveal", "time": 149.9},
-        {"type": "subtitle_drop", "time": 159.9}
-      ]
+      "cues": [{"type": "scene_start", "time": 101.5}, {"type": "discovery_reveal", "time": 103.0}]
     },
     {
-      "id": "S6_Close",
-      "start": 172.9,
-      "end": 179.9,
-      "narration_segments": [],
-      "cues": [
-        {"type": "scene_start", "time": 172.9}
-      ]
+      "id": "D2_Silence",
+      "start": 131.5,
+      "end": 161.0,
+      "narration_segments": [
+        {"id": "d2_01", "text": "Find the midpoint of silence and death. Every single nearest neighbor is a variant of the word to die.", "start": 133.0},
+        {"id": "d2_02", "text": "There is no Egyptian word between silence and death. They are the same point in space.", "start": 141.0},
+        {"id": "d2_03", "text": "The Egyptians called the necropolis the silent land. The dead were the silent ones. What the dead lost was not life. It was voice.", "start": 148.0}
+      ],
+      "cues": [{"type": "scene_start", "time": 131.5}, {"type": "discovery_reveal", "time": 133.0}]
+    },
+    {
+      "id": "D3_Seeing",
+      "start": 161.5,
+      "end": 186.0,
+      "narration_segments": [
+        {"id": "d3_01", "text": "The midpoint of eye and knowledge finds the Egyptian word for eyes at the top, and heka, magic, as the third result.", "start": 163.0},
+        {"id": "d3_02", "text": "The Eye of Horus was an organ, an amulet, and a unit of measurement. Seeing was not passive observation. It was an act of power.", "start": 173.0}
+      ],
+      "cues": [{"type": "scene_start", "time": 161.5}, {"type": "discovery_reveal", "time": 163.0}]
+    },
+    {
+      "id": "D4_Snake",
+      "start": 186.5,
+      "end": 211.0,
+      "narration_segments": [
+        {"id": "d4_01", "text": "Find the midpoint of snake and wisdom. In the Greek tradition, you'd expect knowledge and cunning.", "start": 188.0},
+        {"id": "d4_02", "text": "In the Egyptian space, every result is a variant of god. The uraeus cobra was divine power, not wisdom. Two cultures, separated by geometry.", "start": 196.0}
+      ],
+      "cues": [{"type": "scene_start", "time": 186.5}, {"type": "discovery_reveal", "time": 188.0}]
+    },
+    {
+      "id": "D5_Temple",
+      "start": 211.5,
+      "end": 241.0,
+      "narration_segments": [
+        {"id": "d5_01", "text": "Take the vector from house to temple, and apply it to man. The result? God.", "start": 213.0},
+        {"id": "d5_02", "text": "A temple is a god's house, in the same geometric sense that a house is a man's dwelling.", "start": 221.0},
+        {"id": "d5_03", "text": "This is the king minus man plus woman equals queen trick, working across a four-thousand-year language boundary.", "start": 229.0}
+      ],
+      "cues": [{"type": "scene_start", "time": 211.5}, {"type": "discovery_reveal", "time": 213.0}]
+    },
+    {
+      "id": "D6_Mother",
+      "start": 241.5,
+      "end": 266.0,
+      "narration_segments": [
+        {"id": "d6_01", "text": "The midpoint of mother and earth. You'd expect soil, land, fertility. The earth-mother archetype.", "start": 243.0},
+        {"id": "d6_02", "text": "Instead, every result is royal. King's wife. King's daughter. The Egyptian mother-goddess is not earthy. She is regal. Motherhood is a crown, not the earth.", "start": 251.0}
+      ],
+      "cues": [{"type": "scene_start", "time": 241.5}, {"type": "discovery_reveal", "time": 243.0}]
+    },
+    {
+      "id": "D7_Truth",
+      "start": 266.5,
+      "end": 291.0,
+      "narration_segments": [
+        {"id": "d7_01", "text": "The midpoint of truth and power finds authority at number one and enemies at number four. They all occupy the same region.", "start": 268.0},
+        {"id": "d7_02", "text": "This is maat. Usually translated as truth or justice, but really it's cosmic order. The active force that holds the universe together. Truth is not correctness. It is force.", "start": 277.0}
+      ],
+      "cues": [{"type": "scene_start", "time": 266.5}, {"type": "discovery_reveal", "time": 268.0}]
+    },
+    {
+      "id": "D8_Eternity",
+      "start": 291.5,
+      "end": 321.0,
+      "narration_segments": [
+        {"id": "d8_01", "text": "The midpoint of love and fear. What do you find? Eternity.", "start": 293.0},
+        {"id": "d8_02", "text": "Between love and fear, the Egyptians placed forever. The gods' love is awe-inspiring. Their wrath is terrifying. Both extend beyond time.", "start": 300.0},
+        {"id": "d8_03", "text": "The offering formula asks that the dead be loved and feared for eternity. These aren't opposites. They're the same prayer.", "start": 310.0}
+      ],
+      "cues": [{"type": "scene_start", "time": 291.5}, {"type": "discovery_reveal", "time": 293.0}]
+    },
+    {
+      "id": "S6_Discussion",
+      "start": 321.5,
+      "end": 351.0,
+      "narration_segments": [
+        {"id": "s6_01", "text": "A few honest caveats. The surviving Egyptian texts are mostly funerary and religious. This is the language of temples and tombs, not markets and homes.", "start": 323.0},
+        {"id": "s6_02", "text": "And thirty-two percent accuracy means two-thirds of words don't find their match. These are statistical tendencies, not certainties.", "start": 333.0},
+        {"id": "s6_03", "text": "But what this approach captures is something translation destroys: the distances between words. A dictionary tells you the words. Only the embedding space tells you they're the same word.", "start": 341.0}
+      ],
+      "cues": [{"type": "scene_start", "time": 321.5}]
+    },
+    {
+      "id": "S7_Conclusion",
+      "start": 351.5,
+      "end": 370.0,
+      "narration_segments": [
+        {"id": "s7_01", "text": "Translation gave us the words.", "start": 353.0},
+        {"id": "s7_02", "text": "The vectors gave us the world between them.", "start": 357.0}
+      ],
+      "cues": [{"type": "scene_start", "time": 351.5}]
     }
   ]
 }
