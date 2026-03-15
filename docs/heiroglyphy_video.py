@@ -475,6 +475,251 @@ class S4_Journey(Scene):
 #    world between them."
 #
 # ══════════════════════════════════════════════════════════════════════════════
+
+
+class D1_Gold(Scene):
+    def construct(self):
+        # Title bar
+        glyph = hiero_text("\U000131B4\U00013208\U000130C3\U000130F1", color=GOLD, scale=0.4)
+        title = Text("Gold Is Divine Flesh", color=GOLD).scale(0.55)
+        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.2)
+        self.play(FadeIn(header), run_time=1.5)
+
+        # Two concept dots on opposite sides
+        dot_gold = Dot(point=[-3, 0, 0], radius=0.12, color="#f1c40f").set_opacity(0.9)
+        dot_divine = Dot(point=[3, 0, 0], radius=0.12, color=LAVENDER).set_opacity(0.9)
+        lbl_gold = Text("gold", color="#f1c40f").scale(0.4).next_to(dot_gold, DOWN, buff=0.15)
+        lbl_divine = Text("divine", color=LAVENDER).scale(0.4).next_to(dot_divine, DOWN, buff=0.15)
+
+        self.play(FadeIn(dot_gold, lbl_gold), FadeIn(dot_divine, lbl_divine), run_time=2)
+        self.wait(1)
+
+        # Midpoint marker
+        midpoint = Dot(point=[0, 0, 0], radius=0.08, color=WHITE).set_opacity(0.6)
+        mid_label = Text("midpoint", color=MUTED).scale(0.25).next_to(midpoint, UP, buff=0.1)
+        dashed_left = DashedLine(dot_gold.get_center(), midpoint.get_center(), color=MUTED, stroke_width=1)
+        dashed_right = DashedLine(midpoint.get_center(), dot_divine.get_center(), color=MUTED, stroke_width=1)
+
+        self.play(Create(dashed_left), Create(dashed_right), FadeIn(midpoint, mid_label), run_time=2)
+        self.wait(1)
+
+        # Arrow projects down into "Egyptian space"
+        eg_label = Text("Egyptian space", color=GOLD).scale(0.3).move_to(DOWN * 1.2)
+        arrow = Arrow(midpoint.get_center(), DOWN * 1.5, color=MUTED, stroke_width=2)
+        self.play(Create(arrow), FadeIn(eg_label), run_time=1.5)
+
+        # Egyptian results appear
+        dot_ntri = Dot(point=[-0.5, -2.2, 0], radius=0.1, color=GOLD)
+        dot_nbw = Dot(point=[0.5, -2.2, 0], radius=0.1, color=GOLD)
+        lbl_ntri = Text("nṭri (divine)", color=GOLD).scale(0.3).next_to(dot_ntri, DOWN, buff=0.1)
+        lbl_nbw = Text("nbw (gold)", color=GOLD).scale(0.3).next_to(dot_nbw, DOWN, buff=0.1)
+
+        self.play(FadeIn(dot_ntri, lbl_ntri), FadeIn(dot_nbw, lbl_nbw), run_time=2)
+        self.wait(1.5)
+
+        # Dots merge
+        self.play(
+            dot_ntri.animate.move_to([0, -2.2, 0]),
+            dot_nbw.animate.move_to([0, -2.2, 0]),
+            lbl_ntri.animate.move_to([-1.2, -2.7, 0]),
+            lbl_nbw.animate.move_to([1.2, -2.7, 0]),
+            run_time=2
+        )
+
+        # Glow effect
+        glow = Dot(point=[0, -2.2, 0], radius=0.3, color=GOLD).set_opacity(0.3)
+        self.play(FadeIn(glow), run_time=1)
+        self.wait(1)
+
+        # Punchline
+        punchline = body_text("Not metaphor. Ontology.", color=WHITE).scale(1.2).move_to(DOWN * 3.5)
+        self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
+        self.wait(3)
+
+
+class D2_Silence(Scene):
+    def construct(self):
+        glyph = hiero_text("\U000131EF\U0001337F\U000132BD", color=GOLD, scale=0.4)
+        title = Text("Silence Is the Condition of the Dead", color=GOLD).scale(0.5)
+        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.2)
+        self.play(FadeIn(header), run_time=1.5)
+
+        # Sound wave
+        wave_dots = VGroup()
+        n_pts = 80
+        for i in range(n_pts):
+            x = (i / n_pts) * 10 - 5
+            y = 0.6 * np.sin(i * 0.3) * np.exp(-abs(x) * 0.05)
+            wave_dots.add(
+                Dot(point=[x, y + 0.5, 0], radius=0.03, color=TEAL).set_opacity(0.7)
+            )
+
+        self.play(Create(wave_dots), run_time=2)
+        self.wait(1)
+
+        # Wave flattens to silence
+        flat_targets = []
+        for i, dot in enumerate(wave_dots):
+            x = dot.get_center()[0]
+            flat_targets.append(dot.animate.move_to([x, 0.5, 0]).set_opacity(0.2))
+
+        self.play(*flat_targets, run_time=3, rate_func=smooth)
+        self.wait(0.5)
+
+        # "silence" and "death" dots converge
+        dot_silence = Dot(point=[-2, -1, 0], radius=0.1, color=LAVENDER)
+        dot_death = Dot(point=[2, -1, 0], radius=0.1, color=SOFT_RED)
+        lbl_silence = Text("silence", color=LAVENDER).scale(0.35).next_to(dot_silence, DOWN, buff=0.1)
+        lbl_death = Text("death", color=SOFT_RED).scale(0.35).next_to(dot_death, DOWN, buff=0.1)
+
+        self.play(FadeIn(dot_silence, lbl_silence), FadeIn(dot_death, lbl_death), run_time=1.5)
+        self.wait(1)
+
+        # Converge to same point
+        converge_pt = [0, -1.5, 0]
+        self.play(
+            dot_silence.animate.move_to(converge_pt),
+            dot_death.animate.move_to(converge_pt),
+            lbl_silence.animate.next_to(converge_pt, LEFT, buff=0.3),
+            lbl_death.animate.next_to(converge_pt, RIGHT, buff=0.3),
+            run_time=2.5
+        )
+
+        # m(w)t variants cluster
+        mwt_words = ["m.wt", "mt", "mwt", "mwt.w", "mt.t"]
+        mwt_group = VGroup()
+        rng = np.random.default_rng(7)
+        for w in mwt_words:
+            offset = rng.uniform(-0.3, 0.3, 2)
+            lbl = Text(w, color=GOLD).scale(0.22)
+            lbl.move_to([converge_pt[0] + offset[0], converge_pt[1] - 0.6 + offset[1], 0])
+            mwt_group.add(lbl)
+
+        self.play(FadeIn(mwt_group), run_time=1.5)
+        self.wait(1.5)
+
+        # Punchline
+        punchline = body_text("What the dead lost was not life. It was voice.", color=WHITE).scale(1.1).move_to(DOWN * 3.3)
+        self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
+        self.wait(3)
+
+
+class D3_Seeing(Scene):
+    def construct(self):
+        glyph = hiero_text("\U00013080\U000133DB\U000131B4", color=GOLD, scale=0.4)
+        title = Text("Seeing Was an Act of Magical Power", color=GOLD).scale(0.5)
+        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.2)
+        self.play(FadeIn(header), run_time=1.5)
+
+        # Eye of Horus glyph — large, center
+        eye = hiero_text("\U00013080", color=GOLD, scale=2.0)
+        eye.move_to(ORIGIN + UP * 0.3)
+        self.play(FadeIn(eye, scale=0.8), run_time=2)
+        self.wait(0.5)
+
+        # Three concept points
+        concepts = [
+            ("knowledge", UP * 2 + LEFT * 2.5, TEAL),
+            ("spellcasting", UP * 2 + RIGHT * 2.5, LAVENDER),
+            ("protection", DOWN * 1.8, "#e74c3c"),
+        ]
+
+        concept_dots = VGroup()
+        concept_labels = VGroup()
+        for word, pos, color in concepts:
+            dot = Dot(point=pos, radius=0.1, color=color).set_opacity(0.8)
+            label = Text(word, color=color).scale(0.35).next_to(dot, DOWN, buff=0.1)
+            concept_dots.add(dot)
+            concept_labels.add(label)
+
+        self.play(
+            LaggedStart(*[FadeIn(d) for d in concept_dots], lag_ratio=0.3),
+            LaggedStart(*[FadeIn(l) for l in concept_labels], lag_ratio=0.3),
+            run_time=2.5
+        )
+
+        # Vectors from eye to each concept
+        vectors = VGroup()
+        for dot in concept_dots:
+            vec = Arrow(
+                eye.get_center(), dot.get_center(),
+                color=GOLD, stroke_width=2, buff=0.3
+            ).set_opacity(0.5)
+            vectors.add(vec)
+
+        self.play(Create(vectors), run_time=2)
+        self.wait(1)
+
+        # Triangle connects concepts
+        triangle = Polygon(
+            *[d.get_center() for d in concept_dots],
+            color=LAVENDER, stroke_width=1
+        ).set_opacity(0.3).set_fill(LAVENDER, opacity=0.05)
+        self.play(Create(triangle), run_time=1.5)
+
+        # Eye pulses
+        self.play(
+            eye.animate.scale(1.15).set_opacity(1),
+            run_time=0.5, rate_func=there_and_back
+        )
+        self.wait(1)
+
+        # Punchline
+        punchline = body_text("Sight was not observation. It was power.", color=WHITE).scale(1.1).move_to(DOWN * 3.3)
+        self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
+        self.wait(3)
+
+
+class D4_Snake(Scene):
+    def construct(self):
+        glyph = hiero_text("\U00013196\U000132BD\U000131B4", color=GOLD, scale=0.4)
+        title = Text("The Snake Is Divine, Not Wise", color=GOLD).scale(0.5)
+        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.2)
+        self.play(FadeIn(header), run_time=1.5)
+
+        # Dividing line
+        divider = Line(UP * 2.5, DOWN * 2.5, color=MUTED, stroke_width=1).set_opacity(0.3)
+        self.play(Create(divider), run_time=0.5)
+
+        # Left side: Greek expectation
+        greek_title = Text("Greek tradition", color=MUTED).scale(0.3).move_to(LEFT * 3 + UP * 2.2)
+        snake_left = Text("🐍", color=MUTED).scale(0.8).move_to(LEFT * 3 + UP * 0.5)
+        arrow_left = Arrow(LEFT * 3 + DOWN * 0, LEFT * 3 + DOWN * 1.2, color=MUTED, stroke_width=2)
+        wisdom = Text("wisdom", color=MUTED).scale(0.4).move_to(LEFT * 3 + DOWN * 1.6)
+
+        self.play(FadeIn(greek_title), FadeIn(snake_left), run_time=1.5)
+        self.play(Create(arrow_left), FadeIn(wisdom), run_time=1.5)
+        self.wait(0.5)
+
+        # Right side: Egyptian reality
+        egyptian_title = Text("Egyptian vectors", color=GOLD).scale(0.3).move_to(RIGHT * 3 + UP * 2.2)
+        snake_right = hiero_text("\U00013196", color=GOLD, scale=0.7).move_to(RIGHT * 3 + UP * 0.5)
+        arrow_right = Arrow(RIGHT * 3 + DOWN * 0, RIGHT * 3 + DOWN * 1.2, color=GOLD, stroke_width=2)
+        gods = Text("the gods", color=GOLD).scale(0.4).move_to(RIGHT * 3 + DOWN * 1.6)
+
+        self.play(FadeIn(egyptian_title), FadeIn(snake_right), run_time=1.5)
+        self.play(Create(arrow_right), FadeIn(gods), run_time=1.5)
+        self.wait(1)
+
+        # Greek side fades, Egyptian side glows
+        self.play(
+            snake_left.animate.set_opacity(0.2),
+            arrow_left.animate.set_opacity(0.2),
+            wisdom.animate.set_opacity(0.2),
+            greek_title.animate.set_opacity(0.2),
+            gods.animate.scale(1.3),
+            snake_right.animate.scale(1.2),
+            run_time=2
+        )
+        self.wait(1)
+
+        # Punchline
+        punchline = body_text("Two cultures, separated by geometry.", color=WHITE).scale(1.1).move_to(DOWN * 3.3)
+        self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
+        self.wait(3)
+
+
+# ══════════════════════════════════════════════════════════════════════════════
 class S5_Discoveries(Scene):
     def construct(self):
         header = title_text("What the geometry reveals", color=GOLD, scale=0.7)
