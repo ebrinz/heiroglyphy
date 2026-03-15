@@ -1,14 +1,15 @@
 """
 Heiroglyphy: 3-Minute Explainer Video
 Style: 3Blue1Brown-inspired (Manim Community Edition)
-Target Duration: ~3:00
+Target Duration: ~3:15
 
-For a lay audience. Tells the story:
-  Hook → What are embeddings → Two clouds align → What we found → The gems
+For a lay audience. Each scene includes a NARRATION block that
+can be read aloud at ~130 words/minute (comfortable pace).
+Animations are timed to match the spoken narration.
 
 Prerequisites:
     pip install manim
-    python docs/generate_viz_data.py      # generates docs/viz_data.json
+    python docs/generate_viz_data.py
 
 Run:
     cd docs
@@ -68,15 +69,6 @@ GLYPH_STRIP = " ".join([
     HIERO["mouth"], HIERO["hand"],
 ])
 
-# ── Load viz data ─────────────────────────────────────────────────────────────
-_viz = None
-def get_viz_data():
-    global _viz
-    if _viz is None and VIZ_DATA.exists():
-        with open(VIZ_DATA) as f:
-            _viz = json.load(f)
-    return _viz
-
 # ── Helpers ────────────────────────────────────────────────────────────────────
 
 def title_text(s, color=WHITE, scale=0.9):
@@ -88,12 +80,11 @@ def body_text(s, color=MUTED, scale=0.55):
 def hiero_text(s, color=GOLD, scale=0.9):
     return Text(s, font=HIERO_FONT, color=color).scale(scale)
 
-def make_cloud(n, spread, color, seed, offset=(0,0)):
-    """Representative word-embedding cloud."""
+def make_cloud(n, spread, color, seed, offset=(0, 0)):
+    """Representative word-embedding cloud with 3 sub-clusters."""
     rng = np.random.default_rng(seed)
-    # Clustered: 3 sub-clusters to suggest semantic neighborhoods
-    dots = VGroup()
     centers = [(-0.5, 0.4), (0.3, -0.3), (0.1, 0.5)]
+    dots = VGroup()
     for _ in range(n):
         cx, cy = centers[rng.integers(0, len(centers))]
         x = cx + rng.normal(0, 0.35) * spread
@@ -106,53 +97,72 @@ def make_cloud(n, spread, color, seed, offset=(0,0)):
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# S1 — Hook  (0:00 – 0:25)
-#      "4,000 years of translation missed something"
+# S1 — Hook  (~30s)
+#
+# NARRATION (38 words, ~18s speaking + 12s visual breathing):
+#   "These symbols are four thousand years old. Scholars have been
+#    translating them for two centuries. But translation is lossy.
+#    When you compress a word into a single English equivalent, the
+#    web of meaning around it disappears. What if we could get it back?"
+#
 # ══════════════════════════════════════════════════════════════════════════════
 class S1_Hook(Scene):
     def construct(self):
-        # Hieroglyphs fade in across the screen
         glyphs = hiero_text(GLYPH_STRIP, color=GOLD, scale=0.7)
         glyphs.move_to(UP * 1.5)
 
+        # [Glyphs appear] "These symbols are four thousand years old."
         self.play(FadeIn(glyphs, shift=UP * 0.2), run_time=3)
-        self.wait(1)
+        self.wait(3)
 
+        # "Scholars have been translating them for two centuries."
         line1 = body_text(
             "For 200 years, scholars have translated these symbols.",
             color=WHITE
         ).scale(1.1).next_to(glyphs, DOWN, buff=0.8)
         self.play(Write(line1), run_time=3)
-        self.wait(1.5)
+        self.wait(3)
 
+        # "But translation is lossy. When you compress a word into a single
+        #  English equivalent, the web of meaning around it disappears."
         line2 = body_text(
             "But translation compresses meaning.\n"
             "The relationships between words are lost.",
             color=MUTED
         ).scale(1.0).next_to(line1, DOWN, buff=0.5)
-        self.play(Write(line2), run_time=3)
-        self.wait(1)
+        self.play(Write(line2), run_time=3.5)
+        self.wait(4)
 
+        # "What if we could get it back?"
         line3 = body_text(
             "What if we could recover them?",
             color=LAVENDER
         ).scale(1.1).next_to(line2, DOWN, buff=0.6)
         self.play(FadeIn(line3, shift=UP * 0.1), run_time=2)
-        self.wait(2.5)
+        self.wait(4)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# S2 — The Idea  (0:25 – 0:55)
-#      "Words live in space. Similar words cluster together."
+# S2 — The Idea  (~35s)
+#
+# NARRATION (52 words, ~24s speaking + 11s visual):
+#   "Here's the key insight. If you train a computer on enough text,
+#    every word ends up as a point in space. And words with similar
+#    meanings cluster together. 'Water,' 'river,' 'flood' — they're
+#    neighbors. 'King,' 'throne,' 'crown' — another cluster.
+#    This works for every language. Including Ancient Egyptian."
+#
 # ══════════════════════════════════════════════════════════════════════════════
 class S2_Idea(Scene):
     def construct(self):
+        # "Here's the key insight."
         header = title_text("Words live in space", color=WHITE, scale=0.75)
         header.move_to(UP * 3.2)
         self.play(FadeIn(header), run_time=1.5)
-        self.wait(0.5)
+        self.wait(2)
 
-        # Show English example: related words cluster
+        # "If you train a computer on enough text, every word ends up
+        #  as a point in space. And words with similar meanings cluster together."
         cluster_words = [
             ("water", -1.5, 0.8),
             ("river", -0.7, 1.2),
@@ -167,6 +177,7 @@ class S2_Idea(Scene):
             label = Text(word, color=TEAL).scale(0.3).next_to(dot, RIGHT, buff=0.1)
             dots_and_labels.add(dot, label)
 
+        # "'King,' 'throne,' 'crown' — another cluster."
         cluster_words2 = [
             ("king", 1.5, 0.6),
             ("throne", 2.0, 1.0),
@@ -180,32 +191,46 @@ class S2_Idea(Scene):
             label = Text(word, color=TEAL).scale(0.3).next_to(dot, RIGHT, buff=0.1)
             dots_and_labels.add(dot, label)
 
-        self.play(LaggedStart(*[FadeIn(m) for m in dots_and_labels], lag_ratio=0.08), run_time=3)
-        self.wait(1)
+        self.play(
+            LaggedStart(*[FadeIn(m) for m in dots_and_labels], lag_ratio=0.08),
+            run_time=4
+        )
+        self.wait(3)
 
         explain = body_text(
             "Words that appear in similar contexts\n"
             "end up close together in this space.",
             color=WHITE
         ).scale(1.0).move_to(DOWN * 1.5)
-        self.play(Write(explain), run_time=2.5)
-        self.wait(1.5)
+        self.play(Write(explain), run_time=3)
+        self.wait(3)
 
+        # "This works for every language. Including Ancient Egyptian."
         explain2 = body_text(
             "This works for every language — including Ancient Egyptian.",
             color=LAVENDER
         ).scale(1.0).move_to(DOWN * 2.8)
         self.play(FadeIn(explain2, shift=UP * 0.1), run_time=2)
-        self.wait(2.5)
+        self.wait(4)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# S3 — The Alignment  (0:55 – 1:35)
-#      Two clouds rotate into each other
+# S3 — The Alignment  (~45s)
+#
+# NARRATION (62 words, ~29s speaking + 16s visual):
+#   "So we trained embeddings on a hundred thousand Ancient Egyptian
+#    sentences. And we trained them separately on English. Both languages
+#    form a shape — a cloud of points where similar words cluster. The
+#    shapes are similar, but rotated. The challenge is to find that
+#    rotation. If you get it right, Egyptian words land next to their
+#    English meanings. We got it right thirty-two percent of the time —
+#    without ever using a dictionary."
+#
 # ══════════════════════════════════════════════════════════════════════════════
 class S3_Alignment(Scene):
     def construct(self):
-        # Egyptian cloud (left, gold, rotated ~30 degrees)
+        # "So we trained embeddings on a hundred thousand Ancient Egyptian
+        #  sentences. And we trained them separately on English."
         eg_cloud = make_cloud(80, 1.0, GOLD, seed=42, offset=(-3, 0))
         en_cloud = make_cloud(80, 1.0, TEAL, seed=99, offset=(3, 0))
 
@@ -214,45 +239,47 @@ class S3_Alignment(Scene):
             Text("Egyptian", color=GOLD).scale(0.45),
         ).arrange(RIGHT, buff=0.15).move_to(LEFT * 3 + UP * 2.8)
 
-        label_en = Text("English", color=TEAL).scale(0.45).move_to(RIGHT * 3 + UP * 2.8)
+        label_en = Text("English", color=TEAL).scale(0.45)
+        label_en.move_to(RIGHT * 3 + UP * 2.8)
 
-        self.play(FadeIn(label_eg), Create(eg_cloud), run_time=2.5)
-        self.wait(0.5)
-        self.play(FadeIn(label_en), Create(en_cloud), run_time=2.5)
-        self.wait(1)
+        self.play(FadeIn(label_eg), Create(eg_cloud), run_time=3)
+        self.wait(2)
+        self.play(FadeIn(label_en), Create(en_cloud), run_time=3)
+        self.wait(2)
 
-        # Explain
+        # "Both languages form a shape. The shapes are similar, but rotated."
         explain = body_text(
             "Both languages form a shape.\n"
             "The shapes are similar — but rotated.",
             color=WHITE
         ).scale(1.0).move_to(DOWN * 3.0)
-        self.play(Write(explain), run_time=2.5)
-        self.wait(1.5)
+        self.play(Write(explain), run_time=3)
+        self.wait(3)
 
-        # Animate: clouds rotate and slide together
+        # "The challenge is to find that rotation."
         self.play(FadeOut(explain), run_time=0.8)
-
         finding = body_text("Find the rotation...", color=LAVENDER).scale(1.1)
         finding.move_to(DOWN * 3.0)
-        self.play(FadeIn(finding), run_time=1)
+        self.play(FadeIn(finding), run_time=1.5)
+        self.wait(1)
 
+        # [Clouds slide together and rotate]
         self.play(
             eg_cloud.animate.shift(RIGHT * 2.2).rotate(0.3),
             en_cloud.animate.shift(LEFT * 2.2).rotate(-0.1),
-            run_time=4, rate_func=smooth
+            run_time=5, rate_func=smooth
         )
-        self.wait(0.5)
+        self.wait(1)
 
-        # Overlapping — show connection lines between nearby dots
+        # "If you get it right, Egyptian words land next to their English meanings."
         self.play(FadeOut(finding), run_time=0.5)
         overlap = body_text(
             "...and the words align across 4,000 years.",
             color=WHITE
         ).scale(1.0).move_to(DOWN * 3.0)
-        self.play(FadeIn(overlap), run_time=1.5)
+        self.play(FadeIn(overlap), run_time=2)
 
-        # Flash a few connection lines
+        # [Connection lines flash between overlapping dots]
         lines = VGroup()
         rng = np.random.default_rng(7)
         for _ in range(8):
@@ -265,30 +292,38 @@ class S3_Alignment(Scene):
             lines.add(line)
 
         self.play(Create(lines), run_time=2)
-        self.wait(2)
+        self.wait(3)
 
-        # Accuracy
+        # "We got it right thirty-two percent of the time — without
+        #  ever using a dictionary."
         self.play(FadeOut(overlap), FadeOut(lines), run_time=0.8)
         acc = body_text("32.35% accuracy — no dictionary needed.",
                         color=GOLD).scale(1.1).move_to(DOWN * 3.0)
-        self.play(FadeIn(acc), run_time=1.5)
-        self.wait(2.5)
+        self.play(FadeIn(acc), run_time=2)
+        self.wait(4)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# S4 — The Journey  (1:35 – 1:55)
-#      Quick montage of 15 attempts
+# S4 — The Journey  (~25s)
+#
+# NARRATION (40 words, ~18s speaking + 7s visual):
+#   "It took fifteen attempts to get there. We tried neural networks —
+#    they failed. We tried the latest language models — they failed
+#    spectacularly. In the end, simple linear algebra outperformed
+#    everything. Sometimes the best tool is the oldest one."
+#
 # ══════════════════════════════════════════════════════════════════════════════
 class S4_Journey(Scene):
     def construct(self):
         header = title_text("15 attempts to get there", color=WHITE, scale=0.7)
         header.move_to(UP * 3.2)
         self.play(FadeIn(header), run_time=1.5)
+        self.wait(1)
 
         bars_data = [
             ("V3", 22.0, TEAL),
             ("V5", 24.5, TEAL),
-            ("V6", 0.5, SOFT_RED),
+            ("V6\nBERT", 0.5, SOFT_RED),
             ("V7", 29.1, TEAL),
             ("V9", 30.5, TEAL),
             ("V13", 31.6, TEAL),
@@ -306,40 +341,61 @@ class S4_Journey(Scene):
                             fill_opacity=0.85, stroke_width=0)
             x = i * 0.95 - 2.85
             bar.move_to(RIGHT * x + DOWN * 1.5 + UP * h / 2)
-            bl = Text(lbl, color=MUTED).scale(0.25).next_to(bar, DOWN, buff=0.08)
+            bl = Text(lbl, color=MUTED).scale(0.22).next_to(bar, DOWN, buff=0.08)
             pct = Text(f"{val:.0f}%", color=col).scale(0.22).next_to(bar, UP, buff=0.06)
             bar_groups.add(VGroup(bar, bl, pct))
 
+        # "We tried neural networks — they failed."
         for i, bg in enumerate(bar_groups):
-            rt = 1.0 if i != 2 else 1.2
-            self.play(GrowFromEdge(bg, DOWN), run_time=rt)
-            if i == 2:  # BERT failure
-                note = body_text("BERT: 0.5%", color=SOFT_RED).scale(0.8)
-                note.next_to(bg, UP, buff=0.3)
-                self.play(FadeIn(note), run_time=0.5)
-                self.wait(0.8)
-                self.play(FadeOut(note), run_time=0.3)
+            self.play(GrowFromEdge(bg, DOWN), run_time=1.0)
+            if i == 2:
+                # "We tried the latest language models — they failed spectacularly."
+                self.wait(1.5)
             else:
-                self.wait(0.3)
+                self.wait(0.5)
 
+        self.wait(1)
+
+        # "In the end, simple linear algebra outperformed everything."
         lesson = body_text(
             "Simple linear algebra beat every neural network we tried.",
             color=WHITE
         ).scale(1.0).move_to(DOWN * 3.2)
-        self.play(FadeIn(lesson), run_time=1.5)
-        self.wait(2.5)
+        self.play(FadeIn(lesson), run_time=2)
+        self.wait(4)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# S5 — The Discoveries  (1:55 – 2:45)
-#      The gems — what the geometry reveals
+# S5 — The Discoveries  (~55s)
+#
+# NARRATION (108 words, ~50s speaking + 5s transitions):
+#
+#   [Gold] "Here's what the geometry revealed. The midpoint of 'gold'
+#    and 'divine' in English maps to the same region of the Egyptian
+#    space. This isn't metaphor. The texts don't distinguish them.
+#    Gold IS divinity."
+#
+#   [Silence] "The midpoint of 'silence' and 'death' — every single
+#    result is a variant of 'to die.' The Egyptians called the
+#    necropolis 'the silent land.' What the dead lost was not life.
+#    It was voice."
+#
+#   [Eye] "The Eye of Horus sits between 'knowledge' and 'spellcasting.'
+#    Seeing was not observation. It was an act of magical power."
+#
+#   [Snake] "In Greek tradition, the snake means wisdom. In Egyptian
+#    vectors, it means the gods. Two cultures, separated by geometry."
+#
+#   [Closing] "Translation gave us the words. The vectors gave us the
+#    world between them."
+#
 # ══════════════════════════════════════════════════════════════════════════════
 class S5_Discoveries(Scene):
     def construct(self):
         header = title_text("What the geometry reveals", color=GOLD, scale=0.7)
         header.move_to(UP * 3.3)
         self.play(FadeIn(header), run_time=1.5)
-        self.wait(0.5)
+        self.wait(1.5)
 
         discoveries = [
             (
@@ -348,6 +404,7 @@ class S5_Discoveries(Scene):
                 "Not metaphor. The embedding space cannot\n"
                 "distinguish gold from the divine — because\n"
                 "the Egyptian texts don't distinguish them.",
+                6,  # hold time (seconds)
             ),
             (
                 HIERO["sky"],
@@ -355,6 +412,7 @@ class S5_Discoveries(Scene):
                 "Every word between 'silence' and 'death'\n"
                 "is a variant of 'to die.' What the dead\n"
                 "lost was not life — it was voice.",
+                7,
             ),
             (
                 HIERO["eye"],
@@ -362,6 +420,7 @@ class S5_Discoveries(Scene):
                 "The Eye of Horus sits between 'knowledge'\n"
                 "and 'spellcasting.' Sight was not passive\n"
                 "observation — it was an act of power.",
+                6,
             ),
             (
                 HIERO["snake"],
@@ -369,11 +428,12 @@ class S5_Discoveries(Scene):
                 "Greek tradition links snakes to wisdom.\n"
                 "Egyptian vectors link them to the gods.\n"
                 "Two cultures, separated by geometry.",
+                6,
             ),
         ]
 
         prev_group = None
-        for glyph_char, title_str, detail_str in discoveries:
+        for glyph_char, title_str, detail_str, hold in discoveries:
             glyph = hiero_text(glyph_char, color=GOLD, scale=0.6)
             title = Text(title_str, color=WHITE).scale(0.5)
             detail = Text(detail_str, color=MUTED).scale(0.3)
@@ -383,14 +443,15 @@ class S5_Discoveries(Scene):
             group.move_to(ORIGIN + DOWN * 0.3)
 
             if prev_group:
-                self.play(FadeOut(prev_group), run_time=0.8)
+                self.play(FadeOut(prev_group), run_time=1)
 
             self.play(FadeIn(group), run_time=2)
-            self.wait(3)
+            self.wait(hold)
             prev_group = group
 
-        # Final discovery as a full-screen statement
-        self.play(FadeOut(prev_group), FadeOut(header), run_time=0.8)
+        # "Translation gave us the words. The vectors gave us the world
+        #  between them."
+        self.play(FadeOut(prev_group), FadeOut(header), run_time=1)
 
         final = body_text(
             "Translation gave us the words.",
@@ -401,34 +462,44 @@ class S5_Discoveries(Scene):
             color=LAVENDER
         ).scale(1.2).move_to(DOWN * 0.8)
 
-        self.play(Write(final), run_time=2.5)
-        self.wait(0.5)
-        self.play(FadeIn(final2, shift=UP * 0.1), run_time=2)
-        self.wait(3)
+        self.play(Write(final), run_time=3)
+        self.wait(2)
+        self.play(FadeIn(final2, shift=UP * 0.1), run_time=2.5)
+        self.wait(5)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# S6 — Close  (2:45 – 3:00)
+# S6 — Close  (~8s)
+#
+# NARRATION: (none — just the repo link on screen)
+#
 # ══════════════════════════════════════════════════════════════════════════════
 class S6_Close(Scene):
     def construct(self):
-        # Subtle hieroglyph strip
         top_glyphs = hiero_text(GLYPH_STRIP, color=GOLD, scale=0.25)
         top_glyphs.set_opacity(0.2).move_to(UP * 3.2)
         self.add(top_glyphs)
 
         repo = body_text("github.com/ebrinz/heiroglyphy", color=GOLD).scale(1.1)
-
         self.play(FadeIn(repo, shift=UP * 0.1), run_time=2)
-        self.wait(4)
+        self.wait(5)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# Full Video
+# Full Video  (~3:15)
 # ══════════════════════════════════════════════════════════════════════════════
 class HeiroglyphyVideo(Scene):
     """
     Run: manim -pqh heiroglyphy_video.py HeiroglyphyVideo
+
+    Scene timing:
+      S1 Hook:        ~30s
+      S2 Idea:        ~35s
+      S3 Alignment:   ~45s
+      S4 Journey:     ~25s
+      S5 Discoveries: ~55s
+      S6 Close:       ~8s
+      Total:          ~3:18
     """
     def construct(self):
         for SceneClass in [
