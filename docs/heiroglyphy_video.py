@@ -979,116 +979,64 @@ class D8_Eternity(Scene):
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-class S5_Discoveries(Scene):
+class S6_Discussion(Scene):
     def construct(self):
-        header = title_text("What the geometry reveals", color=GOLD, scale=0.7)
-        header.move_to(UP * 3.3)
+        header = title_text("Honest caveats", color=WHITE, scale=0.7)
+        header.move_to(UP * 3.2)
         self.play(FadeIn(header), run_time=1.5)
-        self.wait(1.5)
 
-        discoveries = [
-            (
-                HIERO["djed"],
-                "Gold = Divinity",
-                "Not metaphor. The embedding space cannot\n"
-                "distinguish gold from the divine — because\n"
-                "the Egyptian texts don't distinguish them.",
-                10,  # hold time — fits ~10.6s narration
-            ),
-            (
-                HIERO["sky"],
-                "Silence = Death",
-                "Every word between 'silence' and 'death'\n"
-                "is a variant of 'to die.' What the dead\n"
-                "lost was not life — it was voice.",
-                10,  # hold time — fits ~11s narration
-            ),
-            (
-                HIERO["eye"],
-                "Seeing = Magic",
-                "The Eye of Horus sits between 'knowledge'\n"
-                "and 'spellcasting.' Sight was not passive\n"
-                "observation — it was an act of power.",
-                7,  # hold time — fits ~7.2s narration
-            ),
-            (
-                HIERO["snake"],
-                "The Snake Is Divine, Not Wise",
-                "Greek tradition links snakes to wisdom.\n"
-                "Egyptian vectors link them to the gods.\n"
-                "Two cultures, separated by geometry.",
-                7,  # hold time — fits ~7.3s narration
-            ),
+        caveats = [
+            ("Corpus bias", "The surviving texts are funerary and religious —\ntemples and tombs, not markets and homes."),
+            ("32% accuracy", "Two-thirds of words don't find their match.\nThese are statistical tendencies, not certainties."),
+            ("What it captures", "A dictionary says nṯr means 'god' and nbw means 'gold.'\nOnly the embedding space says they're the same word."),
         ]
 
-        prev_group = None
-        for glyph_char, title_str, detail_str, hold in discoveries:
-            glyph = hiero_text(glyph_char, color=GOLD, scale=0.6)
-            title = Text(title_str, color=WHITE).scale(0.5)
-            detail = Text(detail_str, color=MUTED).scale(0.3)
+        prev = None
+        for title_str, detail_str in caveats:
+            t = Text(title_str, color=GOLD).scale(0.45)
+            d = Text(detail_str, color=MUTED).scale(0.3)
+            group = VGroup(t, d).arrange(DOWN, aligned_edge=LEFT, buff=0.1)
 
-            row = VGroup(glyph, title).arrange(RIGHT, buff=0.3)
-            group = VGroup(row, detail).arrange(DOWN, aligned_edge=LEFT, buff=0.15)
-            group.move_to(ORIGIN + DOWN * 0.3)
-
-            if prev_group:
-                self.play(FadeOut(prev_group), run_time=1)
+            if prev is None:
+                group.move_to(UP * 1.5 + LEFT * 1)
+            else:
+                group.next_to(prev, DOWN, buff=0.4, aligned_edge=LEFT)
 
             self.play(FadeIn(group), run_time=2)
-            self.wait(hold)
-            prev_group = group
+            self.wait(2)
+            prev = group
 
-        # "Translation gave us the words. The vectors gave us the world
-        #  between them."
-        self.play(FadeOut(prev_group), FadeOut(header), run_time=1)
-
-        final = body_text(
-            "Translation gave us the words.",
-            color=WHITE
-        ).scale(1.3).move_to(UP * 0.5)
-        final2 = body_text(
-            "The vectors gave us the world between them.",
-            color=LAVENDER
-        ).scale(1.2).move_to(DOWN * 0.8)
-
-        self.play(Write(final), run_time=3)
         self.wait(2)
-        self.play(FadeIn(final2, shift=UP * 0.1), run_time=2.5)
-        self.wait(5)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# S6 — Close  (~8s)
-#
-# NARRATION: (none — just the repo link on screen)
-#
-# ══════════════════════════════════════════════════════════════════════════════
-class S6_Close(Scene):
+class S7_Conclusion(Scene):
     def construct(self):
         top_glyphs = hiero_text(GLYPH_STRIP, color=GOLD, scale=0.25)
         top_glyphs.set_opacity(0.2).move_to(UP * 3.2)
         self.add(top_glyphs)
 
+        final = body_text("Translation gave us the words.", color=WHITE).scale(1.3).move_to(UP * 0.5)
+        final2 = body_text("The vectors gave us the world between them.", color=LAVENDER).scale(1.2).move_to(DOWN * 0.8)
+
+        self.play(Write(final), run_time=3)
+        self.wait(1)
+        self.play(FadeIn(final2, shift=UP * 0.1), run_time=2.5)
+        self.wait(2)
+
+        self.play(FadeOut(final), FadeOut(final2), run_time=1)
         repo = body_text("github.com/ebrinz/heiroglyphy", color=GOLD).scale(1.1)
         self.play(FadeIn(repo, shift=UP * 0.1), run_time=2)
-        self.wait(5)
+        self.wait(4)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# Full Video  (~3:15)
+# Full Video  (~6:20)
 # ══════════════════════════════════════════════════════════════════════════════
 class HeiroglyphyVideo(Scene):
     """
+    Full version (~6:20).
     Run: manim -pqh heiroglyphy_video.py HeiroglyphyVideo
-
-    Scene timing:
-      S1 Hook:        ~30s
-      S2 Idea:        ~35s
-      S3 Alignment:   ~45s
-      S4 Journey:     ~25s
-      S5 Discoveries: ~55s
-      S6 Close:       ~8s
-      Total:          ~3:18
     """
     def construct(self):
         for SceneClass in [
@@ -1096,8 +1044,37 @@ class HeiroglyphyVideo(Scene):
             S2_Idea,
             S3_Alignment,
             S4_Journey,
-            S5_Discoveries,
-            S6_Close,
+            D1_Gold,
+            D2_Silence,
+            D3_Seeing,
+            D4_Snake,
+            D5_Temple,
+            D6_Mother,
+            D7_Truth,
+            D8_Eternity,
+            S6_Discussion,
+            S7_Conclusion,
+        ]:
+            SceneClass.construct(self)
+            self.clear()
+            self.wait(0.5)
+
+
+class HeiroglyphyVideo3Min(Scene):
+    """
+    3-minute cut for encore.pillar.vc application (~2:53).
+    Run: manim -pqh heiroglyphy_video.py HeiroglyphyVideo3Min
+    """
+    def construct(self):
+        for SceneClass in [
+            S1_Hook,
+            S2_Idea,
+            S3_Alignment,
+            S4_Journey,
+            D1_Gold,
+            D2_Silence,
+            D5_Temple,
+            S7_Conclusion,
         ]:
             SceneClass.construct(self)
             self.clear()
