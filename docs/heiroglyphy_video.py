@@ -404,7 +404,7 @@ class S5_Discoveries(Scene):
                 "Not metaphor. The embedding space cannot\n"
                 "distinguish gold from the divine — because\n"
                 "the Egyptian texts don't distinguish them.",
-                6,  # hold time (seconds)
+                10,  # hold time — fits ~10.6s narration
             ),
             (
                 HIERO["sky"],
@@ -412,7 +412,7 @@ class S5_Discoveries(Scene):
                 "Every word between 'silence' and 'death'\n"
                 "is a variant of 'to die.' What the dead\n"
                 "lost was not life — it was voice.",
-                7,
+                10,  # hold time — fits ~11s narration
             ),
             (
                 HIERO["eye"],
@@ -420,7 +420,7 @@ class S5_Discoveries(Scene):
                 "The Eye of Horus sits between 'knowledge'\n"
                 "and 'spellcasting.' Sight was not passive\n"
                 "observation — it was an act of power.",
-                6,
+                7,  # hold time — fits ~7.2s narration
             ),
             (
                 HIERO["snake"],
@@ -428,7 +428,7 @@ class S5_Discoveries(Scene):
                 "Greek tradition links snakes to wisdom.\n"
                 "Egyptian vectors link them to the gods.\n"
                 "Two cultures, separated by geometry.",
-                6,
+                7,  # hold time — fits ~7.3s narration
             ),
         ]
 
