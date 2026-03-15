@@ -195,6 +195,12 @@ heiro_v1/data/
 # ============================================
 docs/media/
 docs/__pycache__/
+
+# Generated audio files
+docs/audio/voice/*.wav
+docs/audio/drone/*.wav
+docs/audio/voice_full.wav
+docs/audio/mixed_audio.wav
 docs/paper/*.aux
 docs/paper/*.log
 docs/paper/*.out
