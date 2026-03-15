@@ -6,92 +6,93 @@
     {
       "id": "S1_Hook",
       "start": 0.0,
-      "end": 25.0,
+      "end": 31.0,
       "narration_segments": [
-        {"id": "s1_01", "text": "These symbols are four thousand years old.", "start": 0.0},
-        {"id": "s1_02", "text": "Scholars have been translating them for two centuries.", "start": 5.5},
-        {"id": "s1_03", "text": "But translation is lossy. When you compress a word into a single English equivalent, the web of meaning around it disappears.", "start": 11.0},
-        {"id": "s1_04", "text": "What if we could get it back?", "start": 19.0}
+        {"id": "s1_01", "text": "These symbols are four thousand years old.", "start": 5.0},
+        {"id": "s1_02", "text": "Scholars have been translating them for two centuries.", "start": 10.5},
+        {"id": "s1_03", "text": "But translation is lossy. When you compress a word into a single English equivalent, the web of meaning around it disappears.", "start": 16.0},
+        {"id": "s1_04", "text": "What if we could get it back?", "start": 24.0}
       ],
       "cues": [{"type": "scene_start", "time": 0.0}]
     },
     {
       "id": "S2_Idea",
-      "start": 25.5,
-      "end": 46.0,
+      "start": 31.5,
+      "end": 52.0,
       "narration_segments": [
-        {"id": "s2_01", "text": "Here's the key insight. If you train a computer on enough text, every word ends up as a point in space.", "start": 25.5},
-        {"id": "s2_02", "text": "And words with similar meanings cluster together. Water, river, flood, they're neighbors. King, throne, crown, another cluster.", "start": 32.5},
-        {"id": "s2_03", "text": "This works for every language. Including Ancient Egyptian.", "start": 42.0}
+        {"id": "s2_01", "text": "Here's the key insight. If you train a computer on enough text, every word ends up as a point in space.", "start": 32.0},
+        {"id": "s2_02", "text": "And words with similar meanings cluster together. Water, river, flood, they're neighbors. King, throne, crown, another cluster.", "start": 39.0},
+        {"id": "s2_03", "text": "This works for every language. Including Ancient Egyptian.", "start": 48.0}
       ],
-      "cues": [{"type": "scene_start", "time": 25.5}]
+      "cues": [{"type": "scene_start", "time": 31.5}]
     },
     {
       "id": "S3_Alignment",
-      "start": 46.5,
-      "end": 80.0,
+      "start": 52.5,
+      "end": 88.0,
       "narration_segments": [
-        {"id": "s3_01", "text": "So we trained embeddings on a hundred thousand Ancient Egyptian sentences. And we trained them separately on English.", "start": 46.5},
-        {"id": "s3_02", "text": "Both languages form a shape, a cloud of points where similar words cluster. The shapes are similar, but rotated.", "start": 55.0},
-        {"id": "s3_03", "text": "The challenge is to find that rotation.", "start": 63.0},
-        {"id": "s3_04", "text": "If you get it right, Egyptian words land next to their English meanings.", "start": 68.0},
-        {"id": "s3_05", "text": "We got it right thirty-two percent of the time, without ever using a dictionary.", "start": 74.0}
+        {"id": "s3_01", "text": "So we trained embeddings on a hundred thousand Ancient Egyptian sentences. And we trained them separately on English.", "start": 53.0},
+        {"id": "s3_02", "text": "Both languages form a shape, a cloud of points where similar words cluster. The shapes are similar, but rotated.", "start": 62.0},
+        {"id": "s3_03", "text": "The challenge is to find that rotation.", "start": 70.0},
+        {"id": "s3_04", "text": "If you get it right, Egyptian words land next to their English meanings.", "start": 77.0}
       ],
-      "cues": [{"type": "scene_start", "time": 46.5}]
+      "cues": [{"type": "scene_start", "time": 52.5}]
     },
     {
-      "id": "S4_Journey",
-      "start": 80.5,
-      "end": 97.0,
+      "id": "S_Bridge",
+      "start": 88.5,
+      "end": 117.5,
       "narration_segments": [
-        {"id": "s4_01", "text": "It took fifteen attempts to get there. We tried neural networks, they failed.", "start": 80.5},
-        {"id": "s4_02", "text": "We tried the latest language models, they failed spectacularly.", "start": 86.5},
-        {"id": "s4_03", "text": "In the end, simple linear algebra outperformed everything. Sometimes the best tool is the oldest one.", "start": 92.0}
+        {"id": "sb_01", "text": "So how well does this work? For one in three Egyptian words, the nearest English word in the aligned space is the exact correct translation. One in three — with no dictionary, no bilingual text, just the shape of meaning.", "start": 89.0},
+        {"id": "sb_02", "text": "For each word, we get a bridge score — how closely the Egyptian word's neighborhood matches its English counterpart. And when we probe the space between words, we get a midpoint score — how strongly two concepts converge.", "start": 100.0},
+        {"id": "sb_03", "text": "Here's what those numbers revealed.", "start": 112.0}
       ],
-      "cues": [{"type": "scene_start", "time": 80.5}]
+      "cues": [{"type": "scene_start", "time": 88.5}]
     },
     {
       "id": "D1_Gold",
-      "start": 97.5,
-      "end": 122.0,
+      "start": 118.0,
+      "end": 147.0,
       "narration_segments": [
-        {"id": "d1_01", "text": "What happens when you find the midpoint of gold and divine in English, then look for the nearest Egyptian words?", "start": 99.0},
-        {"id": "d1_02", "text": "You find n-t-r-i, meaning divine, and n-b-w, meaning gold. They're in the same place.", "start": 107.0},
-        {"id": "d1_03", "text": "Modern readers call the phrase, the flesh of the gods is gold, a metaphor. The embedding space says it's not. Gold and divinity aren't compared in the texts. They're the same concept. Not metaphor. Ontology.", "start": 113.0}
+        {"id": "d1_01", "text": "What happens when you find the midpoint of gold and divine in English, then look for the nearest Egyptian words?", "start": 120.0},
+        {"id": "d1_02", "text": "You find n-t-r-i, meaning divine, and n-b-w, meaning gold. They're in the same place.", "start": 129.0},
+        {"id": "d1_03", "text": "Modern readers call the phrase, the flesh of the gods is gold, a metaphor. The embedding space says it's not. Gold and divinity aren't compared in the texts. They're the same concept. Not metaphor. Ontology.", "start": 136.0}
       ],
-      "cues": [{"type": "scene_start", "time": 97.5}]
+      "cues": [{"type": "scene_start", "time": 118.0}, {"type": "discovery_reveal", "time": 120.0}]
     },
     {
       "id": "D2_Silence",
-      "start": 122.5,
-      "end": 147.0,
+      "start": 147.5,
+      "end": 177.0,
       "narration_segments": [
-        {"id": "d2_01", "text": "Find the midpoint of silence and death. Every single nearest neighbor is a variant of the word to die.", "start": 124.0},
-        {"id": "d2_02", "text": "There is no Egyptian word between silence and death. They are the same point in space.", "start": 131.0},
-        {"id": "d2_03", "text": "The Egyptians called the necropolis the silent land. The dead were the silent ones. What the dead lost was not life. It was voice.", "start": 137.0}
+        {"id": "d2_01", "text": "Find the midpoint of silence and death. Every single nearest neighbor is a variant of the word to die.", "start": 149.0},
+        {"id": "d2_02", "text": "There is no Egyptian word between silence and death. They are the same point in space.", "start": 157.0},
+        {"id": "d2_03", "text": "The Egyptians called the necropolis the silent land. The dead were the silent ones. What the dead lost was not life. It was voice.", "start": 164.0}
       ],
-      "cues": [{"type": "scene_start", "time": 122.5}]
+      "cues": [{"type": "scene_start", "time": 147.5}, {"type": "discovery_reveal", "time": 149.0}]
     },
     {
       "id": "D5_Temple",
-      "start": 147.5,
-      "end": 168.0,
+      "start": 177.5,
+      "end": 207.0,
       "narration_segments": [
-        {"id": "d5_01", "text": "Take the vector from house to temple, and apply it to man. The result? God.", "start": 149.0},
-        {"id": "d5_02", "text": "A temple is a god's house, in the same geometric sense that a house is a man's dwelling.", "start": 155.0},
-        {"id": "d5_03", "text": "This is the king minus man plus woman equals queen trick, working across a four-thousand-year language boundary.", "start": 161.0}
+        {"id": "d5_01", "text": "Take the vector from house to temple, and apply it to man. The result? God.", "start": 179.5},
+        {"id": "d5_02", "text": "A temple is a god's house, in the same geometric sense that a house is a man's dwelling.", "start": 186.5},
+        {"id": "d5_03", "text": "This is the king minus man plus woman equals queen trick, working across a four-thousand-year language boundary.", "start": 194.5}
       ],
-      "cues": [{"type": "scene_start", "time": 147.5}]
+      "cues": [{"type": "scene_start", "time": 177.5}, {"type": "discovery_reveal", "time": 179.5}]
     },
     {
       "id": "S7_Conclusion",
-      "start": 168.5,
-      "end": 180.0,
+      "start": 207.5,
+      "end": 247.5,
       "narration_segments": [
-        {"id": "s7_01", "text": "Translation gave us the words.", "start": 170.0},
-        {"id": "s7_02", "text": "The vectors gave us the world between them.", "start": 174.0}
+        {"id": "s7_01", "text": "These are the same symbols we started with. From the Pyramid Texts, carved five thousand years ago.", "start": 209.5},
+        {"id": "s7_02", "text": "Live, live — for this is your name among the gods. A soul indeed, foremost of the living. Powerful indeed, foremost of the spirits.", "start": 216.5},
+        {"id": "s7_03", "text": "But now we can read between the words. Live doesn't mean breathe. It means endure as the gods endure. Soul isn't ethereal. It's the force that animates. And powerful — that's the same force as truth.", "start": 227.5},
+        {"id": "s7_04", "text": "Translation gave us the words. The vectors gave us the world between them.", "start": 239.5}
       ],
-      "cues": [{"type": "scene_start", "time": 168.5}]
+      "cues": [{"type": "scene_start", "time": 207.5}]
     }
   ]
 }
