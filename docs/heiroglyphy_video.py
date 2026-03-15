@@ -159,7 +159,7 @@ def score_overlay(scene, term, literal, bridge, midpoint):
     lines = []
     lines.append(Text(f"{term} → \"{literal}\"", color=MUTED).scale(0.22))
     if bridge is not None:
-        lines.append(Text(f"bridge: {bridge:.3f}", color=TEAL).scale(0.2))
+        lines.append(Text(f"alignment: {bridge:.3f}", color=TEAL).scale(0.2))
     if midpoint is not None:
         lines.append(Text(f"midpoint: {midpoint:.3f}", color=LAVENDER).scale(0.2))
     overlay = VGroup(*lines).arrange(DOWN, aligned_edge=LEFT, buff=0.05)
@@ -600,7 +600,7 @@ class D1_Gold(Scene):
         self.wait(1.5)
 
         scores = load_bridge_scores()["discoveries"]["D1_Gold"]
-        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores["bridge_score"], scores["midpoint_score"])
+        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores.get("alignment_score"), scores["midpoint_score"])
 
         # Dots merge
         self.play(
@@ -691,7 +691,7 @@ class D2_Silence(Scene):
         self.wait(1.5)
 
         scores = load_bridge_scores()["discoveries"]["D2_Silence"]
-        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores["bridge_score"], scores["midpoint_score"])
+        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores.get("alignment_score"), scores["midpoint_score"])
         self.wait(1.5)
 
         # Punchline
@@ -754,7 +754,7 @@ class D3_Seeing(Scene):
         self.play(Create(triangle), run_time=1.5)
 
         scores = load_bridge_scores()["discoveries"]["D3_Seeing"]
-        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores["bridge_score"], scores["midpoint_score"])
+        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores.get("alignment_score"), scores["midpoint_score"])
 
         # Eye pulses
         self.play(
@@ -801,7 +801,7 @@ class D4_Snake(Scene):
         self.wait(1)
 
         scores = load_bridge_scores()["discoveries"]["D4_Snake"]
-        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores["bridge_score"], scores["midpoint_score"])
+        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores.get("alignment_score"), scores["midpoint_score"])
         self.wait(1.5)
 
         # Greek side fades, Egyptian side glows
@@ -886,7 +886,7 @@ class D5_Temple(Scene):
         self.wait(1)
 
         scores = load_bridge_scores()["discoveries"]["D5_Temple"]
-        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores["bridge_score"], scores.get("analogy_score"))
+        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores.get("alignment_score"), scores.get("analogy_score"))
         self.wait(2)
 
         # Parallel lines
@@ -955,7 +955,7 @@ class D6_Mother(Scene):
         self.wait(2)
 
         scores = load_bridge_scores()["discoveries"]["D6_Mother"]
-        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores["bridge_score"], scores["midpoint_score"])
+        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores.get("alignment_score"), scores["midpoint_score"])
         self.wait(3)
 
         punchline = body_text("Motherhood is a crown, not the earth.", color=WHITE).scale(1.1).move_to(DOWN * 2.8)
@@ -1029,7 +1029,7 @@ class D7_Truth(Scene):
         self.wait(1.5)
 
         scores = load_bridge_scores()["discoveries"]["D7_Truth"]
-        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores["bridge_score"], scores["midpoint_score"])
+        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores.get("alignment_score"), scores["midpoint_score"])
         self.wait(2)
 
         punchline = body_text("Truth is not correctness. It is force.", color=WHITE).scale(1.1).move_to(DOWN * 2.8)
@@ -1069,7 +1069,7 @@ class D8_Eternity(Scene):
         self.wait(1)
 
         scores = load_bridge_scores()["discoveries"]["D8_Eternity"]
-        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores["bridge_score"], scores["midpoint_score"])
+        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores.get("alignment_score"), scores["midpoint_score"])
         self.wait(2)
 
         # Radiating rings
