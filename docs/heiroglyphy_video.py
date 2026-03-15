@@ -96,6 +96,32 @@ def make_cloud(n, spread, color, seed, offset=(0, 0)):
     return dots
 
 
+def load_viz_data():
+    """Load real embedding projections from viz_data.json."""
+    with open(VIZ_DATA) as f:
+        return json.load(f)
+
+
+def normalize_points(points, target_range=2.5, center=(0, 0)):
+    """Normalize (x, y) points to fit within target_range of center."""
+    xs = [p["x"] for p in points]
+    ys = [p["y"] for p in points]
+    x_min, x_max = min(xs), max(xs)
+    y_min, y_max = min(ys), max(ys)
+    x_span = x_max - x_min or 1
+    y_span = y_max - y_min or 1
+    scale = target_range / max(x_span, y_span)
+    x_mid = (x_min + x_max) / 2
+    y_mid = (y_min + y_max) / 2
+    result = []
+    for p in points:
+        nx = (p["x"] - x_mid) * scale + center[0]
+        ny = (p["y"] - y_mid) * scale + center[1]
+        result.append((nx, ny, p))
+    return result
+
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 # S1 — Hook  (~30s)
 #
@@ -113,7 +139,7 @@ class S1_Hook(Scene):
 
         # [Glyphs appear] "These symbols are four thousand years old."
         self.play(FadeIn(glyphs, shift=UP * 0.2), run_time=3)
-        self.wait(3)
+        self.wait(1.5)
 
         # "Scholars have been translating them for two centuries."
         line1 = body_text(
@@ -121,7 +147,7 @@ class S1_Hook(Scene):
             color=WHITE
         ).scale(1.1).next_to(glyphs, DOWN, buff=0.8)
         self.play(Write(line1), run_time=3)
-        self.wait(3)
+        self.wait(1.5)
 
         # "But translation is lossy. When you compress a word into a single
         #  English equivalent, the web of meaning around it disappears."
@@ -131,7 +157,7 @@ class S1_Hook(Scene):
             color=MUTED
         ).scale(1.0).next_to(line1, DOWN, buff=0.5)
         self.play(Write(line2), run_time=3.5)
-        self.wait(4)
+        self.wait(2)
 
         # "What if we could get it back?"
         line3 = body_text(
@@ -139,7 +165,7 @@ class S1_Hook(Scene):
             color=LAVENDER
         ).scale(1.1).next_to(line2, DOWN, buff=0.6)
         self.play(FadeIn(line3, shift=UP * 0.1), run_time=2)
-        self.wait(4)
+        self.wait(2)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -159,7 +185,7 @@ class S2_Idea(Scene):
         header = title_text("Words live in space", color=WHITE, scale=0.75)
         header.move_to(UP * 3.2)
         self.play(FadeIn(header), run_time=1.5)
-        self.wait(2)
+        self.wait(1)
 
         # "If you train a computer on enough text, every word ends up
         #  as a point in space. And words with similar meanings cluster together."
@@ -195,7 +221,7 @@ class S2_Idea(Scene):
             LaggedStart(*[FadeIn(m) for m in dots_and_labels], lag_ratio=0.08),
             run_time=4
         )
-        self.wait(3)
+        self.wait(1.5)
 
         explain = body_text(
             "Words that appear in similar contexts\n"
@@ -203,7 +229,7 @@ class S2_Idea(Scene):
             color=WHITE
         ).scale(1.0).move_to(DOWN * 1.5)
         self.play(Write(explain), run_time=3)
-        self.wait(3)
+        self.wait(1.5)
 
         # "This works for every language. Including Ancient Egyptian."
         explain2 = body_text(
@@ -211,7 +237,7 @@ class S2_Idea(Scene):
             color=LAVENDER
         ).scale(1.0).move_to(DOWN * 2.8)
         self.play(FadeIn(explain2, shift=UP * 0.1), run_time=2)
-        self.wait(4)
+        self.wait(2)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -229,10 +255,24 @@ class S2_Idea(Scene):
 # ══════════════════════════════════════════════════════════════════════════════
 class S3_Alignment(Scene):
     def construct(self):
-        # "So we trained embeddings on a hundred thousand Ancient Egyptian
-        #  sentences. And we trained them separately on English."
-        eg_cloud = make_cloud(80, 1.0, GOLD, seed=42, offset=(-3, 0))
-        en_cloud = make_cloud(80, 1.0, TEAL, seed=99, offset=(3, 0))
+        data = load_viz_data()
+
+        # Normalize each cloud to fit its half of the screen
+        eg_norm = normalize_points(data["egyptian"], target_range=2.0, center=(-3, 0))
+        en_norm = normalize_points(data["english"], target_range=2.0, center=(3, 0))
+
+        # Phase 1: Two clouds appear
+        eg_cloud = VGroup()
+        for nx, ny, pt in eg_norm:
+            dot = Dot(point=[nx, ny, 0], radius=0.025, color=GOLD)
+            dot.set_opacity(0.6)
+            eg_cloud.add(dot)
+
+        en_cloud = VGroup()
+        for nx, ny, pt in en_norm:
+            dot = Dot(point=[nx, ny, 0], radius=0.025, color=TEAL)
+            dot.set_opacity(0.6)
+            en_cloud.add(dot)
 
         label_eg = VGroup(
             hiero_text(HIERO["eye"], color=GOLD, scale=0.35),
@@ -242,65 +282,110 @@ class S3_Alignment(Scene):
         label_en = Text("English", color=TEAL).scale(0.45)
         label_en.move_to(RIGHT * 3 + UP * 2.8)
 
-        self.play(FadeIn(label_eg), Create(eg_cloud), run_time=3)
-        self.wait(2)
-        self.play(FadeIn(label_en), Create(en_cloud), run_time=3)
-        self.wait(2)
+        # Subtle axis labels
+        ax_divine = Text("divine →", color=MUTED).scale(0.2).move_to(RIGHT * 6.5 + UP * 0)
+        ax_mortal = Text("← mortal", color=MUTED).scale(0.2).move_to(LEFT * 6.5 + UP * 0)
+        ax_life = Text("life ↑", color=MUTED).scale(0.2).move_to(UP * 3.5 + RIGHT * 0)
+        ax_death = Text("↓ death", color=MUTED).scale(0.2).move_to(DOWN * 3.5 + RIGHT * 0)
+        axes_labels = VGroup(ax_divine, ax_mortal, ax_life, ax_death)
 
-        # "Both languages form a shape. The shapes are similar, but rotated."
+        self.play(FadeIn(axes_labels, run_time=1))
+        self.play(FadeIn(label_eg), Create(eg_cloud), run_time=3)
+        self.wait(1)
+        self.play(FadeIn(label_en), Create(en_cloud), run_time=3)
+        self.wait(1)
+
+        # Phase 2: "The shapes are similar — but rotated."
         explain = body_text(
             "Both languages form a shape.\n"
             "The shapes are similar — but rotated.",
             color=WHITE
         ).scale(1.0).move_to(DOWN * 3.0)
         self.play(Write(explain), run_time=3)
-        self.wait(3)
+        self.wait(1.5)
 
-        # "The challenge is to find that rotation."
-        self.play(FadeOut(explain), run_time=0.8)
+        # Phase 3: Clouds merge
+        self.play(FadeOut(explain), run_time=0.5)
         finding = body_text("Find the rotation...", color=LAVENDER).scale(1.1)
         finding.move_to(DOWN * 3.0)
-        self.play(FadeIn(finding), run_time=1.5)
-        self.wait(1)
+        self.play(FadeIn(finding), run_time=1)
 
-        # [Clouds slide together and rotate]
+        eg_center = eg_cloud.get_center()
+        en_center = en_cloud.get_center()
+        shift_vec = en_center - eg_center
+
         self.play(
-            eg_cloud.animate.shift(RIGHT * 2.2).rotate(0.3),
-            en_cloud.animate.shift(LEFT * 2.2).rotate(-0.1),
+            eg_cloud.animate.shift(shift_vec).scale(1.3).rotate(0.25),
+            label_eg.animate.shift(RIGHT * 2),
             run_time=5, rate_func=smooth
         )
-        self.wait(1)
+        self.wait(0.5)
 
-        # "If you get it right, Egyptian words land next to their English meanings."
+        # Phase 4: Anchor lines
         self.play(FadeOut(finding), run_time=0.5)
         overlap = body_text(
             "...and the words align across 4,000 years.",
             color=WHITE
         ).scale(1.0).move_to(DOWN * 3.0)
-        self.play(FadeIn(overlap), run_time=2)
+        self.play(FadeIn(overlap), run_time=1.5)
 
-        # [Connection lines flash between overlapping dots]
-        lines = VGroup()
-        rng = np.random.default_rng(7)
-        for _ in range(8):
-            eg_dot = eg_cloud[rng.integers(0, len(eg_cloud))]
-            en_dot = en_cloud[rng.integers(0, len(en_cloud))]
+        anchor_lines = VGroup()
+        rng = np.random.default_rng(42)
+        anchor_indices = rng.choice(len(eg_cloud), size=min(10, len(eg_cloud)), replace=False)
+        for idx in anchor_indices:
+            eg_dot = eg_cloud[int(idx)]
+            eg_pos = eg_dot.get_center()
+            dists = [np.linalg.norm(eg_pos - en_cloud[j].get_center()) for j in range(len(en_cloud))]
+            nearest = int(np.argmin(dists))
             line = Line(
-                eg_dot.get_center(), en_dot.get_center(),
+                eg_pos, en_cloud[nearest].get_center(),
                 color=LAVENDER, stroke_width=1
             ).set_opacity(0.4)
-            lines.add(line)
+            anchor_lines.add(line)
 
-        self.play(Create(lines), run_time=2)
-        self.wait(3)
+        self.play(Create(anchor_lines), run_time=2)
+        self.wait(1)
 
-        # "We got it right thirty-two percent of the time — without
-        #  ever using a dictionary."
-        self.play(FadeOut(overlap), FadeOut(lines), run_time=0.8)
+        # Phase 5: Golden hits
+        self.play(FadeOut(anchor_lines), FadeOut(overlap), run_time=0.8)
+
+        highlights = data.get("highlights", [])
+        highlight_lines = VGroup()
+        highlight_labels = VGroup()
+
+        for hl in highlights:
+            best_eg = eg_cloud[0]
+            best_en = en_cloud[0]
+            for i, (nx, ny, pt) in enumerate(eg_norm):
+                if pt["word"] == hl["egyptian"]:
+                    best_eg = eg_cloud[i]
+                    break
+            for i, (nx, ny, pt) in enumerate(en_norm):
+                if pt.get("word") == hl["english"]:
+                    best_en = en_cloud[i]
+                    break
+
+            line = Line(
+                best_eg.get_center(), best_en.get_center(),
+                color=LAVENDER, stroke_width=2
+            ).set_opacity(0.8)
+            highlight_lines.add(line)
+
+            eg_label = Text(hl["egyptian"], color=GOLD).scale(0.25)
+            eg_label.next_to(best_eg, LEFT, buff=0.1)
+            en_label = Text(hl["english"], color=TEAL).scale(0.25)
+            en_label.next_to(best_en, RIGHT, buff=0.1)
+            highlight_labels.add(eg_label, en_label)
+
+        self.play(Create(highlight_lines), FadeIn(highlight_labels), run_time=2)
+        self.wait(2)
+
+        # Phase 6: Accuracy
+        self.play(FadeOut(highlight_lines), FadeOut(highlight_labels), run_time=0.5)
         acc = body_text("32.35% accuracy — no dictionary needed.",
                         color=GOLD).scale(1.1).move_to(DOWN * 3.0)
         self.play(FadeIn(acc), run_time=2)
-        self.wait(4)
+        self.wait(2)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -318,7 +403,7 @@ class S4_Journey(Scene):
         header = title_text("15 attempts to get there", color=WHITE, scale=0.7)
         header.move_to(UP * 3.2)
         self.play(FadeIn(header), run_time=1.5)
-        self.wait(1)
+        self.wait(0.5)
 
         bars_data = [
             ("V3", 22.0, TEAL),
@@ -350,11 +435,11 @@ class S4_Journey(Scene):
             self.play(GrowFromEdge(bg, DOWN), run_time=1.0)
             if i == 2:
                 # "We tried the latest language models — they failed spectacularly."
-                self.wait(1.5)
+                self.wait(1.0)
             else:
                 self.wait(0.5)
 
-        self.wait(1)
+        self.wait(0.5)
 
         # "In the end, simple linear algebra outperformed everything."
         lesson = body_text(
@@ -362,7 +447,7 @@ class S4_Journey(Scene):
             color=WHITE
         ).scale(1.0).move_to(DOWN * 3.2)
         self.play(FadeIn(lesson), run_time=2)
-        self.wait(4)
+        self.wait(2)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
