@@ -1,0 +1,285 @@
+{
+  "accuracy": {
+    "top1_pct": 32.35,
+    "description": "Top-1 retrieval accuracy without bilingual supervision"
+  },
+  "discoveries": {
+    "D1_Gold": {
+      "title": "Gold Is Divine Flesh",
+      "primary_term": "nṯr",
+      "literal": "god, divine being",
+      "bridge_score": 0.9191201329231262,
+      "midpoint_query": [
+        "gold",
+        "divine"
+      ],
+      "midpoint_results": [
+        [
+          "nṯr.j",
+          0.5963419079780579
+        ],
+        [
+          "nṯr.t",
+          0.5891079306602478
+        ],
+        [
+          "nṯri̯",
+          0.5853252410888672
+        ],
+        [
+          "nṯr.w",
+          0.5852699279785156
+        ],
+        [
+          "nṯr-nṯr,j",
+          0.5839678049087524
+        ]
+      ],
+      "midpoint_score": 0.5963419079780579,
+      "secondary": {
+        "term": "nbw",
+        "literal": "gold",
+        "bridge_score": 0.6830618977546692
+      }
+    },
+    "D2_Silence": {
+      "title": "Silence Is the Condition of the Dead",
+      "primary_term": "mwt",
+      "literal": "to die, dead",
+      "bridge_score": 0.40874940156936646,
+      "midpoint_query": [
+        "silence",
+        "death"
+      ],
+      "midpoint_results": [
+        [
+          "snš",
+          3.648641586303711
+        ],
+        [
+          "zꜣ,t-nzw",
+          3.6466927528381348
+        ],
+        [
+          "zꜣ,t-nzw-n-ẖ,t≡〈f〉",
+          3.616518974304199
+        ],
+        [
+          "zꜣ,t-nzw-n-ẖ,t≡[f]",
+          3.6050829887390137
+        ],
+        [
+          "ms.(w)",
+          3.6050233840942383
+        ]
+      ],
+      "midpoint_score": 0.40874940156936646,
+      "note": "silence not in concept vectors; used death vector directly"
+    },
+    "D3_Seeing": {
+      "title": "Seeing Was an Act of Magical Power",
+      "primary_term": "jr.t",
+      "literal": "eye",
+      "bridge_score": 0.33215805888175964,
+      "midpoint_query": [
+        "eye",
+        "knowledge"
+      ],
+      "midpoint_results": [
+        [
+          "jr,t.ṱ",
+          0.5811151266098022
+        ],
+        [
+          "[jr,t.du]",
+          0.5744956135749817
+        ],
+        [
+          "⸢jr,t.du⸣",
+          0.5672587752342224
+        ],
+        [
+          "jr,t.j",
+          0.5670635104179382
+        ],
+        [
+          "jr,t.du-Ḥr,w",
+          0.5634897947311401
+        ]
+      ],
+      "midpoint_score": 0.5811151266098022,
+      "secondary": {
+        "term": "ḥkꜣ",
+        "literal": "magic, magical power",
+        "bridge_score": 0.3018278479576111
+      }
+    },
+    "D4_Snake": {
+      "title": "The Snake Is Divine, Not Wise",
+      "primary_term": "nṯr.w",
+      "literal": "serpent → finds god/divine",
+      "bridge_score": null,
+      "midpoint_query": [
+        "snake",
+        "wisdom"
+      ],
+      "midpoint_results": [
+        [
+          "nṯr.w",
+          0.483426570892334
+        ],
+        [
+          "nṯr-nṯr,j",
+          0.4812966287136078
+        ],
+        [
+          "nṯr+",
+          0.48081058263778687
+        ],
+        [
+          "nṯr-ꜤꜢ",
+          0.47936955094337463
+        ],
+        [
+          "nṯr.wj",
+          0.47889387607574463
+        ]
+      ],
+      "midpoint_score": 0.483426570892334
+    },
+    "D5_Temple": {
+      "title": "Temple : House :: God : Man",
+      "primary_term": "nṯr",
+      "literal": "god",
+      "bridge_score": 0.9191201329231262,
+      "analogy_query": "temple - house + man",
+      "analogy_results": [
+        [
+          "nṯrw",
+          0.45573943853378296
+        ],
+        [
+          "nṯrj",
+          0.45474764704704285
+        ],
+        [
+          "nṯr",
+          0.45232799649238586
+        ],
+        [
+          "nṯr+",
+          0.44674596190452576
+        ],
+        [
+          "nṯr-ꜤꜢ",
+          0.441417396068573
+        ]
+      ],
+      "analogy_score": 0.45573943853378296
+    },
+    "D6_Mother": {
+      "title": "Mother Is Royalty, Not Earth",
+      "primary_term": "mw.t",
+      "literal": "mother",
+      "bridge_score": 0.40572524070739746,
+      "midpoint_query": [
+        "mother",
+        "earth"
+      ],
+      "midpoint_results": [
+        [
+          "ḥm,t-nzw-wr.t",
+          0.6851875185966492
+        ],
+        [
+          "ḥm(,t)-nṯr-Nj,t",
+          0.6791350841522217
+        ],
+        [
+          "⸢ḥm,t-nzw-wr.t⸣",
+          0.6778832674026489
+        ],
+        [
+          "ḥm,t-nzw-⸢wr,t⸣",
+          0.6754590272903442
+        ],
+        [
+          "ḥm,t-nzw-wr,t",
+          0.6753647327423096
+        ]
+      ],
+      "midpoint_score": 0.6851875185966492
+    },
+    "D7_Truth": {
+      "title": "Truth and Power Are the Same Force",
+      "primary_term": "mꜣꜥ.t",
+      "literal": "truth, justice, cosmic order",
+      "bridge_score": 0.3771344721317291,
+      "midpoint_query": [
+        "truth",
+        "power"
+      ],
+      "midpoint_results": [
+        [
+          "[ḫr]",
+          0.6090078353881836
+        ],
+        [
+          "〈nb〉",
+          0.6077194213867188
+        ],
+        [
+          "r-nfr",
+          0.6042137145996094
+        ],
+        [
+          "nfr",
+          0.6036441326141357
+        ],
+        [
+          "nfr-n",
+          0.6035975813865662
+        ]
+      ],
+      "midpoint_score": 0.6090078353881836,
+      "secondary": {
+        "term": "sḫm",
+        "literal": "power, authority",
+        "bridge_score": 0.47120964527130127
+      }
+    },
+    "D8_Eternity": {
+      "title": "Love and Fear Meet at Eternity",
+      "primary_term": "r-nḥḥ",
+      "literal": "to eternity, forever",
+      "bridge_score": 0.259098619222641,
+      "midpoint_query": [
+        "love",
+        "fear"
+      ],
+      "midpoint_results": [
+        [
+          "wꜣs",
+          0.6910158395767212
+        ],
+        [
+          "jy.tj",
+          0.6791167259216309
+        ],
+        [
+          "nfr,pl",
+          0.6786774396896362
+        ],
+        [
+          "jy.ṱ",
+          0.6773563027381897
+        ],
+        [
+          "jji̯.ṱ",
+          0.6733485460281372
+        ]
+      ],
+      "midpoint_score": 0.6910158395767212
+    }
+  }
+}
