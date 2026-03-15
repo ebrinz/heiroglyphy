@@ -338,10 +338,10 @@ if mid is not None:
 
 # ── Write output ─────────────────────────────────────────────────────────────
 output = {
-    "model_version": "V10 (1536d fused → 300d GloVe, Ridge alpha=1.0)",
+    "model_version": "V15 SOTA (1536d fused → 300d GloVe, Ridge alpha=0.001)",
     "accuracy": {
-        "top1_pct": 30.67,
-        "description": "Top-1 retrieval accuracy (V10 aligned vectors)"
+        "top1_pct": 32.35,
+        "description": "Top-1 retrieval accuracy (V15 aligned vectors)"
     },
     "note": "alignment_score = cosine similarity between aligned Egyptian word and English concept. midpoint_score = cosine similarity of the top Egyptian result to the midpoint query vector.",
     "discoveries": discoveries,
@@ -351,7 +351,7 @@ with open(OUT, "w") as f:
     json.dump(output, f, indent=2, ensure_ascii=False)
 
 print(f"\nWrote {OUT}")
-print(f"Model: V10 (alpha=1.0, accuracy=30.67%)")
+print(f"Model: V15 SOTA (alpha=0.001, accuracy=32.35%)")
 print(f"Concept vocabulary: {len(en_words)} words")
 print()
 for name, d in discoveries.items():

@@ -154,12 +154,12 @@ def load_bridge_scores():
     with open(BRIDGE_SCORES) as f:
         return json.load(f)
 
-def score_overlay(scene, term, literal, bridge, midpoint):
-    """Show bridge + midpoint score overlay in upper-right. Returns VGroup."""
+def score_overlay(scene, term, literal, alignment, midpoint):
+    """Show alignment + midpoint score overlay in upper-right. Returns VGroup."""
     lines = []
     lines.append(Text(f"{term} → \"{literal}\"", color=MUTED).scale(0.22))
-    if bridge is not None:
-        lines.append(Text(f"alignment: {bridge:.3f}", color=TEAL).scale(0.2))
+    if alignment is not None:
+        lines.append(Text(f"alignment: {alignment:.3f}", color=TEAL).scale(0.2))
     if midpoint is not None:
         lines.append(Text(f"midpoint: {midpoint:.3f}", color=LAVENDER).scale(0.2))
     overlay = VGroup(*lines).arrange(DOWN, aligned_edge=LEFT, buff=0.05)
@@ -183,39 +183,18 @@ def score_overlay(scene, term, literal, bridge, midpoint):
 # ══════════════════════════════════════════════════════════════════════════════
 class S1_Hook(Scene):
     def construct(self):
-        # ── Title card: "The Geometry of Meaning" with Thoth + compass ──
+        # ── Title card: "The Geometry of Meaning" with Thoth ──
+        thoth = hiero_text("\U00013043", color=GOLD, scale=2.0)
+        thoth.move_to(UP * 0.5)
+        self.play(FadeIn(thoth, scale=0.8), run_time=2)
+        self.wait(0.5)
+
         geo_title = Text("The Geometry of Meaning", color=WHITE).scale(0.8)
-        geo_title.move_to(UP * 2.5)
-        self.play(FadeIn(geo_title, shift=DOWN * 0.2), run_time=2)
-
-        # Thoth glyph — large, on the left
-        thoth = hiero_text("\U00013043", color=GOLD, scale=1.8)
-        thoth.move_to(LEFT * 2.5 + DOWN * 0.2)
-        self.play(FadeIn(thoth, scale=0.8), run_time=1.5)
-
-        # Compass — two arms from a pivot
-        pivot = RIGHT * 2.5 + UP * 0.5
-        arm_len = 1.5
-        angle = PI / 12  # 15 degrees each side
-        arm1_end = pivot + np.array([-arm_len * np.sin(angle), -arm_len * np.cos(angle), 0])
-        arm2_end = pivot + np.array([arm_len * np.sin(angle), -arm_len * np.cos(angle), 0])
-        compass_arm1 = Line(pivot, arm1_end, color=TEAL, stroke_width=3)
-        compass_arm2 = Line(pivot, arm2_end, color=TEAL, stroke_width=3)
-        compass_pivot = Dot(pivot, radius=0.05, color=TEAL)
-        # Arc at the bottom
-        compass_arc = Arc(
-            radius=arm_len * 0.6,
-            start_angle=-PI/2 - angle,
-            angle=2 * angle,
-            arc_center=pivot,
-            color=TEAL,
-            stroke_width=1.5
-        ).set_opacity(0.5)
-        compass = VGroup(compass_arm1, compass_arm2, compass_pivot, compass_arc)
-        self.play(Create(compass), run_time=1.5)
+        geo_title.move_to(DOWN * 1.5)
+        self.play(FadeIn(geo_title, shift=UP * 0.2), run_time=2)
         self.wait(2)
 
-        self.play(FadeOut(geo_title), FadeOut(thoth), FadeOut(compass), run_time=1)
+        self.play(FadeOut(geo_title), FadeOut(thoth), run_time=1)
 
         # ── Glyph strip + narration flow ──
         glyphs = hiero_text(GLYPH_STRIP, color=GOLD, scale=1.0)
@@ -487,13 +466,13 @@ class S_Bridge(Scene):
         self.play(FadeOut(stat_group), FadeOut(qualifier), run_time=1)
 
         # Phase 2: Bridge score concept (left side)
-        bridge_title = Text("Bridge score", color=TEAL).scale(0.6).move_to(UP * 2.5 + LEFT * 3)
+        bridge_title = Text("Alignment score", color=TEAL).scale(0.6).move_to(UP * 2.5 + LEFT * 3)
         dot_eg = Dot(point=[-4, 0.5, 0], radius=0.1, color=GOLD)
         dot_en = Dot(point=[-2, 0.5, 0], radius=0.1, color=TEAL)
         lbl_eg = Text("nṯr", color=GOLD).scale(0.3).next_to(dot_eg, DOWN, buff=0.1)
         lbl_en = Text("god", color=TEAL).scale(0.3).next_to(dot_en, DOWN, buff=0.1)
         bridge_line = Line(dot_eg.get_center(), dot_en.get_center(), color=LAVENDER, stroke_width=2)
-        score_lbl = Text("0.919", color=LAVENDER).scale(0.25).next_to(bridge_line, UP, buff=0.05)
+        score_lbl = Text("0.929", color=LAVENDER).scale(0.25).next_to(bridge_line, UP, buff=0.05)
         bridge_desc = body_text("How closely a word's\nneighborhood matches\nacross languages", color=MUTED).scale(0.7)
         bridge_desc.move_to(LEFT * 3 + DOWN * 1.2)
 
@@ -511,7 +490,7 @@ class S_Bridge(Scene):
         dot_mid = Dot(point=[3, 0.5, 0], radius=0.08, color=WHITE).set_opacity(0.6)
         dash_l = DashedLine(dot_a.get_center(), dot_mid.get_center(), color=MUTED, stroke_width=1)
         dash_r = DashedLine(dot_mid.get_center(), dot_b.get_center(), color=MUTED, stroke_width=1)
-        mid_score = Text("0.596", color=LAVENDER).scale(0.25).next_to(dot_mid, UP, buff=0.1)
+        mid_score = Text("0.642", color=LAVENDER).scale(0.25).next_to(dot_mid, UP, buff=0.1)
         mid_desc = body_text("How strongly two concepts\nconverge in the Egyptian\nworldview", color=MUTED).scale(0.7)
         mid_desc.move_to(RIGHT * 3 + DOWN * 1.2)
 
@@ -776,50 +755,60 @@ class D4_Snake(Scene):
         header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.0)
         self.play(FadeIn(header), run_time=1.5)
 
-        # Dividing line
-        divider = Line(UP * 2.5, DOWN * 2.5, color=MUTED, stroke_width=1).set_opacity(0.3)
-        self.play(Create(divider), run_time=0.5)
+        # Query: midpoint of "snake" and "wisdom"
+        dot_snake = Dot(point=[-2.5, 1, 0], radius=0.1, color=TEAL)
+        dot_wisdom = Dot(point=[2.5, 1, 0], radius=0.1, color=TEAL)
+        lbl_snake = Text("snake", color=TEAL).scale(0.35).next_to(dot_snake, UP, buff=0.1)
+        lbl_wisdom = Text("wisdom", color=TEAL).scale(0.35).next_to(dot_wisdom, UP, buff=0.1)
 
-        # Left side: Greek expectation
-        greek_title = Text("Greek tradition", color=MUTED).scale(0.3).move_to(LEFT * 3 + UP * 2.2)
-        snake_left = Text("🐍", color=MUTED).scale(0.8).move_to(LEFT * 3 + UP * 0.5)
-        arrow_left = Arrow(LEFT * 3 + DOWN * 0, LEFT * 3 + DOWN * 1.2, color=MUTED, stroke_width=2)
-        wisdom = Text("wisdom", color=MUTED).scale(0.4).move_to(LEFT * 3 + DOWN * 1.6)
+        midpoint_dot = Dot(point=[0, 1, 0], radius=0.08, color=WHITE).set_opacity(0.6)
+        mid_label = Text("midpoint", color=MUTED).scale(0.25).next_to(midpoint_dot, UP, buff=0.1)
+        dash_l = DashedLine(dot_snake.get_center(), midpoint_dot.get_center(), color=MUTED, stroke_width=1)
+        dash_r = DashedLine(midpoint_dot.get_center(), dot_wisdom.get_center(), color=MUTED, stroke_width=1)
 
-        self.play(FadeIn(greek_title), FadeIn(snake_left), run_time=1.5)
-        self.play(Create(arrow_left), FadeIn(wisdom), run_time=1.5)
+        self.play(FadeIn(dot_snake, lbl_snake), FadeIn(dot_wisdom, lbl_wisdom), run_time=1.5)
+        self.play(FadeIn(midpoint_dot, mid_label), Create(dash_l), Create(dash_r), run_time=1.5)
         self.wait(1.5)
 
-        # Right side: Egyptian reality
-        egyptian_title = Text("Egyptian vectors", color=GOLD).scale(0.3).move_to(RIGHT * 3 + UP * 2.2)
-        snake_right = hiero_text("\U00013196", color=GOLD, scale=0.7).move_to(RIGHT * 3 + UP * 0.5)
-        arrow_right = Arrow(RIGHT * 3 + DOWN * 0, RIGHT * 3 + DOWN * 1.2, color=GOLD, stroke_width=2)
-        gods = Text("the gods", color=GOLD).scale(0.4).move_to(RIGHT * 3 + DOWN * 1.6)
+        # Expected results (ghosted) — what Greek tradition would predict
+        expect_header = Text("expected:", color=MUTED).scale(0.25).set_opacity(0.4)
+        expect_header.move_to(LEFT * 3.5 + DOWN * 0.3)
+        expected = ["knowledge", "cunning", "healing"]
+        expected_group = VGroup()
+        for i, w in enumerate(expected):
+            lbl = Text(w, color=MUTED).scale(0.3).set_opacity(0.3)
+            lbl.move_to([i * 1.5 - 3, -0.8, 0])
+            expected_group.add(lbl)
 
-        self.play(FadeIn(egyptian_title), FadeIn(snake_right), run_time=1.5)
-        self.play(Create(arrow_right), FadeIn(gods), run_time=1.5)
+        self.play(FadeIn(expect_header), FadeIn(expected_group), run_time=1.5)
+        self.wait(2)
+
+        # Actual results — what the Egyptian space returns
+        actual_header = Text("actual:", color=GOLD).scale(0.25)
+        actual_header.move_to(LEFT * 3.5 + DOWN * 1.8)
+        actual = ["nṯr (god)", "nṯr.w (gods)", "nṯr-ꜤꜢ (great god)"]
+        actual_group = VGroup()
+        for i, w in enumerate(actual):
+            lbl = Text(w, color=GOLD).scale(0.3)
+            lbl.move_to([i * 2 - 2.5, -2.3, 0])
+            actual_group.add(lbl)
+
+        self.play(
+            expected_group.animate.set_opacity(0.1),
+            expect_header.animate.set_opacity(0.15),
+            FadeIn(actual_header), FadeIn(actual_group),
+            run_time=2.5
+        )
         self.wait(1)
 
         scores = load_bridge_scores()["discoveries"]["D4_Snake"]
         overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores.get("alignment_score"), scores["midpoint_score"])
-        self.wait(1.5)
-
-        # Greek side fades, Egyptian side glows
-        self.play(
-            snake_left.animate.set_opacity(0.2),
-            arrow_left.animate.set_opacity(0.2),
-            wisdom.animate.set_opacity(0.2),
-            greek_title.animate.set_opacity(0.2),
-            gods.animate.scale(1.3),
-            snake_right.animate.scale(1.2),
-            run_time=2
-        )
-        self.wait(3)
+        self.wait(2)
 
         # Punchline
-        punch1 = body_text("Greeks and Egyptians.", color=WHITE).scale(1.0)
-        punch2 = body_text("Two cultures, separated by geometry.", color=WHITE).scale(1.0)
-        punchline = VGroup(punch1, punch2).arrange(DOWN, buff=0.15).move_to(DOWN * 2.8)
+        punch1 = body_text("In Greek tradition, the serpent means wisdom.", color=MUTED).scale(0.85)
+        punch2 = body_text("In Egypt, it means the gods.", color=GOLD).scale(0.95)
+        punchline = VGroup(punch1, punch2).arrange(DOWN, buff=0.2).move_to(DOWN * 2.8)
         self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
         self.wait(5)
 
@@ -1160,9 +1149,9 @@ class S7_Conclusion(Scene):
 
         for row in reframe_group:
             self.play(FadeIn(row, shift=RIGHT * 0.2), run_time=1.5)
-            self.wait(0.5)
+            self.wait(1)
 
-        self.wait(2)
+        self.wait(3)
 
         # Phase 4: Closing
         self.play(*[FadeOut(m) for m in [glyphs, literal, reframe_group]], run_time=1.5)
@@ -1171,14 +1160,14 @@ class S7_Conclusion(Scene):
         final2 = body_text("The vectors gave us the world between them.", color=LAVENDER).scale(1.2).move_to(DOWN * 0.8)
 
         self.play(Write(final), run_time=3)
-        self.wait(1)
-        self.play(FadeIn(final2, shift=UP * 0.1), run_time=2.5)
         self.wait(2)
+        self.play(FadeIn(final2, shift=UP * 0.1), run_time=2.5)
+        self.wait(3)
 
         self.play(FadeOut(final), FadeOut(final2), run_time=1)
         repo = body_text("github.com/ebrinz/heiroglyphy", color=GOLD).scale(1.1)
         self.play(FadeIn(repo, shift=UP * 0.1), run_time=2)
-        self.wait(4)
+        self.wait(5)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
