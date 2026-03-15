@@ -139,7 +139,7 @@ class S1_Hook(Scene):
 
         # [Glyphs appear] "These symbols are four thousand years old."
         self.play(FadeIn(glyphs, shift=UP * 0.2), run_time=3)
-        self.wait(1.5)
+        self.wait(3.5)
 
         # "Scholars have been translating them for two centuries."
         line1 = body_text(
@@ -147,7 +147,7 @@ class S1_Hook(Scene):
             color=WHITE
         ).scale(1.1).next_to(glyphs, DOWN, buff=0.8)
         self.play(Write(line1), run_time=3)
-        self.wait(1.5)
+        self.wait(3.5)
 
         # "But translation is lossy. When you compress a word into a single
         #  English equivalent, the web of meaning around it disappears."
@@ -157,7 +157,7 @@ class S1_Hook(Scene):
             color=MUTED
         ).scale(1.0).next_to(line1, DOWN, buff=0.5)
         self.play(Write(line2), run_time=3.5)
-        self.wait(2)
+        self.wait(4)
 
         # "What if we could get it back?"
         line3 = body_text(
@@ -165,7 +165,7 @@ class S1_Hook(Scene):
             color=LAVENDER
         ).scale(1.1).next_to(line2, DOWN, buff=0.6)
         self.play(FadeIn(line3, shift=UP * 0.1), run_time=2)
-        self.wait(2)
+        self.wait(4)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -185,7 +185,7 @@ class S2_Idea(Scene):
         header = title_text("Words live in space", color=WHITE, scale=0.75)
         header.move_to(UP * 3.2)
         self.play(FadeIn(header), run_time=1.5)
-        self.wait(1)
+        self.wait(2)
 
         # "If you train a computer on enough text, every word ends up
         #  as a point in space. And words with similar meanings cluster together."
@@ -221,7 +221,7 @@ class S2_Idea(Scene):
             LaggedStart(*[FadeIn(m) for m in dots_and_labels], lag_ratio=0.08),
             run_time=4
         )
-        self.wait(1.5)
+        self.wait(2.5)
 
         explain = body_text(
             "Words that appear in similar contexts\n"
@@ -229,7 +229,7 @@ class S2_Idea(Scene):
             color=WHITE
         ).scale(1.0).move_to(DOWN * 1.5)
         self.play(Write(explain), run_time=3)
-        self.wait(1.5)
+        self.wait(2.5)
 
         # "This works for every language. Including Ancient Egyptian."
         explain2 = body_text(
@@ -237,7 +237,7 @@ class S2_Idea(Scene):
             color=LAVENDER
         ).scale(1.0).move_to(DOWN * 2.8)
         self.play(FadeIn(explain2, shift=UP * 0.1), run_time=2)
-        self.wait(2)
+        self.wait(3)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -291,9 +291,9 @@ class S3_Alignment(Scene):
 
         self.play(FadeIn(axes_labels, run_time=1))
         self.play(FadeIn(label_eg), Create(eg_cloud), run_time=3)
-        self.wait(1)
+        self.wait(1.5)
         self.play(FadeIn(label_en), Create(en_cloud), run_time=3)
-        self.wait(1)
+        self.wait(1.5)
 
         # Phase 2: "The shapes are similar — but rotated."
         explain = body_text(
@@ -302,7 +302,7 @@ class S3_Alignment(Scene):
             color=WHITE
         ).scale(1.0).move_to(DOWN * 3.0)
         self.play(Write(explain), run_time=3)
-        self.wait(1.5)
+        self.wait(2)
 
         # Phase 3: Clouds merge
         self.play(FadeOut(explain), run_time=0.5)
@@ -344,7 +344,7 @@ class S3_Alignment(Scene):
             anchor_lines.add(line)
 
         self.play(Create(anchor_lines), run_time=2)
-        self.wait(1)
+        self.wait(1.7)
 
         # Phase 5: Golden hits
         self.play(FadeOut(anchor_lines), FadeOut(overlap), run_time=0.8)
@@ -403,7 +403,7 @@ class S4_Journey(Scene):
         header = title_text("15 attempts to get there", color=WHITE, scale=0.7)
         header.move_to(UP * 3.2)
         self.play(FadeIn(header), run_time=1.5)
-        self.wait(0.5)
+        self.wait(1.5)
 
         bars_data = [
             ("V3", 22.0, TEAL),
@@ -435,11 +435,11 @@ class S4_Journey(Scene):
             self.play(GrowFromEdge(bg, DOWN), run_time=1.0)
             if i == 2:
                 # "We tried the latest language models — they failed spectacularly."
-                self.wait(1.0)
+                self.wait(2.0)
             else:
-                self.wait(0.5)
+                self.wait(1.0)
 
-        self.wait(0.5)
+        self.wait(1.5)
 
         # "In the end, simple linear algebra outperformed everything."
         lesson = body_text(
@@ -447,7 +447,7 @@ class S4_Journey(Scene):
             color=WHITE
         ).scale(1.0).move_to(DOWN * 3.2)
         self.play(FadeIn(lesson), run_time=2)
-        self.wait(2)
+        self.wait(5)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -492,7 +492,7 @@ class D1_Gold(Scene):
         lbl_divine = Text("divine", color=LAVENDER).scale(0.4).next_to(dot_divine, DOWN, buff=0.15)
 
         self.play(FadeIn(dot_gold, lbl_gold), FadeIn(dot_divine, lbl_divine), run_time=2)
-        self.wait(1)
+        self.wait(2)
 
         # Midpoint marker
         midpoint = Dot(point=[0, 0, 0], radius=0.08, color=WHITE).set_opacity(0.6)
@@ -501,7 +501,7 @@ class D1_Gold(Scene):
         dashed_right = DashedLine(midpoint.get_center(), dot_divine.get_center(), color=MUTED, stroke_width=1)
 
         self.play(Create(dashed_left), Create(dashed_right), FadeIn(midpoint, mid_label), run_time=2)
-        self.wait(1)
+        self.wait(1.5)
 
         # Arrow projects down into "Egyptian space"
         eg_label = Text("Egyptian space", color=GOLD).scale(0.3).move_to(DOWN * 1.2)
@@ -529,12 +529,12 @@ class D1_Gold(Scene):
         # Glow effect
         glow = Dot(point=[0, -2.2, 0], radius=0.3, color=GOLD).set_opacity(0.3)
         self.play(FadeIn(glow), run_time=1)
-        self.wait(1)
+        self.wait(3)
 
         # Punchline
         punchline = body_text("Not metaphor. Ontology.", color=WHITE).scale(1.2).move_to(DOWN * 3.5)
         self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
-        self.wait(3)
+        self.wait(6)
 
 
 class D2_Silence(Scene):
@@ -555,7 +555,7 @@ class D2_Silence(Scene):
             )
 
         self.play(Create(wave_dots), run_time=2)
-        self.wait(1)
+        self.wait(1.5)
 
         # Wave flattens to silence
         flat_targets = []
@@ -564,7 +564,7 @@ class D2_Silence(Scene):
             flat_targets.append(dot.animate.move_to([x, 0.5, 0]).set_opacity(0.2))
 
         self.play(*flat_targets, run_time=3, rate_func=smooth)
-        self.wait(0.5)
+        self.wait(1)
 
         # "silence" and "death" dots converge
         dot_silence = Dot(point=[-2, -1, 0], radius=0.1, color=LAVENDER)
@@ -573,7 +573,7 @@ class D2_Silence(Scene):
         lbl_death = Text("death", color=SOFT_RED).scale(0.35).next_to(dot_death, DOWN, buff=0.1)
 
         self.play(FadeIn(dot_silence, lbl_silence), FadeIn(dot_death, lbl_death), run_time=1.5)
-        self.wait(1)
+        self.wait(1.5)
 
         # Converge to same point
         converge_pt = [0, -1.5, 0]
@@ -584,6 +584,7 @@ class D2_Silence(Scene):
             lbl_death.animate.next_to(converge_pt, RIGHT, buff=0.3),
             run_time=2.5
         )
+        self.wait(1.5)
 
         # m(w)t variants cluster
         mwt_words = ["m.wt", "mt", "mwt", "mwt.w", "mt.t"]
@@ -596,12 +597,12 @@ class D2_Silence(Scene):
             mwt_group.add(lbl)
 
         self.play(FadeIn(mwt_group), run_time=1.5)
-        self.wait(1.5)
+        self.wait(3)
 
         # Punchline
         punchline = body_text("What the dead lost was not life. It was voice.", color=WHITE).scale(1.1).move_to(DOWN * 3.3)
         self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
-        self.wait(3)
+        self.wait(6)
 
 
 class D3_Seeing(Scene):
@@ -648,7 +649,7 @@ class D3_Seeing(Scene):
             vectors.add(vec)
 
         self.play(Create(vectors), run_time=2)
-        self.wait(1)
+        self.wait(2)
 
         # Triangle connects concepts
         triangle = Polygon(
@@ -662,12 +663,12 @@ class D3_Seeing(Scene):
             eye.animate.scale(1.15).set_opacity(1),
             run_time=0.5, rate_func=there_and_back
         )
-        self.wait(1)
+        self.wait(3)
 
         # Punchline
         punchline = body_text("Sight was not observation. It was power.", color=WHITE).scale(1.1).move_to(DOWN * 3.3)
         self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
-        self.wait(3)
+        self.wait(6)
 
 
 class D4_Snake(Scene):
@@ -689,7 +690,7 @@ class D4_Snake(Scene):
 
         self.play(FadeIn(greek_title), FadeIn(snake_left), run_time=1.5)
         self.play(Create(arrow_left), FadeIn(wisdom), run_time=1.5)
-        self.wait(0.5)
+        self.wait(1.5)
 
         # Right side: Egyptian reality
         egyptian_title = Text("Egyptian vectors", color=GOLD).scale(0.3).move_to(RIGHT * 3 + UP * 2.2)
@@ -699,7 +700,7 @@ class D4_Snake(Scene):
 
         self.play(FadeIn(egyptian_title), FadeIn(snake_right), run_time=1.5)
         self.play(Create(arrow_right), FadeIn(gods), run_time=1.5)
-        self.wait(1)
+        self.wait(2.5)
 
         # Greek side fades, Egyptian side glows
         self.play(
@@ -711,12 +712,12 @@ class D4_Snake(Scene):
             snake_right.animate.scale(1.2),
             run_time=2
         )
-        self.wait(1)
+        self.wait(2)
 
         # Punchline
         punchline = body_text("Two cultures, separated by geometry.", color=WHITE).scale(1.1).move_to(DOWN * 3.3)
         self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
-        self.wait(3)
+        self.wait(6)
 
 
 class D5_Temple(Scene):
@@ -748,7 +749,7 @@ class D5_Temple(Scene):
             FadeIn(dots["?"], labels["?"]),
             run_time=2
         )
-        self.wait(0.5)
+        self.wait(1.5)
 
         # Arrow from house → temple
         arrow_left = Arrow(
@@ -758,7 +759,7 @@ class D5_Temple(Scene):
         sacred_label = Text("sacred", color=LAVENDER).scale(0.25)
         sacred_label.next_to(arrow_left, LEFT, buff=0.1)
         self.play(Create(arrow_left), FadeIn(sacred_label), run_time=2)
-        self.wait(1.5)
+        self.wait(2)
 
         # Same arrow from man → ?
         arrow_right = Arrow(
@@ -768,7 +769,7 @@ class D5_Temple(Scene):
         sacred_label2 = Text("sacred", color=LAVENDER).scale(0.25)
         sacred_label2.next_to(arrow_right, RIGHT, buff=0.1)
         self.play(Create(arrow_right), FadeIn(sacred_label2), run_time=2)
-        self.wait(1)
+        self.wait(1.5)
 
         # ? resolves to "god"
         god_label = Text("god", color=GOLD).scale(0.5).next_to(dots["?"], DOWN, buff=0.15)
@@ -778,7 +779,7 @@ class D5_Temple(Scene):
             Flash(dots["?"].get_center(), color=GOLD, line_length=0.3, num_lines=8),
             run_time=1.5
         )
-        self.wait(1)
+        self.wait(3)
 
         # Parallel lines
         parallel_top = DashedLine(
@@ -790,11 +791,11 @@ class D5_Temple(Scene):
             color=MUTED, stroke_width=1
         ).set_opacity(0.4)
         self.play(Create(parallel_top), Create(parallel_bot), run_time=1)
-        self.wait(0.5)
+        self.wait(1.5)
 
         punchline = body_text("Vector arithmetic across 4,000 years.", color=WHITE).scale(1.1).move_to(DOWN * 3.3)
         self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
-        self.wait(3)
+        self.wait(7)
 
 
 class D6_Mother(Scene):
@@ -810,7 +811,7 @@ class D6_Mother(Scene):
         lbl_earth = Text("earth", color=TEAL).scale(0.35).next_to(dot_earth, UP, buff=0.1)
 
         self.play(FadeIn(dot_mother, lbl_mother), FadeIn(dot_earth, lbl_earth), run_time=1.5)
-        self.wait(0.5)
+        self.wait(1.5)
 
         # Expected results (ghosted)
         expected = ["soil", "fertility", "land", "harvest"]
@@ -824,7 +825,7 @@ class D6_Mother(Scene):
         expect_header.move_to(LEFT * 4 + DOWN * 0.8)
 
         self.play(FadeIn(expected_group), FadeIn(expect_header), run_time=1.5)
-        self.wait(1.5)
+        self.wait(2)
 
         # Actual results light up
         actual = ["royal wife", "king's daughter", "queen", "princess"]
@@ -843,11 +844,11 @@ class D6_Mother(Scene):
             FadeIn(actual_group), FadeIn(actual_header),
             run_time=2.5
         )
-        self.wait(2)
+        self.wait(5)
 
         punchline = body_text("Motherhood is a crown, not the earth.", color=WHITE).scale(1.1).move_to(DOWN * 3.3)
         self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
-        self.wait(3)
+        self.wait(6)
 
 
 class D7_Truth(Scene):
@@ -879,7 +880,7 @@ class D7_Truth(Scene):
             LaggedStart(*[FadeIn(m) for m in star_group], lag_ratio=0.1),
             run_time=3
         )
-        self.wait(1)
+        self.wait(1.5)
 
         # Lines connect them
         connections = [
@@ -896,7 +897,7 @@ class D7_Truth(Scene):
             conn_lines.add(line)
 
         self.play(Create(conn_lines), run_time=2)
-        self.wait(0.5)
+        self.wait(1)
 
         # Contract toward center
         cluster_center = np.mean([star_dots[w].get_center() for w in star_dots], axis=0)
@@ -906,18 +907,18 @@ class D7_Truth(Scene):
             ) for w in star_dots],
             run_time=2, rate_func=there_and_back_with_pause
         )
-        self.wait(0.5)
+        self.wait(1)
 
         # māʿat at center
         maat_label = Text("māʿat", color=GOLD).scale(0.45)
         maat_sub = Text("cosmic order", color=MUTED).scale(0.25)
         maat = VGroup(maat_label, maat_sub).arrange(DOWN, buff=0.05).move_to(cluster_center)
         self.play(FadeIn(maat, scale=0.8), run_time=1.5)
-        self.wait(1.5)
+        self.wait(3.5)
 
         punchline = body_text("Truth is not correctness. It is force.", color=WHITE).scale(1.1).move_to(DOWN * 3.3)
         self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
-        self.wait(3)
+        self.wait(5)
 
 
 class D8_Eternity(Scene):
@@ -949,7 +950,7 @@ class D8_Eternity(Scene):
         eternity_group.next_to(dot_mid, UP, buff=0.2)
 
         self.play(FadeIn(eternity_group, shift=DOWN * 0.1), run_time=2)
-        self.wait(1)
+        self.wait(3)
 
         # Radiating rings
         rings = VGroup()
@@ -965,7 +966,7 @@ class D8_Eternity(Scene):
             ),
             run_time=3
         )
-        self.wait(1)
+        self.wait(3)
 
         # Fade rings outward
         self.play(
@@ -975,7 +976,7 @@ class D8_Eternity(Scene):
 
         punchline = body_text("Between love and fear: forever.", color=WHITE).scale(1.1).move_to(DOWN * 3.3)
         self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
-        self.wait(3)
+        self.wait(6)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -984,6 +985,7 @@ class S6_Discussion(Scene):
         header = title_text("Honest caveats", color=WHITE, scale=0.7)
         header.move_to(UP * 3.2)
         self.play(FadeIn(header), run_time=1.5)
+        self.wait(4)
 
         caveats = [
             ("Corpus bias", "The surviving texts are funerary and religious —\ntemples and tombs, not markets and homes."),
@@ -1003,10 +1005,10 @@ class S6_Discussion(Scene):
                 group.next_to(prev, DOWN, buff=0.4, aligned_edge=LEFT)
 
             self.play(FadeIn(group), run_time=2)
-            self.wait(2)
+            self.wait(6)
             prev = group
 
-        self.wait(2)
+        self.wait(4)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -1020,14 +1022,14 @@ class S7_Conclusion(Scene):
         final2 = body_text("The vectors gave us the world between them.", color=LAVENDER).scale(1.2).move_to(DOWN * 0.8)
 
         self.play(Write(final), run_time=3)
-        self.wait(1)
-        self.play(FadeIn(final2, shift=UP * 0.1), run_time=2.5)
         self.wait(2)
+        self.play(FadeIn(final2, shift=UP * 0.1), run_time=2.5)
+        self.wait(3)
 
         self.play(FadeOut(final), FadeOut(final2), run_time=1)
         repo = body_text("github.com/ebrinz/heiroglyphy", color=GOLD).scale(1.1)
         self.play(FadeIn(repo, shift=UP * 0.1), run_time=2)
-        self.wait(4)
+        self.wait(5)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
