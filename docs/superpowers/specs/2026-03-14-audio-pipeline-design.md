@@ -26,7 +26,7 @@ Derived from the Manim scene structure. Maps narration text and audio cues to ab
 
 ```json
 {
-  "total_duration": 198,
+  "total_duration": null,
   "scenes": [
     {
       "id": "S1_Hook",
@@ -162,12 +162,12 @@ Derived from the Manim scene structure. Maps narration text and audio cues to ab
         {
           "id": "s5_01",
           "text": "Here's what the geometry revealed. The midpoint of gold and divine in English maps to the same region of the Egyptian space. This isn't metaphor. The texts don't distinguish them. Gold is divinity.",
-          "start": 137.0
+          "start": 140.0
         },
         {
           "id": "s5_02",
           "text": "The midpoint of silence and death, every single result is a variant of to die. The Egyptians called the necropolis the silent land. What the dead lost was not life. It was voice.",
-          "start": 150.0
+          "start": 151.0
         },
         {
           "id": "s5_03",
@@ -177,21 +177,21 @@ Derived from the Manim scene structure. Maps narration text and audio cues to ab
         {
           "id": "s5_04",
           "text": "In Greek tradition, the snake means wisdom. In Egyptian vectors, it means the gods. Two cultures, separated by geometry.",
-          "start": 174.0
+          "start": 173.0
         },
         {
           "id": "s5_05",
           "text": "Translation gave us the words. The vectors gave us the world between them.",
-          "start": 184.0
+          "start": 183.0
         }
       ],
       "cues": [
         {"type": "scene_start", "time": 137.0},
         {"type": "discovery_reveal", "time": 137.0},
-        {"type": "discovery_reveal", "time": 150.0},
+        {"type": "discovery_reveal", "time": 151.0},
         {"type": "discovery_reveal", "time": 163.0},
-        {"type": "discovery_reveal", "time": 174.0},
-        {"type": "subtitle_drop", "time": 184.0}
+        {"type": "discovery_reveal", "time": 173.0},
+        {"type": "subtitle_drop", "time": 183.0}
       ]
     },
     {
@@ -207,6 +207,10 @@ Derived from the Manim scene structure. Maps narration text and audio cues to ab
 }
 ```
 
+**`total_duration`** is set to `null` in the manifest. At mix time, `mix_audio.py` probes the actual video duration via `ffprobe` and uses that as the authoritative length. This avoids drift between estimated and actual scene timing.
+
+**S5 narration flows continuously over visuals.** The discovery narration segments are not constrained to individual discovery hold windows — they flow as continuous speech while the visuals change underneath. Segments may overlap visual transitions. The start timestamps are approximate anchors; `generate_voice.py` will measure actual TTS output durations and warn if any segment would overlap the next.
+
 Timestamps are approximate and will be refined against the actual rendered video duration. The manifest is manually authored (not auto-extracted from Manim) since Manim doesn't expose absolute timestamps across scenes.
 
 ## 2. Voice Generation (`generate_voice.py`)
@@ -215,16 +219,21 @@ Timestamps are approximate and will be refined against the actual rendered video
 
 **Process:**
 1. Read `audio_timing.json`
-2. For each narration segment, call OpenAI TTS API
-3. Save individual WAVs to `docs/audio/voice/voice_{id}.wav`
-4. Assemble `voice_full.wav` by placing each segment at its `start` timestamp, padding with silence between segments
-5. Uses scipy.io.wavfile for WAV I/O, numpy for silence padding
+2. For each narration segment, check if `voice/{id}.wav` already exists (cache hit → skip API call)
+3. Call OpenAI TTS API with `response_format="wav"`, retry up to 3 times with exponential backoff on transient errors
+4. Save individual WAVs to `docs/audio/voice/voice_{id}.wav`
+5. Measure each segment's actual duration; warn if it would overlap the next segment's start time
+6. If overlap detected: re-generate with `speed=1.1` (up to `1.25` max); if still overlapping, truncate with 50ms fade-out at the boundary
+7. Resample all segments from TTS native rate (24 kHz) to 44100 Hz during assembly
+8. Assemble `voice_full.wav` (44100 Hz, 16-bit mono) by placing each segment at its `start` timestamp, padding with silence between segments
 
 **Design decisions:**
 - `tts-1-hd` for quality (documentary-grade audio for a 3-minute video is worth the marginal cost difference)
 - `echo` voice — warm storytelling tone suited to reverent, wonder-driven narration
-- Speed 1.0 — timing already calibrated for ~130 wpm
-- Per-segment files enable selective re-generation
+- `response_format="wav"` — returns WAV with headers; avoids mp3 decode dependency
+- Speed 1.0 default — the `speed` parameter (0.25-4.0) is available as a tuning knob if segments don't fit their windows
+- Per-segment caching enables selective re-generation without redundant API calls
+- Resampling to 44100 Hz at assembly time ensures consistent sample rate with the drone track
 
 ## 3. Drone Score Generation (`generate_drone.py`)
 
@@ -237,7 +246,7 @@ All synthesis via numpy/scipy. No external audio libraries.
 | Fundamental drone | ~65 Hz (low C), sine wave with soft saturation |
 | Harmonics | 2nd (130 Hz, -6dB), 3rd (195 Hz, -12dB), 5th (325 Hz, -18dB) |
 | Amplitude LFO | ~0.08 Hz sine, depth ~15% — slow breathing motion |
-| Noise bed | Pink noise, bandpass 100-800 Hz, -24dB below fundamental |
+| Noise bed | Pink noise (Voss-McCartney algorithm), bandpass 100-800 Hz, -24dB below fundamental |
 | Stereo width | L/R detuned by ~0.5 Hz for gentle phasing |
 
 ### Reactive Cue Layers
@@ -248,7 +257,7 @@ Triggered by cue entries in the timing manifest:
 - Cluster of 4-6 sine partials in 2-4 kHz range, randomized within ±50 Hz
 - Attack: ~2s exponential fade-in
 - Decay: ~2s exponential fade-out
-- Simple convolution reverb (synthetic IR: exponential decay noise burst, ~1.5s RT60)
+- Simple convolution reverb (synthetic IR: exponential decay noise burst, ~1.5s RT60). Trim convolution output to original signal length + 0.5s tail, then apply fade-out window to the tail
 - Level: -12dB below drone fundamental at peak
 
 **`subtitle_drop` — Soft tonal ping:**
@@ -258,10 +267,10 @@ Triggered by cue entries in the timing manifest:
 - Level: -18dB below drone — barely perceptible, felt more than heard
 
 **`discovery_reveal` — Rich harmonic swell (S5 only):**
-- Drone fundamental + perfect fifth above (~97.5 Hz)
+- Current drone fundamental + perfect fifth above (fundamental × 1.5). The fifth is always relative to the current shifted fundamental
 - Additional shimmer partials (3-5 kHz range)
 - Attack: ~1.5s, sustain: ~1s, decay: ~1.5s
-- Each successive discovery shifts up by a minor third (65 → 77 → 92 → 109 Hz) — builds momentum
+- Each successive discovery shifts the drone fundamental up by a minor third (65 → 77 → 92 → 109 Hz), and the fifth shifts with it (97.5 → 115.5 → 138 → 163.5 Hz) — builds momentum
 - Level: -6dB below drone at peak — these are meant to be noticed
 
 ### Scene-Level Shaping
@@ -275,6 +284,8 @@ Triggered by cue entries in the timing manifest:
 | S5 Discoveries | Ascending key shifts per discovery (minor thirds) |
 | S6 Close | Fade to silence over final 5s |
 
+**Inter-scene gaps:** The drone sustains continuously through the 0.5s gaps between scenes. No crossfade or interruption — the drone is oblivious to scene boundaries except for the explicit scene-level shaping above.
+
 ### Output
 - Sample rate: 44100 Hz, 16-bit stereo
 - File: `docs/audio/drone/drone_full.wav`
@@ -282,11 +293,11 @@ Triggered by cue entries in the timing manifest:
 ## 4. Mix & Merge (`mix_audio.py`)
 
 **Mixing:**
-1. Load `voice_full.wav` and `drone_full.wav`
-2. Normalize both to equal sample rates (44100 Hz)
+1. Probe video duration via `ffprobe` — this is the authoritative total duration
+2. Load `voice_full.wav` and `drone_full.wav`, pad/trim both to match video duration
 3. Apply voice-activated ducking to drone:
    - Compute voice envelope (RMS with ~100ms window)
-   - When voice is active (envelope > threshold), attenuate drone by ~3dB
+   - When voice is active (envelope > -40 dBFS threshold), attenuate drone by ~3dB
    - Smooth the ducking with ~200ms attack/release to avoid pumping
 4. Mix: voice at 0dB, drone at -18dB baseline (further ducked when voice active)
 5. Normalize final mix to -1dB peak
