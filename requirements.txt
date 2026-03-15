@@ -21,3 +21,8 @@ datasets
 # Deep learning (V6 BERT, V11 MLP)
 torch
 transformers
+
+# Generation pipelines (video, audio, PDF)
+manim              # Video rendering (Manim Community Edition)
+manimpango          # Custom font support for Manim
+openai              # TTS voice generation (requires OPENAI_API_KEY)

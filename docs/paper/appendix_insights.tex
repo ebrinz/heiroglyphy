@@ -1,0 +1,686 @@
+\documentclass[11pt, a4paper]{article}
+
+% ── Packages ──────────────────────────────────────────────────────────────────
+\usepackage{fontspec}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[margin=1in, headheight=22pt]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{framed}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    citecolor=blue!60!black,
+    urlcolor=blue!60!black,
+}
+
+% ── Hieroglyphic font ─────────────────────────────────────────────────────────
+\newfontfamily\hierofont{EgyptianHiero}[
+    Path=../../final_output/,
+    Extension=.ttf,
+]
+\newcommand{\hiero}[1]{{\normalfont\hierofont #1}}
+
+% ── Colors ────────────────────────────────────────────────────────────────────
+\definecolor{papyrus}{HTML}{F5E6C8}
+\definecolor{lapis}{HTML}{1F3B73}
+\definecolor{gold}{HTML}{C5962C}
+\definecolor{terracotta}{HTML}{B35A2D}
+\definecolor{nile}{HTML}{2D7A8A}
+\definecolor{sand}{HTML}{E8D5B7}
+\definecolor{nightsky}{HTML}{1A1A3E}
+
+% ── Custom boxes using framed ─────────────────────────────────────────────────
+\definecolor{insightbg}{HTML}{FBF3E5}
+\definecolor{bridgebg}{HTML}{EBF4F5}
+\definecolor{vectorbg}{HTML}{F0F0F8}
+
+\newenvironment{insightbox}[1][]{%
+  \def\boxtitle{#1}%
+  \begin{oframed}%
+  \noindent{\bfseries\color{lapis}\boxtitle}\par\smallskip%
+}{%
+  \end{oframed}%
+}
+
+\newenvironment{bridgebox}[1][]{%
+  \def\boxtitle{#1}%
+  \begin{oframed}%
+  \noindent{\bfseries\color{nile!90!black}\boxtitle}\par\smallskip%
+}{%
+  \end{oframed}%
+}
+
+\newenvironment{vectorbox}{%
+  \begin{oframed}%
+}{%
+  \end{oframed}%
+}
+
+% ── Section styling ───────────────────────────────────────────────────────────
+\titleformat{\section}
+    {\Large\bfseries\color{lapis}}
+    {\thesection}{1em}{}
+    [\vspace{-4pt}\color{gold}\rule{\textwidth}{1pt}]
+
+\titleformat{\subsection}
+    {\large\bfseries\color{terracotta}}
+    {\thesubsection}{1em}{}
+
+% ── Headers ───────────────────────────────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{lapis}\textit{Heiroglyphy --- Supplementary Appendix}}
+\fancyhead[R]{\small\color{lapis}\textit{Lexicon of Insights}}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{gold}\leaders\hrule height \headrulewidth\hfill}}
+
+% ── Epigraph (manual) ─────────────────────────────────────────────────────────
+
+% ── Title ─────────────────────────────────────────────────────────────────────
+\title{
+    \vspace{-1cm}
+    {\color{gold}\rule{\textwidth}{2pt}}\\[12pt]
+    {\Huge\bfseries\color{lapis} Lexicon of Insights}\\[6pt]
+    {\Large\color{terracotta} A Supplementary Appendix to}\\[2pt]
+    {\large\color{lapis}\textit{Heiroglyphy: Recovering the Conceptual Geometry\\
+    of Ancient Egyptian Through Vector Space Alignment}}\\[8pt]
+    {\color{gold}\rule{\textwidth}{2pt}}
+}
+
+\author{
+    Erik Brinsmead \quad \& \quad Claude\\[4pt]
+    \texttt{\small github.com/ebrinz/heiroglyphy}
+}
+
+\date{March 2026}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\begin{center}
+\textit{Translation gave us the words.\\The vectors gave us the world between them.}
+\end{center}
+
+\vspace{-6pt}
+
+\noindent
+This appendix expands on the discoveries presented in the main paper. Where the paper tells the story of the method, this document tells the story of the \emph{words}---the ancient Egyptian terms that, when projected through our vector space alignment, revealed something unexpected about the civilization that spoke them. Each entry includes the term's linguistic anatomy, its historical context, and what the embedding space revealed about its place in the Egyptian conceptual landscape.
+
+\noindent
+Terms are organized thematically and ranked by alignment confidence or bridge score. Read it cover to cover for a tour of the Egyptian worldview, or browse by domain.
+
+\tableofcontents
+\newpage
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{The Elements: Water, Sky, and the Shape of the World}
+% ══════════════════════════════════════════════════════════════════════════════
+
+% ── mw ────────────────────────────────────────────────────────────────────────
+\begin{insightbox}[\textit{mw} --- Water \hfill Confidence: 15.71]
+
+\textbf{Transliteration:} \textit{mw} \quad
+\textbf{Classification:} Noun, masculine \quad
+\textbf{Gardiner:} N35 (water ripple)
+
+\medskip
+\textbf{What the vectors found:} The single highest-confidence prediction in the entire project. When the model was asked ``what English word does \textit{mw} correspond to?'' it answered \textit{water} with a score of 15.71, while the next-nearest candidate scored 0.03. A 500$\times$ margin.
+
+\medskip
+\textbf{Why it matters:} Water is the most universal physical concept humans have. Every language, every era, every culture has a word for it, and that word clusters near the same neighbors: river, flood, fish, drink. The distributional fingerprint of ``water'' is essentially identical across 4,000 years. This was the first proof that the alignment was capturing real semantic structure, not statistical noise.
+
+\medskip
+\textbf{Linguistic note:} The hieroglyph for water---three wavy lines (N35)---is one of the most recognizable signs in the Egyptian writing system. It appears as a phonetic complement, a determinative, and an ideogram. The word \textit{mw} itself is the root for dozens of compound terms: \textit{mw-n-ḥtp} (libation water), \textit{mw-qb} (cool water, used in offering formulae). The V15 model captured this morphological family, clustering every \textit{-mw} compound near the English water/river domain.
+
+\medskip
+\textbf{Historical context:} For Egyptians, water was not an ``element'' in the Greek sense (one of four). Water was the primordial substance. The creation myth of Hermopolis held that the universe began as \textit{Nwn}---the infinite, dark, motionless waters of pre-creation. The Nile's annual flood was not weather. It was cosmogony repeating itself every year. When the model places \textit{mw} with perfect confidence, it reflects a concept so fundamental to Egyptian thought that its distributional signature survived translation, digitization, and 4,000 years of linguistic drift.
+\end{insightbox}
+
+% ── rm.w ──────────────────────────────────────────────────────────────────────
+\begin{insightbox}[\textit{rm.w} --- Fish \hfill Bridge Score: 0.581]
+
+\textbf{Transliteration:} \textit{rm.w} (singular), \textit{rm.w.pl} (plural) \quad
+\textbf{Classification:} Noun, masculine
+
+\medskip
+\textbf{What the vectors found:} Fish is the \#1 word in the V15 water cluster---ranking higher than water itself. The model learned that fish \emph{defines} water more than the word ``water'' does.
+
+\medskip
+\textbf{Why it matters:} This is a distributional insight with no translation equivalent. No dictionary would tell you that fish is more ``watery'' than water. But in the Egyptian corpus, \textit{rm.w} appears almost exclusively in Nile-related contexts (fishing scenes, offering lists, marsh descriptions), giving it a tighter distributional profile than \textit{mw}, which also appears in ritual purification, libation, and abstract cosmological contexts.
+
+\medskip
+\textbf{Historical context:} Fish had a complicated status in Egyptian culture. Certain species were sacred (the \textit{ꜥbḏw}-fish was associated with Osiris), while others were taboo. Priests in some nomes were forbidden from eating fish. The Nile perch (\textit{lates niloticus}) was so large---up to 2 meters---that tomb paintings often depict it with a sense of awe. Yet fish were also a staple protein for commoners. The vectors capture the \emph{aquatic} essence of fish without resolving this cultural ambivalence---they see where the word lives, not how the Egyptians felt about it.
+
+\medskip
+\textbf{Bridge:} \textit{rm.w} also bridges to the \textbf{body} domain (sim=0.588), reflecting offering lists where fish is prepared alongside meat cuts. The Nile's creatures belong to both water and flesh.
+\end{insightbox}
+
+% ── msḥ.w ─────────────────────────────────────────────────────────────────────
+\begin{insightbox}[\textit{msḥ.w} --- Crocodile \hfill Cluster: water]
+
+\textbf{Transliteration:} \textit{msḥ.w} \quad
+\textbf{Classification:} Noun, masculine \quad
+\textbf{Gardiner:} I3 (crocodile)
+
+\medskip
+\textbf{What the vectors found:} The crocodile lands squarely in the water domain, as the Nile's apex predator.
+
+\medskip
+\textbf{Linguistic note:} The word survived into Coptic as \textit{emsah} and then into Arabic as \textit{timsāḥ}---one of the few Ancient Egyptian words still in daily use across the Arab world, 4,000 years later.
+
+\medskip
+\textbf{Historical context:} The crocodile god \textit{Sobek} was worshipped primarily in the Faiyum, where sacred crocodiles were mummified and adorned with gold earrings and ankle bracelets. Herodotus reported that some Egyptians fed their crocodiles honey cakes and wine, while others hunted them with hooks baited with pork. The vectors do not distinguish between Sobek-the-god and \textit{msḥ}-the-animal. Both are water, because both appear in Nile contexts. The embedding space doesn't separate the sacred from the ecological---because the Egyptians didn't either.
+\end{insightbox}
+
+% ── mẖn,t ─────────────────────────────────────────────────────────────────────
+\begin{insightbox}[\textit{mẖn,t} --- Ferry \hfill Bridge Score: 0.572]
+
+\textbf{Transliteration:} \textit{mẖn,t} \quad
+\textbf{Classification:} Noun, feminine
+
+\medskip
+\textbf{What the vectors found:} The ferry bridges \textbf{water} (sim=0.572) and \textbf{celestial} (sim=0.559). A boat that sails between the river and the sky.
+
+\medskip
+\textbf{Why it matters:} This is not a glitch. In Egyptian cosmology, the sun god Re traveled across the sky in a \emph{solar barque}---a celestial ferry. The Nile was mirrored in the sky. Just as earthly ferries crossed from the east bank (the living) to the west bank (the dead), Re's barque crossed from horizon to horizon. The word \textit{mẖn,t} absorbs both meanings because the corpus uses ferry language for both earthly and divine crossings.
+
+\medskip
+\textbf{Historical context:} The concept of a ``ferry to the afterlife'' is one of Egypt's most enduring exports. The Greek ferryman Charon, who carries souls across the River Styx, is likely derived from Egyptian antecedents. The Pyramid Texts contain some of the oldest known ferry-to-the-afterlife passages: the dead king demands passage from the celestial ferryman, threatening him if he refuses. The vectors found this bridge between water and sky through statistics alone---confirming a theological structure that Egyptologists identify through close reading.
+\end{insightbox}
+
+% ── jmn,t ─────────────────────────────────────────────────────────────────────
+\begin{insightbox}[\textit{jmn,t} --- The West \hfill Cluster: water]
+
+\textbf{Transliteration:} \textit{jmn,t} \quad
+\textbf{Classification:} Noun, feminine
+
+\medskip
+\textbf{What the vectors found:} ``The West'' appears in the water cluster. The direction of sunset clusters with the Nile.
+
+\medskip
+\textbf{Why it matters:} The western bank of the Nile was where the sun set---and where the dead were buried. Thebes' great necropolis (the Valley of the Kings, the Valley of the Queens, Deir el-Medina) sits on the west bank. \textit{jmn,t} doesn't mean ``west'' the way a compass does. It means ``the place where things end.'' Water and death share a direction.
+
+\medskip
+\textbf{Linguistic note:} The root \textit{jmn} also appears in the name \textit{Jmn} (Amun)---``the hidden one.'' Whether the western dead and the hidden god share etymology is debated, but the vectors don't care about etymology. They care about context. And contextually, the west, the dead, and the hidden occupy nearby regions of the Egyptian textual universe.
+\end{insightbox}
+
+% ── dwꜣ,w ─────────────────────────────────────────────────────────────────────
+\begin{insightbox}[\textit{dwꜣ,w} --- Tomorrow / Morning \hfill Cluster: celestial (\#1)]
+
+\textbf{Transliteration:} \textit{dwꜣ,w} \quad
+\textbf{Classification:} Noun / temporal adverb
+
+\medskip
+\textbf{What the vectors found:} The \#1 word in the celestial cluster is not ``sun'' or ``star''---it's ``tomorrow.'' Time and sky are the same conceptual domain.
+
+\medskip
+\textbf{Why it matters:} In Indo-European languages, we treat time and space as separate categories. ``Tomorrow'' is temporal; ``sky'' is spatial. The Egyptian vectors collapse this distinction. Dawn, morning, and tomorrow are celestial events---the sun doesn't just illuminate time, it \emph{is} time. The passage of the sun across the sky is not a metaphor for the passage of time. It is the mechanism.
+
+\medskip
+\textbf{Linguistic note:} The root \textit{dwꜣ} carries meanings of ``morning,'' ``worship,'' and ``praise.'' The morning hymn to the sun god was called \textit{dwꜣ-nṯr}---literally ``god-morning'' or ``to morning the god.'' Worship and dawn are the same verb. Every sunrise was an act of devotion, and every act of devotion was a dawn. The embedding space preserves this conflation because the corpus never separates it.
+
+\medskip
+\textbf{Historical context:} The Egyptian day began at dawn, not midnight. The night was a period of danger and death---the sun god battled the serpent Apophis in the underworld each night, and his emergence at dawn was never guaranteed. ``Tomorrow'' was therefore not a neutral calendar term. It was a statement of faith: the sun will rise, the god will triumph, the world will continue.
+\end{insightbox}
+
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{The Divine: Gods, Gold, and the Sacred}
+% ══════════════════════════════════════════════════════════════════════════════
+
+% ── nṯr ───────────────────────────────────────────────────────────────────────
+\begin{insightbox}[\textit{nṯr} --- God / Divine \hfill Cluster: religion (\#1)]
+
+\textbf{Transliteration:} \textit{nṯr} (singular), \textit{nṯr.w} (plural) \quad
+\textbf{Classification:} Noun / adjective, masculine \quad
+\textbf{Gardiner:} R8 (divine flag/pennant)
+
+\medskip
+\textbf{What the vectors found:} \textit{nṯr} dominates the religion cluster so completely that it bleeds into magic, celestial, and even warfare domains. Every variant---\textit{nṯri̯}, \textit{nṯr.w}, \textit{nṯr.t}---occupies the same dense region of semantic space.
+
+\medskip
+\textbf{Why it matters:} The model found \textbf{no boundary between magic and religion}. The magic/ritual cluster's top 10 words are all \textit{nṯr} variants. \textit{Ḥkꜣ} (heka/magic) barely appears at \#10. This confirms structurally what Egyptologists argue interpretively: \textit{heka} was not witchcraft separate from theology. It was the mechanism by which the gods acted in the world.
+
+\medskip
+\textbf{Linguistic note:} The hieroglyph for \textit{nṯr}---a flag on a pole (R8)---likely depicts the pennants that stood at temple entrances. The etymology is unknown. Some scholars connect it to the Afro-Asiatic root *\textit{nṭr} (``to guard/protect''), making ``god'' = ``guardian.'' The Coptic descendant \textit{noute} survives in modern Coptic liturgy as the standard word for God.
+
+\medskip
+\textbf{Historical context:} Unlike the Abrahamic tradition, Egyptian divinity was not a binary category (divine vs. mortal). The pharaoh was \textit{nṯr-nfr} (``the good/young god'') while alive and \textit{nṯr-ꜥꜣ} (``the great god'') when dead. The boundary between human and divine was permeable, contextual, and political. The vectors reflect this: \textit{nṯr} sits close to \textit{nswt} (king) in the embedding space, not because the model confused them but because the texts do not consistently separate them.
+\end{insightbox}
+
+% ── nbw ───────────────────────────────────────────────────────────────────────
+\begin{insightbox}[\textit{nbw} --- Gold \hfill Vector analogy: gold $\approx$ divine]
+
+\textbf{Transliteration:} \textit{nbw} \quad
+\textbf{Classification:} Noun, masculine \quad
+\textbf{Gardiner:} S12 (gold collar)
+
+\medskip
+\textbf{What the vectors found:} The midpoint of ``gold'' and ``divine'' in English, projected into Egyptian space, finds \textit{nṯri̯} (divine, sim=0.642) and \textit{nbw} (gold, sim=0.617) in the top three results. Gold and divinity occupy nearly the same region.
+
+\medskip
+\textbf{Why it matters:} Modern readers treat ``the flesh of the gods is gold'' as poetic metaphor. The vectors suggest it was closer to a statement of material fact. Gold and divinity are not \emph{compared} in the Egyptian textual record---they are \emph{colocated}. The same sentences that invoke divinity invoke gold.
+
+\medskip
+\textbf{Linguistic note:} The Horus name of the pharaoh included the epithet \textit{Ḥr,w-nbw} (``Gold-Horus'')---one of the five royal names. Gold was \textit{nwb}---the word survives in the name \textit{Nubia} (``land of gold''), from which Egypt sourced most of its gold via mines in the Eastern Desert and trade with Kerma/Kush.
+
+\medskip
+\textbf{Historical context:} Gold does not tarnish. In a civilization that equated permanence with divinity, this single material property elevated gold from a precious metal to a theological substance. Tutankhamun's golden death mask was not merely beautiful. It was making his face into the face of a god---literally giving him divine flesh. The vectors found this equation without knowing any of this history. They found it because the texts say it, over and over, in their co-occurrence patterns.
+\end{insightbox}
+
+% ── ḥkꜣ ───────────────────────────────────────────────────────────────────────
+\begin{insightbox}[\textit{ḥkꜣ} --- Heka / Magic \hfill Vector analogy: eye + knowledge = magic]
+
+\textbf{Transliteration:} \textit{ḥkꜣ} \quad
+\textbf{Classification:} Noun, masculine
+
+\medskip
+\textbf{What the vectors found:} The midpoint of ``eye'' and ``knowledge'' in English, projected into Egyptian space, finds \textit{ḥkꜣ} as the third-nearest word. Seeing was magic.
+
+\medskip
+\textbf{Why it matters:} The Eye of Horus (\textit{wḏꜣ,t}) was simultaneously an organ of perception, a protective amulet, and a unit of mathematical measurement (each part of the eye represented a fraction: 1/2, 1/4, 1/8...). Seeing, in the Egyptian worldview, was not passive reception of light. It was an active, potent act---closer to what we would call divination than observation. The vectors capture this without being told.
+
+\medskip
+\textbf{Linguistic note:} \textit{Ḥkꜣ} was also personified as a god---one of the oldest in the Egyptian pantheon, predating the organized theology of the major cults. In the Coffin Texts, Heka declares: ``I am he whom the Sole Lord made before two things had yet come into being.'' Magic was not a tool of the gods. It preceded them. It was the force that made creation possible.
+
+\medskip
+\textbf{Historical context:} The Western distinction between ``religion'' (legitimate) and ``magic'' (illegitimate) is a Greek and later Christian imposition. In Egyptian thought, a doctor reciting a spell over a patient and a priest reciting a hymn in a temple were performing the same kind of act: activating \textit{ḥkꜣ}. The embedding space, trained only on Egyptian texts, makes this invisible boundary visible by its absence.
+\end{insightbox}
+
+% ── nṯr-dwꜣ(,wj) ─────────────────────────────────────────────────────────────
+\begin{insightbox}[\textit{nṯr-dwꜣ,w} --- Morning God \hfill Bridge Score: 0.73 $\leftrightarrow$ 0.63]
+
+\textbf{Transliteration:} \textit{nṯr-dwꜣ(,wj)} \quad
+\textbf{Classification:} Compound noun / epithet
+
+\medskip
+\textbf{What the vectors found:} The strongest bridge word in the entire dataset. Sits at sim=0.73 to \textbf{religion} and sim=0.63 to \textbf{celestial}. Divinity and dawn are one concept, and this word is the proof.
+
+\medskip
+\textbf{Why it matters:} This compound literally means ``god-morning'' or ``the divine one of the dawn.'' It is an epithet of the sun god in his aspect as the newly risen sun. The fact that it bridges religion and celestial with the highest score in the dataset means the model's strongest cross-domain signal is: \emph{gods are celestial events, and celestial events are divine}.
+
+\medskip
+\textbf{Historical context:} The morning worship of the sun was the foundational ritual of Egyptian temple life. At dawn, the high priest would break the clay seal on the shrine, open the doors, and ``awaken'' the god. The morning hymns of the Amun temple at Karnak survive in multiple copies. They describe the sun's emergence in language that makes no distinction between astronomy and theology. The vectors found this bridge because the texts are this bridge.
+\end{insightbox}
+
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{The Human: Body, Death, and Family}
+% ══════════════════════════════════════════════════════════════════════════════
+
+% ── m(w)t ─────────────────────────────────────────────────────────────────────
+\begin{insightbox}[\textit{m(w)t} --- Death / To Die \hfill Vector analogy: silence = death]
+
+\textbf{Transliteration:} \textit{m(w)t} (verb), \textit{m(w)t.t} (noun/participle) \quad
+\textbf{Classification:} Verb / noun
+
+\medskip
+\textbf{What the vectors found:} The midpoint of ``silence'' and ``death'' returns \textit{m(w)t} as \emph{all five} nearest neighbors. Every single result is a variant of death. There is no Egyptian word between silence and death---they are the same place in semantic space.
+
+\medskip
+\textbf{Why it matters:} The Egyptians called the necropolis \textit{tꜣ-sgr}---``the silent land.'' The dead were \textit{sgr.w}---``the silent ones.'' This was not euphemism. The embedding space confirms that silence was not a \emph{metaphor} for death. It was death's defining quality. What the dead lost was not life---it was voice.
+
+\medskip
+\textbf{Linguistic note:} The root \textit{m(w)t} (``to die'') shares its consonantal skeleton with \textit{mw,t} (``mother''). Death and motherhood are linguistically entangled. In the funerary literature, the sky goddess Nut is both: she swallows the sun each evening (death) and gives birth to it each morning (motherhood). The word for ``coffin'' is sometimes written with the determinative for ``mother''---the coffin is the womb of rebirth.
+
+\medskip
+\textbf{Historical context:} The V15 death/afterlife cluster is dominated by family titles: \textit{zꜣ,t-nzw-n-ẖ,t$\equiv$f} (``King's Daughter of His Body''), royal wives, princes. This is because funerary inscriptions---the primary context for death-words---are obsessed with genealogy. You die as someone's child. The embedding space shows that for Egyptians, death was not the opposite of life. It was a family reunion under divine supervision.
+\end{insightbox}
+
+% ── ḥm,t-nswt ────────────────────────────────────────────────────────────────
+\begin{insightbox}[\textit{ḥm,t-nswt} --- Royal Consort / King's Wife \hfill Bridge Score: 0.63 $\leftrightarrow$ 0.61]
+
+\textbf{Transliteration:} \textit{ḥm,t-nswt} \quad
+\textbf{Classification:} Compound title, feminine
+
+\medskip
+\textbf{What the vectors found:} Bridges \textbf{royalty} (sim=0.63) and \textbf{family} (sim=0.61). Royalty \emph{is} family in Egypt---the institution of kingship is inseparable from the institution of kinship.
+
+\medskip
+\textbf{Why it matters:} The midpoint of ``mother'' and ``earth'' in English finds not earth, soil, or land but \textit{ḥm,t-nswt} (royal wife) and \textit{zꜣ,t-nswt} (king's daughter). In the Egyptian textual record, motherhood is a \emph{royal} concept. The queen is the mother. The mother is the queen.
+
+\medskip
+\textbf{Linguistic note:} \textit{Ḥm,t} means ``wife/woman'' (derived from a root meaning ``female body''). \textit{Nswt} means ``king'' (probably from a root meaning ``the one who belongs to the sedge plant,'' a symbol of Upper Egypt). The compound is possessive: ``woman-of-the-king.'' The variant \textit{ḥm,t-nswt-wr,t} (``Great Royal Wife'') distinguished the principal queen from secondary wives.
+
+\medskip
+\textbf{Historical context:} The ``earth mother'' archetype---the fertile, nurturing ground-goddess---is Indo-European (Gaia, Terra, Demeter). The Egyptian mother-goddess (Isis, Hathor) is not earthy. She is regal. Isis is depicted wearing a throne on her head---the word \textit{ꜣs,t} (Isis) literally means ``throne'' or ``seat.'' The vectors reveal this cultural divergence without being told about either tradition. They simply reflect what the texts say: when Egyptians wrote about mothers, they wrote about queens.
+\end{insightbox}
+
+% ── ḥr,t ──────────────────────────────────────────────────────────────────────
+\begin{insightbox}[\textit{ḥr,t} --- Sky / Upper Part \hfill Bridge Score: 0.646]
+
+\textbf{Transliteration:} \textit{ḥr,t} \quad
+\textbf{Classification:} Noun, feminine
+
+\medskip
+\textbf{What the vectors found:} Bridges \textbf{celestial} (sim=0.647) and \textbf{body} (sim=0.647). The sky is a face.
+
+\medskip
+\textbf{Why it matters:} \textit{Ḥr,t} (``sky, upper region'') is etymologically related to \textit{ḥr} (``face, upon''). The same root that gives you ``face'' gives you ``sky.'' The vectors found this connection through distributional statistics: both words appear in contexts describing what is above, what looks down, what is the visible surface. The sky has a face. The face is the sky of the body.
+
+\medskip
+\textbf{Linguistic note:} The name \textit{Ḥr,w} (Horus) shares this root---``the one who is above'' or ``the distant one.'' Horus is the sky-face, the falcon soaring overhead. This is why Horus and Gold-Horus (\textit{ḥrw-nbw}) appear in the celestial cluster rather than the deity cluster in V15. The vectors followed the etymology that the translations obscure.
+\end{insightbox}
+
+% ── sbjw ──────────────────────────────────────────────────────────────────────
+\begin{insightbox}[\textit{sbjw} --- Rebel / Enemy \hfill Bridge Score: 0.653]
+
+\textbf{Transliteration:} \textit{sbjw}, \textit{sbjw\{.pl\}} \quad
+\textbf{Classification:} Noun, masculine
+
+\medskip
+\textbf{What the vectors found:} Bridges \textbf{warfare} (sim=0.653) and \textbf{body} (sim=0.685). Enemies are defined by what you do to their bodies.
+
+\medskip
+\textbf{Why it matters:} Every single top-15 word in the warfare cluster is a variant of \textit{ḫfti̯}/\textit{ḫft,y} or \textit{sbjw}---the roots for ``enemy'' or ``rebel.'' No weapons. No armies. No battles. The Egyptian concept of warfare is overwhelmingly about \emph{enemies}---identifying, repelling, and triumphing over them. Victory is defined as the destruction of enemies, not the mechanics of fighting.
+
+\medskip
+\textbf{Historical context:} The ``smiting scene''---the pharaoh grasping enemies by the hair and raising a mace---is the single most reproduced image in Egyptian art, appearing from the Narmer Palette (c.~3100 BCE) to Roman-era temples. It is not a depiction of battle. It is a statement of cosmic order: the king subdues chaos (embodied by enemies) to maintain \textit{mꜣꜥ,t}. The vectors capture this: warfare and body intersect because the enemy's body is the site where order is restored.
+\end{insightbox}
+
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{The Conceptual Bridges: Where Domains Meet}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent
+Bridge words sit equidistant between two semantic clusters, revealing where Egyptian conceptual domains overlap. These are often the most revealing terms in the entire analysis: they show not just what concepts meant, but how concepts were \emph{related}.
+
+\medskip
+
+\begin{bridgebox}[Top Bridge Words by Score]
+\begin{center}
+\begin{tabular}{llccl}
+\toprule
+\textbf{Word} & \textbf{Meaning} & \textbf{Domain A} & \textbf{Domain B} & \textbf{Score} \\
+\midrule
+\textit{zꜣ,t.du}    & daughters     & family (0.70)   & body (0.66)       & 0.662 \\
+\textit{sbjw}        & rebel/enemy   & warfare (0.65)  & body (0.68)       & 0.653 \\
+\textit{[zꜣ,t-nzw]} & king's daughter & family (0.69) & body (0.65)       & 0.652 \\
+\textit{[ḥr,t]}      & sky           & celestial (0.65) & body (0.65)      & 0.646 \\
+\textit{ḥm,t-nzw}   & royal wife    & family (0.66)   & body (0.64)       & 0.642 \\
+\textit{smꜣm.n}     & killed        & warfare (0.63)  & body (0.65)       & 0.634 \\
+\textit{ḥḏ-tꜣ}      & dawn          & celestial (0.65) & body (0.63)      & 0.626 \\
+\textit{nṯr.j}      & divine        & religion (0.73) & magic (0.58)      & 0.580 \\
+\textit{rm.w.pl}     & fish (pl.)    & water (0.58)    & body (0.59)       & 0.581 \\
+\textit{ḏdꜣ}         & meat          & agriculture (0.59) & body (0.58)    & 0.578 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+\textbf{The pattern:} Body is the universal bridge. It connects to warfare (enemies are bodies), family (kinship is flesh), celestial (the sky has a face), agriculture (food is flesh), and water (fish are bodies). The body is not one domain among many---it is the medium through which all domains are expressed. Egyptians described the world through the body because the body was the primary metaphorical vehicle of the language.
+\end{bridgebox}
+
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{The Analogies: Vector Arithmetic Across 4,000 Years}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent
+If the alignment preserves geometric structure, then \emph{vector arithmetic} should work across languages. These are the cases where it did.
+
+\medskip
+
+% ── Temple analogy ────────────────────────────────────────────────────────────
+\begin{insightbox}[house : temple :: man : god]
+
+\textbf{The test:} Compute the English analogy ``house is to temple as man is to X,'' then project the result into Egyptian space.
+
+\textbf{The result:} X = \textit{nṯr} (god).
+
+\textbf{What it means:} The model discovered---through distributional statistics alone---that a temple is literally a god's house. The proportional relationship \textit{pr} (house) : \textit{ḥw,t-nṯr} (god's house / temple) :: \textit{s} (man) : \textit{nṯr} (god) is preserved across the 4,000-year language gap.
+
+\textbf{Historical note:} The Egyptian word for temple, \textit{ḥw,t-nṯr}, literally translates as ``house of the god.'' The temple was conceived as the god's residence, where he lived, ate (offerings), and was attended by servants (priests). The daily temple ritual was essentially a domestic routine performed at cosmic scale: wake the god, wash him, dress him, feed him, put him to bed. The vector analogy captures this literal truth.
+\end{insightbox}
+
+% ── Love + Fear ───────────────────────────────────────────────────────────────
+\begin{insightbox}[love + fear = eternity]
+
+\textbf{The test:} Compute the midpoint of ``love'' and ``fear'' in English, project into Egyptian space.
+
+\textbf{The result:} \textit{r-(n)ḥḥ} (``eternal/forever'') appears as the second-nearest word.
+
+\textbf{What it means:} Between love and fear, the Egyptians placed eternity. The offering formula---``an offering which the king gives, that he may be loved and feared for eternity''---collapses these three concepts into a single liturgical act. The vectors preserve this collapse.
+
+\textbf{Historical note:} Egyptian had two words for eternity: \textit{nḥḥ} (cyclical, solar eternity---the endless repetition of days and seasons) and \textit{ḏ,t} (linear, Osirian eternity---the unchanging permanence of the dead). The word found here, \textit{nḥḥ}, is the cyclical kind: the eternity of the sun's daily rebirth. Love and fear meet at the point where time repeats forever.
+\end{insightbox}
+
+% ── Truth + Power ─────────────────────────────────────────────────────────────
+\begin{insightbox}[truth + power = authority (against enemies)]
+
+\textbf{The test:} Compute the midpoint of ``truth'' and ``power,'' project into Egyptian space.
+
+\textbf{The result:} \textit{sḫm} (power/authority) at \#1. But also \textit{ḫft.pl} (enemies) at \#4.
+
+\textbf{What it means:} Truth and power are not merely related---they are essentially the same force, defined \emph{against enemies}. This reflects \textit{mꜣꜥ,t}---the concept usually translated as ``truth'' or ``justice'' but which encompasses cosmic order, righteous authority, and the defeat of chaos. Truth is not passive correctness. It is the active power that subdues enemies.
+
+\textbf{Historical note:} The goddess Ma'at, depicted as a woman with an ostrich feather on her head, was the personification of this concept. In the judgment of the dead, the heart of the deceased was weighed against Ma'at's feather. If the heart was heavier (burdened by wrongdoing), the soul was devoured. Truth was not a value. It was a force with teeth.
+\end{insightbox}
+
+% ── Snake + Wisdom ────────────────────────────────────────────────────────────
+\begin{insightbox}[snake + wisdom = divinity (not knowledge)]
+
+\textbf{The test:} Compute the midpoint of ``snake'' and ``wisdom,'' project into Egyptian space.
+
+\textbf{The result:} Gods and divinity---not wisdom, not cunning, not knowledge.
+
+\textbf{What it means:} This directly contradicts the Greek-influenced reading of the Egyptian serpent. In Greek tradition (Asclepius, the caduceus, the serpent of Eden), the snake is associated with knowledge and wisdom. The Egyptian serpent---the uraeus cobra on the king's brow, the Apophis serpent of chaos---is associated with \emph{divine power}. The snake is not wise. It is sacred.
+
+\textbf{Historical note:} The uraeus (\textit{jꜥr,t})---the rearing cobra on the pharaoh's crown---was believed to spit fire at the king's enemies. It was an instrument of divine violence, not a symbol of knowledge. The great serpent Apophis (\textit{ꜥꜣpp}) was the embodiment of chaos itself, to be defeated nightly by the sun god. The only ``wisdom'' associated with Egyptian snakes is the wisdom of the texts that describe how to destroy them.
+\end{insightbox}
+
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{The Failures: What the Vectors Got Wrong (and Why)}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent
+The failures are often more instructive than the successes. Each one reveals something about how distributional semantics works---and where it breaks.
+
+\medskip
+
+% ── Ra ────────────────────────────────────────────────────────────────────────
+\begin{insightbox}[\textit{ra} --- The Sun God Who Became Noise]
+
+\textbf{Transliteration:} \textit{ra} / \textit{rꜥ} \quad
+\textbf{AI Prediction:} ``assign,'' ``domain,'' ``pleasant''
+
+\medskip
+\textbf{What went wrong:} Ra appears in so many compound names (Ramesses = \textit{Rꜥ-ms-sw}, ``Ra-is-the-one-who-bore-him''), phrases (``day'' = a period of Ra), and contexts that his vector became a blurred average of everything. He lost his identity as a deity because he was \emph{too} important---too ubiquitous. His distributional signature is the average of the entire corpus.
+
+\medskip
+\textbf{The lesson:} In distributional semantics, the most important words are often the hardest to pin down. They appear everywhere, so they are nowhere in particular. This is the same reason English stopwords (``the,'' ``of'') have nearly random vectors---they appear in every context, so they encode no specific context.
+
+\medskip
+\textbf{Historical parallel:} There is something poetically appropriate about the sun god becoming invisible through omnipresence. The Egyptians would have understood: Ra was everywhere precisely because he was the organizing principle of reality. The vectors couldn't see him for the same reason a fish can't see water.
+\end{insightbox}
+
+% ── hqt ───────────────────────────────────────────────────────────────────────
+\begin{insightbox}[\textit{hqt} --- The Beer That Became ``Good'' and ``Royal'']
+
+\textbf{Transliteration:} \textit{hqt} / \textit{ḥnq,t} \quad
+\textbf{AI Prediction:} ``nefer'' (good/beautiful), ``royal,'' ``connect''
+
+\medskip
+\textbf{What went wrong:} The offering formula ``\textit{ḥtp-dj-nswt}... \textit{t ḥnq,t}'' (``An offering which the king gives... bread and beer'') is the most repeated sentence structure in the Egyptian textual record. The words ``king,'' ``give,'' ``bread,'' and ``beer'' appear together so often that they clump into a ``Generic Offering'' cluster. Beer lost its beer-ness and became an offering-ingredient.
+
+\medskip
+\textbf{The lesson:} Formulaic repetition is the enemy of distributional semantics. When a word only appears in one fixed phrase, its vector encodes that phrase, not its own meaning. Beer's vector says ``I am part of the offering formula,'' not ``I am an alcoholic beverage made from grain.''
+
+\medskip
+\textbf{Historical note:} Egyptian beer was thick, nutritious, and mildly alcoholic---closer to a fermented porridge than modern beer. It was a daily staple, not a luxury. Workers at Deir el-Medina received beer as part of their wages. The irony is that beer was \emph{so} ordinary, \emph{so} essential, that it appeared in almost every offering list---and that very ordinariness erased its identity in the embedding space. The most common things become the hardest to see.
+\end{insightbox}
+
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{The Methodological Curiosities}
+% ══════════════════════════════════════════════════════════════════════════════
+
+% ── BERT ──────────────────────────────────────────────────────────────────────
+\begin{insightbox}[The BERT Catastrophe: 24.53\% $\rightarrow$ 0.47\%]
+
+\textbf{What happened:} In V6, we replaced FastText with BERT---the reigning champion of modern NLP---expecting a significant improvement. Accuracy collapsed from 24.53\% to 0.47\%. Nearly total destruction.
+
+\medskip
+\textbf{Why:} BERT's WordPiece tokenizer fragmented hieroglyphic transliteration into meaningless pieces. The word \textit{ḥr,w} (Horus) became \texttt{['ḥ', '\#\#r', '\#\#,', '\#\#w']}---four tokens with no semantic value. Every diacritical character, every comma, every suffix became a separate token. The model was trying to learn semantics from fragments of fragments.
+
+\medskip
+\textbf{The irony:} Before running the experiment, we wrote a strategy document declaring ``Winner: BERT'' and dismissing FastText as ``context-blind'' and ``shallow.'' The lesson: state-of-the-art doesn't mean universally applicable. Modern NLP is built for modern languages. Ancient Egyptian breaks the assumptions.
+
+\medskip
+\textbf{The deeper lesson:} BERT's failure is a warning about technological triumphalism. The most sophisticated tool is not always the right tool. A 2018 algorithm designed for English web text is not automatically superior to a 2016 algorithm designed for morphologically rich, low-resource languages. The right tool depends on the problem, not the year it was published.
+\end{insightbox}
+
+% ── Ghost Dimensions ──────────────────────────────────────────────────────────
+\begin{insightbox}[Ghost Dimensions: When Zeros Improved Accuracy]
+
+\textbf{What happened:} V9 attempted to add visual features (images of hieroglyphs) to the text embeddings. Due to a mapping failure, every visual vector was zeros. Yet accuracy improved by +1.42\%, crossing 30\% for the first time.
+
+\medskip
+\textbf{Why:} By concatenating 768 zeros onto each 768d text vector, we created a 1536d space. The Ridge Regression had more parameters to work with (1536$\rightarrow$300 instead of 768$\rightarrow$300). The empty dimensions acted as implicit regularization---padding that prevented overfitting.
+
+\medskip
+\textbf{What it suggests:} If zeros improved the model, real visual features could improve it dramatically. The architecture of the space matters more than whether the features are ``real.'' A bigger canvas with blank space outperformed a tighter canvas with real paint. This remains one of the project's most tantalizing unrealized possibilities.
+\end{insightbox}
+
+% ── Coptic Trap ───────────────────────────────────────────────────────────────
+\begin{insightbox}[The Coptic Trap: Quality Over Quantity]
+
+\textbf{What happened:} Coptic is the direct descendant of Ancient Egyptian. Using 368 Coptic cognates as additional anchor pairs seemed like a sure win. Instead, accuracy \emph{dropped} from 29.10\% to 28.16\%.
+
+\medskip
+\textbf{Why:} Etymology $\neq$ semantics. Words change meaning over millennia. The Coptic word for ``house'' does not occupy the same distributional space as the Pharaonic word for ``house.'' Two thousand years of semantic drift turned these cognates into noise. Adding noisy anchors forced the alignment to compromise, degrading the fit for the 8,541 clean pairs.
+
+\medskip
+\textbf{The lesson:} In alignment, a smaller set of high-confidence anchors outperforms a larger set of mixed-quality ones. This principle---quality beats quantity---recurs across machine learning, but it is especially important for low-resource languages where every anchor pair exerts outsized influence on the transformation matrix.
+\end{insightbox}
+
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{The Offering Economy: Agriculture, Provisioning, and the Sacred}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\begin{insightbox}[\textit{jwf} / \textit{ḏdꜣ} --- Meat \hfill Cluster: agriculture]
+
+\textbf{Transliteration:} \textit{jwf} (flesh/meat), \textit{ḏdꜣ} (meat/provisions) \quad
+\textbf{Classification:} Noun, masculine
+
+\medskip
+\textbf{What the vectors found:} Meat, not grain, dominates the V15 agriculture cluster at positions \#1 and \#4. The model sees agriculture not as growing but as provisioning.
+
+\medskip
+\textbf{Why it matters:} V13's agriculture cluster was full of offering-list items (bread, beer, oil). V15, by filtering noise (min\_count=5), separated the raw materials from the processed offerings. What emerged was a \emph{pastoral} agriculture: meat, cattle, fruit, grain. This is closer to the actual economic base of ancient Egypt, where cattle herding was a major source of wealth and the ``counting of cattle'' was a state event important enough to serve as a dating system.
+
+\medskip
+\textbf{Historical note:} \textit{Jwf} literally means ``flesh''---it bridges agriculture (sim=0.572) and body (sim=0.641). Flesh is simultaneously food and body, and the vectors cannot separate these meanings because the texts do not. When an Egyptian scribe wrote \textit{jwf}, he might mean a cut of beef on an offering table or the flesh of a god. Context determined the reading, but the vector encodes both.
+\end{insightbox}
+
+\begin{insightbox}[\textit{jḥ.pl} --- Cattle \hfill Bridge Score: 0.577]
+
+\textbf{Transliteration:} \textit{jḥ.pl} \quad
+\textbf{Classification:} Noun, masculine plural
+
+\medskip
+\textbf{What the vectors found:} Cattle bridge \textbf{agriculture} (sim=0.577) and \textbf{body} (sim=0.590). Livestock are both economy and flesh.
+
+\medskip
+\textbf{Historical note:} The tombs of Old Kingdom officials are filled with scenes of cattle herding, branding, and butchering---more than any other economic activity. The word \textit{jḥ} gave rise to an entire vocabulary of wealth: the ``overseer of cattle'' (\textit{jmj-rꜣ jḥ.w}) was one of the most important administrative titles. Cattle were currency, status symbol, and food. The vectors place them at the intersection of body and agriculture because that is where they lived in Egyptian life: animals that were both wealth on the hoof and meat on the table.
+\end{insightbox}
+
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Royalty and Power: The King as Cosmic Principle}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\begin{insightbox}[\textit{nswt-bjt,j} --- King of Upper and Lower Egypt \hfill Bridge Score: 0.570]
+
+\textbf{Transliteration:} \textit{nswt-bjt,j} / \textit{nzw-bj,tj} \quad
+\textbf{Classification:} Royal title
+
+\medskip
+\textbf{What the vectors found:} Bridges \textbf{royalty} (sim=0.608) and \textbf{body} (sim=0.563). The king is a body---or rather, the kingdom is the king's body.
+
+\medskip
+\textbf{Linguistic note:} This dual title encodes Egypt's fundamental political myth. \textit{Nswt} (``King of Upper Egypt'') uses the sedge plant as its symbol; \textit{bjt,j} (``King of Lower Egypt'') uses the bee. The title was written with both symbols side by side---a visual assertion that the Two Lands were unified in one person. The king didn't \emph{rule} Egypt. He \emph{was} Egypt, in the same way that the pope doesn't just lead the Church but, in Catholic theology, embodies it.
+
+\medskip
+\textbf{Historical note:} The \textit{nswt-bjt,j} title introduced the pharaoh's \textit{prenomen}---the throne name given at coronation. It was this name that was enclosed in a \textit{cartouche}, the oval ring symbolizing eternity and protection. Every royal document, every temple inscription, every monument began with this title. Its ubiquity in the corpus is why the vectors place it at the junction of royalty and body: it appears wherever the king's presence is invoked, and the king's presence is always physical, always bodily.
+\end{insightbox}
+
+\begin{insightbox}[\textit{sḫm} --- Power / Authority \hfill Vector analogy: truth + power]
+
+\textbf{Transliteration:} \textit{sḫm} \quad
+\textbf{Classification:} Noun / adjective
+
+\medskip
+\textbf{What the vectors found:} Appears at \#1 when projecting the midpoint of ``truth'' and ``power'' into Egyptian space. Authority and truth are the same force.
+
+\medskip
+\textbf{Linguistic note:} The \textit{sḫm}-scepter was a physical object---a staff carried by officials as a badge of authority. The word also appears in the name \textit{Sekhmet} (\textit{sḫm,t}---``the powerful one''), the lioness goddess of war and plague. Power, in Egyptian, is not abstract. It is held in the hand, embodied in a goddess, and exercised against enemies. The vectors found it between truth and power because the texts place it there: to have \textit{sḫm} is to have the legitimate force to impose order.
+\end{insightbox}
+
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{The Survivors: Egyptian Words Still in Use Today}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent
+A handful of Ancient Egyptian words survived the death of the language, passing through Coptic, Greek, Arabic, and Latin into modern use. These are linguistic fossils---4,000-year-old artifacts hiding in plain sight.
+
+\medskip
+
+\begin{center}
+\begin{tabular}{lllp{6.5cm}}
+\toprule
+\textbf{Egyptian} & \textbf{Modern Word} & \textbf{Via} & \textbf{Journey} \\
+\midrule
+\textit{msḥ} & timsāḥ (Ar.) & Coptic \textit{emsah} & The crocodile's name survived 4,000 years of linguistic change. Still used across the Arabic-speaking world. \\[6pt]
+\textit{km,t} & ``chemistry'' & Greek \textit{khēmía} & Egypt called itself \textit{Km,t} (``the black land,'' for the Nile's black soil). The Greeks used \textit{khēmía} for Egyptian arts, especially metallurgy. Arabic added \textit{al-} to make \textit{al-kīmiyāʾ} (alchemy). Remove the \textit{al-}, and you have chemistry. \\[6pt]
+\textit{jtrw} & ``Nile'' (?) & Semitic & Some scholars derive ``Nile'' from \textit{na-ḥal} (Semitic: river valley), but others connect it to \textit{jtrw} (Egyptian: river) through intermediate forms. Debated. \\[6pt]
+\textit{pr-ꜥꜣ} & ``pharaoh'' & Hebrew \textit{par'ōh} & Literally ``great house''---originally meant the palace, not the king. By the New Kingdom, it became a title for the monarch himself. \\[6pt]
+\textit{ḏḥr} / \textit{thr} & ``adobe'' & Arabic \textit{aṭ-ṭūb} & The Coptic word for brick, from Egyptian \textit{ḏb,t}, became Arabic \textit{ṭūba}, then Spanish \textit{adobe}. Every adobe house in the American Southwest carries an Egyptian word in its walls. \\[6pt]
+\textit{wḥꜥ,t} & ``oasis'' & Greek \textit{oasis} & The word passed through Demotic and Coptic before the Greeks adopted it. Every desert language borrowed it because the concept was universal and the word was already there. \\[6pt]
+\textit{sšn} & ``Susan / Lily'' & Coptic \textit{shoshen} & The Egyptian word for the lotus/lily passed into Hebrew as \textit{Shoshannah} and became the name Susan, Susanna, and the word ``lily'' in several Semitic languages. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{The Core Insight, Revisited}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent
+The model is \textbf{context-obsessed}. It doesn't know what a ``priest'' \emph{is}---only that he appears near ``treasures'' and ``governors.'' It doesn't know ``Anubis'' is a jackal---only that he stands next to the \textit{imiut} fetish. This confirms the distributional hypothesis, but also warns us: context is not always meaning.
+
+But meaning is exactly what emerges when we stop asking ``what does this word translate to?'' and start asking ``what does this word \emph{sit near}?'' The embedding space doesn't translate. It maps relationships. And those relationships---gold beside divinity, silence inside death, the snake among the gods, truth wielded as power---are the real structure of the ancient Egyptian worldview.
+
+\begin{vectorbox}
+\centering
+\textit{The journey from 0\% to 32.35\% was never really about accuracy.}\\[4pt]
+\textit{It was about building a lens sharp enough to see what}\\
+\textit{4,000 years of literal translation had flattened.}\\[4pt]
+\textit{Every improvement in the model---filtering noise, widening context,}\\
+\textit{tuning regularization---didn't just improve a number. It sharpened the image.}\\[4pt]
+\textit{And what came into focus was not a language. It was a way of thinking.}
+\end{vectorbox}
+
+\vfill
+
+\begin{center}
+{\small\color{lapis} --- End of Supplementary Appendix ---}
+\end{center}
+
+\end{document}
