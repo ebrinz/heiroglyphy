@@ -63,10 +63,37 @@ HIERO = {
     "hand":   "\U0001339B",
 }
 
+# ── Utterance 213 — Pyramid Text ─────────────────────────────────────────────
+UTT_213 = {
+    "glyphs": {
+        "ankh":  "\U000132F9",   # ꜥnḫ — life (S34)
+        "god":   "\U000132B9",   # nṯr — god (R8)
+        "soul":  "\U00013161",   # bꜣ — soul (G29)
+        "power": "\U00013302",   # sḫm — power (S42)
+        "spirit":"\U0001315C",   # ꜣḫ — spirit (G25)
+        "thoth": "\U00013043",   # Thoth (C3)
+    },
+    "literal": (
+        "Live! Live! — for this is your name among the gods.\n"
+        "A soul indeed, foremost of the living.\n"
+        "Powerful indeed, foremost of the spirits."
+    ),
+    "reframed": [
+        ("Live", "ꜥnḫ", "not biological life — divine permanence"),
+        ("gods", "nṯr", "indistinguishable from gold — ontological, not metaphorical"),
+        ("soul", "bꜣ", "the animating force — not ethereal, but powerful"),
+        ("powerful", "sḫm", "the same force as truth — māʿat"),
+        ("spirits", "ꜣḫ.w", "the transfigured — those who achieved power through knowledge"),
+    ],
+}
+
 GLYPH_STRIP = " ".join([
-    HIERO["eye"], HIERO["lion"], HIERO["scarab"], HIERO["sky"],
-    HIERO["house"], HIERO["djed"], HIERO["cloth"], HIERO["bread"],
-    HIERO["mouth"], HIERO["hand"],
+    UTT_213["glyphs"]["ankh"], UTT_213["glyphs"]["ankh"],
+    UTT_213["glyphs"]["god"], UTT_213["glyphs"]["god"],
+    UTT_213["glyphs"]["soul"],
+    UTT_213["glyphs"]["ankh"],
+    UTT_213["glyphs"]["power"],
+    UTT_213["glyphs"]["spirit"],
 ])
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
@@ -121,6 +148,28 @@ def normalize_points(points, target_range=2.5, center=(0, 0)):
     return result
 
 
+BRIDGE_SCORES = DOCS_DIR / "bridge_scores.json"
+
+def load_bridge_scores():
+    with open(BRIDGE_SCORES) as f:
+        return json.load(f)
+
+def score_overlay(scene, term, literal, bridge, midpoint):
+    """Show bridge + midpoint score overlay in upper-right. Returns VGroup."""
+    lines = []
+    lines.append(Text(f"{term} → \"{literal}\"", color=MUTED).scale(0.22))
+    if bridge is not None:
+        lines.append(Text(f"bridge: {bridge:.3f}", color=TEAL).scale(0.2))
+    if midpoint is not None:
+        lines.append(Text(f"midpoint: {midpoint:.3f}", color=LAVENDER).scale(0.2))
+    overlay = VGroup(*lines).arrange(DOWN, aligned_edge=LEFT, buff=0.05)
+    overlay.move_to(RIGHT * 5.5 + UP * 2.8)
+    bg = SurroundingRectangle(overlay, color=MUTED, fill_color=BG,
+                               fill_opacity=0.85, stroke_width=0.5, buff=0.1)
+    overlay_group = VGroup(bg, overlay)
+    scene.play(FadeIn(overlay_group), run_time=1)
+    return overlay_group
+
 
 # ══════════════════════════════════════════════════════════════════════════════
 # S1 — Hook  (~30s)
@@ -134,7 +183,42 @@ def normalize_points(points, target_range=2.5, center=(0, 0)):
 # ══════════════════════════════════════════════════════════════════════════════
 class S1_Hook(Scene):
     def construct(self):
-        glyphs = hiero_text(GLYPH_STRIP, color=GOLD, scale=0.7)
+        # ── Title card: "The Geometry of Meaning" with Thoth + compass ──
+        geo_title = Text("The Geometry of Meaning", color=WHITE).scale(0.8)
+        geo_title.move_to(UP * 2.5)
+        self.play(FadeIn(geo_title, shift=DOWN * 0.2), run_time=2)
+
+        # Thoth glyph — large, on the left
+        thoth = hiero_text("\U00013043", color=GOLD, scale=1.8)
+        thoth.move_to(LEFT * 2.5 + DOWN * 0.2)
+        self.play(FadeIn(thoth, scale=0.8), run_time=1.5)
+
+        # Compass — two arms from a pivot
+        pivot = RIGHT * 2.5 + UP * 0.5
+        arm_len = 1.5
+        angle = PI / 12  # 15 degrees each side
+        arm1_end = pivot + np.array([-arm_len * np.sin(angle), -arm_len * np.cos(angle), 0])
+        arm2_end = pivot + np.array([arm_len * np.sin(angle), -arm_len * np.cos(angle), 0])
+        compass_arm1 = Line(pivot, arm1_end, color=TEAL, stroke_width=3)
+        compass_arm2 = Line(pivot, arm2_end, color=TEAL, stroke_width=3)
+        compass_pivot = Dot(pivot, radius=0.05, color=TEAL)
+        # Arc at the bottom
+        compass_arc = Arc(
+            radius=arm_len * 0.6,
+            start_angle=-PI/2 - angle,
+            angle=2 * angle,
+            arc_center=pivot,
+            color=TEAL,
+            stroke_width=1.5
+        ).set_opacity(0.5)
+        compass = VGroup(compass_arm1, compass_arm2, compass_pivot, compass_arc)
+        self.play(Create(compass), run_time=1.5)
+        self.wait(2)
+
+        self.play(FadeOut(geo_title), FadeOut(thoth), FadeOut(compass), run_time=1)
+
+        # ── Glyph strip + narration flow ──
+        glyphs = hiero_text(GLYPH_STRIP, color=GOLD, scale=1.0)
         glyphs.move_to(UP * 1.5)
 
         # [Glyphs appear] "These symbols are four thousand years old."
@@ -165,7 +249,7 @@ class S1_Hook(Scene):
             color=LAVENDER
         ).scale(1.1).next_to(line2, DOWN, buff=0.6)
         self.play(FadeIn(line3, shift=UP * 0.1), run_time=2)
-        self.wait(4)
+        self.wait(2)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -380,74 +464,67 @@ class S3_Alignment(Scene):
         self.play(Create(highlight_lines), FadeIn(highlight_labels), run_time=2)
         self.wait(2)
 
-        # Phase 6: Accuracy
-        self.play(FadeOut(highlight_lines), FadeOut(highlight_labels), run_time=0.5)
-        acc = body_text("32.35% accuracy — no dictionary needed.",
-                        color=GOLD).scale(1.1).move_to(DOWN * 3.0)
-        self.play(FadeIn(acc), run_time=2)
+        self.wait(3)
+
+
+class S_Bridge(Scene):
+    """Explain 32% accuracy and introduce bridge/midpoint score concepts. ~25s"""
+    def construct(self):
+        # Phase 1: "1 in 3" stat
+        big_stat = Text("1 in 3", color=GOLD).scale(1.5)
+        sub = body_text("Egyptian words land on their correct English meaning", color=WHITE).scale(0.9)
+        stat_group = VGroup(big_stat, sub).arrange(DOWN, buff=0.3).move_to(UP * 1)
+        self.play(FadeIn(big_stat, scale=0.8), run_time=2)
+        self.wait(1)
+        self.play(FadeIn(sub), run_time=1.5)
         self.wait(2)
 
+        qualifier = body_text("No dictionary. No bilingual text.\nJust the shape of meaning.", color=MUTED).scale(0.8)
+        qualifier.next_to(stat_group, DOWN, buff=0.5)
+        self.play(FadeIn(qualifier, shift=UP * 0.1), run_time=2)
+        self.wait(2)
 
-# ══════════════════════════════════════════════════════════════════════════════
-# S4 — The Journey  (~25s)
-#
-# NARRATION (40 words, ~18s speaking + 7s visual):
-#   "It took fifteen attempts to get there. We tried neural networks —
-#    they failed. We tried the latest language models — they failed
-#    spectacularly. In the end, simple linear algebra outperformed
-#    everything. Sometimes the best tool is the oldest one."
-#
-# ══════════════════════════════════════════════════════════════════════════════
-class S4_Journey(Scene):
-    def construct(self):
-        header = title_text("15 attempts to get there", color=WHITE, scale=0.7)
-        header.move_to(UP * 3.2)
-        self.play(FadeIn(header), run_time=1.5)
-        self.wait(1.5)
+        self.play(FadeOut(stat_group), FadeOut(qualifier), run_time=1)
 
-        bars_data = [
-            ("V3", 22.0, TEAL),
-            ("V5", 24.5, TEAL),
-            ("V6\nBERT", 0.5, SOFT_RED),
-            ("V7", 29.1, TEAL),
-            ("V9", 30.5, TEAL),
-            ("V13", 31.6, TEAL),
-            ("V15", 32.4, GOLD),
-        ]
+        # Phase 2: Bridge score concept (left side)
+        bridge_title = Text("Bridge score", color=TEAL).scale(0.6).move_to(UP * 2.5 + LEFT * 3)
+        dot_eg = Dot(point=[-4, 0.5, 0], radius=0.1, color=GOLD)
+        dot_en = Dot(point=[-2, 0.5, 0], radius=0.1, color=TEAL)
+        lbl_eg = Text("nṯr", color=GOLD).scale(0.3).next_to(dot_eg, DOWN, buff=0.1)
+        lbl_en = Text("god", color=TEAL).scale(0.3).next_to(dot_en, DOWN, buff=0.1)
+        bridge_line = Line(dot_eg.get_center(), dot_en.get_center(), color=LAVENDER, stroke_width=2)
+        score_lbl = Text("0.919", color=LAVENDER).scale(0.25).next_to(bridge_line, UP, buff=0.05)
+        bridge_desc = body_text("How closely a word's\nneighborhood matches\nacross languages", color=MUTED).scale(0.7)
+        bridge_desc.move_to(LEFT * 3 + DOWN * 1.2)
 
-        baseline = Line(LEFT * 3.5, RIGHT * 3.5, color=MUTED, stroke_width=0.5)
-        baseline.move_to(DOWN * 1.5)
-        self.play(Create(baseline), run_time=0.3)
+        self.play(FadeIn(bridge_title), run_time=1)
+        self.play(FadeIn(dot_eg, lbl_eg), FadeIn(dot_en, lbl_en), Create(bridge_line), FadeIn(score_lbl), run_time=2)
+        self.play(FadeIn(bridge_desc), run_time=1.5)
+        self.wait(2)
 
-        bar_groups = VGroup()
-        for i, (lbl, val, col) in enumerate(bars_data):
-            h = max(val / 32.4 * 3.0, 0.06)
-            bar = Rectangle(width=0.65, height=h, fill_color=col,
-                            fill_opacity=0.85, stroke_width=0)
-            x = i * 0.95 - 2.85
-            bar.move_to(RIGHT * x + DOWN * 1.5 + UP * h / 2)
-            bl = Text(lbl, color=MUTED).scale(0.22).next_to(bar, DOWN, buff=0.08)
-            pct = Text(f"{val:.0f}%", color=col).scale(0.22).next_to(bar, UP, buff=0.06)
-            bar_groups.add(VGroup(bar, bl, pct))
+        # Phase 3: Midpoint score concept (right side)
+        mid_title = Text("Midpoint score", color=TEAL).scale(0.6).move_to(UP * 2.5 + RIGHT * 3)
+        dot_a = Dot(point=[1.5, 0.5, 0], radius=0.1, color=TEAL)
+        dot_b = Dot(point=[4.5, 0.5, 0], radius=0.1, color=TEAL)
+        lbl_a = Text("gold", color=TEAL).scale(0.3).next_to(dot_a, DOWN, buff=0.1)
+        lbl_b = Text("divine", color=TEAL).scale(0.3).next_to(dot_b, DOWN, buff=0.1)
+        dot_mid = Dot(point=[3, 0.5, 0], radius=0.08, color=WHITE).set_opacity(0.6)
+        dash_l = DashedLine(dot_a.get_center(), dot_mid.get_center(), color=MUTED, stroke_width=1)
+        dash_r = DashedLine(dot_mid.get_center(), dot_b.get_center(), color=MUTED, stroke_width=1)
+        mid_score = Text("0.596", color=LAVENDER).scale(0.25).next_to(dot_mid, UP, buff=0.1)
+        mid_desc = body_text("How strongly two concepts\nconverge in the Egyptian\nworldview", color=MUTED).scale(0.7)
+        mid_desc.move_to(RIGHT * 3 + DOWN * 1.2)
 
-        # "We tried neural networks — they failed."
-        for i, bg in enumerate(bar_groups):
-            self.play(GrowFromEdge(bg, DOWN), run_time=1.0)
-            if i == 2:
-                # "We tried the latest language models — they failed spectacularly."
-                self.wait(2.0)
-            else:
-                self.wait(1.0)
+        self.play(FadeIn(mid_title), run_time=1)
+        self.play(FadeIn(dot_a, lbl_a), FadeIn(dot_b, lbl_b), run_time=1)
+        self.play(FadeIn(dot_mid), Create(dash_l), Create(dash_r), FadeIn(mid_score), run_time=1.5)
+        self.play(FadeIn(mid_desc), run_time=1.5)
+        self.wait(2)
 
-        self.wait(1.5)
-
-        # "In the end, simple linear algebra outperformed everything."
-        lesson = body_text(
-            "Simple linear algebra beat every neural network we tried.",
-            color=WHITE
-        ).scale(1.0).move_to(DOWN * 3.2)
-        self.play(FadeIn(lesson), run_time=2)
-        self.wait(5)
+        closing = body_text("Here's what those numbers revealed.", color=LAVENDER).scale(1.0)
+        closing.move_to(DOWN * 2.8)
+        self.play(FadeIn(closing, shift=UP * 0.1), run_time=2)
+        self.wait(2)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -521,6 +598,9 @@ class D1_Gold(Scene):
 
         self.play(FadeIn(dot_ntri, lbl_ntri), FadeIn(dot_nbw, lbl_nbw), run_time=2)
         self.wait(1.5)
+
+        scores = load_bridge_scores()["discoveries"]["D1_Gold"]
+        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores["bridge_score"], scores["midpoint_score"])
 
         # Dots merge
         self.play(
@@ -608,7 +688,11 @@ class D2_Silence(Scene):
             mwt_group.add(lbl)
 
         self.play(FadeIn(mwt_group), run_time=1.5)
-        self.wait(3)
+        self.wait(1.5)
+
+        scores = load_bridge_scores()["discoveries"]["D2_Silence"]
+        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores["bridge_score"], scores["midpoint_score"])
+        self.wait(1.5)
 
         # Punchline
         punchline = body_text("What the dead lost was not life. It was voice.", color=WHITE).scale(1.1).move_to(DOWN * 2.8)
@@ -669,6 +753,9 @@ class D3_Seeing(Scene):
         ).set_opacity(0.3).set_fill(LAVENDER, opacity=0.05)
         self.play(Create(triangle), run_time=1.5)
 
+        scores = load_bridge_scores()["discoveries"]["D3_Seeing"]
+        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores["bridge_score"], scores["midpoint_score"])
+
         # Eye pulses
         self.play(
             eye.animate.scale(1.15).set_opacity(1),
@@ -711,7 +798,11 @@ class D4_Snake(Scene):
 
         self.play(FadeIn(egyptian_title), FadeIn(snake_right), run_time=1.5)
         self.play(Create(arrow_right), FadeIn(gods), run_time=1.5)
-        self.wait(2.5)
+        self.wait(1)
+
+        scores = load_bridge_scores()["discoveries"]["D4_Snake"]
+        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores["bridge_score"], scores["midpoint_score"])
+        self.wait(1.5)
 
         # Greek side fades, Egyptian side glows
         self.play(
@@ -723,12 +814,14 @@ class D4_Snake(Scene):
             snake_right.animate.scale(1.2),
             run_time=2
         )
-        self.wait(2)
+        self.wait(3)
 
         # Punchline
-        punchline = body_text("Two cultures, separated by geometry.", color=WHITE).scale(1.1).move_to(DOWN * 2.8)
+        punch1 = body_text("Greeks and Egyptians.", color=WHITE).scale(1.0)
+        punch2 = body_text("Two cultures, separated by geometry.", color=WHITE).scale(1.0)
+        punchline = VGroup(punch1, punch2).arrange(DOWN, buff=0.15).move_to(DOWN * 2.8)
         self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
-        self.wait(6)
+        self.wait(5)
 
 
 class D5_Temple(Scene):
@@ -790,7 +883,11 @@ class D5_Temple(Scene):
             Flash(dots["?"].get_center(), color=GOLD, line_length=0.3, num_lines=8),
             run_time=1.5
         )
-        self.wait(3)
+        self.wait(1)
+
+        scores = load_bridge_scores()["discoveries"]["D5_Temple"]
+        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores["bridge_score"], scores.get("analogy_score"))
+        self.wait(2)
 
         # Parallel lines
         parallel_top = DashedLine(
@@ -855,7 +952,11 @@ class D6_Mother(Scene):
             FadeIn(actual_group), FadeIn(actual_header),
             run_time=2.5
         )
-        self.wait(5)
+        self.wait(2)
+
+        scores = load_bridge_scores()["discoveries"]["D6_Mother"]
+        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores["bridge_score"], scores["midpoint_score"])
+        self.wait(3)
 
         punchline = body_text("Motherhood is a crown, not the earth.", color=WHITE).scale(1.1).move_to(DOWN * 2.8)
         self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
@@ -925,7 +1026,11 @@ class D7_Truth(Scene):
         maat_sub = Text("cosmic order", color=MUTED).scale(0.25)
         maat = VGroup(maat_label, maat_sub).arrange(DOWN, buff=0.05).move_to(cluster_center)
         self.play(FadeIn(maat, scale=0.8), run_time=1.5)
-        self.wait(3.5)
+        self.wait(1.5)
+
+        scores = load_bridge_scores()["discoveries"]["D7_Truth"]
+        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores["bridge_score"], scores["midpoint_score"])
+        self.wait(2)
 
         punchline = body_text("Truth is not correctness. It is force.", color=WHITE).scale(1.1).move_to(DOWN * 2.8)
         self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
@@ -961,7 +1066,11 @@ class D8_Eternity(Scene):
         eternity_group.next_to(dot_mid, UP, buff=0.2)
 
         self.play(FadeIn(eternity_group, shift=DOWN * 0.1), run_time=2)
-        self.wait(3)
+        self.wait(1)
+
+        scores = load_bridge_scores()["discoveries"]["D8_Eternity"]
+        overlay = score_overlay(self, scores["primary_term"], scores["literal"], scores["bridge_score"], scores["midpoint_score"])
+        self.wait(2)
 
         # Radiating rings
         rings = VGroup()
@@ -1024,23 +1133,52 @@ class S6_Discussion(Scene):
 
 # ══════════════════════════════════════════════════════════════════════════════
 class S7_Conclusion(Scene):
+    """Full-circle conclusion: Utt. 213 returns, literal translation, reframing. ~30s"""
     def construct(self):
-        top_glyphs = hiero_text(GLYPH_STRIP, color=GOLD, scale=0.25)
-        top_glyphs.set_opacity(0.2).move_to(UP * 3.2)
-        self.add(top_glyphs)
+        # Phase 1: The same glyphs from S1 reappear
+        glyphs = hiero_text(GLYPH_STRIP, color=GOLD, scale=1.0)
+        glyphs.move_to(UP * 2.0)
+        self.play(FadeIn(glyphs, shift=UP * 0.2), run_time=3)
+        self.wait(2)
+
+        # Phase 2: Literal translation
+        literal = Text(UTT_213["literal"], color=MUTED, line_spacing=1.3).scale(0.35)
+        literal.next_to(glyphs, DOWN, buff=0.5)
+        self.play(Write(literal), run_time=4)
+        self.wait(2)
+
+        # Phase 3: Word-by-word reframing
+        reframe_group = VGroup()
+        for eng_word, eg_term, insight in UTT_213["reframed"]:
+            term_text = Text(f"{eng_word} ({eg_term})", color=GOLD).scale(0.3)
+            insight_text = Text(f"→ {insight}", color=LAVENDER).scale(0.25)
+            row = VGroup(term_text, insight_text).arrange(RIGHT, buff=0.2)
+            reframe_group.add(row)
+
+        reframe_group.arrange(DOWN, aligned_edge=LEFT, buff=0.12)
+        reframe_group.next_to(literal, DOWN, buff=0.4)
+
+        for row in reframe_group:
+            self.play(FadeIn(row, shift=RIGHT * 0.2), run_time=1.5)
+            self.wait(0.5)
+
+        self.wait(2)
+
+        # Phase 4: Closing
+        self.play(*[FadeOut(m) for m in [glyphs, literal, reframe_group]], run_time=1.5)
 
         final = body_text("Translation gave us the words.", color=WHITE).scale(1.3).move_to(UP * 0.5)
         final2 = body_text("The vectors gave us the world between them.", color=LAVENDER).scale(1.2).move_to(DOWN * 0.8)
 
         self.play(Write(final), run_time=3)
-        self.wait(2)
+        self.wait(1)
         self.play(FadeIn(final2, shift=UP * 0.1), run_time=2.5)
-        self.wait(3)
+        self.wait(2)
 
         self.play(FadeOut(final), FadeOut(final2), run_time=1)
         repo = body_text("github.com/ebrinz/heiroglyphy", color=GOLD).scale(1.1)
         self.play(FadeIn(repo, shift=UP * 0.1), run_time=2)
-        self.wait(5)
+        self.wait(4)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -1056,7 +1194,7 @@ class HeiroglyphyVideo(Scene):
             S1_Hook,
             S2_Idea,
             S3_Alignment,
-            S4_Journey,
+            S_Bridge,
             D1_Gold,
             D2_Silence,
             D3_Seeing,
@@ -1089,7 +1227,7 @@ class HeiroglyphyVideo3Min(Scene):
             S1_Hook,
             S2_Idea,
             S3_Alignment,
-            S4_Journey,
+            S_Bridge,
             D1_Gold,
             D2_Silence,
             D5_Temple,
