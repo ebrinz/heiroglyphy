@@ -139,7 +139,7 @@ class S1_Hook(Scene):
 
         # [Glyphs appear] "These symbols are four thousand years old."
         self.play(FadeIn(glyphs, shift=UP * 0.2), run_time=3)
-        self.wait(3.5)
+        self.wait(3)
 
         # "Scholars have been translating them for two centuries."
         line1 = body_text(
@@ -147,7 +147,7 @@ class S1_Hook(Scene):
             color=WHITE
         ).scale(1.1).next_to(glyphs, DOWN, buff=0.8)
         self.play(Write(line1), run_time=3)
-        self.wait(3.5)
+        self.wait(3)
 
         # "But translation is lossy. When you compress a word into a single
         #  English equivalent, the web of meaning around it disappears."
@@ -157,7 +157,7 @@ class S1_Hook(Scene):
             color=MUTED
         ).scale(1.0).next_to(line1, DOWN, buff=0.5)
         self.play(Write(line2), run_time=3.5)
-        self.wait(4)
+        self.wait(3.5)
 
         # "What if we could get it back?"
         line3 = body_text(
@@ -482,12 +482,12 @@ class D1_Gold(Scene):
         # Title bar
         glyph = hiero_text("\U000131B4\U00013208\U000130C3\U000130F1", color=GOLD, scale=0.4)
         title = Text("Gold Is Divine Flesh", color=GOLD).scale(0.55)
-        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.2)
+        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.0)
         self.play(FadeIn(header), run_time=1.5)
 
         # Two concept dots on opposite sides
-        dot_gold = Dot(point=[-3, 0, 0], radius=0.12, color="#f1c40f").set_opacity(0.9)
-        dot_divine = Dot(point=[3, 0, 0], radius=0.12, color=LAVENDER).set_opacity(0.9)
+        dot_gold = Dot(point=[-3, 0.5, 0], radius=0.12, color="#f1c40f").set_opacity(0.9)
+        dot_divine = Dot(point=[3, 0.5, 0], radius=0.12, color=LAVENDER).set_opacity(0.9)
         lbl_gold = Text("gold", color="#f1c40f").scale(0.4).next_to(dot_gold, DOWN, buff=0.15)
         lbl_divine = Text("divine", color=LAVENDER).scale(0.4).next_to(dot_divine, DOWN, buff=0.15)
 
@@ -495,7 +495,7 @@ class D1_Gold(Scene):
         self.wait(2)
 
         # Midpoint marker
-        midpoint = Dot(point=[0, 0, 0], radius=0.08, color=WHITE).set_opacity(0.6)
+        midpoint = Dot(point=[0, 0.5, 0], radius=0.08, color=WHITE).set_opacity(0.6)
         mid_label = Text("midpoint", color=MUTED).scale(0.25).next_to(midpoint, UP, buff=0.1)
         dashed_left = DashedLine(dot_gold.get_center(), midpoint.get_center(), color=MUTED, stroke_width=1)
         dashed_right = DashedLine(midpoint.get_center(), dot_divine.get_center(), color=MUTED, stroke_width=1)
@@ -504,35 +504,40 @@ class D1_Gold(Scene):
         self.wait(1.5)
 
         # Arrow projects down into "Egyptian space"
-        eg_label = Text("Egyptian space", color=GOLD).scale(0.3).move_to(DOWN * 1.2)
-        arrow = Arrow(midpoint.get_center(), DOWN * 1.5, color=MUTED, stroke_width=2)
+        eg_label = Text("Egyptian space", color=GOLD).scale(0.3).move_to(DOWN * 0.7)
+        arrow = Arrow(midpoint.get_center(), DOWN * 1.0, color=MUTED, stroke_width=2)
         self.play(Create(arrow), FadeIn(eg_label), run_time=1.5)
 
         # Egyptian results appear
-        dot_ntri = Dot(point=[-0.5, -2.2, 0], radius=0.1, color=GOLD)
-        dot_nbw = Dot(point=[0.5, -2.2, 0], radius=0.1, color=GOLD)
-        lbl_ntri = Text("nṭri (divine)", color=GOLD).scale(0.3).next_to(dot_ntri, DOWN, buff=0.1)
-        lbl_nbw = Text("nbw (gold)", color=GOLD).scale(0.3).next_to(dot_nbw, DOWN, buff=0.1)
+        dot_ntri = Dot(point=[-0.5, -1.5, 0], radius=0.1, color=GOLD)
+        dot_nbw = Dot(point=[0.5, -1.5, 0], radius=0.1, color=GOLD)
+        # Use hieroglyphic glyphs instead of Latin transliterations
+        glyph_ntri = hiero_text("\U00013291", color=GOLD, scale=0.4).next_to(dot_ntri, LEFT, buff=0.05)
+        lbl_ntri_eng = Text("(divine)", color=GOLD).scale(0.3).next_to(dot_ntri, RIGHT, buff=0.05)
+        lbl_ntri = VGroup(glyph_ntri, lbl_ntri_eng)
+        glyph_nbw = hiero_text("\U00013210", color=GOLD, scale=0.4).next_to(dot_nbw, LEFT, buff=0.05)
+        lbl_nbw_eng = Text("(gold)", color=GOLD).scale(0.3).next_to(dot_nbw, RIGHT, buff=0.05)
+        lbl_nbw = VGroup(glyph_nbw, lbl_nbw_eng)
 
         self.play(FadeIn(dot_ntri, lbl_ntri), FadeIn(dot_nbw, lbl_nbw), run_time=2)
         self.wait(1.5)
 
         # Dots merge
         self.play(
-            dot_ntri.animate.move_to([0, -2.2, 0]),
-            dot_nbw.animate.move_to([0, -2.2, 0]),
-            lbl_ntri.animate.move_to([-1.2, -2.7, 0]),
-            lbl_nbw.animate.move_to([1.2, -2.7, 0]),
+            dot_ntri.animate.move_to([0, -1.5, 0]),
+            dot_nbw.animate.move_to([0, -1.5, 0]),
+            lbl_ntri.animate.move_to([-1.2, -2.0, 0]),
+            lbl_nbw.animate.move_to([1.2, -2.0, 0]),
             run_time=2
         )
 
         # Glow effect
-        glow = Dot(point=[0, -2.2, 0], radius=0.3, color=GOLD).set_opacity(0.3)
+        glow = Dot(point=[0, -1.5, 0], radius=0.3, color=GOLD).set_opacity(0.3)
         self.play(FadeIn(glow), run_time=1)
         self.wait(3)
 
         # Punchline
-        punchline = body_text("Not metaphor. Ontology.", color=WHITE).scale(1.2).move_to(DOWN * 3.5)
+        punchline = body_text("Not metaphor. Ontology.", color=WHITE).scale(1.2).move_to(DOWN * 2.8)
         self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
         self.wait(6)
 
@@ -541,7 +546,7 @@ class D2_Silence(Scene):
     def construct(self):
         glyph = hiero_text("\U000131EF\U0001337F\U000132BD", color=GOLD, scale=0.4)
         title = Text("Silence Is the Condition of the Dead", color=GOLD).scale(0.5)
-        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.2)
+        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.0)
         self.play(FadeIn(header), run_time=1.5)
 
         # Sound wave
@@ -551,7 +556,7 @@ class D2_Silence(Scene):
             x = (i / n_pts) * 10 - 5
             y = 0.6 * np.sin(i * 0.3) * np.exp(-abs(x) * 0.05)
             wave_dots.add(
-                Dot(point=[x, y + 0.5, 0], radius=0.03, color=TEAL).set_opacity(0.7)
+                Dot(point=[x, y + 1.0, 0], radius=0.03, color=TEAL).set_opacity(0.7)
             )
 
         self.play(Create(wave_dots), run_time=2)
@@ -561,14 +566,14 @@ class D2_Silence(Scene):
         flat_targets = []
         for i, dot in enumerate(wave_dots):
             x = dot.get_center()[0]
-            flat_targets.append(dot.animate.move_to([x, 0.5, 0]).set_opacity(0.2))
+            flat_targets.append(dot.animate.move_to([x, 1.0, 0]).set_opacity(0.2))
 
         self.play(*flat_targets, run_time=3, rate_func=smooth)
         self.wait(1)
 
         # "silence" and "death" dots converge
-        dot_silence = Dot(point=[-2, -1, 0], radius=0.1, color=LAVENDER)
-        dot_death = Dot(point=[2, -1, 0], radius=0.1, color=SOFT_RED)
+        dot_silence = Dot(point=[-2, -0.5, 0], radius=0.1, color=LAVENDER)
+        dot_death = Dot(point=[2, -0.5, 0], radius=0.1, color=SOFT_RED)
         lbl_silence = Text("silence", color=LAVENDER).scale(0.35).next_to(dot_silence, DOWN, buff=0.1)
         lbl_death = Text("death", color=SOFT_RED).scale(0.35).next_to(dot_death, DOWN, buff=0.1)
 
@@ -576,7 +581,7 @@ class D2_Silence(Scene):
         self.wait(1.5)
 
         # Converge to same point
-        converge_pt = [0, -1.5, 0]
+        converge_pt = [0, -1.0, 0]
         self.play(
             dot_silence.animate.move_to(converge_pt),
             dot_death.animate.move_to(converge_pt),
@@ -586,13 +591,19 @@ class D2_Silence(Scene):
         )
         self.wait(1.5)
 
-        # m(w)t variants cluster
-        mwt_words = ["m.wt", "mt", "mwt", "mwt.w", "mt.t"]
+        # death/silence hieroglyphic cluster — use glyphs instead of Latin transliterations
+        mwt_glyphs = [
+            "\U00013000",   # seated man (determinative)
+            "\U00013196",   # snake
+            "\U000132BD",   # djed pillar
+            "\U00013000\U00013196",  # man + snake
+            "\U000132BD\U00013000",  # djed + man
+        ]
         mwt_group = VGroup()
         rng = np.random.default_rng(7)
-        for w in mwt_words:
+        for g in mwt_glyphs:
             offset = rng.uniform(-0.3, 0.3, 2)
-            lbl = Text(w, color=GOLD).scale(0.22)
+            lbl = hiero_text(g, color=GOLD, scale=0.35)
             lbl.move_to([converge_pt[0] + offset[0], converge_pt[1] - 0.6 + offset[1], 0])
             mwt_group.add(lbl)
 
@@ -600,7 +611,7 @@ class D2_Silence(Scene):
         self.wait(3)
 
         # Punchline
-        punchline = body_text("What the dead lost was not life. It was voice.", color=WHITE).scale(1.1).move_to(DOWN * 3.3)
+        punchline = body_text("What the dead lost was not life. It was voice.", color=WHITE).scale(1.1).move_to(DOWN * 2.8)
         self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
         self.wait(6)
 
@@ -609,7 +620,7 @@ class D3_Seeing(Scene):
     def construct(self):
         glyph = hiero_text("\U00013080\U000133DB\U000131B4", color=GOLD, scale=0.4)
         title = Text("Seeing Was an Act of Magical Power", color=GOLD).scale(0.5)
-        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.2)
+        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.0)
         self.play(FadeIn(header), run_time=1.5)
 
         # Eye of Horus glyph — large, center
@@ -666,7 +677,7 @@ class D3_Seeing(Scene):
         self.wait(3)
 
         # Punchline
-        punchline = body_text("Sight was not observation. It was power.", color=WHITE).scale(1.1).move_to(DOWN * 3.3)
+        punchline = body_text("Sight was not observation. It was power.", color=WHITE).scale(1.1).move_to(DOWN * 2.8)
         self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
         self.wait(6)
 
@@ -675,7 +686,7 @@ class D4_Snake(Scene):
     def construct(self):
         glyph = hiero_text("\U00013196\U000132BD\U000131B4", color=GOLD, scale=0.4)
         title = Text("The Snake Is Divine, Not Wise", color=GOLD).scale(0.5)
-        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.2)
+        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.0)
         self.play(FadeIn(header), run_time=1.5)
 
         # Dividing line
@@ -715,7 +726,7 @@ class D4_Snake(Scene):
         self.wait(2)
 
         # Punchline
-        punchline = body_text("Two cultures, separated by geometry.", color=WHITE).scale(1.1).move_to(DOWN * 3.3)
+        punchline = body_text("Two cultures, separated by geometry.", color=WHITE).scale(1.1).move_to(DOWN * 2.8)
         self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
         self.wait(6)
 
@@ -724,14 +735,14 @@ class D5_Temple(Scene):
     def construct(self):
         glyph = hiero_text("\U00013250\U000132BD\U00013000", color=GOLD, scale=0.4)
         title = Text("Temple : House :: God : Man", color=GOLD).scale(0.5)
-        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.2)
+        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.0)
         self.play(FadeIn(header), run_time=1.5)
 
         # Four points of the parallelogram
         pts = {
-            "house":  [-2.5, -1, 0],
+            "house":  [-2.5, -0.5, 0],
             "temple": [-2.5, 1.5, 0],
-            "man":    [2.5, -1, 0],
+            "man":    [2.5, -0.5, 0],
             "?":      [2.5, 1.5, 0],
         }
 
@@ -793,7 +804,7 @@ class D5_Temple(Scene):
         self.play(Create(parallel_top), Create(parallel_bot), run_time=1)
         self.wait(1.5)
 
-        punchline = body_text("Vector arithmetic across 4,000 years.", color=WHITE).scale(1.1).move_to(DOWN * 3.3)
+        punchline = body_text("Vector arithmetic across 4,000 years.", color=WHITE).scale(1.1).move_to(DOWN * 2.8)
         self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
         self.wait(7)
 
@@ -802,11 +813,11 @@ class D6_Mother(Scene):
     def construct(self):
         glyph = hiero_text("\U000130AD\U00013300\U00013000", color=GOLD, scale=0.4)
         title = Text("Mother Is Royalty, Not Earth", color=GOLD).scale(0.5)
-        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.2)
+        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.0)
         self.play(FadeIn(header), run_time=1.5)
 
-        dot_mother = Dot(point=[-2, 1, 0], radius=0.1, color=LAVENDER)
-        dot_earth = Dot(point=[2, 1, 0], radius=0.1, color=TEAL)
+        dot_mother = Dot(point=[-2, 1.5, 0], radius=0.1, color=LAVENDER)
+        dot_earth = Dot(point=[2, 1.5, 0], radius=0.1, color=TEAL)
         lbl_mother = Text("mother", color=LAVENDER).scale(0.35).next_to(dot_mother, UP, buff=0.1)
         lbl_earth = Text("earth", color=TEAL).scale(0.35).next_to(dot_earth, UP, buff=0.1)
 
@@ -818,11 +829,11 @@ class D6_Mother(Scene):
         expected_group = VGroup()
         for i, w in enumerate(expected):
             lbl = Text(w, color=MUTED).scale(0.3).set_opacity(0.3)
-            lbl.move_to([i * 1.2 - 1.8, -0.8, 0])
+            lbl.move_to([i * 1.2 - 1.8, -0.3, 0])
             expected_group.add(lbl)
 
         expect_header = Text("expected:", color=MUTED).scale(0.25).set_opacity(0.4)
-        expect_header.move_to(LEFT * 4 + DOWN * 0.8)
+        expect_header.move_to(LEFT * 4 + DOWN * 0.3)
 
         self.play(FadeIn(expected_group), FadeIn(expect_header), run_time=1.5)
         self.wait(2)
@@ -832,11 +843,11 @@ class D6_Mother(Scene):
         actual_group = VGroup()
         for i, w in enumerate(actual):
             lbl = Text(w, color=GOLD).scale(0.35)
-            lbl.move_to([i * 1.5 - 2.2, -2.0, 0])
+            lbl.move_to([i * 1.5 - 2.2, -1.5, 0])
             actual_group.add(lbl)
 
         actual_header = Text("actual:", color=GOLD).scale(0.25)
-        actual_header.move_to(LEFT * 4 + DOWN * 2.0)
+        actual_header.move_to(LEFT * 4 + DOWN * 1.5)
 
         self.play(
             expected_group.animate.set_opacity(0.1),
@@ -846,7 +857,7 @@ class D6_Mother(Scene):
         )
         self.wait(5)
 
-        punchline = body_text("Motherhood is a crown, not the earth.", color=WHITE).scale(1.1).move_to(DOWN * 3.3)
+        punchline = body_text("Motherhood is a crown, not the earth.", color=WHITE).scale(1.1).move_to(DOWN * 2.8)
         self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
         self.wait(6)
 
@@ -855,7 +866,7 @@ class D7_Truth(Scene):
     def construct(self):
         glyph = hiero_text("\U00013080\U000131B4\U000132BD", color=GOLD, scale=0.4)
         title = Text("Truth and Power Are the Same Force", color=GOLD).scale(0.5)
-        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.2)
+        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.0)
         self.play(FadeIn(header), run_time=1.5)
 
         # Constellation
@@ -916,7 +927,7 @@ class D7_Truth(Scene):
         self.play(FadeIn(maat, scale=0.8), run_time=1.5)
         self.wait(3.5)
 
-        punchline = body_text("Truth is not correctness. It is force.", color=WHITE).scale(1.1).move_to(DOWN * 3.3)
+        punchline = body_text("Truth is not correctness. It is force.", color=WHITE).scale(1.1).move_to(DOWN * 2.8)
         self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
         self.wait(5)
 
@@ -925,7 +936,7 @@ class D8_Eternity(Scene):
     def construct(self):
         glyph = hiero_text("\U000131A3\U000131EF\U000131B4", color=GOLD, scale=0.4)
         title = Text("Love and Fear Meet at Eternity", color=GOLD).scale(0.5)
-        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.2)
+        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.0)
         self.play(FadeIn(header), run_time=1.5)
 
         # Love and fear as two poles
@@ -974,7 +985,7 @@ class D8_Eternity(Scene):
             run_time=2
         )
 
-        punchline = body_text("Between love and fear: forever.", color=WHITE).scale(1.1).move_to(DOWN * 3.3)
+        punchline = body_text("Between love and fear: forever.", color=WHITE).scale(1.1).move_to(DOWN * 2.8)
         self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
         self.wait(6)
 
@@ -1000,7 +1011,7 @@ class S6_Discussion(Scene):
             group = VGroup(t, d).arrange(DOWN, aligned_edge=LEFT, buff=0.1)
 
             if prev is None:
-                group.move_to(UP * 1.5 + LEFT * 1)
+                group.move_to(UP * 1.8 + LEFT * 1)
             else:
                 group.next_to(prev, DOWN, buff=0.4, aligned_edge=LEFT)
 
@@ -1066,7 +1077,13 @@ class HeiroglyphyVideo3Min(Scene):
     """
     3-minute cut for encore.pillar.vc application (~2:53).
     Run: manim -pqh heiroglyphy_video.py HeiroglyphyVideo3Min
+
+    Uses compressed wait times (0.45x) to fit under 3 minutes.
     """
+    def wait(self, duration=1.0, **kwargs):
+        """Override wait to compress pauses for the short cut."""
+        super().wait(duration * 0.45, **kwargs)
+
     def construct(self):
         for SceneClass in [
             S1_Hook,
@@ -1080,4 +1097,4 @@ class HeiroglyphyVideo3Min(Scene):
         ]:
             SceneClass.construct(self)
             self.clear()
-            self.wait(0.5)
+            super().wait(0.3)
