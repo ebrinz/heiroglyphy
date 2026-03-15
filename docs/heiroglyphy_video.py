@@ -719,6 +719,265 @@ class D4_Snake(Scene):
         self.wait(3)
 
 
+class D5_Temple(Scene):
+    def construct(self):
+        glyph = hiero_text("\U00013250\U000132BD\U00013000", color=GOLD, scale=0.4)
+        title = Text("Temple : House :: God : Man", color=GOLD).scale(0.5)
+        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.2)
+        self.play(FadeIn(header), run_time=1.5)
+
+        # Four points of the parallelogram
+        pts = {
+            "house":  [-2.5, -1, 0],
+            "temple": [-2.5, 1.5, 0],
+            "man":    [2.5, -1, 0],
+            "?":      [2.5, 1.5, 0],
+        }
+
+        dots = {}
+        labels = {}
+        for word, pos in pts.items():
+            color = TEAL if word != "?" else MUTED
+            dot = Dot(point=pos, radius=0.12, color=color)
+            label = Text(word, color=color).scale(0.4).next_to(dot, DOWN, buff=0.15)
+            dots[word] = dot
+            labels[word] = label
+
+        self.play(
+            *[FadeIn(dots[w], labels[w]) for w in ["house", "temple", "man"]],
+            FadeIn(dots["?"], labels["?"]),
+            run_time=2
+        )
+        self.wait(0.5)
+
+        # Arrow from house → temple
+        arrow_left = Arrow(
+            dots["house"].get_center(), dots["temple"].get_center(),
+            color=LAVENDER, stroke_width=3, buff=0.2
+        )
+        sacred_label = Text("sacred", color=LAVENDER).scale(0.25)
+        sacred_label.next_to(arrow_left, LEFT, buff=0.1)
+        self.play(Create(arrow_left), FadeIn(sacred_label), run_time=2)
+        self.wait(1.5)
+
+        # Same arrow from man → ?
+        arrow_right = Arrow(
+            dots["man"].get_center(), dots["?"].get_center(),
+            color=LAVENDER, stroke_width=3, buff=0.2
+        )
+        sacred_label2 = Text("sacred", color=LAVENDER).scale(0.25)
+        sacred_label2.next_to(arrow_right, RIGHT, buff=0.1)
+        self.play(Create(arrow_right), FadeIn(sacred_label2), run_time=2)
+        self.wait(1)
+
+        # ? resolves to "god"
+        god_label = Text("god", color=GOLD).scale(0.5).next_to(dots["?"], DOWN, buff=0.15)
+        self.play(
+            dots["?"].animate.set_color(GOLD),
+            Transform(labels["?"], god_label),
+            Flash(dots["?"].get_center(), color=GOLD, line_length=0.3, num_lines=8),
+            run_time=1.5
+        )
+        self.wait(1)
+
+        # Parallel lines
+        parallel_top = DashedLine(
+            dots["temple"].get_center(), dots["?"].get_center(),
+            color=MUTED, stroke_width=1
+        ).set_opacity(0.4)
+        parallel_bot = DashedLine(
+            dots["house"].get_center(), dots["man"].get_center(),
+            color=MUTED, stroke_width=1
+        ).set_opacity(0.4)
+        self.play(Create(parallel_top), Create(parallel_bot), run_time=1)
+        self.wait(0.5)
+
+        punchline = body_text("Vector arithmetic across 4,000 years.", color=WHITE).scale(1.1).move_to(DOWN * 3.3)
+        self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
+        self.wait(3)
+
+
+class D6_Mother(Scene):
+    def construct(self):
+        glyph = hiero_text("\U000130AD\U00013300\U00013000", color=GOLD, scale=0.4)
+        title = Text("Mother Is Royalty, Not Earth", color=GOLD).scale(0.5)
+        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.2)
+        self.play(FadeIn(header), run_time=1.5)
+
+        dot_mother = Dot(point=[-2, 1, 0], radius=0.1, color=LAVENDER)
+        dot_earth = Dot(point=[2, 1, 0], radius=0.1, color=TEAL)
+        lbl_mother = Text("mother", color=LAVENDER).scale(0.35).next_to(dot_mother, UP, buff=0.1)
+        lbl_earth = Text("earth", color=TEAL).scale(0.35).next_to(dot_earth, UP, buff=0.1)
+
+        self.play(FadeIn(dot_mother, lbl_mother), FadeIn(dot_earth, lbl_earth), run_time=1.5)
+        self.wait(0.5)
+
+        # Expected results (ghosted)
+        expected = ["soil", "fertility", "land", "harvest"]
+        expected_group = VGroup()
+        for i, w in enumerate(expected):
+            lbl = Text(w, color=MUTED).scale(0.3).set_opacity(0.3)
+            lbl.move_to([i * 1.2 - 1.8, -0.8, 0])
+            expected_group.add(lbl)
+
+        expect_header = Text("expected:", color=MUTED).scale(0.25).set_opacity(0.4)
+        expect_header.move_to(LEFT * 4 + DOWN * 0.8)
+
+        self.play(FadeIn(expected_group), FadeIn(expect_header), run_time=1.5)
+        self.wait(1.5)
+
+        # Actual results light up
+        actual = ["royal wife", "king's daughter", "queen", "princess"]
+        actual_group = VGroup()
+        for i, w in enumerate(actual):
+            lbl = Text(w, color=GOLD).scale(0.35)
+            lbl.move_to([i * 1.5 - 2.2, -2.0, 0])
+            actual_group.add(lbl)
+
+        actual_header = Text("actual:", color=GOLD).scale(0.25)
+        actual_header.move_to(LEFT * 4 + DOWN * 2.0)
+
+        self.play(
+            expected_group.animate.set_opacity(0.1),
+            expect_header.animate.set_opacity(0.15),
+            FadeIn(actual_group), FadeIn(actual_header),
+            run_time=2.5
+        )
+        self.wait(2)
+
+        punchline = body_text("Motherhood is a crown, not the earth.", color=WHITE).scale(1.1).move_to(DOWN * 3.3)
+        self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
+        self.wait(3)
+
+
+class D7_Truth(Scene):
+    def construct(self):
+        glyph = hiero_text("\U00013080\U000131B4\U000132BD", color=GOLD, scale=0.4)
+        title = Text("Truth and Power Are the Same Force", color=GOLD).scale(0.5)
+        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.2)
+        self.play(FadeIn(header), run_time=1.5)
+
+        # Constellation
+        stars = [
+            ("truth", -1.5, 1.0, TEAL),
+            ("power", 1.5, 1.0, LAVENDER),
+            ("authority", 0, -0.5, GOLD),
+            ("enemies", 1.8, -1.5, SOFT_RED),
+        ]
+
+        star_dots = {}
+        star_labels = {}
+        star_group = VGroup()
+        for word, x, y, color in stars:
+            dot = Dot(point=[x, y, 0], radius=0.1, color=color).set_opacity(0.8)
+            label = Text(word, color=color).scale(0.3).next_to(dot, DOWN, buff=0.1)
+            star_dots[word] = dot
+            star_labels[word] = label
+            star_group.add(dot, label)
+
+        self.play(
+            LaggedStart(*[FadeIn(m) for m in star_group], lag_ratio=0.1),
+            run_time=3
+        )
+        self.wait(1)
+
+        # Lines connect them
+        connections = [
+            ("truth", "power"), ("truth", "authority"),
+            ("power", "authority"), ("power", "enemies"),
+            ("authority", "enemies"),
+        ]
+        conn_lines = VGroup()
+        for a, b in connections:
+            line = Line(
+                star_dots[a].get_center(), star_dots[b].get_center(),
+                color=MUTED, stroke_width=1
+            ).set_opacity(0.3)
+            conn_lines.add(line)
+
+        self.play(Create(conn_lines), run_time=2)
+        self.wait(0.5)
+
+        # Contract toward center
+        cluster_center = np.mean([star_dots[w].get_center() for w in star_dots], axis=0)
+        self.play(
+            *[star_dots[w].animate.move_to(
+                star_dots[w].get_center() * 0.7 + cluster_center * 0.3
+            ) for w in star_dots],
+            run_time=2, rate_func=there_and_back_with_pause
+        )
+        self.wait(0.5)
+
+        # māʿat at center
+        maat_label = Text("māʿat", color=GOLD).scale(0.45)
+        maat_sub = Text("cosmic order", color=MUTED).scale(0.25)
+        maat = VGroup(maat_label, maat_sub).arrange(DOWN, buff=0.05).move_to(cluster_center)
+        self.play(FadeIn(maat, scale=0.8), run_time=1.5)
+        self.wait(1.5)
+
+        punchline = body_text("Truth is not correctness. It is force.", color=WHITE).scale(1.1).move_to(DOWN * 3.3)
+        self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
+        self.wait(3)
+
+
+class D8_Eternity(Scene):
+    def construct(self):
+        glyph = hiero_text("\U000131A3\U000131EF\U000131B4", color=GOLD, scale=0.4)
+        title = Text("Love and Fear Meet at Eternity", color=GOLD).scale(0.5)
+        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.2)
+        self.play(FadeIn(header), run_time=1.5)
+
+        # Love and fear as two poles
+        dot_love = Dot(point=[-3.5, 0, 0], radius=0.12, color=TEAL)
+        dot_fear = Dot(point=[3.5, 0, 0], radius=0.12, color=SOFT_RED)
+        lbl_love = Text("love", color=TEAL).scale(0.4).next_to(dot_love, DOWN, buff=0.15)
+        lbl_fear = Text("fear", color=SOFT_RED).scale(0.4).next_to(dot_fear, DOWN, buff=0.15)
+
+        axis_line = Line([-4, 0, 0], [4, 0, 0], color=MUTED, stroke_width=1).set_opacity(0.3)
+
+        self.play(Create(axis_line), run_time=0.5)
+        self.play(FadeIn(dot_love, lbl_love), FadeIn(dot_fear, lbl_fear), run_time=2)
+        self.wait(1)
+
+        # Midpoint appears
+        dot_mid = Dot(point=[0, 0, 0], radius=0.15, color=GOLD).set_opacity(0)
+        self.play(dot_mid.animate.set_opacity(0.9), run_time=2, rate_func=smooth)
+
+        eternity_label = Text("r-nḥḥ", color=GOLD).scale(0.35)
+        eternity_eng = Text("eternity", color=WHITE).scale(0.45)
+        eternity_group = VGroup(eternity_label, eternity_eng).arrange(DOWN, buff=0.08)
+        eternity_group.next_to(dot_mid, UP, buff=0.2)
+
+        self.play(FadeIn(eternity_group, shift=DOWN * 0.1), run_time=2)
+        self.wait(1)
+
+        # Radiating rings
+        rings = VGroup()
+        for r in [0.5, 1.0, 1.5, 2.0, 2.5]:
+            ring = Circle(radius=r, color=GOLD, stroke_width=1).set_opacity(0)
+            ring.move_to(dot_mid.get_center())
+            rings.add(ring)
+
+        self.play(
+            LaggedStart(
+                *[ring.animate.set_opacity(0.15) for ring in rings],
+                lag_ratio=0.3
+            ),
+            run_time=3
+        )
+        self.wait(1)
+
+        # Fade rings outward
+        self.play(
+            *[ring.animate.set_opacity(0).scale(1.2) for ring in rings],
+            run_time=2
+        )
+
+        punchline = body_text("Between love and fear: forever.", color=WHITE).scale(1.1).move_to(DOWN * 3.3)
+        self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
+        self.wait(3)
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 class S5_Discoveries(Scene):
     def construct(self):
