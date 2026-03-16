@@ -1437,6 +1437,50 @@ class S3_Short(Scene):
         self.wait(2)
 
 
+class S4_Journey_Short(Scene):
+    """The journey — 15 attempts, simple algebra wins. ~25s"""
+    def construct(self):
+        header = title_text("15 attempts to get there", color=WHITE, scale=0.7)
+        header.move_to(UP * 3.0)
+        self.play(FadeIn(header), run_time=1.5)
+        self.wait(1)
+
+        # Compact bar chart
+        bars_data = [
+            ("V1-V5", 24.5, TEAL),
+            ("V6\nBERT", 0.5, SOFT_RED),
+            ("V7-V9", 30.5, TEAL),
+            ("V13-V15", 32.4, GOLD),
+        ]
+
+        baseline = Line(LEFT * 3, RIGHT * 3, color=MUTED, stroke_width=0.5)
+        baseline.move_to(DOWN * 0.5)
+        self.play(Create(baseline), run_time=0.3)
+
+        bar_groups = VGroup()
+        for i, (lbl, val, col) in enumerate(bars_data):
+            h = max(val / 32.4 * 2.5, 0.06)
+            bar = Rectangle(width=1.0, height=h, fill_color=col,
+                            fill_opacity=0.85, stroke_width=0)
+            x = i * 1.4 - 2.1
+            bar.move_to(RIGHT * x + DOWN * 0.5 + UP * h / 2)
+            bl = Text(lbl, color=MUTED).scale(0.2).next_to(bar, DOWN, buff=0.08)
+            pct = Text(f"{val:.0f}%", color=col).scale(0.2).next_to(bar, UP, buff=0.06)
+            bar_groups.add(VGroup(bar, bl, pct))
+
+        for bg in bar_groups:
+            self.play(GrowFromEdge(bg, DOWN), run_time=0.8)
+            self.wait(0.3)
+
+        self.wait(2)
+
+        # Method reveal
+        method = body_text("Neural networks failed.\nSimple linear algebra won.", color=WHITE).scale(0.9)
+        method.move_to(DOWN * 2.5)
+        self.play(FadeIn(method, shift=UP * 0.1), run_time=2)
+        self.wait(4)
+
+
 class SB_Short(Scene):
     """Just the '1 in 3' stat. ~12s"""
     def construct(self):
@@ -1646,6 +1690,7 @@ class HeiroglyphyVideo3Min(Scene):
             S1_Short,
             S2_Short,
             S3_Short,
+            S4_Journey_Short,
             SB_Short,
             D1_Gold_Short,
             D_Montage,
