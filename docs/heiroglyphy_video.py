@@ -1323,30 +1323,268 @@ class HeiroglyphyVideo(Scene):
             self.wait(0.5)
 
 
+# ══════════════════════════════════════════════════════════════════════════════
+# Short Version Scenes (~3 min)
+# ══════════════════════════════════════════════════════════════════════════════
+
+class S0_Title_Short(Scene):
+    """Title card — trimmed to 5s."""
+    def construct(self):
+        thoth = hiero_text("\U00013043", color=GOLD, scale=2.0)
+        thoth.move_to(UP * 0.8)
+        thoth.set_opacity(0)
+        glow = Dot(point=[0, 0.8, 0], radius=1.5, color=GOLD).set_opacity(0)
+        self.play(glow.animate.set_opacity(0.08), thoth.animate.set_opacity(1), run_time=1.5)
+        main_title = Text("The Geometry of Meaning", color=WHITE, weight=BOLD).scale(0.75)
+        subtitle = Text("Vector Space Alignment and the Ancient Egyptian Worldview", color=MUTED).scale(0.32)
+        title_group = VGroup(main_title, subtitle).arrange(DOWN, buff=0.2).move_to(DOWN * 1.8)
+        self.play(FadeIn(main_title, shift=UP * 0.15), run_time=1)
+        self.play(FadeIn(subtitle), run_time=0.5)
+        self.wait(1)
+        self.play(FadeOut(thoth), FadeOut(glow), FadeOut(main_title), FadeOut(subtitle), run_time=1)
+
+
+class S1_Short(Scene):
+    """Hook — compact. ~15s"""
+    def construct(self):
+        glyphs = hiero_text(GLYPH_STRIP, color=GOLD, scale=1.0)
+        glyphs.move_to(UP * 1.0)
+        self.play(FadeIn(glyphs, shift=UP * 0.2), run_time=2)
+        self.wait(2)
+
+        line1 = body_text(
+            "These symbols are four thousand years old.\n"
+            "Translation compresses their meaning.",
+            color=WHITE
+        ).scale(1.0).next_to(glyphs, DOWN, buff=0.6)
+        self.play(Write(line1), run_time=3)
+        self.wait(2)
+
+        line2 = body_text("What if we could recover it?", color=LAVENDER).scale(1.1)
+        line2.next_to(line1, DOWN, buff=0.5)
+        self.play(FadeIn(line2, shift=UP * 0.1), run_time=1.5)
+        self.wait(2)
+
+
+class S2_Short(Scene):
+    """Embeddings concept — fast. ~15s"""
+    def construct(self):
+        header = title_text("Words live in space", color=WHITE, scale=0.75)
+        header.move_to(UP * 3.0)
+        self.play(FadeIn(header), run_time=1)
+
+        rng = np.random.default_rng(42)
+        cluster1 = VGroup(*[
+            Dot(point=[-1.4 + rng.normal(0, 0.15), 0.9 + rng.normal(0, 0.15), 0],
+                radius=0.06, color=TEAL).set_opacity(0.7)
+            for _ in range(5)
+        ])
+        lbl1 = Text("water, river, flood...", color=TEAL).scale(0.25).move_to(LEFT * 1.4 + DOWN * 0.1)
+
+        cluster2 = VGroup(*[
+            Dot(point=[1.6 + rng.normal(0, 0.15), 0.7 + rng.normal(0, 0.15), 0],
+                radius=0.06, color=TEAL).set_opacity(0.7)
+            for _ in range(5)
+        ])
+        lbl2 = Text("king, throne, crown...", color=TEAL).scale(0.25).move_to(RIGHT * 1.6 + DOWN * 0.1)
+
+        self.play(FadeIn(cluster1), FadeIn(lbl1), FadeIn(cluster2), FadeIn(lbl2), run_time=2)
+        self.wait(2)
+
+        explain = body_text(
+            "Similar meanings cluster together.\n"
+            "This works for every language — including Ancient Egyptian.",
+            color=WHITE
+        ).scale(0.9).move_to(DOWN * 1.5)
+        self.play(Write(explain), run_time=3)
+        self.wait(3)
+
+
+class S3_Short(Scene):
+    """Alignment — just the cloud merge visual. ~15s"""
+    def construct(self):
+        data = load_viz_data()
+        eg_norm = normalize_points(data["egyptian"], target_range=1.8, center=(-3, 0))
+        en_norm = normalize_points(data["english"], target_range=1.8, center=(3, 0))
+
+        eg_cloud = VGroup(*[
+            Dot(point=[nx, ny, 0], radius=0.02, color=GOLD).set_opacity(0.5)
+            for nx, ny, pt in eg_norm
+        ])
+        en_cloud = VGroup(*[
+            Dot(point=[nx, ny, 0], radius=0.02, color=TEAL).set_opacity(0.5)
+            for nx, ny, pt in en_norm
+        ])
+
+        label_eg = Text("Egyptian", color=GOLD).scale(0.35).move_to(LEFT * 3 + UP * 2.5)
+        label_en = Text("English", color=TEAL).scale(0.35).move_to(RIGHT * 3 + UP * 2.5)
+
+        self.play(FadeIn(label_eg), Create(eg_cloud), FadeIn(label_en), Create(en_cloud), run_time=3)
+        self.wait(1)
+
+        explain = body_text("Find the rotation...", color=LAVENDER).scale(1.0).move_to(DOWN * 2.8)
+        self.play(FadeIn(explain), run_time=1)
+        self.play(
+            eg_cloud.animate.shift(RIGHT * 3.2).scale(1.3).rotate(0.25),
+            en_cloud.animate.shift(LEFT * 3.2).rotate(-0.1),
+            run_time=4, rate_func=smooth
+        )
+        self.wait(1)
+
+        result = body_text("...and the words align across 4,000 years.", color=WHITE).scale(0.9)
+        result.move_to(DOWN * 2.8)
+        self.play(FadeOut(explain), FadeIn(result), run_time=1.5)
+        self.wait(2)
+
+
+class SB_Short(Scene):
+    """Just the '1 in 3' stat. ~12s"""
+    def construct(self):
+        big_stat = Text("1 in 3", color=GOLD).scale(1.8)
+        sub = body_text("correct translations — no dictionary needed", color=WHITE).scale(0.85)
+        group = VGroup(big_stat, sub).arrange(DOWN, buff=0.3).move_to(UP * 0.5)
+        self.play(FadeIn(big_stat, scale=0.8), run_time=2)
+        self.wait(1)
+        self.play(FadeIn(sub), run_time=1.5)
+        self.wait(2)
+
+        closing = body_text("Here's what the geometry revealed.", color=LAVENDER).scale(0.9)
+        closing.move_to(DOWN * 1.5)
+        self.play(FadeIn(closing, shift=UP * 0.1), run_time=1.5)
+        self.wait(2)
+
+
+class D1_Gold_Short(Scene):
+    """Gold = Divine — trimmed waits. ~25s"""
+    def construct(self):
+        glyph = hiero_text("\U000131B4\U00013208\U000130C3\U000130F1", color=GOLD, scale=0.4)
+        title = Text("Gold Is Divine Flesh", color=GOLD).scale(0.55)
+        header = VGroup(glyph, title).arrange(RIGHT, buff=0.3).move_to(UP * 3.0)
+        self.play(FadeIn(header), run_time=1)
+
+        dot_gold = Dot(point=[-3, 0.5, 0], radius=0.12, color="#f1c40f").set_opacity(0.9)
+        dot_divine = Dot(point=[3, 0.5, 0], radius=0.12, color=LAVENDER).set_opacity(0.9)
+        lbl_gold = Text("gold", color="#f1c40f").scale(0.4).next_to(dot_gold, DOWN, buff=0.15)
+        lbl_divine = Text("divine", color=LAVENDER).scale(0.4).next_to(dot_divine, DOWN, buff=0.15)
+        self.play(FadeIn(dot_gold, lbl_gold), FadeIn(dot_divine, lbl_divine), run_time=1.5)
+        self.wait(1)
+
+        dot_ntri = Dot(point=[-2, -1.5, 0], radius=0.1, color=GOLD)
+        dot_nbw = Dot(point=[2, -1.5, 0], radius=0.1, color=GOLD)
+        glyph_ntri = hiero_text("\U00013291", color=GOLD, scale=0.5)
+        lbl_ntri_eng = Text("(divine)", color=GOLD).scale(0.28)
+        lbl_ntri = VGroup(glyph_ntri, lbl_ntri_eng).arrange(RIGHT, buff=0.08).next_to(dot_ntri, DOWN, buff=0.15)
+        glyph_nbw = hiero_text("\U00013210", color=GOLD, scale=0.5)
+        lbl_nbw_eng = Text("(gold)", color=GOLD).scale(0.28)
+        lbl_nbw = VGroup(glyph_nbw, lbl_nbw_eng).arrange(RIGHT, buff=0.08).next_to(dot_nbw, DOWN, buff=0.15)
+
+        self.play(FadeIn(dot_ntri, lbl_ntri), FadeIn(dot_nbw, lbl_nbw), run_time=1.5)
+        self.wait(1)
+
+        self.play(
+            dot_ntri.animate.move_to([0, -1.5, 0]),
+            dot_nbw.animate.move_to([0, -1.5, 0]),
+            lbl_ntri.animate.move_to([-1.5, -2.2, 0]),
+            lbl_nbw.animate.move_to([1.5, -2.2, 0]),
+            run_time=2
+        )
+        glow = Dot(point=[0, -1.5, 0], radius=0.3, color=GOLD).set_opacity(0.3)
+        self.play(FadeIn(glow), run_time=0.5)
+        self.wait(2)
+
+        self.play(
+            *[FadeOut(m) for m in [dot_gold, dot_divine, lbl_gold, lbl_divine,
+                                     dot_ntri, dot_nbw, lbl_ntri, lbl_nbw, glow]],
+            run_time=0.5
+        )
+        punchline = body_text("Not metaphor. It's an ontology.", color=WHITE).scale(1.2).move_to(ORIGIN)
+        self.play(FadeIn(punchline, shift=UP * 0.1), run_time=1.5)
+        self.wait(4)
+
+
+class D_Montage(Scene):
+    """Quick-fire punchlines from other discoveries. ~25s"""
+    def construct(self):
+        header = title_text("What else the geometry reveals", color=GOLD, scale=0.6)
+        header.move_to(UP * 3.0)
+        self.play(FadeIn(header), run_time=1)
+
+        insights = [
+            ("\U000131EF", "Silence = Death", "What the dead lost was not life. It was voice."),
+            ("\U00013080", "Seeing = Power", "In Egyptian, the eye IS power. Sight is magic."),
+            ("\U00013196", "Snake = Sacred", "In English, an animal. In Egyptian, the divine."),
+            ("\U00013250", "Temple : House :: God : Man", "Vector arithmetic across 4,000 years."),
+            ("\U000130AD", "Mother = Royalty", "Motherhood is a crown, not the earth."),
+            ("\U00013302", "Truth = Force", "Truth is not correctness. It is force."),
+            ("\U0001339B\U000131F3\U0001339B", "Love + Fear = Eternity", "Between love and fear: forever."),
+        ]
+
+        for glyph_char, title_str, punchline_str in insights:
+            g = hiero_text(glyph_char, color=GOLD, scale=0.6)
+            t = Text(title_str, color=WHITE).scale(0.45)
+            p = body_text(punchline_str, color=LAVENDER).scale(0.8)
+            group = VGroup(
+                VGroup(g, t).arrange(RIGHT, buff=0.2),
+                p
+            ).arrange(DOWN, buff=0.2).move_to(ORIGIN)
+
+            self.play(FadeIn(group, shift=UP * 0.1), run_time=1)
+            self.wait(1.5)
+            self.play(FadeOut(group), run_time=0.5)
+
+        self.wait(1)
+
+
+class S7_Short(Scene):
+    """Short conclusion — glyphs return + contextual re-translation only. ~20s"""
+    def construct(self):
+        glyphs = hiero_text(GLYPH_STRIP, color=GOLD, scale=1.0)
+        glyphs.move_to(UP * 2.0)
+        self.play(FadeIn(glyphs, shift=UP * 0.2), run_time=2)
+        self.wait(1)
+
+        context_header = body_text("A new reading:", color=TEAL).scale(0.9)
+        context_header.next_to(glyphs, DOWN, buff=0.4)
+        contextual = Text(UTT_213["contextual"], color=WHITE, line_spacing=1.3).scale(0.35)
+        contextual.next_to(context_header, DOWN, buff=0.3)
+
+        self.play(FadeIn(context_header), run_time=1)
+        self.play(Write(contextual), run_time=4)
+        self.wait(5)
+
+
+class S8_Outro_Short(Scene):
+    """Short outro — 10s."""
+    def construct(self):
+        final = body_text("Translation gave us the words.", color=WHITE).scale(1.3).move_to(UP * 0.5)
+        final2 = body_text("The vectors gave us the world between them.", color=LAVENDER).scale(1.2).move_to(DOWN * 0.8)
+        self.play(Write(final), run_time=2)
+        self.wait(1)
+        self.play(FadeIn(final2, shift=UP * 0.1), run_time=2)
+        self.wait(2)
+        self.play(FadeOut(final), FadeOut(final2), run_time=0.5)
+        repo = body_text("github.com/ebrinz/heiroglyphy", color=GOLD).scale(1.1)
+        self.play(FadeIn(repo, shift=UP * 0.1), run_time=1)
+        self.wait(2)
+
+
 class HeiroglyphyVideo3Min(Scene):
     """
-    3-minute cut for encore.pillar.vc application (~2:53).
+    3-minute cut for encore.pillar.vc application.
     Run: manim -pqh heiroglyphy_video.py HeiroglyphyVideo3Min
-
-    Uses compressed wait times (0.45x) to fit under 3 minutes.
     """
-    def wait(self, duration=1.0, **kwargs):
-        """Override wait to compress pauses for the short cut."""
-        super().wait(duration * 0.45, **kwargs)
-
     def construct(self):
         for SceneClass in [
-            S0_Title,
-            S1_Hook,
-            S2_Idea,
-            S3_Alignment,
-            S_Bridge,
-            D1_Gold,
-            D2_Silence,
-            D5_Temple,
-            S7_Conclusion,
-            S8_Outro,
+            S0_Title_Short,
+            S1_Short,
+            S2_Short,
+            S3_Short,
+            SB_Short,
+            D1_Gold_Short,
+            D_Montage,
+            S7_Short,
+            S8_Outro_Short,
         ]:
             SceneClass.construct(self)
             self.clear()
-            super().wait(0.3)
+            self.wait(0.3)
