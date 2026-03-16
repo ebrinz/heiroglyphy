@@ -1,6 +1,29 @@
-# How the Video is Made
+# Generation Pipelines
 
-The Heiroglyphy explainer video is built in four stages: data projection, Manim rendering, audio synthesis, and final merge.
+The project includes pipelines for generating a video explainer, audio narration, and PDF publications. Each has its own dependencies beyond the core research requirements.
+
+## System Dependencies
+
+These must be installed before running any generation pipeline:
+
+| Tool | Purpose | Install |
+|------|---------|---------|
+| **ffmpeg** / **ffprobe** | Audio/video merging | `brew install ffmpeg` (macOS) or [ffmpeg.org](https://ffmpeg.org/download.html) |
+| **XeLaTeX** | PDF compilation with Unicode/custom fonts | `brew install --cask mactex` (macOS) or install [TeX Live](https://tug.org/texlive/) |
+| **Manim** (Community Edition) | 3Blue1Brown-style video rendering | `pip install manim` ([docs](https://docs.manim.community/)) |
+
+## Python Dependencies
+
+Install all generation dependencies on top of core requirements:
+
+```bash
+pip install -r requirements.txt
+pip install manim manimpango openai
+```
+
+> **Note:** `openai` is only needed for TTS voice generation and requires an `OPENAI_API_KEY` environment variable.
+
+---
 
 ## Pipeline Overview
 
@@ -15,6 +38,8 @@ audio/mix_audio.py            # 3c. Duck, normalize, merge with video
         ↓
 HeiroglyphyVideo_final.mp4   # 4. Final output
 ```
+
+---
 
 ## Stage 1: Visualization Data
 
@@ -89,30 +114,87 @@ Output: `audio/drone/drone_full.wav`
 
 Output: `HeiroglyphyVideo_final.mp4`
 
+---
+
+## 📄 PDF / LaTeX
+
+Two LaTeX documents live in `paper/`:
+
+| Document | Source | Output |
+|----------|--------|--------|
+| Main paper | `heiroglyphy.tex` | `heiroglyphy.pdf` |
+| Supplementary appendix | `appendix_insights.tex` | `appendix_insights.pdf` |
+
+Both use the **EgyptianHiero.ttf** font from `final_output/` for hieroglyphic rendering and require **XeLaTeX** (not pdflatex) for Unicode support.
+
+**Compile:**
+
+```bash
+cd docs/paper
+
+# Main paper (run twice for references/TOC)
+xelatex heiroglyphy.tex
+xelatex heiroglyphy.tex
+
+# Supplementary appendix
+xelatex appendix_insights.tex
+xelatex appendix_insights.tex
+```
+
+**Required LaTeX packages:** `fontspec`, `amsmath`, `amssymb`, `graphicx`, `booktabs`, `hyperref`, `geometry`, `natbib`, `xcolor`, `enumitem`, `float`, `multicol`, `titlesec`, `fancyhdr`, `framed`. These ship with a standard TeX Live or MacTeX installation.
+
+---
+
 ## Timing Configuration
 
 `audio/audio_timing.json` is the single source of truth for narration timing, scene boundaries, and audio cues. A separate `audio/audio_timing_3min.json` drives the condensed version.
 
-## Full Regeneration
+## 🔄 Full Regeneration
+
+To regenerate everything from scratch:
 
 ```bash
-# 1. Visualization data
+# 1. Visualization data (requires final_output/ vectors)
 python docs/generate_viz_data.py
 
-# 2. Render video
-cd docs && manim -pqh heiroglyphy_video.py HeiroglyphyVideo
+# 2. Video (requires Manim)
+cd docs && manim -pqh heiroglyphy_video.py HeiroglyphyVideo && cd ..
 
-# 3. Audio pipeline
-export OPENAI_API_KEY="sk-..."
-python audio/generate_voice.py
-python audio/generate_drone.py
-python audio/mix_audio.py
+# 3. Audio (requires OpenAI key + ffmpeg)
+cd docs/audio
+export OPENAI_API_KEY="your-key-here"
+python generate_voice.py
+python generate_drone.py
+python mix_audio.py
+cd ../..
 
-# 4. PDFs (optional)
-cd paper && xelatex heiroglyphy.tex && xelatex heiroglyphy.tex
+# 4. PDFs (requires XeLaTeX)
+cd docs/paper
+xelatex heiroglyphy.tex && xelatex heiroglyphy.tex
+xelatex appendix_insights.tex && xelatex appendix_insights.tex
+cd ../..
 ```
 
-## Dependencies
+## Output Directory Structure
+
+```
+docs/
+├── media/
+│   ├── videos/heiroglyphy_video/1080p60/
+│   │   └── HeiroglyphyVideo.mp4        # Raw video (no audio)
+│   └── HeiroglyphyVideo_final.mp4      # Final video with audio
+├── audio/
+│   ├── voice/                           # Cached TTS segments
+│   ├── drone/
+│   │   └── drone_full.wav              # Synthesized drone track
+│   ├── voice_full.wav                   # Assembled voice track
+│   └── mixed_audio.wav                  # Final mixed audio
+└── paper/
+    ├── heiroglyphy.pdf                  # Main paper
+    └── appendix_insights.pdf            # Supplementary appendix
+```
+
+## Dependencies Summary
 
 - **Python:** numpy, scipy, manim, manimpango, openai, gensim, scikit-learn
 - **System:** ffmpeg, ffprobe, XeLaTeX (for PDFs)
