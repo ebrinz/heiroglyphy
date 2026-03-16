@@ -639,7 +639,7 @@ class D1_Gold(Scene):
         # Punchline
         punchline = body_text("Not metaphor. It's an ontology.", color=WHITE).scale(1.2).move_to(DOWN * 2.8)
         self.play(FadeIn(punchline, shift=UP * 0.1), run_time=2)
-        self.wait(9)
+        self.wait(12)
 
 
 class D2_Silence(Scene):
@@ -1211,14 +1211,14 @@ class S6_Discussion(Scene):
 
         prev = None
         for title_str, detail_str in caveats:
-            t = Text(title_str, color=GOLD).scale(0.45)
-            d = Text(detail_str, color=MUTED).scale(0.3)
-            group = VGroup(t, d).arrange(DOWN, aligned_edge=LEFT, buff=0.1)
+            t = Text(title_str, color=GOLD).scale(0.55)
+            d = Text(detail_str, color=MUTED).scale(0.38)
+            group = VGroup(t, d).arrange(DOWN, buff=0.15)
 
             if prev is None:
-                group.move_to(UP * 1.8 + LEFT * 1)
+                group.move_to(UP * 1.5)
             else:
-                group.next_to(prev, DOWN, buff=0.4, aligned_edge=LEFT)
+                group.next_to(prev, DOWN, buff=0.5)
 
             self.play(FadeIn(group), run_time=2)
             self.wait(8)
