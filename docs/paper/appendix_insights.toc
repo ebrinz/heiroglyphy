@@ -1,11 +1,12 @@
-\contentsline {section}{\numberline {1}The Elements: Water, Sky, and the Shape of the World}{3}{section.1}%
-\contentsline {section}{\numberline {2}The Divine: Gods, Gold, and the Sacred}{5}{section.2}%
-\contentsline {section}{\numberline {3}The Human: Body, Death, and Family}{7}{section.3}%
-\contentsline {section}{\numberline {4}The Conceptual Bridges: Where Domains Meet}{9}{section.4}%
-\contentsline {section}{\numberline {5}The Analogies: Vector Arithmetic Across 4,000 Years}{9}{section.5}%
-\contentsline {section}{\numberline {6}The Failures: What the Vectors Got Wrong (and Why)}{11}{section.6}%
-\contentsline {section}{\numberline {7}The Methodological Curiosities}{12}{section.7}%
-\contentsline {section}{\numberline {8}The Offering Economy: Agriculture, Provisioning, and the Sacred}{13}{section.8}%
-\contentsline {section}{\numberline {9}Royalty and Power: The King as Cosmic Principle}{14}{section.9}%
-\contentsline {section}{\numberline {10}The Survivors: Egyptian Words Still in Use Today}{14}{section.10}%
-\contentsline {section}{\numberline {11}The Core Insight, Revisited}{15}{section.11}%
+\contentsline {section}{\numberline {1}The Elements: Water, Sky, and the Shape of the World \hfill {\normalfont \hierofont 𓈗𓇯}}{3}{section.1}%
+\contentsline {section}{\numberline {2}The Divine: Gods, Gold, and the Sacred \hfill {\normalfont \hierofont 𓊹𓋞}}{6}{section.2}%
+\contentsline {section}{\numberline {3}The Human: Body, Death, and Family \hfill {\normalfont \hierofont 𓀀𓅓𓏏}}{8}{section.3}%
+\contentsline {section}{\numberline {4}The Conceptual Bridges: Where Domains Meet \hfill {\normalfont \hierofont 𓋹}}{10}{section.4}%
+\contentsline {section}{\numberline {5}The Analogies: Vector Arithmetic Across 4,000 Years \hfill {\normalfont \hierofont 𓂀}}{11}{section.5}%
+\contentsline {section}{\numberline {6}The Failures: What the Vectors Got Wrong (and Why) \hfill {\normalfont \hierofont 𓇳}}{13}{section.6}%
+\contentsline {section}{\numberline {7}The Methodological Curiosities \hfill {\normalfont \hierofont 𓏛}}{14}{section.7}%
+\contentsline {section}{\numberline {8}The Offering Economy: Agriculture, Provisioning, and the Sacred \hfill {\normalfont \hierofont 𓏏𓏁}}{15}{section.8}%
+\contentsline {section}{\numberline {9}Royalty and Power: The King as Cosmic Principle \hfill {\normalfont \hierofont 𓇓𓆤}}{16}{section.9}%
+\contentsline {section}{\numberline {10}The Survivors: Egyptian Words Still in Use Today \hfill {\normalfont \hierofont 𓆋𓉐𓋹}}{17}{section.10}%
+\contentsline {section}{\numberline {11}Hieroglyphic Literary Texts: Bridge Words in New Context \hfill {\normalfont \hierofont 𓂋𓏏𓈒𓏏𓂀}}{19}{section.11}%
+\contentsline {section}{\numberline {12}The Core Insight, Revisited \hfill {\normalfont \hierofont 𓂀𓊹𓈗}}{24}{section.12}%

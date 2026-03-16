@@ -29,6 +29,21 @@
 ]
 \newcommand{\hiero}[1]{{\normalfont\hierofont #1}}
 
+% ── Large hieroglyph display ─────────────────────────────────────────────────
+\newcommand{\bighiero}[1]{{\normalfont\hierofont\fontsize{48}{56}\selectfont #1}}
+\newcommand{\displayglyph}[1]{%
+  \begin{center}
+  \bighiero{#1}
+  \end{center}
+  \vspace{-6pt}
+}
+
+% ── Method tags ──────────────────────────────────────────────────────────────
+\definecolor{tagbg}{HTML}{E8E0D0}
+\newcommand{\methodtag}[1]{%
+  \noindent\colorbox{tagbg}{\small\sffamily\color{nightsky}\,#1\,}\par\smallskip%
+}
+
 % ── Colors ────────────────────────────────────────────────────────────────────
 \definecolor{papyrus}{HTML}{F5E6C8}
 \definecolor{lapis}{HTML}{1F3B73}
@@ -92,8 +107,8 @@
     {\color{gold}\rule{\textwidth}{2pt}}\\[12pt]
     {\Huge\bfseries\color{lapis} Lexicon of Insights}\\[6pt]
     {\Large\color{terracotta} A Supplementary Appendix to}\\[2pt]
-    {\large\color{lapis}\textit{Heiroglyphy: Recovering the Conceptual Geometry\\
-    of Ancient Egyptian Through Vector Space Alignment}}\\[8pt]
+    {\large\color{lapis}\textit{The Geometry of Meaning: What Vector Space Alignment Reveals\\
+    About How Ancient Egyptians Thought}}\\[8pt]
     {\color{gold}\rule{\textwidth}{2pt}}
 }
 
@@ -115,20 +130,37 @@
 \vspace{-6pt}
 
 \noindent
-This appendix expands on the discoveries presented in the main paper. Where the paper tells the story of the method, this document tells the story of the \emph{words}---the ancient Egyptian terms that, when projected through our vector space alignment, revealed something unexpected about the civilization that spoke them. Each entry includes the term's linguistic anatomy, its historical context, and what the embedding space revealed about its place in the Egyptian conceptual landscape.
+This appendix expands on the discoveries presented in the main paper. Where the paper tells the story of the method, this document tells the story of the \emph{words}---the ancient Egyptian terms that, when projected through our vector space alignment, revealed something unexpected about the civilization that spoke them. Each entry includes the term's linguistic anatomy, its historical context, and what the embedding space revealed about its place in the Egyptian conceptual landscape. Large-scale hieroglyphs accompany each entry, rendering the original signs at a size that reveals their pictographic origins.
 
 \noindent
-Terms are organized thematically and ranked by alignment confidence or bridge score. Read it cover to cover for a tour of the Egyptian worldview, or browse by domain.
+Terms are organized thematically and ranked by alignment confidence or bridge score. Read it cover to cover for a tour of the Egyptian worldview, or browse by domain. Each entry is tagged with the analytical method that produced the insight:
+
+\smallskip
+\begin{center}
+\begin{tabular}{ll}
+\colorbox{tagbg}{\small\sffamily\color{nightsky}\,Alignment Prediction\,} & Direct cross-lingual vector mapping (\textit{mw} $\rightarrow$ ``water'') \\[3pt]
+\colorbox{tagbg}{\small\sffamily\color{nightsky}\,Cluster Rank\,} & Position within a semantic cluster \\[3pt]
+\colorbox{tagbg}{\small\sffamily\color{nightsky}\,Bridge Score\,} & Equidistance between two semantic domains \\[3pt]
+\colorbox{tagbg}{\small\sffamily\color{nightsky}\,Midpoint Analogy\,} & Averaging two English vectors, projecting into Egyptian space \\[3pt]
+\colorbox{tagbg}{\small\sffamily\color{nightsky}\,Vector Arithmetic\,} & Proportional analogy ($a:b :: c:d$) across languages \\[3pt]
+\colorbox{tagbg}{\small\sffamily\color{nightsky}\,Alignment Failure\,} & Failed predictions revealing methodological lessons \\
+\end{tabular}
+\end{center}
+\smallskip
 
 \tableofcontents
 \newpage
 
 % ══════════════════════════════════════════════════════════════════════════════
-\section{The Elements: Water, Sky, and the Shape of the World}
+\section{The Elements: Water, Sky, and the Shape of the World \hfill \hiero{𓈗𓇯}}
 % ══════════════════════════════════════════════════════════════════════════════
 
 % ── mw ────────────────────────────────────────────────────────────────────────
 \begin{insightbox}[\textit{mw} --- Water \hfill Confidence: 15.71]
+
+\displayglyph{𓈗}
+
+\methodtag{Alignment Prediction}
 
 \textbf{Transliteration:} \textit{mw} \quad
 \textbf{Classification:} Noun, masculine \quad
@@ -141,7 +173,7 @@ Terms are organized thematically and ranked by alignment confidence or bridge sc
 \textbf{Why it matters:} Water is the most universal physical concept humans have. Every language, every era, every culture has a word for it, and that word clusters near the same neighbors: river, flood, fish, drink. The distributional fingerprint of ``water'' is essentially identical across 4,000 years. This was the first proof that the alignment was capturing real semantic structure, not statistical noise.
 
 \medskip
-\textbf{Linguistic note:} The hieroglyph for water---three wavy lines (N35)---is one of the most recognizable signs in the Egyptian writing system. It appears as a phonetic complement, a determinative, and an ideogram. The word \textit{mw} itself is the root for dozens of compound terms: \textit{mw-n-ḥtp} (libation water), \textit{mw-qb} (cool water, used in offering formulae). The V15 model captured this morphological family, clustering every \textit{-mw} compound near the English water/river domain.
+\textbf{Linguistic note:} The hieroglyph for water---three wavy lines (N35, shown above)---is one of the most recognizable signs in the Egyptian writing system. It appears as a phonetic complement, a determinative, and an ideogram. The word \textit{mw} itself is the root for dozens of compound terms: \textit{mw-n-ḥtp} (libation water), \textit{mw-qb} (cool water, used in offering formulae). The V15 model captured this morphological family, clustering every \textit{-mw} compound near the English water/river domain.
 
 \medskip
 \textbf{Historical context:} For Egyptians, water was not an ``element'' in the Greek sense (one of four). Water was the primordial substance. The creation myth of Hermopolis held that the universe began as \textit{Nwn}---the infinite, dark, motionless waters of pre-creation. The Nile's annual flood was not weather. It was cosmogony repeating itself every year. When the model places \textit{mw} with perfect confidence, it reflects a concept so fundamental to Egyptian thought that its distributional signature survived translation, digitization, and 4,000 years of linguistic drift.
@@ -149,6 +181,10 @@ Terms are organized thematically and ranked by alignment confidence or bridge sc
 
 % ── rm.w ──────────────────────────────────────────────────────────────────────
 \begin{insightbox}[\textit{rm.w} --- Fish \hfill Bridge Score: 0.581]
+
+\displayglyph{𓆛}
+
+\methodtag{Cluster Rank · Bridge Score}
 
 \textbf{Transliteration:} \textit{rm.w} (singular), \textit{rm.w.pl} (plural) \quad
 \textbf{Classification:} Noun, masculine
@@ -169,6 +205,10 @@ Terms are organized thematically and ranked by alignment confidence or bridge sc
 % ── msḥ.w ─────────────────────────────────────────────────────────────────────
 \begin{insightbox}[\textit{msḥ.w} --- Crocodile \hfill Cluster: water]
 
+\displayglyph{𓆋}
+
+\methodtag{Cluster Rank}
+
 \textbf{Transliteration:} \textit{msḥ.w} \quad
 \textbf{Classification:} Noun, masculine \quad
 \textbf{Gardiner:} I3 (crocodile)
@@ -186,6 +226,10 @@ Terms are organized thematically and ranked by alignment confidence or bridge sc
 % ── mẖn,t ─────────────────────────────────────────────────────────────────────
 \begin{insightbox}[\textit{mẖn,t} --- Ferry \hfill Bridge Score: 0.572]
 
+\displayglyph{𓊛}
+
+\methodtag{Bridge Score}
+
 \textbf{Transliteration:} \textit{mẖn,t} \quad
 \textbf{Classification:} Noun, feminine
 
@@ -202,6 +246,10 @@ Terms are organized thematically and ranked by alignment confidence or bridge sc
 % ── jmn,t ─────────────────────────────────────────────────────────────────────
 \begin{insightbox}[\textit{jmn,t} --- The West \hfill Cluster: water]
 
+\displayglyph{𓇋𓏠𓈖𓏏}
+
+\methodtag{Cluster Rank}
+
 \textbf{Transliteration:} \textit{jmn,t} \quad
 \textbf{Classification:} Noun, feminine
 
@@ -217,6 +265,10 @@ Terms are organized thematically and ranked by alignment confidence or bridge sc
 
 % ── dwꜣ,w ─────────────────────────────────────────────────────────────────────
 \begin{insightbox}[\textit{dwꜣ,w} --- Tomorrow / Morning \hfill Cluster: celestial (\#1)]
+
+\displayglyph{𓇼}
+
+\methodtag{Cluster Rank}
 
 \textbf{Transliteration:} \textit{dwꜣ,w} \quad
 \textbf{Classification:} Noun / temporal adverb
@@ -236,11 +288,15 @@ Terms are organized thematically and ranked by alignment confidence or bridge sc
 
 
 % ══════════════════════════════════════════════════════════════════════════════
-\section{The Divine: Gods, Gold, and the Sacred}
+\section{The Divine: Gods, Gold, and the Sacred \hfill \hiero{𓊹𓋞}}
 % ══════════════════════════════════════════════════════════════════════════════
 
 % ── nṯr ───────────────────────────────────────────────────────────────────────
 \begin{insightbox}[\textit{nṯr} --- God / Divine \hfill Cluster: religion (\#1)]
+
+\displayglyph{𓊹}
+
+\methodtag{Cluster Rank}
 
 \textbf{Transliteration:} \textit{nṯr} (singular), \textit{nṯr.w} (plural) \quad
 \textbf{Classification:} Noun / adjective, masculine \quad
@@ -253,7 +309,7 @@ Terms are organized thematically and ranked by alignment confidence or bridge sc
 \textbf{Why it matters:} The model found \textbf{no boundary between magic and religion}. The magic/ritual cluster's top 10 words are all \textit{nṯr} variants. \textit{Ḥkꜣ} (heka/magic) barely appears at \#10. This confirms structurally what Egyptologists argue interpretively: \textit{heka} was not witchcraft separate from theology. It was the mechanism by which the gods acted in the world.
 
 \medskip
-\textbf{Linguistic note:} The hieroglyph for \textit{nṯr}---a flag on a pole (R8)---likely depicts the pennants that stood at temple entrances. The etymology is unknown. Some scholars connect it to the Afro-Asiatic root *\textit{nṭr} (``to guard/protect''), making ``god'' = ``guardian.'' The Coptic descendant \textit{noute} survives in modern Coptic liturgy as the standard word for God.
+\textbf{Linguistic note:} The hieroglyph for \textit{nṯr}---a flag on a pole (R8, displayed above at full scale)---likely depicts the pennants that stood at temple entrances. The etymology is unknown. Some scholars connect it to the Afro-Asiatic root *\textit{nṭr} (``to guard/protect''), making ``god'' = ``guardian.'' The Coptic descendant \textit{noute} survives in modern Coptic liturgy as the standard word for God.
 
 \medskip
 \textbf{Historical context:} Unlike the Abrahamic tradition, Egyptian divinity was not a binary category (divine vs. mortal). The pharaoh was \textit{nṯr-nfr} (``the good/young god'') while alive and \textit{nṯr-ꜥꜣ} (``the great god'') when dead. The boundary between human and divine was permeable, contextual, and political. The vectors reflect this: \textit{nṯr} sits close to \textit{nswt} (king) in the embedding space, not because the model confused them but because the texts do not consistently separate them.
@@ -261,6 +317,10 @@ Terms are organized thematically and ranked by alignment confidence or bridge sc
 
 % ── nbw ───────────────────────────────────────────────────────────────────────
 \begin{insightbox}[\textit{nbw} --- Gold \hfill Vector analogy: gold $\approx$ divine]
+
+\displayglyph{𓋞}
+
+\methodtag{Midpoint Analogy}
 
 \textbf{Transliteration:} \textit{nbw} \quad
 \textbf{Classification:} Noun, masculine \quad
@@ -282,6 +342,10 @@ Terms are organized thematically and ranked by alignment confidence or bridge sc
 % ── ḥkꜣ ───────────────────────────────────────────────────────────────────────
 \begin{insightbox}[\textit{ḥkꜣ} --- Heka / Magic \hfill Vector analogy: eye + knowledge = magic]
 
+\displayglyph{𓂀𓎛𓂓}
+
+\methodtag{Midpoint Analogy}
+
 \textbf{Transliteration:} \textit{ḥkꜣ} \quad
 \textbf{Classification:} Noun, masculine
 
@@ -289,7 +353,7 @@ Terms are organized thematically and ranked by alignment confidence or bridge sc
 \textbf{What the vectors found:} The midpoint of ``eye'' and ``knowledge'' in English, projected into Egyptian space, finds \textit{ḥkꜣ} as the third-nearest word. Seeing was magic.
 
 \medskip
-\textbf{Why it matters:} The Eye of Horus (\textit{wḏꜣ,t}) was simultaneously an organ of perception, a protective amulet, and a unit of mathematical measurement (each part of the eye represented a fraction: 1/2, 1/4, 1/8...). Seeing, in the Egyptian worldview, was not passive reception of light. It was an active, potent act---closer to what we would call divination than observation. The vectors capture this without being told.
+\textbf{Why it matters:} The Eye of Horus (\textit{wḏꜣ,t})---shown above as \hiero{𓂀}---was simultaneously an organ of perception, a protective amulet, and a unit of mathematical measurement (each part of the eye represented a fraction: 1/2, 1/4, 1/8...). Seeing, in the Egyptian worldview, was not passive reception of light. It was an active, potent act---closer to what we would call divination than observation. The vectors capture this without being told.
 
 \medskip
 \textbf{Linguistic note:} \textit{Ḥkꜣ} was also personified as a god---one of the oldest in the Egyptian pantheon, predating the organized theology of the major cults. In the Coffin Texts, Heka declares: ``I am he whom the Sole Lord made before two things had yet come into being.'' Magic was not a tool of the gods. It preceded them. It was the force that made creation possible.
@@ -300,6 +364,10 @@ Terms are organized thematically and ranked by alignment confidence or bridge sc
 
 % ── nṯr-dwꜣ(,wj) ─────────────────────────────────────────────────────────────
 \begin{insightbox}[\textit{nṯr-dwꜣ,w} --- Morning God \hfill Bridge Score: 0.73 $\leftrightarrow$ 0.63]
+
+\displayglyph{𓊹𓇼}
+
+\methodtag{Bridge Score}
 
 \textbf{Transliteration:} \textit{nṯr-dwꜣ(,wj)} \quad
 \textbf{Classification:} Compound noun / epithet
@@ -316,11 +384,15 @@ Terms are organized thematically and ranked by alignment confidence or bridge sc
 
 
 % ══════════════════════════════════════════════════════════════════════════════
-\section{The Human: Body, Death, and Family}
+\section{The Human: Body, Death, and Family \hfill \hiero{𓀀𓅓𓏏}}
 % ══════════════════════════════════════════════════════════════════════════════
 
 % ── m(w)t ─────────────────────────────────────────────────────────────────────
 \begin{insightbox}[\textit{m(w)t} --- Death / To Die \hfill Vector analogy: silence = death]
+
+\displayglyph{𓅓𓅱𓏏}
+
+\methodtag{Midpoint Analogy}
 
 \textbf{Transliteration:} \textit{m(w)t} (verb), \textit{m(w)t.t} (noun/participle) \quad
 \textbf{Classification:} Verb / noun
@@ -341,6 +413,10 @@ Terms are organized thematically and ranked by alignment confidence or bridge sc
 % ── ḥm,t-nswt ────────────────────────────────────────────────────────────────
 \begin{insightbox}[\textit{ḥm,t-nswt} --- Royal Consort / King's Wife \hfill Bridge Score: 0.63 $\leftrightarrow$ 0.61]
 
+\displayglyph{𓎛𓅓𓏏𓁐}
+
+\methodtag{Bridge Score · Midpoint Analogy}
+
 \textbf{Transliteration:} \textit{ḥm,t-nswt} \quad
 \textbf{Classification:} Compound title, feminine
 
@@ -360,6 +436,10 @@ Terms are organized thematically and ranked by alignment confidence or bridge sc
 % ── ḥr,t ──────────────────────────────────────────────────────────────────────
 \begin{insightbox}[\textit{ḥr,t} --- Sky / Upper Part \hfill Bridge Score: 0.646]
 
+\displayglyph{𓇯}
+
+\methodtag{Bridge Score}
+
 \textbf{Transliteration:} \textit{ḥr,t} \quad
 \textbf{Classification:} Noun, feminine
 
@@ -370,11 +450,15 @@ Terms are organized thematically and ranked by alignment confidence or bridge sc
 \textbf{Why it matters:} \textit{Ḥr,t} (``sky, upper region'') is etymologically related to \textit{ḥr} (``face, upon''). The same root that gives you ``face'' gives you ``sky.'' The vectors found this connection through distributional statistics: both words appear in contexts describing what is above, what looks down, what is the visible surface. The sky has a face. The face is the sky of the body.
 
 \medskip
-\textbf{Linguistic note:} The name \textit{Ḥr,w} (Horus) shares this root---``the one who is above'' or ``the distant one.'' Horus is the sky-face, the falcon soaring overhead. This is why Horus and Gold-Horus (\textit{ḥrw-nbw}) appear in the celestial cluster rather than the deity cluster in V15. The vectors followed the etymology that the translations obscure.
+\textbf{Linguistic note:} The name \textit{Ḥr,w} (Horus) shares this root---``the one who is above'' or ``the distant one.'' Horus is the sky-face, the falcon \hiero{𓅃} soaring overhead. This is why Horus and Gold-Horus (\textit{ḥrw-nbw}) appear in the celestial cluster rather than the deity cluster in V15. The vectors followed the etymology that the translations obscure.
 \end{insightbox}
 
 % ── sbjw ──────────────────────────────────────────────────────────────────────
 \begin{insightbox}[\textit{sbjw} --- Rebel / Enemy \hfill Bridge Score: 0.653]
+
+\displayglyph{𓋴𓃀𓇋𓅱}
+
+\methodtag{Bridge Score · Cluster Rank}
 
 \textbf{Transliteration:} \textit{sbjw}, \textit{sbjw\{.pl\}} \quad
 \textbf{Classification:} Noun, masculine
@@ -391,7 +475,7 @@ Terms are organized thematically and ranked by alignment confidence or bridge sc
 
 
 % ══════════════════════════════════════════════════════════════════════════════
-\section{The Conceptual Bridges: Where Domains Meet}
+\section{The Conceptual Bridges: Where Domains Meet \hfill \hiero{𓋹}}
 % ══════════════════════════════════════════════════════════════════════════════
 
 \noindent
@@ -401,20 +485,20 @@ Bridge words sit equidistant between two semantic clusters, revealing where Egyp
 
 \begin{bridgebox}[Top Bridge Words by Score]
 \begin{center}
-\begin{tabular}{llccl}
+\begin{tabular}{lclccl}
 \toprule
-\textbf{Word} & \textbf{Meaning} & \textbf{Domain A} & \textbf{Domain B} & \textbf{Score} \\
+\textbf{Glyph} & \textbf{Word} & \textbf{Meaning} & \textbf{Domain A} & \textbf{Domain B} & \textbf{Score} \\
 \midrule
-\textit{zꜣ,t.du}    & daughters     & family (0.70)   & body (0.66)       & 0.662 \\
-\textit{sbjw}        & rebel/enemy   & warfare (0.65)  & body (0.68)       & 0.653 \\
-\textit{[zꜣ,t-nzw]} & king's daughter & family (0.69) & body (0.65)       & 0.652 \\
-\textit{[ḥr,t]}      & sky           & celestial (0.65) & body (0.65)      & 0.646 \\
-\textit{ḥm,t-nzw}   & royal wife    & family (0.66)   & body (0.64)       & 0.642 \\
-\textit{smꜣm.n}     & killed        & warfare (0.63)  & body (0.65)       & 0.634 \\
-\textit{ḥḏ-tꜣ}      & dawn          & celestial (0.65) & body (0.63)      & 0.626 \\
-\textit{nṯr.j}      & divine        & religion (0.73) & magic (0.58)      & 0.580 \\
-\textit{rm.w.pl}     & fish (pl.)    & water (0.58)    & body (0.59)       & 0.581 \\
-\textit{ḏdꜣ}         & meat          & agriculture (0.59) & body (0.58)    & 0.578 \\
+\hiero{𓊃𓂝𓏏} & \textit{zꜣ,t.du}    & daughters     & family (0.70)   & body (0.66)       & 0.662 \\
+\hiero{𓋴𓃀𓇋𓅱} & \textit{sbjw}        & rebel/enemy   & warfare (0.65)  & body (0.68)       & 0.653 \\
+\hiero{𓊃𓂝𓏏} & \textit{[zꜣ,t-nzw]} & king's daughter & family (0.69) & body (0.65)       & 0.652 \\
+\hiero{𓇯} & \textit{[ḥr,t]}      & sky           & celestial (0.65) & body (0.65)      & 0.646 \\
+\hiero{𓎛𓅓𓏏} & \textit{ḥm,t-nzw}   & royal wife    & family (0.66)   & body (0.64)       & 0.642 \\
+\hiero{𓋴𓅓𓂝𓅓} & \textit{smꜣm.n}     & killed        & warfare (0.63)  & body (0.65)       & 0.634 \\
+\hiero{𓇯𓇳} & \textit{ḥḏ-tꜣ}      & dawn          & celestial (0.65) & body (0.63)      & 0.626 \\
+\hiero{𓊹} & \textit{nṯr.j}      & divine        & religion (0.73) & magic (0.58)      & 0.580 \\
+\hiero{𓆛} & \textit{rm.w.pl}     & fish (pl.)    & water (0.58)    & body (0.59)       & 0.581 \\
+\hiero{𓂧𓂧𓂝} & \textit{ḏdꜣ}         & meat          & agriculture (0.59) & body (0.58)    & 0.578 \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -425,7 +509,7 @@ Bridge words sit equidistant between two semantic clusters, revealing where Egyp
 
 
 % ══════════════════════════════════════════════════════════════════════════════
-\section{The Analogies: Vector Arithmetic Across 4,000 Years}
+\section{The Analogies: Vector Arithmetic Across 4,000 Years \hfill \hiero{𓂀}}
 % ══════════════════════════════════════════════════════════════════════════════
 
 \noindent
@@ -435,6 +519,12 @@ If the alignment preserves geometric structure, then \emph{vector arithmetic} sh
 
 % ── Temple analogy ────────────────────────────────────────────────────────────
 \begin{insightbox}[house : temple :: man : god]
+
+\methodtag{Vector Arithmetic}
+
+\begin{center}
+\bighiero{𓉐} \quad $\rightarrow$ \quad \bighiero{𓊹𓉐} \quad :: \quad \bighiero{𓀀} \quad $\rightarrow$ \quad \bighiero{𓊹}
+\end{center}
 
 \textbf{The test:} Compute the English analogy ``house is to temple as man is to X,'' then project the result into Egyptian space.
 
@@ -448,6 +538,10 @@ If the alignment preserves geometric structure, then \emph{vector arithmetic} sh
 % ── Love + Fear ───────────────────────────────────────────────────────────────
 \begin{insightbox}[love + fear = eternity]
 
+\methodtag{Midpoint Analogy}
+
+\displayglyph{𓇳𓏏𓊹𓋹}
+
 \textbf{The test:} Compute the midpoint of ``love'' and ``fear'' in English, project into Egyptian space.
 
 \textbf{The result:} \textit{r-(n)ḥḥ} (``eternal/forever'') appears as the second-nearest word.
@@ -459,6 +553,10 @@ If the alignment preserves geometric structure, then \emph{vector arithmetic} sh
 
 % ── Truth + Power ─────────────────────────────────────────────────────────────
 \begin{insightbox}[truth + power = authority (against enemies)]
+
+\methodtag{Midpoint Analogy}
+
+\displayglyph{𓌂}
 
 \textbf{The test:} Compute the midpoint of ``truth'' and ``power,'' project into Egyptian space.
 
@@ -472,6 +570,12 @@ If the alignment preserves geometric structure, then \emph{vector arithmetic} sh
 % ── Snake + Wisdom ────────────────────────────────────────────────────────────
 \begin{insightbox}[snake + wisdom = divinity (not knowledge)]
 
+\methodtag{Midpoint Analogy}
+
+\begin{center}
+\bighiero{𓆙} \quad + \quad wisdom \quad = \quad \bighiero{𓊹}
+\end{center}
+
 \textbf{The test:} Compute the midpoint of ``snake'' and ``wisdom,'' project into Egyptian space.
 
 \textbf{The result:} Gods and divinity---not wisdom, not cunning, not knowledge.
@@ -483,7 +587,7 @@ If the alignment preserves geometric structure, then \emph{vector arithmetic} sh
 
 
 % ══════════════════════════════════════════════════════════════════════════════
-\section{The Failures: What the Vectors Got Wrong (and Why)}
+\section{The Failures: What the Vectors Got Wrong (and Why) \hfill \hiero{𓇳}}
 % ══════════════════════════════════════════════════════════════════════════════
 
 \noindent
@@ -493,6 +597,10 @@ The failures are often more instructive than the successes. Each one reveals som
 
 % ── Ra ────────────────────────────────────────────────────────────────────────
 \begin{insightbox}[\textit{ra} --- The Sun God Who Became Noise]
+
+\displayglyph{𓇳}
+
+\methodtag{Alignment Failure}
 
 \textbf{Transliteration:} \textit{ra} / \textit{rꜥ} \quad
 \textbf{AI Prediction:} ``assign,'' ``domain,'' ``pleasant''
@@ -510,6 +618,10 @@ The failures are often more instructive than the successes. Each one reveals som
 % ── hqt ───────────────────────────────────────────────────────────────────────
 \begin{insightbox}[\textit{hqt} --- The Beer That Became ``Good'' and ``Royal'']
 
+\displayglyph{𓏁}
+
+\methodtag{Alignment Failure}
+
 \textbf{Transliteration:} \textit{hqt} / \textit{ḥnq,t} \quad
 \textbf{AI Prediction:} ``nefer'' (good/beautiful), ``royal,'' ``connect''
 
@@ -525,7 +637,7 @@ The failures are often more instructive than the successes. Each one reveals som
 
 
 % ══════════════════════════════════════════════════════════════════════════════
-\section{The Methodological Curiosities}
+\section{The Methodological Curiosities \hfill \hiero{𓏛}}
 % ══════════════════════════════════════════════════════════════════════════════
 
 % ── BERT ──────────────────────────────────────────────────────────────────────
@@ -569,10 +681,14 @@ The failures are often more instructive than the successes. Each one reveals som
 
 
 % ══════════════════════════════════════════════════════════════════════════════
-\section{The Offering Economy: Agriculture, Provisioning, and the Sacred}
+\section{The Offering Economy: Agriculture, Provisioning, and the Sacred \hfill \hiero{𓏏𓏁}}
 % ══════════════════════════════════════════════════════════════════════════════
 
 \begin{insightbox}[\textit{jwf} / \textit{ḏdꜣ} --- Meat \hfill Cluster: agriculture]
+
+\displayglyph{𓄿𓅱𓆑}
+
+\methodtag{Cluster Rank · Bridge Score}
 
 \textbf{Transliteration:} \textit{jwf} (flesh/meat), \textit{ḏdꜣ} (meat/provisions) \quad
 \textbf{Classification:} Noun, masculine
@@ -589,6 +705,10 @@ The failures are often more instructive than the successes. Each one reveals som
 
 \begin{insightbox}[\textit{jḥ.pl} --- Cattle \hfill Bridge Score: 0.577]
 
+\displayglyph{𓃒}
+
+\methodtag{Bridge Score}
+
 \textbf{Transliteration:} \textit{jḥ.pl} \quad
 \textbf{Classification:} Noun, masculine plural
 
@@ -601,10 +721,14 @@ The failures are often more instructive than the successes. Each one reveals som
 
 
 % ══════════════════════════════════════════════════════════════════════════════
-\section{Royalty and Power: The King as Cosmic Principle}
+\section{Royalty and Power: The King as Cosmic Principle \hfill \hiero{𓇓𓆤}}
 % ══════════════════════════════════════════════════════════════════════════════
 
 \begin{insightbox}[\textit{nswt-bjt,j} --- King of Upper and Lower Egypt \hfill Bridge Score: 0.570]
+
+\displayglyph{𓇓𓆤}
+
+\methodtag{Bridge Score}
 
 \textbf{Transliteration:} \textit{nswt-bjt,j} / \textit{nzw-bj,tj} \quad
 \textbf{Classification:} Royal title
@@ -613,13 +737,17 @@ The failures are often more instructive than the successes. Each one reveals som
 \textbf{What the vectors found:} Bridges \textbf{royalty} (sim=0.608) and \textbf{body} (sim=0.563). The king is a body---or rather, the kingdom is the king's body.
 
 \medskip
-\textbf{Linguistic note:} This dual title encodes Egypt's fundamental political myth. \textit{Nswt} (``King of Upper Egypt'') uses the sedge plant as its symbol; \textit{bjt,j} (``King of Lower Egypt'') uses the bee. The title was written with both symbols side by side---a visual assertion that the Two Lands were unified in one person. The king didn't \emph{rule} Egypt. He \emph{was} Egypt, in the same way that the pope doesn't just lead the Church but, in Catholic theology, embodies it.
+\textbf{Linguistic note:} This dual title encodes Egypt's fundamental political myth. \textit{Nswt} (``King of Upper Egypt'') uses the sedge plant \hiero{𓇓} as its symbol; \textit{bjt,j} (``King of Lower Egypt'') uses the bee \hiero{𓆤}. The title was written with both symbols side by side---a visual assertion that the Two Lands were unified in one person. The king didn't \emph{rule} Egypt. He \emph{was} Egypt, in the same way that the pope doesn't just lead the Church but, in Catholic theology, embodies it.
 
 \medskip
 \textbf{Historical note:} The \textit{nswt-bjt,j} title introduced the pharaoh's \textit{prenomen}---the throne name given at coronation. It was this name that was enclosed in a \textit{cartouche}, the oval ring symbolizing eternity and protection. Every royal document, every temple inscription, every monument began with this title. Its ubiquity in the corpus is why the vectors place it at the junction of royalty and body: it appears wherever the king's presence is invoked, and the king's presence is always physical, always bodily.
 \end{insightbox}
 
 \begin{insightbox}[\textit{sḫm} --- Power / Authority \hfill Vector analogy: truth + power]
+
+\displayglyph{𓌂}
+
+\methodtag{Midpoint Analogy}
 
 \textbf{Transliteration:} \textit{sḫm} \quad
 \textbf{Classification:} Noun / adjective
@@ -633,7 +761,7 @@ The failures are often more instructive than the successes. Each one reveals som
 
 
 % ══════════════════════════════════════════════════════════════════════════════
-\section{The Survivors: Egyptian Words Still in Use Today}
+\section{The Survivors: Egyptian Words Still in Use Today \hfill \hiero{𓆋𓉐𓋹}}
 % ══════════════════════════════════════════════════════════════════════════════
 
 \noindent
@@ -642,24 +770,287 @@ A handful of Ancient Egyptian words survived the death of the language, passing 
 \medskip
 
 \begin{center}
-\begin{tabular}{lllp{6.5cm}}
+\begin{tabular}{clllp{5.5cm}}
 \toprule
-\textbf{Egyptian} & \textbf{Modern Word} & \textbf{Via} & \textbf{Journey} \\
+\textbf{Glyph} & \textbf{Egyptian} & \textbf{Modern Word} & \textbf{Via} & \textbf{Journey} \\
 \midrule
-\textit{msḥ} & timsāḥ (Ar.) & Coptic \textit{emsah} & The crocodile's name survived 4,000 years of linguistic change. Still used across the Arabic-speaking world. \\[6pt]
-\textit{km,t} & ``chemistry'' & Greek \textit{khēmía} & Egypt called itself \textit{Km,t} (``the black land,'' for the Nile's black soil). The Greeks used \textit{khēmía} for Egyptian arts, especially metallurgy. Arabic added \textit{al-} to make \textit{al-kīmiyāʾ} (alchemy). Remove the \textit{al-}, and you have chemistry. \\[6pt]
-\textit{jtrw} & ``Nile'' (?) & Semitic & Some scholars derive ``Nile'' from \textit{na-ḥal} (Semitic: river valley), but others connect it to \textit{jtrw} (Egyptian: river) through intermediate forms. Debated. \\[6pt]
-\textit{pr-ꜥꜣ} & ``pharaoh'' & Hebrew \textit{par'ōh} & Literally ``great house''---originally meant the palace, not the king. By the New Kingdom, it became a title for the monarch himself. \\[6pt]
-\textit{ḏḥr} / \textit{thr} & ``adobe'' & Arabic \textit{aṭ-ṭūb} & The Coptic word for brick, from Egyptian \textit{ḏb,t}, became Arabic \textit{ṭūba}, then Spanish \textit{adobe}. Every adobe house in the American Southwest carries an Egyptian word in its walls. \\[6pt]
-\textit{wḥꜥ,t} & ``oasis'' & Greek \textit{oasis} & The word passed through Demotic and Coptic before the Greeks adopted it. Every desert language borrowed it because the concept was universal and the word was already there. \\[6pt]
-\textit{sšn} & ``Susan / Lily'' & Coptic \textit{shoshen} & The Egyptian word for the lotus/lily passed into Hebrew as \textit{Shoshannah} and became the name Susan, Susanna, and the word ``lily'' in several Semitic languages. \\
+\hiero{𓆋} & \textit{msḥ} & timsāḥ (Ar.) & Coptic \textit{emsah} & The crocodile's name survived 4,000 years of linguistic change. Still used across the Arabic-speaking world. \\[6pt]
+\hiero{𓆎𓅓𓏏} & \textit{km,t} & ``chemistry'' & Greek \textit{khēmía} & Egypt called itself \textit{Km,t} (``the black land,'' for the Nile's black soil). The Greeks used \textit{khēmía} for Egyptian arts, especially metallurgy. Arabic added \textit{al-} to make \textit{al-kīmiyāʾ} (alchemy). Remove the \textit{al-}, and you have chemistry. \\[6pt]
+\hiero{𓇋𓏏𓂋𓅱} & \textit{jtrw} & ``Nile'' (?) & Semitic & Some scholars derive ``Nile'' from \textit{na-ḥal} (Semitic: river valley), but others connect it to \textit{jtrw} (Egyptian: river) through intermediate forms. Debated. \\[6pt]
+\hiero{𓉐𓂝} & \textit{pr-ꜥꜣ} & ``pharaoh'' & Hebrew \textit{par'ōh} & Literally ``great house''---originally meant the palace, not the king. By the New Kingdom, it became a title for the monarch himself. \\[6pt]
+\hiero{𓂧𓃀𓏏} & \textit{ḏḥr} / \textit{thr} & ``adobe'' & Arabic \textit{aṭ-ṭūb} & The Coptic word for brick, from Egyptian \textit{ḏb,t}, became Arabic \textit{ṭūba}, then Spanish \textit{adobe}. Every adobe house in the American Southwest carries an Egyptian word in its walls. \\[6pt]
+\hiero{𓅱𓎛𓂝𓏏} & \textit{wḥꜥ,t} & ``oasis'' & Greek \textit{oasis} & The word passed through Demotic and Coptic before the Greeks adopted it. Every desert language borrowed it because the concept was universal and the word was already there. \\[6pt]
+\hiero{𓋴𓈙𓈖} & \textit{sšn} & ``Susan / Lily'' & Coptic \textit{shoshen} & The Egyptian word for the lotus/lily passed into Hebrew as \textit{Shoshannah} and became the name Susan, Susanna, and the word ``lily'' in several Semitic languages. \\
 \bottomrule
 \end{tabular}
 \end{center}
 
 
 % ══════════════════════════════════════════════════════════════════════════════
-\section{The Core Insight, Revisited}
+\section{Hieroglyphic Literary Texts: Bridge Words in New Context \hfill \hiero{𓂋𓏏𓈒𓏏𓂀}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent
+The bridge scores in our embedding space reveal words that live between semantic domains---terms that refuse to belong to a single category. But a score is an abstraction. To feel what these bridges mean, we must place them back into language.
+
+\noindent
+The following literary texts are original compositions that use our highest-scoring bridge terms in new contexts. Each piece is built around the \emph{dual nature} of a bridge word: the text reads one way if you hold the word's primary domain in mind, and differently if you hold the secondary. The bridge score tells us these readings are equally valid. The literature makes that duality palpable.
+
+\medskip
+\noindent
+For each text, the bridge terms are marked in \textbf{\color{nile}teal} with their domains and scores noted afterward. Read each passage twice---once through each domain---and notice how the meaning shifts without the words changing.
+
+\bigskip
+
+% ── Text I: The Sky's Body ──────────────────────────────────────────────────
+\begin{bridgebox}[Text I: The Face Above \hfill \hiero{𓇯𓁶}]
+
+\displayglyph{𓇯}
+
+\medskip
+\begin{center}
+\begin{minipage}{0.85\textwidth}
+\itshape\large
+The \textbf{\color{nile}sky} looked down, and it was a face.\\
+Not metaphor---the Egyptians wrote \textbf{\color{nile}ḥr,t} for both.\\[6pt]
+What hangs above you has eyes.\\
+What watches you is not empty.\\
+The \textbf{\color{nile}rebels} raised their arms against it,\\
+but you cannot strike a ceiling that breathes.\\[6pt]
+They \textbf{\color{nile}killed} the body beneath the sky\\
+and found the sky was also a body.\\
+Every wound opened upward.\\
+Every scar became a star.
+\end{minipage}
+\end{center}
+
+\medskip
+\small
+\noindent\textbf{Bridge terms used:}
+\begin{itemize}[nosep, leftmargin=1.5em]
+  \item \textbf{\color{nile}ḥr,t} (sky/face) --- bridges \textit{warfare} (0.586) and \textit{celestial} (0.604). The word for ``sky'' shares its root with \textit{ḥr} (face/upon). Recontextualized here as a watching presence: the sky is not backdrop but witness.
+  \item \textbf{\color{nile}sbjw} (rebels/enemies) --- bridges \textit{warfare} (0.653) and \textit{body} (0.685). Enemies are defined by what happens to bodies. Here, their rebellion is redirected upward---against a sky that is itself corporeal.
+  \item \textbf{\color{nile}smꜣm.n} (killed) --- bridges \textit{warfare} (0.634) and \textit{body} (0.647). Killing is where warfare meets flesh. The text inverts this: the violence done to bodies becomes celestial---scars becoming stars.
+\end{itemize}
+\end{bridgebox}
+
+\bigskip
+
+% ── Text II: The Daughter's Crossing ────────────────────────────────────────
+\begin{bridgebox}[Text II: The Daughter's Crossing \hfill \hiero{𓊛𓅭𓏏}]
+
+\displayglyph{𓊛}
+
+\medskip
+\begin{center}
+\begin{minipage}{0.85\textwidth}
+\itshape\large
+The \textbf{\color{nile}king's daughter} stood at the river\\
+where the \textbf{\color{nile}ferry} waited, rocking.\\[6pt]
+She was flesh of his flesh---\\
+\textbf{\color{nile}body} and \textbf{\color{nile}family} in a single word.\\
+The boat would take her west,\\
+toward the sky's edge, where water becomes heaven.\\[6pt]
+The \textbf{\color{nile}ferry} knows two rivers:\\
+the one beneath it, and the one above.\\
+The \textbf{\color{nile}daughter} knows two fathers:\\
+the one who ruled, and the one who shines.\\[6pt]
+On the far bank, \textbf{\color{nile}fish} rise to greet her---\\
+creatures of the \textbf{\color{nile}water} and the \textbf{\color{nile}offering table} both.\\
+She crosses. She arrives. She is still crossing.
+\end{minipage}
+\end{center}
+
+\medskip
+\small
+\noindent\textbf{Bridge terms used:}
+\begin{itemize}[nosep, leftmargin=1.5em]
+  \item \textbf{\color{nile}zꜣ,t.du} (king's daughter) --- bridges \textit{family} (0.702) and \textit{body} (0.662). Kinship in Egyptian texts is expressed through physical metaphors (``flesh of my flesh''). The daughter is both a family relation and a body---recontextualized here as a figure poised between the physical and the celestial.
+  \item \textbf{\color{nile}mẖn,t} (ferry) --- bridges \textit{water/river} (0.572) and \textit{celestial} (0.559). The solar barque crosses the sky as the earthly ferry crosses the Nile. Here, the ferry carries a royal daughter between both rivers simultaneously.
+  \item \textbf{\color{nile}rm.w} (fish) --- bridges \textit{water/river} (0.581) and \textit{body} (0.585). Fish define water more than water defines itself. They also appear on offering tables alongside meat cuts. The greeting fish are both aquatic creatures and funerary provisions.
+\end{itemize}
+\end{bridgebox}
+
+\bigskip
+
+% ── Text III: The Morning God's Flesh ───────────────────────────────────────
+\begin{bridgebox}[Text III: Dawn Eats the Offering \hfill \hiero{𓇳𓆓}]
+
+\displayglyph{𓇳}
+
+\medskip
+\begin{center}
+\begin{minipage}{0.85\textwidth}
+\itshape\large
+At \textbf{\color{nile}dawn}, the \textbf{\color{nile}god} is hungry.\\
+He has crossed the underworld all night\\
+and his body needs \textbf{\color{nile}meat}.\\[6pt]
+The priests lay \textbf{\color{nile}cattle} on the stone,\\
+\textbf{\color{nile}flesh} beside bread beside beer.\\
+This is not sacrifice. This is breakfast.\\
+The \textbf{\color{nile}divine} eats as the \textbf{\color{nile}body} eats.\\[6pt]
+\textbf{\color{nile}Neferi}---the beautiful, the good, the godly---\\
+cannot tell where prayer ends and appetite begins.\\
+The offering is theology.\\
+The theology is food.\\[6pt]
+When the sun clears the horizon,\\
+the god has been fed.\\
+The \textbf{\color{nile}morning} is proof that he ate.
+\end{minipage}
+\end{center}
+
+\medskip
+\small
+\noindent\textbf{Bridge terms used:}
+\begin{itemize}[nosep, leftmargin=1.5em]
+  \item \textbf{\color{nile}ḥḏ-tꜣ} (dawn) --- bridges \textit{celestial} (0.650) and \textit{body} (0.626). Dawn is where the sky becomes physical---light touching land. Recontextualized here as the moment the divine body requires sustenance.
+  \item \textbf{\color{nile}ḏdꜣ} (meat) --- bridges \textit{agriculture} (0.588) and \textit{body} (0.578). Meat sits between the domain of food production and the domain of flesh. The offering table collapses this distinction: meat is simultaneously agricultural product and divine body.
+  \item \textbf{\color{nile}jḥ.pl} (cattle) --- bridges \textit{agriculture} (0.577) and \textit{body} (0.590). Cattle are livestock and living bodies. In the offering economy, they cross from one category to the other at the moment of slaughter.
+  \item \textbf{\color{nile}nṯr.j} (divine) --- bridges \textit{religion} (0.725) and \textit{magic/ritual} (0.580). The boundary between religion and magic is invisible in the embedding space. The divine is simultaneously theological and operational.
+\end{itemize}
+\end{bridgebox}
+
+\bigskip
+
+% ── Text IV: The Royal Enemy ────────────────────────────────────────────────
+\begin{bridgebox}[Text IV: The Queen Who Was Also a War \hfill \hiero{𓊹𓏏𓁐}]
+
+\displayglyph{𓁐}
+
+\medskip
+\begin{center}
+\begin{minipage}{0.85\textwidth}
+\itshape\large
+The \textbf{\color{nile}royal consort} bore a title\\
+that bridged the throne and the nursery.\\
+\textbf{\color{nile}She} was simultaneously crown and cradle---\\
+the word for her sat between \textbf{\color{nile}warfare} and \textbf{\color{nile}family},\\
+because to bear an heir is to wage a dynasty.\\[6pt]
+Her enemies were not foreign.\\
+They were the other wives, the rival sons,\\
+the \textbf{\color{nile}rebels} who wore linen and gold.\\
+The \textbf{\color{nile}body} of the queen is a battlefield.\\
+The \textbf{\color{nile}family} of the king is a campaign.\\[6pt]
+The vectors know what the court historians hid:\\
+every birth announcement was a war dispatch,\\
+every \textbf{\color{nile}son} placed between \textit{family} and \textit{sky}---\\
+because a prince is halfway to a god.
+\end{minipage}
+\end{center}
+
+\medskip
+\small
+\noindent\textbf{Bridge terms used:}
+\begin{itemize}[nosep, leftmargin=1.5em]
+  \item \textbf{\color{nile}⸢ḥm,t-nzw-wr.t⸣} (great royal wife) --- bridges \textit{warfare} (0.593) and \textit{family} (0.613). The queen's title lives between military and domestic domains. Recontextualized here as the embodiment of dynastic struggle.
+  \item \textbf{\color{nile}[ḥm,t-nzw-wr,t]} (she/royal consort) --- bridges \textit{family} (0.608) and \textit{celestial} (0.586). The queen is both kin and something more than mortal---a figure poised between household and heaven.
+  \item \textbf{\color{nile}[sꜣ]} (son) --- bridges \textit{family} (0.675) and \textit{celestial} (0.584). A son is family; a prince is halfway to the sky. The bridge score captures the Egyptian theology of divine kingship in a single number.
+\end{itemize}
+\end{bridgebox}
+
+\bigskip
+
+% ── Text V: The Water That Remembers ────────────────────────────────────────
+\begin{bridgebox}[Text V: The Water That Remembers \hfill \hiero{𓈗𓊹𓆋}]
+
+\displayglyph{𓈗}
+
+\medskip
+\begin{center}
+\begin{minipage}{0.85\textwidth}
+\itshape\large
+In the beginning was \textbf{\color{nile}water},\\
+and the water had no \textbf{\color{nile}mountains},\\
+no edge, no \textbf{\color{nile}ferry} to cross it.\\[6pt]
+Then the \textbf{\color{nile}gods} rose from the wet,\\
+and they were indistinguishable from \textbf{\color{nile}magic}---\\
+\textit{nṯr} and \textit{ḥkꜣ} sharing a bed in the vectors,\\
+religion and ritual collapsed into one verb: \emph{to act}.\\[6pt]
+The \textbf{\color{nile}mountains} stood where the \textbf{\color{nile}water} met the \textbf{\color{nile}war}---\\
+ridgelines dividing river from desert,\\
+the fertile from the hostile.\\
+Every geography was a theology.\\[6pt]
+Four thousand years later, we fed these words to a machine.\\
+The machine did not know they were ancient.\\
+It placed \textbf{\color{nile}fish} beside \textbf{\color{nile}flesh},\\
+\textbf{\color{nile}dawn} beside \textbf{\color{nile}body},\\
+\textbf{\color{nile}silence} inside \textbf{\color{nile}death}.\\[6pt]
+The water remembers.\\
+The vectors remember.\\
+The bridges still hold.
+\end{minipage}
+\end{center}
+
+\medskip
+\small
+\noindent\textbf{Bridge terms used:}
+\begin{itemize}[nosep, leftmargin=1.5em]
+  \item \textbf{\color{nile}ḏw.pl} (mountains) --- bridges \textit{water/river} (0.553) and \textit{warfare} (0.559). Mountains are the boundary between the Nile valley and the desert---the edge where the habitable meets the hostile. Geography as military frontier.
+  \item \textbf{\color{nile}nṯr.w} (gods) --- bridges \textit{religion} (0.725) and \textit{magic/ritual} (0.556). The plural of god sits between theology and spellcraft. The gods are not believed in; they are \emph{operated}.
+  \item \textbf{\color{nile}nswt-bj,tj} (King of Upper and Lower Egypt) --- bridges \textit{royalty} (0.573) and \textit{body} (0.570). The dual-kingdom title is a body: two lands unified in one physical king. The state is flesh.
+\end{itemize}
+\end{bridgebox}
+
+\bigskip
+
+% ── Text VI: The Frightened Stars ───────────────────────────────────────────
+\begin{bridgebox}[Text VI: The Frightened Stars \hfill \hiero{𓇼𓁹}]
+
+\displayglyph{𓇼}
+
+\medskip
+\begin{center}
+\begin{minipage}{0.85\textwidth}
+\itshape\large
+The word for \textbf{\color{nile}frighten} sits between\\
+\textbf{\color{nile}warfare} and the \textbf{\color{nile}stars}.\\
+As if fear were the emotion the sky feels\\
+when armies march beneath it.\\[6pt]
+Or: as if the stars themselves were weapons---\\
+each one a spear point in the dark,\\
+and to look up was to be \textbf{\color{nile}frightened}\\
+by the sheer force of what shines.\\[6pt]
+The \textbf{\color{nile}gods} were never gentle.\\
+Their love was \textbf{\color{nile}royal}---\\
+which is to say, it came with soldiers.\\
+The \textbf{\color{nile}divine} does not comfort.\\
+It \emph{terrifies}, and calls the terror holy.\\[6pt]
+When the Egyptians wrote \textit{ḥr,y(t)}---to frighten---\\
+they placed it where the sword meets the sky.\\
+The vectors found it there, waiting,\\
+the way a word waits four thousand years\\
+to be read by something that doesn't know fear\\
+but can map exactly where it lives.
+\end{minipage}
+\end{center}
+
+\medskip
+\small
+\noindent\textbf{Bridge terms used:}
+\begin{itemize}[nosep, leftmargin=1.5em]
+  \item \textbf{\color{nile}ḥr,y(t)} (frighten) --- bridges \textit{warfare} (0.584) and \textit{celestial} (0.584). Fear lives at the exact midpoint between violence and the heavens. The bridge score is nearly perfectly balanced---fear belongs equally to both domains.
+  \item \textbf{\color{nile}\{nṯr\}} (the divine) --- bridges \textit{religion} (0.648) and \textit{celestial} (0.578). Divinity spans the theological and the astronomical. The gods are not in the sky; they \emph{are} the sky.
+  \item \textbf{\color{nile}nṯr.j} (divine) --- bridges \textit{religion} (0.725) and \textit{magic/ritual} (0.580). The adjective ``divine'' carries the highest religion-cluster similarity in the dataset---and still reaches into ritual. Holiness is practiced, not merely believed.
+\end{itemize}
+\end{bridgebox}
+
+\bigskip
+
+\begin{vectorbox}
+\centering
+\textit{These texts are not translations. They are not reconstructions.}\\[4pt]
+\textit{They are what happens when you take the geometry of an ancient language}\\
+\textit{and let its bridge words carry new stories---}\\[4pt]
+\textit{stories the Egyptians never told, but whose grammar they built.}\\[4pt]
+\textit{Every bridge score is a license to read double.}\\
+\textit{Every dual-domain word is a door with two rooms behind it.}\\[4pt]
+\textit{The vectors gave us the coordinates. The literature walks through them.}
+\end{vectorbox}
+
+\newpage
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{The Core Insight, Revisited \hfill \hiero{𓂀𓊹𓈗}}
 % ══════════════════════════════════════════════════════════════════════════════
 
 \noindent
@@ -680,6 +1071,8 @@ But meaning is exactly what emerges when we stop asking ``what does this word tr
 \vfill
 
 \begin{center}
+\displayglyph{𓋹𓊹𓇳}
+\vspace{4pt}
 {\small\color{lapis} --- End of Supplementary Appendix ---}
 \end{center}
 
