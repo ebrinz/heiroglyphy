@@ -8,10 +8,10 @@
       "start": 0.0,
       "end": 31.0,
       "narration_segments": [
-        {"id": "s1_01", "text": "These symbols are four thousand years old.", "start": 5.0},
-        {"id": "s1_02", "text": "Scholars have been translating them for two centuries.", "start": 10.5},
-        {"id": "s1_03", "text": "But translation is lossy. When you compress a word into a single English equivalent, the web of meaning around it disappears.", "start": 16.0},
-        {"id": "s1_04", "text": "What if we could get it back?", "start": 24.0}
+        {"id": "s1_01", "text": "These symbols are four thousand years old.", "start": 0.0},
+        {"id": "s1_02", "text": "Scholars have been translating them for two centuries.", "start": 5.5},
+        {"id": "s1_03", "text": "But translation is lossy. When you compress a word into a single English equivalent, the web of meaning around it disappears.", "start": 11.0},
+        {"id": "s1_04", "text": "What if we could get it back?", "start": 19.0}
       ],
       "cues": [{"type": "scene_start", "time": 0.0}]
     },
@@ -44,19 +44,19 @@
       "end": 117.5,
       "narration_segments": [
         {"id": "sb_01", "text": "So how well does this work? For one in three Egyptian words, the nearest English word in the aligned space is the exact correct translation. One in three — with no dictionary, no bilingual text, just the shape of meaning.", "start": 89.0},
-        {"id": "sb_02", "text": "For each word, we get a bridge score — how closely the Egyptian word's neighborhood matches its English counterpart. And when we probe the space between words, we get a midpoint score — how strongly two concepts converge.", "start": 100.0},
-        {"id": "sb_03", "text": "Here's what those numbers revealed.", "start": 112.0}
+        {"id": "sb_02", "text": "For each word, we get a bridge score — how closely the Egyptian word's neighborhood matches its English counterpart. And when we probe the space between words, we get a midpoint score — how strongly two concepts converge.", "start": 104.0},
+        {"id": "sb_03", "text": "Here's what those numbers revealed.", "start": 118.0}
       ],
       "cues": [{"type": "scene_start", "time": 88.5}]
     },
     {
       "id": "D1_Gold",
       "start": 118.0,
-      "end": 147.0,
+      "end": 155.0,
       "narration_segments": [
-        {"id": "d1_01", "text": "What happens when you find the midpoint of gold and divine in English, then look for the nearest Egyptian words?", "start": 120.0},
-        {"id": "d1_02", "text": "You find n-t-r-i, meaning divine, and n-b-w, meaning gold. They're in the same place.", "start": 129.0},
-        {"id": "d1_03", "text": "Modern readers call the phrase, the flesh of the gods is gold, a metaphor. The embedding space says it's not. Gold and divinity aren't compared in the texts. They're the same concept. Not metaphor. Ontology.", "start": 136.0}
+        {"id": "d1_01", "text": "In English, gold and divine are separate ideas — one is a metal, the other is sacred. They're far apart in the embedding space.", "start": 120.0},
+        {"id": "d1_02", "text": "In the Egyptian space, they're almost the same point. The alignment score between divine and gold is so high that the model can barely distinguish them.", "start": 129.0},
+        {"id": "d1_03", "text": "The ancient texts say the flesh of the gods is gold. Modern readers call this a metaphor. The embedding space says it's not. Gold and divinity aren't compared — they're synonymous. Not metaphor. It's an ontology.", "start": 139.0}
       ],
       "cues": [{"type": "scene_start", "time": 118.0}, {"type": "discovery_reveal", "time": 120.0}]
     },
@@ -76,8 +76,9 @@
       "start": 177.5,
       "end": 202.0,
       "narration_segments": [
-        {"id": "d3_01", "text": "The midpoint of eye and knowledge finds the Egyptian word for eyes at the top, and heka, magic, as the third result.", "start": 179.0},
-        {"id": "d3_02", "text": "The Eye of Horus was an organ, an amulet, and a unit of measurement. Seeing was not passive observation. It was an act of power.", "start": 189.0}
+        {"id": "d3_01", "text": "In English, eye, knowledge, magic, and power are distant concepts. Their similarity scores are around point two — essentially unrelated.", "start": 179.0},
+        {"id": "d3_02", "text": "In Egyptian, they collapse together. The word for eye sits right next to power at point six two, and magic at point four four. Three times closer than in English.", "start": 189.0},
+        {"id": "d3_03", "text": "In English, sight and power are unrelated. In Egyptian, the eye is power. Sight is magic.", "start": 199.0}
       ],
       "cues": [{"type": "scene_start", "time": 177.5}, {"type": "discovery_reveal", "time": 179.0}]
     },
@@ -86,9 +87,9 @@
       "start": 202.5,
       "end": 227.5,
       "narration_segments": [
-        {"id": "d4_01", "text": "Find the midpoint of snake and wisdom. In the Greek tradition, you'd expect knowledge and cunning.", "start": 204.0},
-        {"id": "d4_02", "text": "In the Egyptian space, every result is a variant of god. The uraeus cobra was divine power, not wisdom.", "start": 212.0},
-        {"id": "d4_03", "text": "Greeks and Egyptians. Two cultures, separated by geometry.", "start": 221.0}
+        {"id": "d4_01", "text": "What does a snake mean? In English, its nearest neighbors are frog, monkey, crocodile. It's just an animal.", "start": 204.0},
+        {"id": "d4_02", "text": "In the Egyptian embedding space, the snake's nearest neighbors are god, gods, and great god. The serpent doesn't live among animals. It lives among the divine.", "start": 213.0},
+        {"id": "d4_03", "text": "In English, a snake is an animal. In Egyptian, the serpent is sacred.", "start": 224.0}
       ],
       "cues": [{"type": "scene_start", "time": 202.5}, {"type": "discovery_reveal", "time": 204.0}]
     },
@@ -109,7 +110,8 @@
       "end": 282.5,
       "narration_segments": [
         {"id": "d6_01", "text": "The midpoint of mother and earth. You'd expect soil, land, fertility. The earth-mother archetype.", "start": 260.0},
-        {"id": "d6_02", "text": "Instead, every result is royal. King's wife. King's daughter. The Egyptian mother-goddess is not earthy. She is regal. Motherhood is a crown, not the earth.", "start": 268.0}
+        {"id": "d6_02", "text": "Instead, every result is royal. King's wife. King's daughter. The Egyptian mother-goddess is not earthy. She is regal.", "start": 269.0},
+        {"id": "d6_03", "text": "Motherhood is a crown, not the earth.", "start": 280.0}
       ],
       "cues": [{"type": "scene_start", "time": 258.0}, {"type": "discovery_reveal", "time": 260.0}]
     },
@@ -118,8 +120,9 @@
       "start": 283.0,
       "end": 308.0,
       "narration_segments": [
-        {"id": "d7_01", "text": "The midpoint of truth and power finds authority at number one and enemies at number four. They all occupy the same region.", "start": 285.0},
-        {"id": "d7_02", "text": "This is maat. Usually translated as truth or justice, but really it's cosmic order. The active force that holds the universe together. Truth is not correctness. It is force.", "start": 294.0}
+        {"id": "d7_01", "text": "Where do truth and power meet in the Egyptian space? The top result is sekhem — authority. And at number four? Enemies.", "start": 285.0},
+        {"id": "d7_02", "text": "And right next to sekhem sits maat — usually translated as truth or justice. But in the embedding space, maat lives next to power and the defeat of enemies. It's not passive correctness.", "start": 294.0},
+        {"id": "d7_03", "text": "Truth is not correctness. It is force.", "start": 306.0}
       ],
       "cues": [{"type": "scene_start", "time": 283.0}, {"type": "discovery_reveal", "time": 285.0}]
     },
@@ -152,8 +155,9 @@
       "narration_segments": [
         {"id": "s7_01", "text": "These are the same symbols we started with. From the Pyramid Texts, carved five thousand years ago.", "start": 374.0},
         {"id": "s7_02", "text": "Live, live — for this is your name among the gods. A soul indeed, foremost of the living. Powerful indeed, foremost of the spirits.", "start": 381.0},
-        {"id": "s7_03", "text": "But now we can read between the words. Live doesn't mean breathe. It means endure as the gods endure. Soul isn't ethereal. It's the force that animates. And powerful — that's the same force as truth.", "start": 392.0},
-        {"id": "s7_04", "text": "Translation gave us the words. The vectors gave us the world between them.", "start": 404.0}
+        {"id": "s7_03", "text": "But now we can read between the words. Live doesn't mean breathe. It means endure, as the gods endure.", "start": 394.0},
+        {"id": "s7_04", "text": "Soul isn't ethereal. It's the force that animates. And powerful — that's the same force as truth.", "start": 404.0},
+        {"id": "s7_05", "text": "Endure, endure — for this is your name among the golden ones. A force indeed, foremost of those who persist. True indeed, foremost of those who achieved power through knowing.", "start": 416.0}
       ],
       "cues": [{"type": "scene_start", "time": 372.0}]
     }
