@@ -1490,7 +1490,12 @@ class D1_Gold_Short(Scene):
         )
         glow = Dot(point=[0, -1.5, 0], radius=0.3, color=GOLD).set_opacity(0.3)
         self.play(FadeIn(glow), run_time=0.5)
-        self.wait(3)
+        self.wait(2)
+
+        # Punchline
+        punchline = body_text("In the Egyptian embedding space,\ngold and divine occupy the same point.", color=WHITE).scale(0.85).move_to(DOWN * 2.8)
+        self.play(FadeIn(punchline, shift=UP * 0.1), run_time=1.5)
+        self.wait(5)
 
 
 class D_Montage(Scene):
@@ -1523,29 +1528,45 @@ class D_Montage(Scene):
             t = Text(title_str, color=WHITE).scale(0.45)
             title_row = VGroup(g, t).arrange(RIGHT, buff=0.2).move_to(UP * 1.5)
 
-            # Simple geometry visualization
+            # Simple geometry visualization with glyph labels
             viz = VGroup()
             if viz_type == "converge":
                 d1 = Dot([-1.5, 0, 0], radius=0.08, color=LAVENDER)
+                l1 = Text("silence", color=LAVENDER).scale(0.2).next_to(d1, DOWN, buff=0.08)
                 d2 = Dot([1.5, 0, 0], radius=0.08, color=SOFT_RED)
-                viz = VGroup(d1, d2)
+                l2 = Text("death", color=SOFT_RED).scale(0.2).next_to(d2, DOWN, buff=0.08)
+                viz = VGroup(d1, l1, d2, l2)
             elif viz_type == "triangle":
                 d1 = Dot([-1, 0.5, 0], radius=0.08, color=GOLD)
+                g1 = hiero_text("\U00013080", color=GOLD, scale=0.25).next_to(d1, UP, buff=0.05)
                 d2 = Dot([1, 0.5, 0], radius=0.08, color=LAVENDER)
+                g2 = hiero_text("\U00013302", color=LAVENDER, scale=0.25).next_to(d2, UP, buff=0.05)
                 d3 = Dot([0, -0.5, 0], radius=0.08, color=TEAL)
+                g3 = hiero_text("\U0001339B\U00013093", color=TEAL, scale=0.25).next_to(d3, DOWN, buff=0.05)
                 l1 = Line(d1.get_center(), d2.get_center(), color=MUTED, stroke_width=1).set_opacity(0.3)
                 l2 = Line(d2.get_center(), d3.get_center(), color=MUTED, stroke_width=1).set_opacity(0.3)
                 l3 = Line(d3.get_center(), d1.get_center(), color=MUTED, stroke_width=1).set_opacity(0.3)
-                viz = VGroup(d1, d2, d3, l1, l2, l3)
+                viz = VGroup(d1, g1, d2, g2, d3, g3, l1, l2, l3)
             elif viz_type == "shift":
                 d1 = Dot([-1.5, 0, 0], radius=0.08, color=TEAL).set_opacity(0.3)
+                l1 = Text("animal", color=TEAL).scale(0.2).set_opacity(0.3).next_to(d1, DOWN, buff=0.08)
                 d2 = Dot([1.5, 0, 0], radius=0.08, color=GOLD)
+                g2 = hiero_text("\U000132B9", color=GOLD, scale=0.25).next_to(d2, DOWN, buff=0.05)
                 arr = Arrow([-1, 0, 0], [1, 0, 0], color=LAVENDER, stroke_width=2)
-                viz = VGroup(d1, d2, arr)
+                viz = VGroup(d1, l1, d2, g2, arr)
             elif viz_type == "parallel":
-                a1 = Arrow([-1.5, -0.3, 0], [-1.5, 0.5, 0], color=LAVENDER, stroke_width=2)
-                a2 = Arrow([1.5, -0.3, 0], [1.5, 0.5, 0], color=LAVENDER, stroke_width=2)
-                viz = VGroup(a1, a2)
+                # Parallelogram: house → temple, man → god
+                d_house = Dot([-1.5, -0.4, 0], radius=0.08, color=TEAL)
+                d_temple = Dot([-1.5, 0.6, 0], radius=0.08, color=TEAL)
+                d_man = Dot([1.5, -0.4, 0], radius=0.08, color=TEAL)
+                d_god = Dot([1.5, 0.6, 0], radius=0.08, color=GOLD)
+                l_house = Text("house", color=TEAL).scale(0.18).next_to(d_house, DOWN, buff=0.05)
+                l_temple = Text("temple", color=TEAL).scale(0.18).next_to(d_temple, UP, buff=0.05)
+                l_man = Text("man", color=TEAL).scale(0.18).next_to(d_man, DOWN, buff=0.05)
+                g_god = hiero_text("\U000132B9", color=GOLD, scale=0.25).next_to(d_god, UP, buff=0.05)
+                a1 = Arrow(d_house.get_center(), d_temple.get_center(), color=LAVENDER, stroke_width=2, buff=0.15)
+                a2 = Arrow(d_man.get_center(), d_god.get_center(), color=LAVENDER, stroke_width=2, buff=0.15)
+                viz = VGroup(d_house, d_temple, d_man, d_god, l_house, l_temple, l_man, g_god, a1, a2)
             elif viz_type == "swap":
                 d1 = Text("earth?", color=MUTED).scale(0.3).set_opacity(0.3).move_to(LEFT * 1)
                 d2 = Text("royalty", color=GOLD).scale(0.35).move_to(RIGHT * 1)
@@ -1556,12 +1577,16 @@ class D_Montage(Scene):
                     Dot([rng.normal(0, 0.3), rng.normal(0, 0.3), 0], radius=0.06, color=GOLD).set_opacity(0.6)
                     for _ in range(6)
                 ])
-                viz = dots
+                g_maat = hiero_text("\U00013184", color=GOLD, scale=0.3).move_to([0, -0.6, 0])
+                viz = VGroup(dots, g_maat)
             elif viz_type == "midpoint":
                 d1 = Dot([-1.5, 0, 0], radius=0.08, color=TEAL)
+                l1 = Text("love", color=TEAL).scale(0.2).next_to(d1, DOWN, buff=0.08)
                 d2 = Dot([1.5, 0, 0], radius=0.08, color=SOFT_RED)
+                l2 = Text("fear", color=SOFT_RED).scale(0.2).next_to(d2, DOWN, buff=0.08)
                 dm = Dot([0, 0, 0], radius=0.1, color=GOLD)
-                viz = VGroup(d1, d2, dm)
+                gm = hiero_text("\U0001339B\U000131F3\U0001339B", color=GOLD, scale=0.25).next_to(dm, UP, buff=0.08)
+                viz = VGroup(d1, l1, d2, l2, dm, gm)
 
             viz.move_to(ORIGIN)
 
