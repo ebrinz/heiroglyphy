@@ -1345,7 +1345,7 @@ class S0_Title_Short(Scene):
 
 
 class S1_Short(Scene):
-    """Hook — compact. ~15s"""
+    """Hook — compact. ~18s"""
     def construct(self):
         glyphs = hiero_text(GLYPH_STRIP, color=GOLD, scale=1.0)
         glyphs.move_to(UP * 1.0)
@@ -1357,17 +1357,17 @@ class S1_Short(Scene):
             "Translation compresses their meaning.",
             color=WHITE
         ).scale(1.0).next_to(glyphs, DOWN, buff=0.6)
-        self.play(Write(line1), run_time=3)
-        self.wait(2)
+        self.play(Write(line1), run_time=4)
+        self.wait(4)
 
         line2 = body_text("What if we could recover it?", color=LAVENDER).scale(1.1)
         line2.next_to(line1, DOWN, buff=0.5)
         self.play(FadeIn(line2, shift=UP * 0.1), run_time=1.5)
-        self.wait(2)
+        self.wait(3)
 
 
 class S2_Short(Scene):
-    """Embeddings concept — fast. ~15s"""
+    """Embeddings concept — fast. ~18s"""
     def construct(self):
         header = title_text("Words live in space", color=WHITE, scale=0.75)
         header.move_to(UP * 3.0)
@@ -1389,15 +1389,15 @@ class S2_Short(Scene):
         lbl2 = Text("king, throne, crown...", color=TEAL).scale(0.25).move_to(RIGHT * 1.6 + DOWN * 0.1)
 
         self.play(FadeIn(cluster1), FadeIn(lbl1), FadeIn(cluster2), FadeIn(lbl2), run_time=2)
-        self.wait(2)
+        self.wait(3)
 
         explain = body_text(
             "Similar meanings cluster together.\n"
             "This works for every language — including Ancient Egyptian.",
             color=WHITE
         ).scale(0.9).move_to(DOWN * 1.5)
-        self.play(Write(explain), run_time=3)
-        self.wait(3)
+        self.play(Write(explain), run_time=4)
+        self.wait(4)
 
 
 class S3_Short(Scene):
@@ -1490,47 +1490,89 @@ class D1_Gold_Short(Scene):
         )
         glow = Dot(point=[0, -1.5, 0], radius=0.3, color=GOLD).set_opacity(0.3)
         self.play(FadeIn(glow), run_time=0.5)
-        self.wait(2)
-
-        self.play(
-            *[FadeOut(m) for m in [dot_gold, dot_divine, lbl_gold, lbl_divine,
-                                     dot_ntri, dot_nbw, lbl_ntri, lbl_nbw, glow]],
-            run_time=0.5
-        )
-        punchline = body_text("Not metaphor. It's an ontology.", color=WHITE).scale(1.2).move_to(ORIGIN)
-        self.play(FadeIn(punchline, shift=UP * 0.1), run_time=1.5)
-        self.wait(4)
+        self.wait(3)
 
 
 class D_Montage(Scene):
-    """Quick-fire punchlines from other discoveries. ~25s"""
+    """Discovery montage with simple geometry visuals. ~35s"""
     def construct(self):
         header = title_text("What else the geometry reveals", color=GOLD, scale=0.6)
         header.move_to(UP * 3.0)
         self.play(FadeIn(header), run_time=1)
 
         insights = [
-            ("\U000131EF", "Silence = Death", "What the dead lost was not life. It was voice."),
-            ("\U00013080", "Seeing = Power", "In Egyptian, the eye IS power. Sight is magic."),
-            ("\U00013196", "Snake = Sacred", "In English, an animal. In Egyptian, the divine."),
-            ("\U00013250", "Temple : House :: God : Man", "Vector arithmetic across 4,000 years."),
-            ("\U000130AD", "Mother = Royalty", "Motherhood is a crown, not the earth."),
-            ("\U00013302", "Truth = Force", "Truth is not correctness. It is force."),
-            ("\U0001339B\U000131F3\U0001339B", "Love + Fear = Eternity", "Between love and fear: forever."),
+            ("\U000131EF", "Silence = Death", "What the dead lost was not life. It was voice.",
+             "converge"),  # two dots converge
+            ("\U00013080", "Seeing = Power", "In Egyptian, the eye IS power. Sight is magic.",
+             "triangle"),  # triangle of concepts
+            ("\U00013196", "Snake = Sacred", "In English, an animal. In Egyptian, the divine.",
+             "shift"),  # dot shifts from one cluster to another
+            ("\U00013250", "Temple : House :: God : Man", "Vector arithmetic across 4,000 years.",
+             "parallel"),  # parallel arrows
+            ("\U000130AD", "Mother = Royalty", "Motherhood is a crown, not the earth.",
+             "swap"),  # expected fades, actual appears
+            ("\U00013302", "Truth = Force", "Truth is not correctness. It is force.",
+             "cluster"),  # dots cluster tight
+            ("\U0001339B\U000131F3\U0001339B", "Love + Fear = Eternity", "Between love and fear: forever.",
+             "midpoint"),  # midpoint between two poles
         ]
 
-        for glyph_char, title_str, punchline_str in insights:
-            g = hiero_text(glyph_char, color=GOLD, scale=0.6)
+        for glyph_char, title_str, punchline_str, viz_type in insights:
+            # Title row
+            g = hiero_text(glyph_char, color=GOLD, scale=0.7)
             t = Text(title_str, color=WHITE).scale(0.45)
-            p = body_text(punchline_str, color=LAVENDER).scale(0.8)
-            group = VGroup(
-                VGroup(g, t).arrange(RIGHT, buff=0.2),
-                p
-            ).arrange(DOWN, buff=0.2).move_to(ORIGIN)
+            title_row = VGroup(g, t).arrange(RIGHT, buff=0.2).move_to(UP * 1.5)
 
-            self.play(FadeIn(group, shift=UP * 0.1), run_time=1)
-            self.wait(1.5)
-            self.play(FadeOut(group), run_time=0.5)
+            # Simple geometry visualization
+            viz = VGroup()
+            if viz_type == "converge":
+                d1 = Dot([-1.5, 0, 0], radius=0.08, color=LAVENDER)
+                d2 = Dot([1.5, 0, 0], radius=0.08, color=SOFT_RED)
+                viz = VGroup(d1, d2)
+            elif viz_type == "triangle":
+                d1 = Dot([-1, 0.5, 0], radius=0.08, color=GOLD)
+                d2 = Dot([1, 0.5, 0], radius=0.08, color=LAVENDER)
+                d3 = Dot([0, -0.5, 0], radius=0.08, color=TEAL)
+                l1 = Line(d1.get_center(), d2.get_center(), color=MUTED, stroke_width=1).set_opacity(0.3)
+                l2 = Line(d2.get_center(), d3.get_center(), color=MUTED, stroke_width=1).set_opacity(0.3)
+                l3 = Line(d3.get_center(), d1.get_center(), color=MUTED, stroke_width=1).set_opacity(0.3)
+                viz = VGroup(d1, d2, d3, l1, l2, l3)
+            elif viz_type == "shift":
+                d1 = Dot([-1.5, 0, 0], radius=0.08, color=TEAL).set_opacity(0.3)
+                d2 = Dot([1.5, 0, 0], radius=0.08, color=GOLD)
+                arr = Arrow([-1, 0, 0], [1, 0, 0], color=LAVENDER, stroke_width=2)
+                viz = VGroup(d1, d2, arr)
+            elif viz_type == "parallel":
+                a1 = Arrow([-1.5, -0.3, 0], [-1.5, 0.5, 0], color=LAVENDER, stroke_width=2)
+                a2 = Arrow([1.5, -0.3, 0], [1.5, 0.5, 0], color=LAVENDER, stroke_width=2)
+                viz = VGroup(a1, a2)
+            elif viz_type == "swap":
+                d1 = Text("earth?", color=MUTED).scale(0.3).set_opacity(0.3).move_to(LEFT * 1)
+                d2 = Text("royalty", color=GOLD).scale(0.35).move_to(RIGHT * 1)
+                viz = VGroup(d1, d2)
+            elif viz_type == "cluster":
+                rng = np.random.default_rng(77)
+                dots = VGroup(*[
+                    Dot([rng.normal(0, 0.3), rng.normal(0, 0.3), 0], radius=0.06, color=GOLD).set_opacity(0.6)
+                    for _ in range(6)
+                ])
+                viz = dots
+            elif viz_type == "midpoint":
+                d1 = Dot([-1.5, 0, 0], radius=0.08, color=TEAL)
+                d2 = Dot([1.5, 0, 0], radius=0.08, color=SOFT_RED)
+                dm = Dot([0, 0, 0], radius=0.1, color=GOLD)
+                viz = VGroup(d1, d2, dm)
+
+            viz.move_to(ORIGIN)
+
+            # Punchline
+            p = body_text(punchline_str, color=LAVENDER).scale(0.8).move_to(DOWN * 1.5)
+
+            # Animate
+            self.play(FadeIn(title_row), FadeIn(viz), run_time=1)
+            self.play(FadeIn(p, shift=UP * 0.1), run_time=0.8)
+            self.wait(2.5)
+            self.play(FadeOut(title_row), FadeOut(viz), FadeOut(p), run_time=0.5)
 
         self.wait(1)
 
