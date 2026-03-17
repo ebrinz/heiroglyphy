@@ -1,0 +1,76 @@
+\documentclass[11pt, a4paper]{article}
+
+% ── Packages ──────────────────────────────────────────────────────────────────
+\usepackage{fontspec}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[
+    inner=1in,
+    outer=3.5in,
+    top=1in,
+    bottom=1in,
+    marginparwidth=2.8in,
+    marginparsep=0.2in
+]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{marginnote}
+\usepackage{ragged2e}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    citecolor=blue!60!black,
+    urlcolor=blue!60!black,
+}
+
+% ── Hieroglyphic font ─────────────────────────────────────────────────────────
+\newfontfamily\hierofont{EgyptianHiero}[
+    Path=../../final_output/,
+    Extension=.ttf,
+]
+\newcommand{\hiero}[1]{{\normalfont\hierofont #1}}
+
+% ── Colors ────────────────────────────────────────────────────────────────────
+\definecolor{rosetta}{RGB}{183, 110, 72}
+\definecolor{reconstructed}{gray}{0.55}
+
+% ── Title ─────────────────────────────────────────────────────────────────────
+\title{
+    \textbf{The Geometry of the Decree}\\[6pt]
+    {\large An Alternate Translation of the Rosetta Stone\\Through Semantic Alignment}
+}
+
+\author{
+    Erik Brinsmead \\
+    Independent Researcher \\[6pt]
+    Claude \\
+    Anthropic \\[12pt]
+    \texttt{github.com/ebrinz/heiroglyphy}
+}
+
+\date{March 2026}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+
+\section{The Decree: Surviving Lines}
+\label{sec:surviving}
+
+\section{The Decree: Reconstructed Lines}
+\label{sec:reconstructed}
+
+\section{Commentary}
+\label{sec:commentary}
+
+\appendix
+\section{Glyph Index}
+\label{sec:glyph-index}
+
+\end{document}
