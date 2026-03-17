@@ -34,6 +34,10 @@
 ]
 \newcommand{\hiero}[1]{{\normalfont\hierofont #1}}
 
+% ── Greek font ────────────────────────────────────────────────────────────────
+\newfontfamily\greekfont{Times New Roman}
+\newcommand{\gk}[1]{{\greekfont\itshape #1}}
+
 % ── Colors ────────────────────────────────────────────────────────────────────
 \definecolor{rosetta}{RGB}{183, 110, 72}
 \definecolor{reconstructed}{gray}{0.55}
@@ -153,7 +157,7 @@ The hieroglyphic transcription follows Quirke and Andrews (\textit{The Rosetta S
     \textbf{context:} [---, iri, m]\\
     \textbf{neighbors:} HqA\,(0.89), nb\,(0.86), ity\,(0.84), nsw\,(0.82)\\[3pt]
     \textbf{Demotic:} \textit{pr-aA}\\
-    \textbf{Greek:} \textit{βασιλεύς}%
+    \textbf{Greek:} \gk{βασιλεύς}%
 }%
 \glyphnote{𓊹𓊹𓊹}{R8,R8,R8}{nTrw}{%
     \textbf{standard:} gods\\
@@ -162,7 +166,7 @@ The hieroglyphic transcription follows Quirke and Andrews (\textit{The Rosetta S
     \textbf{context:} [m, n, m t pr]\\
     \textbf{neighbors:} nTr\,(0.95), Axw\,(0.81), nbw\,(0.76), psD\,(0.71)\\[3pt]
     \textbf{Demotic:} \textit{nTr.w}\\
-    \textbf{Greek:} \textit{θεοί}\\[3pt]
+    \textbf{Greek:} \gk{θεοί}\\[3pt]
     Note: \textit{nbw} (gold) appears as a neighbor---cf.\ the colocation of gold and divinity in the embedding space.%
 }%
 \glyphnote{𓉐}{O1}{pr}{%
@@ -172,7 +176,7 @@ The hieroglyphic transcription follows Quirke and Andrews (\textit{The Rosetta S
     \textbf{context:} [nTrw, m t, r it]\\
     \textbf{neighbors:} Hwt\,(0.92), aH\,(0.85), Xnw\,(0.79)\\[3pt]
     \textbf{Demotic:} \textit{pr}\\
-    \textbf{Greek:} \textit{ἱερόν}\\[3pt]
+    \textbf{Greek:} \gk{ἱερόν}\\[3pt]
     Vector analogy: house\,:\,temple\,::\,man\,:\,god.%
 }
 
@@ -190,7 +194,7 @@ The hieroglyphic transcription follows Quirke and Andrews (\textit{The Rosetta S
     \textbf{context:} [nsw-bity, m r]\\
     \textbf{neighbors:} wDA\,(0.88), Dd\,(0.85), mn\,(0.82), wAH\,(0.79)\\[3pt]
     \textbf{Demotic:} \textit{anx}\\
-    \textbf{Greek:} \textit{ζῶν}%
+    \textbf{Greek:} \gk{ζῶν}%
 }%
 \glyphnote{𓊹𓏏𓏭}{R8,X1,Z4}{nTr.ty}{%
     \textbf{standard:} god who manifests\\
@@ -199,7 +203,7 @@ The hieroglyphic transcription follows Quirke and Andrews (\textit{The Rosetta S
     \textbf{context:} [in, =f, ---]\\
     \textbf{neighbors:} nTr\,(0.93), xai\,(0.82), psD\,(0.78), wbn\,(0.74)\\[3pt]
     \textbf{Demotic:} \textit{p nTr pr}\\
-    \textbf{Greek:} \textit{ἐπιφανής}\\[3pt]
+    \textbf{Greek:} \gk{ἐπιφανής}\\[3pt]
     ``Epiphanes'' (Greek)~= ``the one who appears.'' The geometric reading captures the luminous quality---\textit{psD} (shine) and \textit{wbn} (rise) are near neighbors.%
 }
 
@@ -217,7 +221,7 @@ The hieroglyphic transcription follows Quirke and Andrews (\textit{The Rosetta S
     \textbf{context:} [n=f, it=f, r m]\\
     \textbf{neighbors:} Hnk\,(0.87), wdi\,(0.84), imi\,(0.80)\\[3pt]
     \textbf{Demotic:} \textit{di}\\
-    \textbf{Greek:} \textit{δίδωμι}\\[3pt]
+    \textbf{Greek:} \gk{δίδωμι}\\[3pt]
     In royal context, \textit{rdi} shifts from neutral ``give'' toward ``bestow''---the geometric reading captures this register elevation.%
 }
 
@@ -235,7 +239,7 @@ The hieroglyphic transcription follows Quirke and Andrews (\textit{The Rosetta S
     \textbf{context:} [rdi.t=f, Hd, m pr]\\
     \textbf{neighbors:} nTr\,(0.76), Dam\,(0.73), Hd\,(0.71), biA\,(0.67)\\[3pt]
     \textbf{Demotic:} \textit{nbw}\\
-    \textbf{Greek:} \textit{χρυσός}\\[3pt]
+    \textbf{Greek:} \gk{χρυσός}\\[3pt]
     Key finding: \textit{nbw} (gold) and \textit{nTr} (god/divine) are colocated in embedding space. The Egyptians called gold ``flesh of the gods''---the geometry recovers this metaphor.%
 }%
 \glyphnote{𓋠}{S14}{Hd}{%
@@ -245,7 +249,7 @@ The hieroglyphic transcription follows Quirke and Andrews (\textit{The Rosetta S
     \textbf{context:} [nbw, m, pr nTrw]\\
     \textbf{neighbors:} HD\,(0.90), nbw\,(0.71), biA\,(0.68), wbx\,(0.64)\\[3pt]
     \textbf{Demotic:} \textit{Hd}\\
-    \textbf{Greek:} \textit{ἄργυρος}%
+    \textbf{Greek:} \gk{ἄργυρος}%
 }
 
 % ── Line 5: Grain to temples ─────────────────────────────────────────────────
@@ -262,7 +266,7 @@ The hieroglyphic transcription follows Quirke and Andrews (\textit{The Rosetta S
     \textbf{context:} [m r, n pr, nTr]\\
     \textbf{neighbors:} qmA\,(0.88), xpr\,(0.84), sxpr\,(0.79), ms\,(0.75)\\[3pt]
     \textbf{Demotic:} \textit{ir}\\
-    \textbf{Greek:} \textit{ποιέω}\\[3pt]
+    \textbf{Greek:} \gk{ποιέω}\\[3pt]
     The geometric reading elevates ``make'' to ``bring-into-being''---the creative, generative sense that \textit{iri} carries in divine contexts.%
 }
 
@@ -280,7 +284,7 @@ The hieroglyphic transcription follows Quirke and Andrews (\textit{The Rosetta S
     \textbf{context:} [r A, ---, ---]\\
     \textbf{neighbors:} wsr\,(0.91), pHty\,(0.87), sxm\,(0.82), qn\,(0.78)\\[3pt]
     \textbf{Demotic:} \textit{nxt}\\
-    \textbf{Greek:} \textit{κρατερός}%
+    \textbf{Greek:} \gk{κρατερός}%
 }
 
 % ── Line 7: Tax remissions ───────────────────────────────────────────────────
@@ -297,7 +301,7 @@ The hieroglyphic transcription follows Quirke and Andrews (\textit{The Rosetta S
     \textbf{context:} [rdi.t=f, n r t]\\
     \textbf{neighbors:} r\,(0.91), n\,(0.88), Hr\,(0.83), xr\,(0.79)\\[3pt]
     \textbf{Demotic:} \textit{m}\\
-    \textbf{Greek:} \textit{ἐκ}\\[3pt]
+    \textbf{Greek:} \gk{ἐκ}\\[3pt]
     Highest-frequency preposition. Context of tax remission shifts \textit{m} from neutral ``from'' toward ``releasing from''---directional semantics emerge from context.%
 }
 
@@ -315,7 +319,7 @@ The hieroglyphic transcription follows Quirke and Andrews (\textit{The Rosetta S
     \textbf{context:} [nxt, n, ntt=f]\\
     \textbf{neighbors:} n\,(0.91), m\,(0.88), Hr\,(0.83), xr\,(0.79)\\[3pt]
     \textbf{Demotic:} \textit{r}\\
-    \textbf{Greek:} \textit{κατά}\\[3pt]
+    \textbf{Greek:} \gk{κατά}\\[3pt]
     Same glyph \textit{r} (D21) here means ``against'' rather than ``toward'' (cf.\ Line 1). The contextual swapping is visible in the shifted neighbor weights.%
 }
 
@@ -333,8 +337,8 @@ The hieroglyphic transcription follows Quirke and Andrews (\textit{The Rosetta S
     \textbf{context:} [iri, m, m it]\\
     \textbf{neighbors:} wDa\,(0.82), sxm\,(0.76), HqA\,(0.73), hp\,(0.70), nsw\,(0.67)\\[3pt]
     \textbf{Demotic:} \textit{mAa.t}\\
-    \textbf{Greek:} \textit{δικαιοσύνη}\\[3pt]
-    Key finding: \textit{mAat} sits between truth and power in embedding space. The geometric translation recovers the Egyptian concept that cosmic order and sovereign authority are the same force---not separate domains as in Greek \textit{δικαιοσύνη}.%
+    \textbf{Greek:} \gk{δικαιοσύνη}\\[3pt]
+    Key finding: \textit{mAat} sits between truth and power in embedding space. The geometric translation recovers the Egyptian concept that cosmic order and sovereign authority are the same force---not separate domains as in Greek \gk{δικαιοσύνη}.%
 }
 
 % ── Line 10: Honors to Apis ──────────────────────────────────────────────────
@@ -351,7 +355,7 @@ The hieroglyphic transcription follows Quirke and Andrews (\textit{The Rosetta S
     \textbf{context:} [m r, iri, it n]\\
     \textbf{neighbors:} nTry\,(0.95), nbw\,(0.76), Ax\,(0.73), psD\,(0.70), Sps\,(0.67)\\[3pt]
     \textbf{Demotic:} \textit{nTr}\\
-    \textbf{Greek:} \textit{θεός}\\[3pt]
+    \textbf{Greek:} \gk{θεός}\\[3pt]
     In the context of sacred animals, \textit{nTr} takes on its adjectival sense. The geometric reading ``luminous'' captures the solar associations that cluster around divinity in Egyptian.%
 }
 
@@ -369,7 +373,7 @@ The hieroglyphic transcription follows Quirke and Andrews (\textit{The Rosetta S
     \textbf{context:} [ntt, ---, ---]\\
     \textbf{neighbors:} nb\,(0.84), Dr\,(0.80), tm\,(0.77), wnwt\,(0.72)\\[3pt]
     \textbf{Demotic:} \textit{dmD}\\
-    \textbf{Greek:} \textit{σύνολον}%
+    \textbf{Greek:} \gk{σύνολον}%
 }
 
 % ── Line 12: Priestly honors ─────────────────────────────────────────────────
@@ -386,7 +390,7 @@ The hieroglyphic transcription follows Quirke and Andrews (\textit{The Rosetta S
     \textbf{context:} [nTr, m m t, pr]\\
     \textbf{neighbors:} Hm-nTr\,(0.82), sr\,(0.74), sS\,(0.69), HAtya\,(0.65)\\[3pt]
     \textbf{Demotic:} \textit{wab}\\
-    \textbf{Greek:} \textit{ἱερεύς}\\[3pt]
+    \textbf{Greek:} \gk{ἱερεύς}\\[3pt]
     Key finding: \textit{wab} (priest) and \textit{Hm-nTr} (god's servant) map near \textit{sr} (official) and \textit{HAtya} (governor). The geometry reveals that the priestly role was primarily administrative---not ``religious'' in the modern Western sense.%
 }
 
@@ -404,7 +408,7 @@ The hieroglyphic transcription follows Quirke and Andrews (\textit{The Rosetta S
     \textbf{context:} [iri, m t, ntt]\\
     \textbf{neighbors:} n\,(0.91), m\,(0.88), Hr\,(0.83)\\[3pt]
     \textbf{Demotic:} \textit{r}\\
-    \textbf{Greek:} \textit{ὅπως}\\[3pt]
+    \textbf{Greek:} \gk{ὅπως}\\[3pt]
     Third contextual reading of D21 in this text: ``toward'' (Line 1), ``against'' (Line 8), now ``so that'' (purpose). Same glyph, three distinct geometric neighborhoods depending on surrounding words.%
 }
 
@@ -422,7 +426,7 @@ The hieroglyphic transcription follows Quirke and Andrews (\textit{The Rosetta S
     \textbf{context:} [m, n t, r m t]\\
     \textbf{neighbors:} Hwt-nTr\,(0.94), pr\,(0.88), aH\,(0.79), ipt\,(0.73)\\[3pt]
     \textbf{Demotic:} \textit{pr-nTr}\\
-    \textbf{Greek:} \textit{ἱερόν}\\[3pt]
+    \textbf{Greek:} \gk{ἱερόν}\\[3pt]
     The compound \textit{pr-nTr} is literally ``house of god.'' The geometric translation preserves the compound structure that the conventional term ``temple'' compresses into a single word.%
 }
 
