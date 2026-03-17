@@ -38,6 +38,50 @@
 \definecolor{rosetta}{RGB}{183, 110, 72}
 \definecolor{reconstructed}{gray}{0.55}
 
+% ── Decree row commands ───────────────────────────────────────────────────────
+% \decreerow{line_number}{hieroglyphs}{transliteration}{standard_translation}{geometric_translation}
+\newcounter{decreeline}
+\newcommand{\decreerow}[5]{%
+    \stepcounter{decreeline}%
+    \noindent\begin{minipage}[t]{\textwidth}
+    \vspace{6pt}
+    {\footnotesize\textsc{Line #1}}\par\vspace{2pt}
+    {\Large\hiero{#2}}\par\vspace{2pt}
+    {\itshape #3}\par\vspace{1pt}
+    {#4}\par\vspace{1pt}
+    {\bfseries\color{rosetta}#5}\par
+    \vspace{4pt}
+    \noindent\rule{\textwidth}{0.2pt}
+    \end{minipage}\par\vspace{8pt}
+}
+
+% \reconstructedrow — same structure, gray + brackets for lacunae
+\newcommand{\reconstructedrow}[5]{%
+    \stepcounter{decreeline}%
+    \noindent\begin{minipage}[t]{\textwidth}
+    \vspace{6pt}
+    {\footnotesize\textsc{Line #1} \textcolor{reconstructed}{[reconstructed]}}\par\vspace{2pt}
+    {\Large\color{reconstructed}\hiero{⟦#2⟧}}\par\vspace{2pt}
+    {\itshape\color{reconstructed} #3}\par\vspace{1pt}
+    {\color{reconstructed}#4}\par\vspace{1pt}
+    {\bfseries\color{rosetta!60}#5}\par
+    \vspace{4pt}
+    \noindent\rule{\textwidth}{0.2pt}
+    \end{minipage}\par\vspace{8pt}
+}
+
+% ── Margin note command ───────────────────────────────────────────────────────
+% \glyphnote{glyph}{gardiner_code}{transliteration}{note_body}
+\newcommand{\glyphnote}[4]{%
+    \marginnote{%
+        \RaggedRight\footnotesize
+        {\normalsize\hiero{#1}}~{\texttt{#2}}~{\itshape #3}\par
+        \vspace{2pt}
+        #4
+        \par\vspace{6pt}
+    }%
+}
+
 % ── Title ─────────────────────────────────────────────────────────────────────
 \title{
     \textbf{The Geometry of the Decree}\\[6pt]
@@ -62,6 +106,21 @@
 
 \section{The Decree: Surviving Lines}
 \label{sec:surviving}
+
+\decreerow{1}%
+    {𓇋𓅱𓂝𓏏𓆑𓂋𓈖𓏏𓁹𓅓}%
+    {iw=f r ntt iri m \d{h}w,t-n\d{t}r}%
+    {He shall do what is done in the temples}%
+    {He moves toward what is performed within the god-houses}%
+\glyphnote{𓂋}{D21}{r}{%
+    \textbf{standard:} to, at\\
+    \textbf{geometric:} toward, facing\\
+    \textbf{cos\_sim:} 0.847\\
+    \textbf{context:} [iw=f, ntt, iri]\\
+    \textbf{neighbors:} n\,(0.91), m\,(0.88), Hr\,(0.83)\\[3pt]
+    \textbf{Demotic:} \textit{r}\\
+    \textbf{Greek:} \textit{πρός}%
+}
 
 \section{The Decree: Reconstructed Lines}
 \label{sec:reconstructed}
