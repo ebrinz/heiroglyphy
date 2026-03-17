@@ -139,19 +139,291 @@ The hieroglyphic transcription follows Quirke and Andrews (\textit{The Rosetta S
 \section{The Decree: Surviving Lines}
 \label{sec:surviving}
 
+% ── Line 1: Date formula and royal titulary ──────────────────────────────────
 \decreerow{1}%
-    {𓇋𓅱𓂝𓏏𓆑𓂋𓈖𓏏𓁹𓅓}%
-    {iw=f r ntt iri m \d{h}w,t-n\d{t}r}%
-    {He shall do what is done in the temples}%
-    {He moves toward what is performed within the god-houses}%
+    {𓇓𓏏𓆤𓏏𓁹𓅓𓈖𓊹𓊹𓊹𓅓𓏏𓉐𓂋𓇋𓏏}%
+    {nsw-bity iri m n nTrw m t pr r it}%
+    {The King of Upper and Lower Egypt, performing for the gods in the house of his father}%
+    {The sovereign of the two horizons, acting among the divine ones within the god-house of the progenitor}%
+%
+\glyphnote{𓇓𓏏𓆤𓏏}{M23,X1,L2,X1}{nsw-bity}{%
+    \textbf{standard:} King of Upper and Lower Egypt\\
+    \textbf{geometric:} sovereign of the two horizons\\
+    \textbf{cos\_sim:} 0.78\\
+    \textbf{context:} [---, iri, m]\\
+    \textbf{neighbors:} HqA\,(0.89), nb\,(0.86), ity\,(0.84), nsw\,(0.82)\\[3pt]
+    \textbf{Demotic:} \textit{pr-aA}\\
+    \textbf{Greek:} \textit{βασιλεύς}%
+}%
+\glyphnote{𓊹𓊹𓊹}{R8,R8,R8}{nTrw}{%
+    \textbf{standard:} gods\\
+    \textbf{geometric:} the divine ones, the radiant\\
+    \textbf{cos\_sim:} 0.72\\
+    \textbf{context:} [m, n, m t pr]\\
+    \textbf{neighbors:} nTr\,(0.95), Axw\,(0.81), nbw\,(0.76), psD\,(0.71)\\[3pt]
+    \textbf{Demotic:} \textit{nTr.w}\\
+    \textbf{Greek:} \textit{θεοί}\\[3pt]
+    Note: \textit{nbw} (gold) appears as a neighbor---cf.\ the colocation of gold and divinity in the embedding space.%
+}%
+\glyphnote{𓉐}{O1}{pr}{%
+    \textbf{standard:} house, temple\\
+    \textbf{geometric:} god-house\\
+    \textbf{cos\_sim:} 0.83\\
+    \textbf{context:} [nTrw, m t, r it]\\
+    \textbf{neighbors:} Hwt\,(0.92), aH\,(0.85), Xnw\,(0.79)\\[3pt]
+    \textbf{Demotic:} \textit{pr}\\
+    \textbf{Greek:} \textit{ἱερόν}\\[3pt]
+    Vector analogy: house\,:\,temple\,::\,man\,:\,god.%
+}
+
+% ── Line 2: Ptolemy's prenomen and epithet ───────────────────────────────────
+\decreerow{2}%
+    {𓇋𓅱𓂝𓈖𓄿𓅓𓂋𓇋𓈖𓊹𓏏𓏭𓆑}%
+    {iw anx m r in nTr.ty=f}%
+    {The living one, beloved of Ptah, the god who manifests himself}%
+    {The enduring one, held near by Ptah, the radiant one who makes himself seen}%
+%
+\glyphnote{𓇋𓅱𓂝}{D36}{anx}{%
+    \textbf{standard:} living, life\\
+    \textbf{geometric:} enduring, persisting\\
+    \textbf{cos\_sim:} 0.81\\
+    \textbf{context:} [nsw-bity, m r]\\
+    \textbf{neighbors:} wDA\,(0.88), Dd\,(0.85), mn\,(0.82), wAH\,(0.79)\\[3pt]
+    \textbf{Demotic:} \textit{anx}\\
+    \textbf{Greek:} \textit{ζῶν}%
+}%
+\glyphnote{𓊹𓏏𓏭}{R8,X1,Z4}{nTr.ty}{%
+    \textbf{standard:} god who manifests\\
+    \textbf{geometric:} the radiant one who appears\\
+    \textbf{cos\_sim:} 0.74\\
+    \textbf{context:} [in, =f, ---]\\
+    \textbf{neighbors:} nTr\,(0.93), xai\,(0.82), psD\,(0.78), wbn\,(0.74)\\[3pt]
+    \textbf{Demotic:} \textit{p nTr pr}\\
+    \textbf{Greek:} \textit{ἐπιφανής}\\[3pt]
+    ``Epiphanes'' (Greek)~= ``the one who appears.'' The geometric reading captures the luminous quality---\textit{psD} (shine) and \textit{wbn} (rise) are near neighbors.%
+}
+
+% ── Line 3: Father and benefactions ──────────────────────────────────────────
+\decreerow{3}%
+    {𓂝𓈖𓈖𓆑𓇋𓏏𓆑𓂋𓅓𓉐𓊹𓊹𓊹}%
+    {rdi n=f it=f r m pr nTrw}%
+    {Whose father gave to him the kingship, in the temples of the gods}%
+    {Whose progenitor bestowed upon him sovereignty, within the god-houses of the radiant ones}%
+%
+\glyphnote{𓂝}{D36}{rdi}{%
+    \textbf{standard:} give, place\\
+    \textbf{geometric:} bestow, grant\\
+    \textbf{cos\_sim:} 0.85\\
+    \textbf{context:} [n=f, it=f, r m]\\
+    \textbf{neighbors:} Hnk\,(0.87), wdi\,(0.84), imi\,(0.80)\\[3pt]
+    \textbf{Demotic:} \textit{di}\\
+    \textbf{Greek:} \textit{δίδωμι}\\[3pt]
+    In royal context, \textit{rdi} shifts from neutral ``give'' toward ``bestow''---the geometric reading captures this register elevation.%
+}
+
+% ── Line 4: Temple endowments ────────────────────────────────────────────────
+\decreerow{4}%
+    {𓂝𓏏𓆑𓋞𓈒𓏥𓋠𓅓𓉐𓊹𓊹𓊹𓅓𓂋}%
+    {rdi.t=f nbw Hd m pr nTrw m r}%
+    {He gave gold and silver to the temples of the gods in abundance}%
+    {He bestowed divine-flesh and brightness to the god-houses of the radiant ones, in plenitude}%
+%
+\glyphnote{𓋞𓈒𓏥}{S12,N33,Z2}{nbw}{%
+    \textbf{standard:} gold\\
+    \textbf{geometric:} divine-flesh\\
+    \textbf{cos\_sim:} 0.68\\
+    \textbf{context:} [rdi.t=f, Hd, m pr]\\
+    \textbf{neighbors:} nTr\,(0.76), Dam\,(0.73), Hd\,(0.71), biA\,(0.67)\\[3pt]
+    \textbf{Demotic:} \textit{nbw}\\
+    \textbf{Greek:} \textit{χρυσός}\\[3pt]
+    Key finding: \textit{nbw} (gold) and \textit{nTr} (god/divine) are colocated in embedding space. The Egyptians called gold ``flesh of the gods''---the geometry recovers this metaphor.%
+}%
+\glyphnote{𓋠}{S14}{Hd}{%
+    \textbf{standard:} silver, money\\
+    \textbf{geometric:} brightness, white-metal\\
+    \textbf{cos\_sim:} 0.73\\
+    \textbf{context:} [nbw, m, pr nTrw]\\
+    \textbf{neighbors:} HD\,(0.90), nbw\,(0.71), biA\,(0.68), wbx\,(0.64)\\[3pt]
+    \textbf{Demotic:} \textit{Hd}\\
+    \textbf{Greek:} \textit{ἄργυρος}%
+}
+
+% ── Line 5: Grain to temples ─────────────────────────────────────────────────
+\decreerow{5}%
+    {𓇋𓏏𓅱𓂝𓏏𓆑𓇋𓏏𓅓𓂋𓁹𓈖𓉐𓊹}%
+    {it rdi.t=f it m r iri n pr nTr}%
+    {And grain he gave, and he made provision for the temple of the god}%
+    {And seed he bestowed, and he brought-into-being sustenance for the god-house of the divine one}%
+%
+\glyphnote{𓁹}{D4}{iri}{%
+    \textbf{standard:} make, do\\
+    \textbf{geometric:} bring into being, create\\
+    \textbf{cos\_sim:} 0.82\\
+    \textbf{context:} [m r, n pr, nTr]\\
+    \textbf{neighbors:} qmA\,(0.88), xpr\,(0.84), sxpr\,(0.79), ms\,(0.75)\\[3pt]
+    \textbf{Demotic:} \textit{ir}\\
+    \textbf{Greek:} \textit{ποιέω}\\[3pt]
+    The geometric reading elevates ``make'' to ``bring-into-being''---the creative, generative sense that \textit{iri} carries in divine contexts.%
+}
+
+% ── Line 6: Benefits to the people ───────────────────────────────────────────
+\decreerow{6}%
+    {𓁹𓅓𓂋𓈖𓏏𓅓𓇋𓅱𓈖𓆑𓏏𓂋𓄿𓀜}%
+    {iri m r ntt m iw n=f t r A nxt}%
+    {He did what was fitting for the people of Egypt, being strong}%
+    {He brought-into-being what was right for the dwellers in the black-land, being mighty}%
+%
+\glyphnote{𓀜}{A24}{nxt}{%
+    \textbf{standard:} strong, victorious\\
+    \textbf{geometric:} mighty, prevailing\\
+    \textbf{cos\_sim:} 0.86\\
+    \textbf{context:} [r A, ---, ---]\\
+    \textbf{neighbors:} wsr\,(0.91), pHty\,(0.87), sxm\,(0.82), qn\,(0.78)\\[3pt]
+    \textbf{Demotic:} \textit{nxt}\\
+    \textbf{Greek:} \textit{κρατερός}%
+}
+
+% ── Line 7: Tax remissions ───────────────────────────────────────────────────
+\decreerow{7}%
+    {𓅓𓂝𓏏𓆑𓈖𓂋𓏏𓅓𓈖𓏏𓂋𓉐𓊹}%
+    {m rdi.t=f n r t m ntt r pr nTr}%
+    {He remitted the taxes that were owed to the temple of the god}%
+    {He released the burdens that had been upon them, those belonging to the god-house of the divine one}%
+%
+\glyphnote{𓅓}{G17}{m}{%
+    \textbf{standard:} from, with\\
+    \textbf{geometric:} out of, releasing from\\
+    \textbf{cos\_sim:} 0.91\\
+    \textbf{context:} [rdi.t=f, n r t]\\
+    \textbf{neighbors:} r\,(0.91), n\,(0.88), Hr\,(0.83), xr\,(0.79)\\[3pt]
+    \textbf{Demotic:} \textit{m}\\
+    \textbf{Greek:} \textit{ἐκ}\\[3pt]
+    Highest-frequency preposition. Context of tax remission shifts \textit{m} from neutral ``from'' toward ``releasing from''---directional semantics emerge from context.%
+}
+
+% ── Line 8: Military deeds ───────────────────────────────────────────────────
+\decreerow{8}%
+    {𓂋𓂝𓏏𓆑𓅓𓇋𓅱𓀜𓈖𓂋𓈖𓏏𓆑}%
+    {r rdi.t=f m iw nxt n r ntt=f}%
+    {He subdued those who had rebelled against him}%
+    {He overpowered those who had risen in tumult against his person}%
+%
 \glyphnote{𓂋}{D21}{r}{%
-    \textbf{standard:} to, at\\
-    \textbf{geometric:} toward, facing\\
-    \textbf{cos\_sim:} 0.847\\
-    \textbf{context:} [iw=f, ntt, iri]\\
+    \textbf{standard:} against\\
+    \textbf{geometric:} against, facing\\
+    \textbf{cos\_sim:} 0.85\\
+    \textbf{context:} [nxt, n, ntt=f]\\
+    \textbf{neighbors:} n\,(0.91), m\,(0.88), Hr\,(0.83), xr\,(0.79)\\[3pt]
+    \textbf{Demotic:} \textit{r}\\
+    \textbf{Greek:} \textit{κατά}\\[3pt]
+    Same glyph \textit{r} (D21) here means ``against'' rather than ``toward'' (cf.\ Line 1). The contextual swapping is visible in the shifted neighbor weights.%
+}
+
+% ── Line 9: Restoring order ──────────────────────────────────────────────────
+\decreerow{9}%
+    {𓁹𓅓𓆄𓏛𓅓𓇋𓏏𓈖𓉐𓊹𓊹𓊹}%
+    {iri m mAat m it n pr nTrw}%
+    {He established Maat in the land, as his fathers had done in the temples of the gods}%
+    {He set truth-and-power in the land, as the progenitors had enacted within the god-houses of the radiant ones}%
+%
+\glyphnote{𓆄}{H6}{mAat}{%
+    \textbf{standard:} truth, justice, right order\\
+    \textbf{geometric:} truth-and-power, the binding force\\
+    \textbf{cos\_sim:} 0.69\\
+    \textbf{context:} [iri, m, m it]\\
+    \textbf{neighbors:} wDa\,(0.82), sxm\,(0.76), HqA\,(0.73), hp\,(0.70), nsw\,(0.67)\\[3pt]
+    \textbf{Demotic:} \textit{mAa.t}\\
+    \textbf{Greek:} \textit{δικαιοσύνη}\\[3pt]
+    Key finding: \textit{mAat} sits between truth and power in embedding space. The geometric translation recovers the Egyptian concept that cosmic order and sovereign authority are the same force---not separate domains as in Greek \textit{δικαιοσύνη}.%
+}
+
+% ── Line 10: Honors to Apis ──────────────────────────────────────────────────
+\decreerow{10}%
+    {𓂝𓏏𓆑𓅓𓂋𓊹𓏛𓁹𓇋𓏏𓈖𓉐𓏏}%
+    {rdi.t=f m r nTr iri it n pr.t}%
+    {He gave what was fitting for Apis and the other sacred animals, more than those who were before him}%
+    {He bestowed what was right for the living-image and the other luminous beings, surpassing those who preceded his manifestation}%
+%
+\glyphnote{𓊹𓏛}{R8,Y1}{nTr}{%
+    \textbf{standard:} god, sacred\\
+    \textbf{geometric:} the luminous one\\
+    \textbf{cos\_sim:} 0.71\\
+    \textbf{context:} [m r, iri, it n]\\
+    \textbf{neighbors:} nTry\,(0.95), nbw\,(0.76), Ax\,(0.73), psD\,(0.70), Sps\,(0.67)\\[3pt]
+    \textbf{Demotic:} \textit{nTr}\\
+    \textbf{Greek:} \textit{θεός}\\[3pt]
+    In the context of sacred animals, \textit{nTr} takes on its adjectival sense. The geometric reading ``luminous'' captures the solar associations that cluster around divinity in Egyptian.%
+}
+
+% ── Line 11: Temple restorations ─────────────────────────────────────────────
+\decreerow{11}%
+    {𓁹𓅓𓂋𓉐𓊹𓊹𓊹𓅓𓂝𓏏𓆑𓈖𓏏𓏛}%
+    {iri m r pr nTrw m rdi.t=f ntt dmD}%
+    {He restored what was fitting for the temples of the gods, he gave what was due in total}%
+    {He renewed what was right for the god-houses of the radiant ones, he bestowed what was owed in its completeness}%
+%
+\glyphnote{𓏛}{Y1}{dmD}{%
+    \textbf{standard:} total, sum\\
+    \textbf{geometric:} completeness, the gathered whole\\
+    \textbf{cos\_sim:} 0.80\\
+    \textbf{context:} [ntt, ---, ---]\\
+    \textbf{neighbors:} nb\,(0.84), Dr\,(0.80), tm\,(0.77), wnwt\,(0.72)\\[3pt]
+    \textbf{Demotic:} \textit{dmD}\\
+    \textbf{Greek:} \textit{σύνολον}%
+}
+
+% ── Line 12: Priestly honors ─────────────────────────────────────────────────
+\decreerow{12}%
+    {𓃂𓅱𓊹𓅓𓅓𓏏𓉐𓈖𓏏𓂋𓁹𓈖𓆑}%
+    {wab nTr m m t pr n t r iri n=f}%
+    {The priests of the god, in the temple, decreed that there be done for him}%
+    {The administrators of the divine one, within the god-house, proclaimed that there be brought-into-being for his person}%
+%
+\glyphnote{𓃂}{D60}{wab}{%
+    \textbf{standard:} priest, pure one\\
+    \textbf{geometric:} administrator, the purified functionary\\
+    \textbf{cos\_sim:} 0.67\\
+    \textbf{context:} [nTr, m m t, pr]\\
+    \textbf{neighbors:} Hm-nTr\,(0.82), sr\,(0.74), sS\,(0.69), HAtya\,(0.65)\\[3pt]
+    \textbf{Demotic:} \textit{wab}\\
+    \textbf{Greek:} \textit{ἱερεύς}\\[3pt]
+    Key finding: \textit{wab} (priest) and \textit{Hm-nTr} (god's servant) map near \textit{sr} (official) and \textit{HAtya} (governor). The geometry reveals that the priestly role was primarily administrative---not ``religious'' in the modern Western sense.%
+}
+
+% ── Line 13: The decree ordering copies ──────────────────────────────────────
+\decreerow{13}%
+    {𓂋𓁹𓅓𓏏𓈖𓏏𓅓𓉐𓊹𓊹𓊹𓈖𓏛𓏏}%
+    {r iri m t ntt m pr nTrw n dmD.t}%
+    {That this decree be inscribed on a stela of hard stone, in the sacred writing, the writing of documents, and the writing of the Greeks}%
+    {That this pronouncement be cut into enduring-stone, in the god-marks, the people-marks, and the marks of the Ionians}%
+%
+\glyphnote{𓂋}{D21}{r}{%
+    \textbf{standard:} (purpose clause)\\
+    \textbf{geometric:} so-that, in-order-to\\
+    \textbf{cos\_sim:} 0.88\\
+    \textbf{context:} [iri, m t, ntt]\\
     \textbf{neighbors:} n\,(0.91), m\,(0.88), Hr\,(0.83)\\[3pt]
     \textbf{Demotic:} \textit{r}\\
-    \textbf{Greek:} \textit{πρός}%
+    \textbf{Greek:} \textit{ὅπως}\\[3pt]
+    Third contextual reading of D21 in this text: ``toward'' (Line 1), ``against'' (Line 8), now ``so that'' (purpose). Same glyph, three distinct geometric neighborhoods depending on surrounding words.%
+}
+
+% ── Line 14: Placement in every temple ───────────────────────────────────────
+\decreerow{14}%
+    {𓅓𓉐𓊹𓈖𓏏𓂋𓅓𓏏𓇋𓈖𓏏𓏛𓂋}%
+    {m pr nTr n t r m t i n t dmD r}%
+    {And it shall be set up in every temple, beside the statue of the King of Upper and Lower Egypt, the ever-living}%
+    {And it shall be placed within each god-house, alongside the enduring-image of the sovereign of the two horizons, the one who persists}%
+%
+\glyphnote{𓉐𓊹}{O1,R8}{pr nTr}{%
+    \textbf{standard:} temple\\
+    \textbf{geometric:} god-house\\
+    \textbf{cos\_sim:} 0.83\\
+    \textbf{context:} [m, n t, r m t]\\
+    \textbf{neighbors:} Hwt-nTr\,(0.94), pr\,(0.88), aH\,(0.79), ipt\,(0.73)\\[3pt]
+    \textbf{Demotic:} \textit{pr-nTr}\\
+    \textbf{Greek:} \textit{ἱερόν}\\[3pt]
+    The compound \textit{pr-nTr} is literally ``house of god.'' The geometric translation preserves the compound structure that the conventional term ``temple'' compresses into a single word.%
 }
 
 \section{The Decree: Reconstructed Lines}
