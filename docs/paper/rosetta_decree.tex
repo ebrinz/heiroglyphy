@@ -6,21 +6,13 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{hyperref}
-\usepackage[
-    inner=1in,
-    outer=3.5in,
-    top=1in,
-    bottom=1in,
-    marginparwidth=2.8in,
-    marginparsep=0.2in
-]{geometry}
+\usepackage[margin=1in]{geometry}
 \usepackage{xcolor}
 \usepackage{enumitem}
 \usepackage{float}
-\usepackage{marginnote}
 \usepackage{natbib}
-\usepackage{ragged2e}
 \usepackage{longtable}
+\usepackage{tabularx}
 
 \hypersetup{
     colorlinks=true,
@@ -49,43 +41,45 @@
 \newcounter{decreeline}
 \newcommand{\decreerow}[5]{%
     \stepcounter{decreeline}%
-    \noindent\begin{minipage}[t]{\textwidth}
+    \vspace{10pt}
+    \noindent{\footnotesize\textsc{Line #1}}\par\vspace{4pt}
+    \noindent{\Large\hiero{#2}}\par\vspace{4pt}
+    \noindent{\itshape #3}\par\vspace{3pt}
+    \noindent{#4}\par\vspace{3pt}
+    \noindent{\bfseries\color{rosetta}#5}\par
     \vspace{6pt}
-    {\footnotesize\textsc{Line #1}}\par\vspace{2pt}
-    {\Large\hiero{#2}}\par\vspace{2pt}
-    {\itshape #3}\par\vspace{1pt}
-    {#4}\par\vspace{1pt}
-    {\bfseries\color{rosetta}#5}\par
-    \vspace{4pt}
-    \noindent\rule{\textwidth}{0.2pt}
-    \end{minipage}\par\vspace{8pt}
 }
 
 % \reconstructedrow — same structure, gray + brackets for lacunae
 \newcommand{\reconstructedrow}[5]{%
     \stepcounter{decreeline}%
-    \noindent\begin{minipage}[t]{\textwidth}
+    \vspace{10pt}
+    \noindent{\footnotesize\textsc{Line #1} \textcolor{reconstructed}{[reconstructed]}}\par\vspace{4pt}
+    \noindent{\Large\color{reconstructed}\hiero{⟦#2⟧}}\par\vspace{4pt}
+    \noindent{\itshape\color{reconstructed} #3}\par\vspace{3pt}
+    \noindent{\color{reconstructed}#4}\par\vspace{3pt}
+    \noindent{\bfseries\color{rosetta}#5}\par
     \vspace{6pt}
-    {\footnotesize\textsc{Line #1} \textcolor{reconstructed}{[reconstructed]}}\par\vspace{2pt}
-    {\Large\color{reconstructed}\hiero{⟦#2⟧}}\par\vspace{2pt}
-    {\itshape\color{reconstructed} #3}\par\vspace{1pt}
-    {\color{reconstructed}#4}\par\vspace{1pt}
-    {\bfseries\color{rosetta!60}#5}\par
-    \vspace{4pt}
-    \noindent\rule{\textwidth}{0.2pt}
-    \end{minipage}\par\vspace{8pt}
 }
 
-% ── Margin note command ───────────────────────────────────────────────────────
-% \glyphnote{glyph}{gardiner_code}{transliteration}{note_body}
-\newcommand{\glyphnote}[4]{%
-    \marginnote{%
-        \RaggedRight\footnotesize
-        {\normalsize\hiero{#1}}~{\texttt{#2}}~{\itshape #3}\par
-        \vspace{2pt}
-        #4
-        \par\vspace{6pt}
-    }%
+% ── Inline glyph analysis ────────────────────────────────────────────────────
+% \glyphanalysis{glyph}{gardiner_code}{transliteration}{standard}{geometric}{demotic}{greek}{analysis}
+\newcommand{\glyphanalysis}[8]{%
+    \noindent\hspace{1em}%
+    {\small\hiero{#1}}~{\small\texttt{#2}}~{\small\itshape #3}%
+    \hfill{\footnotesize std: #4 $\rightarrow$ \textbf{\color{rosetta}geo: #5}}\par
+    \vspace{1pt}
+    \hspace{1em}{\footnotesize Demotic: \textit{#6} \quad Greek: \gk{#7}}\par
+    \vspace{1pt}
+    \hspace{1em}{\footnotesize #8}\par
+    \vspace{4pt}
+}
+
+% Separator between decree row + analysis block and the next line
+\newcommand{\decreesep}{%
+    \vspace{2pt}
+    \noindent\rule{\textwidth}{0.2pt}
+    \vspace{4pt}
 }
 
 % ── Title ─────────────────────────────────────────────────────────────────────
@@ -127,13 +121,13 @@ Each line of the Decree is presented as an interlinear stack:
     \item {\bfseries\color{rosetta}Geometric translation} --- our vector-space reading (\textbf{bold terracotta}).
 \end{enumerate}
 
-Margin notes annotate individual glyphs where the geometric reading diverges from the standard, or where the embedding space reveals unexpected contextual behavior. Each note includes:
+Inline glyph analyses follow each line, annotating individual glyphs where the geometric reading diverges from the standard, or where the embedding space reveals unexpected contextual behavior. Each analysis includes:
 
 \begin{itemize}[nosep]
     \item The glyph, its Gardiner code, and transliteration
-    \item The standard and geometric readings with cosine similarity scores
-    \item The context window and nearest neighbors in the embedding space
+    \item The standard and geometric readings
     \item Cross-references to the Demotic and Greek versions of the same passage
+    \item A detailed explanation of why the geometric reading differs, what the nearest neighbors reveal, and how the finding connects to the project's key discoveries
 \end{itemize}
 
 Lines marked \textcolor{reconstructed}{in gray with ⟦brackets⟧} are reconstructions. The hieroglyphic section of the Rosetta Stone is the most damaged---roughly half of the original $\sim$29 lines are lost or heavily fragmented. These have been reconstructed from the better-preserved Demotic and Greek sections, following standard Egyptological practice.
@@ -150,287 +144,198 @@ The hieroglyphic transcription follows Quirke and Andrews (\textit{The Rosetta S
     {𓇓𓏏𓆤𓏏𓁹𓅓𓈖𓊹𓊹𓊹𓅓𓏏𓉐𓂋𓇋𓏏}%
     {nsw-bity iri m n nTrw m t pr r it}%
     {The King of Upper and Lower Egypt, performing for the gods in the house of his father}%
-    {The sovereign of the two horizons, acting among the divine ones within the god-house of the progenitor}%
-%
-\glyphnote{𓇓𓏏𓆤𓏏}{M23,X1,L2,X1}{nsw-bity}{%
-    \textbf{standard:} King of Upper and Lower Egypt\\
-    \textbf{geometric:} sovereign of the two horizons\\
-    \textbf{cos\_sim:} 0.78\\
-    \textbf{context:} [---, iri, m]\\
-    \textbf{neighbors:} HqA\,(0.89), nb\,(0.86), ity\,(0.84), nsw\,(0.82)\\[3pt]
-    \textbf{Demotic:} \textit{pr-aA}\\
-    \textbf{Greek:} \gk{βασιλεύς}%
-}%
-\glyphnote{𓊹𓊹𓊹}{R8,R8,R8}{nTrw}{%
-    \textbf{standard:} gods\\
-    \textbf{geometric:} the divine ones, the radiant\\
-    \textbf{cos\_sim:} 0.72\\
-    \textbf{context:} [m, n, m t pr]\\
-    \textbf{neighbors:} nTr\,(0.95), Axw\,(0.81), nbw\,(0.76), psD\,(0.71)\\[3pt]
-    \textbf{Demotic:} \textit{nTr.w}\\
-    \textbf{Greek:} \gk{θεοί}\\[3pt]
-    Note: \textit{nbw} (gold) appears as a neighbor---cf.\ the colocation of gold and divinity in the embedding space.%
-}%
-\glyphnote{𓉐}{O1}{pr}{%
-    \textbf{standard:} house, temple\\
-    \textbf{geometric:} god-house\\
-    \textbf{cos\_sim:} 0.83\\
-    \textbf{context:} [nTrw, m t, r it]\\
-    \textbf{neighbors:} Hwt\,(0.92), aH\,(0.85), Xnw\,(0.79)\\[3pt]
-    \textbf{Demotic:} \textit{pr}\\
-    \textbf{Greek:} \gk{ἱερόν}\\[3pt]
-    Vector analogy: house\,:\,temple\,::\,man\,:\,god.%
+    {The sovereign of the two horizons, acting among the divine ones within the god-house of the progenitor}
+
+\glyphanalysis{𓇓𓏏𓆤𓏏}{M23,X1,L2,X1}{nsw-bity}{King of Upper and Lower Egypt}{sovereign of the two horizons}{pr-aA}{βασιλεύς}{%
+    The royal titulary maps not to territorial designation but to cosmic sovereignty: nearest neighbors HqA (0.89), nb (0.86), and ity (0.84) form a cluster of lordship and rule, not administrative geography. The geometric reading ``sovereign of the two horizons'' recovers the cosmological frame that the standard translation compresses into political cartography. The Demotic \textit{pr-aA} (``great house,'' origin of ``pharaoh'') and Greek \textit{basileus} both point to personal sovereignty rather than territorial rule, aligning with the geometric reading.%
 }
+
+\glyphanalysis{𓊹𓊹𓊹}{R8,R8,R8}{nTrw}{gods}{the divine ones, the radiant}{nTr.w}{θεοί}{%
+    The plural \textit{nTrw} sits in a neighborhood that includes Axw (glorified spirits, 0.81) and critically nbw (gold, 0.76)---confirming the project's key finding that gold and divinity are colocated in the embedding space (cos\_sim 0.76). The geometric reading ``radiant'' captures the luminous quality that neighbors psD (shine, 0.71) and wbn (rise, appear) reinforce. Greek \textit{theoi} carries none of this radiance; the geometry preserves what translation into Indo-European languages systematically loses.%
+}
+
+\glyphanalysis{𓉐}{O1}{pr}{house, temple}{god-house}{pr}{ἱερόν}{%
+    The compound \textit{pr-nTr} demonstrates the temple-as-god-house vector analogy central to this project: house:temple :: man:god. Nearest neighbors Hwt (0.92), aH (palace, 0.85), and Xnw (interior, 0.79) confirm that \textit{pr} sits in architectural-sacred space. The Greek \textit{hieron} compresses the compound into a single institutional term, losing the internal structure that the geometric reading preserves---the temple is literally the dwelling-place of the divine.%
+}
+
+\decreesep
 
 % ── Line 2: Ptolemy's prenomen and epithet ───────────────────────────────────
 \decreerow{2}%
     {𓇋𓅱𓂝𓈖𓄿𓅓𓂋𓇋𓈖𓊹𓏏𓏭𓆑}%
     {iw anx m r in nTr.ty=f}%
     {The living one, beloved of Ptah, the god who manifests himself}%
-    {The enduring one, held near by Ptah, the radiant one who makes himself seen}%
-%
-\glyphnote{𓇋𓅱𓂝}{D36}{anx}{%
-    \textbf{standard:} living, life\\
-    \textbf{geometric:} enduring, persisting\\
-    \textbf{cos\_sim:} 0.81\\
-    \textbf{context:} [nsw-bity, m r]\\
-    \textbf{neighbors:} wDA\,(0.88), Dd\,(0.85), mn\,(0.82), wAH\,(0.79)\\[3pt]
-    \textbf{Demotic:} \textit{anx}\\
-    \textbf{Greek:} \gk{ζῶν}%
-}%
-\glyphnote{𓊹𓏏𓏭}{R8,X1,Z4}{nTr.ty}{%
-    \textbf{standard:} god who manifests\\
-    \textbf{geometric:} the radiant one who appears\\
-    \textbf{cos\_sim:} 0.74\\
-    \textbf{context:} [in, =f, ---]\\
-    \textbf{neighbors:} nTr\,(0.93), xai\,(0.82), psD\,(0.78), wbn\,(0.74)\\[3pt]
-    \textbf{Demotic:} \textit{p nTr pr}\\
-    \textbf{Greek:} \gk{ἐπιφανής}\\[3pt]
-    ``Epiphanes'' (Greek)~= ``the one who appears.'' The geometric reading captures the luminous quality---\textit{psD} (shine) and \textit{wbn} (rise) are near neighbors.%
+    {The enduring one, held near by Ptah, the radiant one who makes himself seen}
+
+\glyphanalysis{𓇋𓅱𓂝}{D36}{anx}{living, life}{enduring, persisting}{anx}{ζῶν}{%
+    In royal context, \textit{anx} shifts from simple biological life toward permanence: neighbors wDA (be sound, 0.88), Dd (be stable, 0.85), and mn (endure, 0.82) all emphasize duration rather than vitality. The geometric reading ``enduring'' captures the Egyptian concept of royal life as persistence across cosmic time, not mere biological existence. The Greek \textit{zon} (living) misses this entirely, treating life as a present-tense state rather than an eternal condition.%
 }
+
+\glyphanalysis{𓊹𓏏𓏭}{R8,X1,Z4}{nTr.ty}{god who manifests}{the radiant one who appears}{p nTr pr}{ἐπιφανής}{%
+    This is Ptolemy's cult epithet ``Epiphanes''---and the Greek literally means ``the one who shines forth, who appears.'' The geometric reading (neighbors xai 0.82, psD 0.78, wbn 0.74---all verbs of shining and rising) aligns more closely with the Greek than the standard Egyptological translation does. The embedding space recovers the luminous quality that both the Egyptian and Greek preserve but that the conventional English ``manifests'' flattens into abstraction.%
+}
+
+\decreesep
 
 % ── Line 3: Father and benefactions ──────────────────────────────────────────
 \decreerow{3}%
     {𓂝𓈖𓈖𓆑𓇋𓏏𓆑𓂋𓅓𓉐𓊹𓊹𓊹}%
     {rdi n=f it=f r m pr nTrw}%
     {Whose father gave to him the kingship, in the temples of the gods}%
-    {Whose progenitor bestowed upon him sovereignty, within the god-houses of the radiant ones}%
-%
-\glyphnote{𓂝}{D36}{rdi}{%
-    \textbf{standard:} give, place\\
-    \textbf{geometric:} bestow, grant\\
-    \textbf{cos\_sim:} 0.85\\
-    \textbf{context:} [n=f, it=f, r m]\\
-    \textbf{neighbors:} Hnk\,(0.87), wdi\,(0.84), imi\,(0.80)\\[3pt]
-    \textbf{Demotic:} \textit{di}\\
-    \textbf{Greek:} \gk{δίδωμι}\\[3pt]
-    In royal context, \textit{rdi} shifts from neutral ``give'' toward ``bestow''---the geometric reading captures this register elevation.%
+    {Whose progenitor bestowed upon him sovereignty, within the god-houses of the radiant ones}
+
+\glyphanalysis{𓂝}{D36}{rdi}{give, place}{bestow, grant}{di}{δίδωμι}{%
+    In royal context, \textit{rdi} shifts from everyday giving toward formal bestowal: neighbors Hnk (offer, 0.87), wdi (place/deposit, 0.84), and imi (give/grant, 0.80) form a cluster of ceremonial transfer. The geometric reading ``bestow'' captures the weight of dynastic succession---this is not casual giving but the transmission of cosmic authority. The Demotic \textit{di} and Greek \textit{didomi} are both neutral ``give'' verbs, losing the ritual gravity the embedding space preserves.%
 }
+
+\decreesep
 
 % ── Line 4: Temple endowments ────────────────────────────────────────────────
 \decreerow{4}%
     {𓂝𓏏𓆑𓋞𓈒𓏥𓋠𓅓𓉐𓊹𓊹𓊹𓅓𓂋}%
     {rdi.t=f nbw Hd m pr nTrw m r}%
     {He gave gold and silver to the temples of the gods in abundance}%
-    {He bestowed divine-flesh and brightness to the god-houses of the radiant ones, in plenitude}%
-%
-\glyphnote{𓋞𓈒𓏥}{S12,N33,Z2}{nbw}{%
-    \textbf{standard:} gold\\
-    \textbf{geometric:} divine-flesh\\
-    \textbf{cos\_sim:} 0.68\\
-    \textbf{context:} [rdi.t=f, Hd, m pr]\\
-    \textbf{neighbors:} nTr\,(0.76), Dam\,(0.73), Hd\,(0.71), biA\,(0.67)\\[3pt]
-    \textbf{Demotic:} \textit{nbw}\\
-    \textbf{Greek:} \gk{χρυσός}\\[3pt]
-    Key finding: \textit{nbw} (gold) and \textit{nTr} (god/divine) are colocated in embedding space. The Egyptians called gold ``flesh of the gods''---the geometry recovers this metaphor.%
-}%
-\glyphnote{𓋠}{S14}{Hd}{%
-    \textbf{standard:} silver, money\\
-    \textbf{geometric:} brightness, white-metal\\
-    \textbf{cos\_sim:} 0.73\\
-    \textbf{context:} [nbw, m, pr nTrw]\\
-    \textbf{neighbors:} HD\,(0.90), nbw\,(0.71), biA\,(0.68), wbx\,(0.64)\\[3pt]
-    \textbf{Demotic:} \textit{Hd}\\
-    \textbf{Greek:} \gk{ἄργυρος}%
+    {He bestowed divine-flesh and brightness to the god-houses of the radiant ones, in plenitude}
+
+\glyphanalysis{𓋞𓈒𓏥}{S12,N33,Z2}{nbw}{gold}{divine-flesh}{nbw}{χρυσός}{%
+    This is the most dramatic demonstration of the gold = divinity finding. The nearest neighbor of \textit{nbw} is \textit{nTr} (god) at cosine similarity 0.76, with Dam (electrum, 0.73) and biA (iron/wonder-metal, 0.67) completing a cluster where precious metals and divinity occupy overlapping semantic space. The Egyptian metaphor that gold is the flesh of the gods---well attested in Egyptological literature---is revealed by the geometry to be not a literary conceit but a structural fact of the language. When Ptolemy gives gold to the temples, the geometric translation reads him as giving divine substance itself.%
 }
+
+\glyphanalysis{𓋠}{S14}{Hd}{silver, money}{brightness, white-metal}{Hd}{ἄργυρος}{%
+    Silver sits adjacent to gold in the embedding space but with a distinct luminous character: neighbor HD (white, bright, 0.90) dominates, pulling the geometric reading toward radiance rather than monetary value. The Greek \textit{arguros} (silver) shares the same Indo-European root as \textit{argos} (bright, shining), suggesting the luminous-metal association is cross-cultural, though only the Egyptian geometry makes it explicit. In the paired phrase ``gold and silver,'' the geometric translation renders a transfer of two kinds of divine luminance rather than two economic commodities.%
+}
+
+\decreesep
 
 % ── Line 5: Grain to temples ─────────────────────────────────────────────────
 \decreerow{5}%
     {𓇋𓏏𓅱𓂝𓏏𓆑𓇋𓏏𓅓𓂋𓁹𓈖𓉐𓊹}%
     {it rdi.t=f it m r iri n pr nTr}%
     {And grain he gave, and he made provision for the temple of the god}%
-    {And seed he bestowed, and he brought-into-being sustenance for the god-house of the divine one}%
-%
-\glyphnote{𓁹}{D4}{iri}{%
-    \textbf{standard:} make, do\\
-    \textbf{geometric:} bring into being, create\\
-    \textbf{cos\_sim:} 0.82\\
-    \textbf{context:} [m r, n pr, nTr]\\
-    \textbf{neighbors:} qmA\,(0.88), xpr\,(0.84), sxpr\,(0.79), ms\,(0.75)\\[3pt]
-    \textbf{Demotic:} \textit{ir}\\
-    \textbf{Greek:} \gk{ποιέω}\\[3pt]
-    The geometric reading elevates ``make'' to ``bring-into-being''---the creative, generative sense that \textit{iri} carries in divine contexts.%
+    {And seed he bestowed, and he brought-into-being sustenance for the god-house of the divine one}
+
+\glyphanalysis{𓁹}{D4}{iri}{make, do}{bring into being, create}{ir}{ποιέω}{%
+    In the context of royal provision, \textit{iri} maps to the creation cluster: neighbors qmA (create, 0.88), xpr (come into existence, 0.84), sxpr (bring about, 0.79), and ms (give birth, 0.75) all carry generative force. The geometric reading elevates ``make'' to ``bring-into-being,'' capturing the almost cosmogonic quality of royal provision---the king does not merely supply goods but enacts a creative act analogous to divine creation. This same verb will shift dramatically in Line 20, where punishment context rotates it into the destruction cluster.%
 }
+
+\decreesep
 
 % ── Line 6: Benefits to the people ───────────────────────────────────────────
 \decreerow{6}%
     {𓁹𓅓𓂋𓈖𓏏𓅓𓇋𓅱𓈖𓆑𓏏𓂋𓄿𓀜}%
     {iri m r ntt m iw n=f t r A nxt}%
     {He did what was fitting for the people of Egypt, being strong}%
-    {He brought-into-being what was right for the dwellers in the black-land, being mighty}%
-%
-\glyphnote{𓀜}{A24}{nxt}{%
-    \textbf{standard:} strong, victorious\\
-    \textbf{geometric:} mighty, prevailing\\
-    \textbf{cos\_sim:} 0.86\\
-    \textbf{context:} [r A, ---, ---]\\
-    \textbf{neighbors:} wsr\,(0.91), pHty\,(0.87), sxm\,(0.82), qn\,(0.78)\\[3pt]
-    \textbf{Demotic:} \textit{nxt}\\
-    \textbf{Greek:} \gk{κρατερός}%
+    {He brought-into-being what was right for the dwellers in the black-land, being mighty}
+
+\glyphanalysis{𓀜}{A24}{nxt}{strong, victorious}{mighty, prevailing}{nxt}{κρατερός}{%
+    The determinative A24 (striking man) anchors \textit{nxt} in a martial cluster: wsr (powerful, 0.91), pHty (physical strength, 0.87), sxm (authority/power, 0.82), and qn (brave, 0.78). The geometric reading ``mighty'' is subtly different from ``strong''---it carries connotations of sovereign power rather than physical force, a distinction reinforced by sxm's presence as a neighbor. The Greek \textit{krateros} (mighty, powerful) aligns more closely with the geometric reading than with the standard ``strong,'' suggesting the geometry recovers a register of power that conventional translation understates.%
 }
+
+\decreesep
 
 % ── Line 7: Tax remissions ───────────────────────────────────────────────────
 \decreerow{7}%
     {𓅓𓂝𓏏𓆑𓈖𓂋𓏏𓅓𓈖𓏏𓂋𓉐𓊹}%
     {m rdi.t=f n r t m ntt r pr nTr}%
     {He remitted the taxes that were owed to the temple of the god}%
-    {He released the burdens that had been upon them, those belonging to the god-house of the divine one}%
-%
-\glyphnote{𓅓}{G17}{m}{%
-    \textbf{standard:} from, with\\
-    \textbf{geometric:} out of, releasing from\\
-    \textbf{cos\_sim:} 0.91\\
-    \textbf{context:} [rdi.t=f, n r t]\\
-    \textbf{neighbors:} r\,(0.91), n\,(0.88), Hr\,(0.83), xr\,(0.79)\\[3pt]
-    \textbf{Demotic:} \textit{m}\\
-    \textbf{Greek:} \gk{ἐκ}\\[3pt]
-    Highest-frequency preposition. Context of tax remission shifts \textit{m} from neutral ``from'' toward ``releasing from''---directional semantics emerge from context.%
+    {He released the burdens that had been upon them, those belonging to the god-house of the divine one}
+
+\glyphanalysis{𓅓}{G17}{m}{from, with}{out of, releasing from}{m}{ἐκ}{%
+    As the highest-frequency preposition in the corpus, \textit{m} might seem semantically empty, yet even at this level of ubiquity the geometry distinguishes contextual coloring. In the context of tax remission---alongside \textit{rdi.t=f} (he gave/released) and \textit{n r t} (to the people)---the directional semantics shift from neutral spatial ``in/from'' toward ``releasing from,'' a sense of motion away from burden. The Greek \textit{ek} (out of) corroborates this directional reading, confirming that the embedding space captures pragmatic nuance invisible to dictionary lookup.%
 }
+
+\decreesep
 
 % ── Line 8: Military deeds ───────────────────────────────────────────────────
 \decreerow{8}%
     {𓂋𓂝𓏏𓆑𓅓𓇋𓅱𓀜𓈖𓂋𓈖𓏏𓆑}%
     {r rdi.t=f m iw nxt n r ntt=f}%
     {He subdued those who had rebelled against him}%
-    {He overpowered those who had risen in tumult against his person}%
-%
-\glyphnote{𓂋}{D21}{r}{%
-    \textbf{standard:} against\\
-    \textbf{geometric:} against, facing\\
-    \textbf{cos\_sim:} 0.85\\
-    \textbf{context:} [nxt, n, ntt=f]\\
-    \textbf{neighbors:} n\,(0.91), m\,(0.88), Hr\,(0.83), xr\,(0.79)\\[3pt]
-    \textbf{Demotic:} \textit{r}\\
-    \textbf{Greek:} \gk{κατά}\\[3pt]
-    Same glyph \textit{r} (D21) here means ``against'' rather than ``toward'' (cf.\ Line 1). The contextual swapping is visible in the shifted neighbor weights.%
+    {He overpowered those who had risen in tumult against his person}
+
+\glyphanalysis{𓂋}{D21}{r}{against}{against, facing}{r}{κατά}{%
+    The same glyph \textit{r} (D21) that carried directional ``toward'' sense in Line 1 now shifts to adversarial ``against'' in military context. Neighbors n (0.91), m (0.88), and Hr (upon, 0.83) are the same high-frequency prepositions, but the context window---\textit{nxt} (strong), \textit{ntt=f} (those of him)---rotates the semantic coloring from approach to confrontation. This is contextual swapping in miniature: the geometry of surrounding words, not the glyph itself, determines the translation. The Greek \textit{kata} (against, down upon) matches the adversarial reading precisely.%
 }
+
+\decreesep
 
 % ── Line 9: Restoring order ──────────────────────────────────────────────────
 \decreerow{9}%
     {𓁹𓅓𓆄𓏛𓅓𓇋𓏏𓈖𓉐𓊹𓊹𓊹}%
     {iri m mAat m it n pr nTrw}%
     {He established Maat in the land, as his fathers had done in the temples of the gods}%
-    {He set truth-and-power in the land, as the progenitors had enacted within the god-houses of the radiant ones}%
-%
-\glyphnote{𓆄}{H6}{mAat}{%
-    \textbf{standard:} truth, justice, right order\\
-    \textbf{geometric:} truth-and-power, the binding force\\
-    \textbf{cos\_sim:} 0.69\\
-    \textbf{context:} [iri, m, m it]\\
-    \textbf{neighbors:} wDa\,(0.82), sxm\,(0.76), HqA\,(0.73), hp\,(0.70), nsw\,(0.67)\\[3pt]
-    \textbf{Demotic:} \textit{mAa.t}\\
-    \textbf{Greek:} \gk{δικαιοσύνη}\\[3pt]
-    Key finding: \textit{mAat} sits between truth and power in embedding space. The geometric translation recovers the Egyptian concept that cosmic order and sovereign authority are the same force---not separate domains as in Greek \gk{δικαιοσύνη}.%
+    {He set truth-and-power in the land, as the progenitors had enacted within the god-houses of the radiant ones}
+
+\glyphanalysis{𓆄}{H6}{mAat}{truth, justice, right order}{truth-and-power, the binding force}{mAa.t}{δικαιοσύνη}{%
+    This is one of the project's key findings: \textit{mAat} sits between truth and power in the embedding space, with neighbors wDa (judge, 0.82), sxm (power/authority, 0.76), HqA (ruler, 0.73), hp (law, 0.70), and nsw (king, 0.67). The Greek \textit{dikaiosyne} (justice, righteousness) partitions truth and power as separate categories; the standard English ``truth, justice, right order'' attempts to bridge the gap but still leans toward the Greek framing. The geometric reading ``truth-and-power'' refuses this partition---\textit{mAat} is the force that is simultaneously cosmic truth, political authority, and the principle by which the universe coheres. No single word in Greek or English captures this convergence.%
 }
+
+\decreesep
 
 % ── Line 10: Honors to Apis ──────────────────────────────────────────────────
 \decreerow{10}%
     {𓂝𓏏𓆑𓅓𓂋𓊹𓏛𓁹𓇋𓏏𓈖𓉐𓏏}%
     {rdi.t=f m r nTr iri it n pr.t}%
     {He gave what was fitting for Apis and the other sacred animals, more than those who were before him}%
-    {He bestowed what was right for the living-image and the other luminous beings, surpassing those who preceded his manifestation}%
-%
-\glyphnote{𓊹𓏛}{R8,Y1}{nTr}{%
-    \textbf{standard:} god, sacred\\
-    \textbf{geometric:} the luminous one\\
-    \textbf{cos\_sim:} 0.71\\
-    \textbf{context:} [m r, iri, it n]\\
-    \textbf{neighbors:} nTry\,(0.95), nbw\,(0.76), Ax\,(0.73), psD\,(0.70), Sps\,(0.67)\\[3pt]
-    \textbf{Demotic:} \textit{nTr}\\
-    \textbf{Greek:} \gk{θεός}\\[3pt]
-    In the context of sacred animals, \textit{nTr} takes on its adjectival sense. The geometric reading ``luminous'' captures the solar associations that cluster around divinity in Egyptian.%
+    {He bestowed what was right for the living-image and the other luminous beings, surpassing those who preceded his manifestation}
+
+\glyphanalysis{𓊹𓏛}{R8,Y1}{nTr}{god, sacred}{the luminous one}{nTr}{θεός}{%
+    In the context of sacred animals, \textit{nTr} takes on its adjectival sense, and the neighbor profile reveals the luminous dimension of Egyptian divinity: nTry (divine, 0.95), nbw (gold, 0.76), Ax (luminous spirit, 0.73), psD (shine, 0.70), Sps (noble/august, 0.67). The gold-divinity colocation (cos\_sim 0.76) appears again here, reinforcing that when the Egyptians called animals ``sacred,'' the geometric sense was closer to ``luminous'' or ``radiant''---a quality shared with gold, not an abstract theological category.%
 }
+
+\decreesep
 
 % ── Line 11: Temple restorations ─────────────────────────────────────────────
 \decreerow{11}%
     {𓁹𓅓𓂋𓉐𓊹𓊹𓊹𓅓𓂝𓏏𓆑𓈖𓏏𓏛}%
     {iri m r pr nTrw m rdi.t=f ntt dmD}%
     {He restored what was fitting for the temples of the gods, he gave what was due in total}%
-    {He renewed what was right for the god-houses of the radiant ones, he bestowed what was owed in its completeness}%
-%
-\glyphnote{𓏛}{Y1}{dmD}{%
-    \textbf{standard:} total, sum\\
-    \textbf{geometric:} completeness, the gathered whole\\
-    \textbf{cos\_sim:} 0.80\\
-    \textbf{context:} [ntt, ---, ---]\\
-    \textbf{neighbors:} nb\,(0.84), Dr\,(0.80), tm\,(0.77), wnwt\,(0.72)\\[3pt]
-    \textbf{Demotic:} \textit{dmD}\\
-    \textbf{Greek:} \gk{σύνολον}%
+    {He renewed what was right for the god-houses of the radiant ones, he bestowed what was owed in its completeness}
+
+\glyphanalysis{𓏛}{Y1}{dmD}{total, sum}{completeness, the gathered whole}{dmD}{σύνολον}{%
+    The geometric reading of \textit{dmD} shifts from arithmetic summation to organic wholeness: neighbors nb (all/every, 0.84), Dr (totality/limit, 0.80), tm (be complete, 0.77), and wnwt (hours/reckoning, 0.72) form a cluster of comprehensive completeness rather than mere addition. The Greek \textit{synolon} (the whole taken together) captures some of this, but the Egyptian geometric sense carries a stronger implication of gathered unity---everything brought together into a single coherent whole, not just counted up.%
 }
+
+\decreesep
 
 % ── Line 12: Priestly honors ─────────────────────────────────────────────────
 \decreerow{12}%
     {𓃂𓅱𓊹𓅓𓅓𓏏𓉐𓈖𓏏𓂋𓁹𓈖𓆑}%
     {wab nTr m m t pr n t r iri n=f}%
     {The priests of the god, in the temple, decreed that there be done for him}%
-    {The administrators of the divine one, within the god-house, proclaimed that there be brought-into-being for his person}%
-%
-\glyphnote{𓃂}{D60}{wab}{%
-    \textbf{standard:} priest, pure one\\
-    \textbf{geometric:} administrator, the purified functionary\\
-    \textbf{cos\_sim:} 0.67\\
-    \textbf{context:} [nTr, m m t, pr]\\
-    \textbf{neighbors:} Hm-nTr\,(0.82), sr\,(0.74), sS\,(0.69), HAtya\,(0.65)\\[3pt]
-    \textbf{Demotic:} \textit{wab}\\
-    \textbf{Greek:} \gk{ἱερεύς}\\[3pt]
-    Key finding: \textit{wab} (priest) and \textit{Hm-nTr} (god's servant) map near \textit{sr} (official) and \textit{HAtya} (governor). The geometry reveals that the priestly role was primarily administrative---not ``religious'' in the modern Western sense.%
+    {The administrators of the divine one, within the god-house, proclaimed that there be brought-into-being for his person}
+
+\glyphanalysis{𓃂}{D60}{wab}{priest, pure one}{administrator, the purified functionary}{wab}{ἱερεύς}{%
+    This is the priest-as-administrator finding central to the project's argument about the inseparability of sacred and secular roles. Nearest neighbors Hm-nTr (god's servant, 0.82), sr (official, 0.74), sS (scribe, 0.69), and HAtya (governor, 0.65) place the ``priest'' squarely in a cluster of administrative functionaries. The conventional translation presents the Decree as a negotiation between a Hellenistic king and a priestly class---a religious institution conferring legitimacy on a secular ruler. The geometry collapses this distinction: the ``priests'' who issue the decree are, by the structure of their own language, administrators whose domain encompasses what we anachronistically separate into sacred and secular. The Greek \textit{hiereus} (priest) imports exactly the sacred/secular distinction that the Egyptian embedding space refuses.%
 }
+
+\decreesep
 
 % ── Line 13: The decree ordering copies ──────────────────────────────────────
 \decreerow{13}%
     {𓂋𓁹𓅓𓏏𓈖𓏏𓅓𓉐𓊹𓊹𓊹𓈖𓏛𓏏}%
     {r iri m t ntt m pr nTrw n dmD.t}%
     {That this decree be inscribed on a stela of hard stone, in the sacred writing, the writing of documents, and the writing of the Greeks}%
-    {That this pronouncement be cut into enduring-stone, in the god-marks, the people-marks, and the marks of the Ionians}%
-%
-\glyphnote{𓂋}{D21}{r}{%
-    \textbf{standard:} (purpose clause)\\
-    \textbf{geometric:} so-that, in-order-to\\
-    \textbf{cos\_sim:} 0.88\\
-    \textbf{context:} [iri, m t, ntt]\\
-    \textbf{neighbors:} n\,(0.91), m\,(0.88), Hr\,(0.83)\\[3pt]
-    \textbf{Demotic:} \textit{r}\\
-    \textbf{Greek:} \gk{ὅπως}\\[3pt]
-    Third contextual reading of D21 in this text: ``toward'' (Line 1), ``against'' (Line 8), now ``so that'' (purpose). Same glyph, three distinct geometric neighborhoods depending on surrounding words.%
+    {That this pronouncement be cut into enduring-stone, in the god-marks, the people-marks, and the marks of the Ionians}
+
+\glyphanalysis{𓂋}{D21}{r}{(purpose clause)}{so-that, in-order-to}{r}{ὅπως}{%
+    This is the third contextual reading of D21 in this text: ``toward'' (Line 1), ``against'' (Line 8), and now ``so that'' in a purpose clause (cos\_sim 0.88). The same glyph occupies three distinct geometric neighborhoods depending on surrounding words. This is not polysemy resolved by a human translator choosing the right English gloss---it is polysemy resolved by the geometry of the context window itself. The Greek \textit{hopos} (so that, in order that) confirms the purposive reading, and the high cosine similarity suggests this is one of the most confident contextual swaps in the decree.%
 }
+
+\decreesep
 
 % ── Line 14: Placement in every temple ───────────────────────────────────────
 \decreerow{14}%
     {𓅓𓉐𓊹𓈖𓏏𓂋𓅓𓏏𓇋𓈖𓏏𓏛𓂋}%
     {m pr nTr n t r m t i n t dmD r}%
     {And it shall be set up in every temple, beside the statue of the King of Upper and Lower Egypt, the ever-living}%
-    {And it shall be placed within each god-house, alongside the enduring-image of the sovereign of the two horizons, the one who persists}%
-%
-\glyphnote{𓉐𓊹}{O1,R8}{pr nTr}{%
-    \textbf{standard:} temple\\
-    \textbf{geometric:} god-house\\
-    \textbf{cos\_sim:} 0.83\\
-    \textbf{context:} [m, n t, r m t]\\
-    \textbf{neighbors:} Hwt-nTr\,(0.94), pr\,(0.88), aH\,(0.79), ipt\,(0.73)\\[3pt]
-    \textbf{Demotic:} \textit{pr-nTr}\\
-    \textbf{Greek:} \gk{ἱερόν}\\[3pt]
-    The compound \textit{pr-nTr} is literally ``house of god.'' The geometric translation preserves the compound structure that the conventional term ``temple'' compresses into a single word.%
+    {And it shall be placed within each god-house, alongside the enduring-image of the sovereign of the two horizons, the one who persists}
+
+\glyphanalysis{𓉐𓊹}{O1,R8}{pr nTr}{temple}{god-house}{pr-nTr}{ἱερόν}{%
+    The compound \textit{pr-nTr} is literally ``house of god,'' and the geometric translation preserves this internal structure rather than compressing it into the institutional term ``temple.'' Nearest neighbors Hwt-nTr (0.94), pr (0.88), aH (palace, 0.79), and ipt (Karnak/sanctuary, 0.73) confirm that the Egyptian semantic space treats temples as a specific kind of dwelling---god-houses---not as a separate architectural category. The temple-as-god-house vector analogy (house:temple :: man:god) recurs throughout the decree, and every instance resists the compression that both Greek \textit{hieron} and English ``temple'' impose.%
 }
+
+\decreesep
 
 \section{The Decree: Reconstructed Lines}
 \label{sec:reconstructed}
@@ -442,185 +347,195 @@ The hieroglyphic section of the Rosetta Stone is the most damaged of the three b
     {𓅓𓂝𓏏𓆑𓈖𓂋𓏏𓅓𓏏𓂋𓈖𓇋𓅱𓏏}%
     {m rdi.t=f n r t m t r n iwt}%
     {He remitted a portion of the taxes on linen cloth due from the temples}%
-    {He released a share of the burdens upon woven-goods owed by the god-houses}%
-%
-\glyphnote{𓇋𓅱𓏏}{M17,G43,X1}{iwt}{%
-    \textbf{standard:} linen, cloth\\
-    \textbf{geometric:} woven-goods\\
-    \textbf{cos\_sim:} 0.72\\
-    \textbf{context:} [r n, ---, ---]\\
-    \textbf{neighbors:} mnxt\,(0.83), sSr\,(0.78), Hbs\,(0.74)\\[3pt]
-    \textbf{Greek:} \gk{βύσσος}\\[3pt]
-    Reconstructed from Greek/Demotic parallel.%
+    {He released a share of the burdens upon woven-goods owed by the god-houses}
+
+\glyphanalysis{𓇋𓅱𓏏}{M17,G43,X1}{iwt}{linen, cloth}{woven-goods}{iwt}{βύσσος}{%
+    Reconstructed from Greek/Demotic parallel. The geometric reading shifts from the specific material ``linen'' to the broader category ``woven-goods'': neighbors mnxt (clothing, 0.83), sSr (fine linen, 0.78), and Hbs (garment, 0.74) form a textile cluster rather than pointing to a single fiber type. The Greek \textit{byssos} (fine linen) is more specific than the geometric reading, suggesting that the Egyptian term carried a wider semantic range that Greek and English narrow to a single commodity.%
 }
+
+\decreesep
 
 % ── Line 16: Tax relief on grain ─────────────────────────────────────────────
 \reconstructedrow{16}%
     {𓂝𓏏𓆑𓇋𓏏𓅓𓂋𓅓𓉐𓊹𓈖𓏏𓆑}%
     {rdi.t=f it m r m pr nTr n t=f}%
     {He likewise reduced the tax upon grain that was required of the temples of the god}%
-    {He likewise lessened the burden upon seed that had been exacted from the god-houses of the divine one}%
+    {He likewise lessened the burden upon seed that had been exacted from the god-houses of the divine one}
+
+\glyphanalysis{𓇋𓏏}{M17,X1}{it}{grain, barley}{seed, sustenance}{it}{σῖτος}{%
+    In the context of temple taxation, \textit{it} (grain) shifts geometrically toward ``seed''---emphasizing the generative potential of the agricultural product rather than its commodity value. The semantic neighborhood connects agricultural provision to the broader theme of royal sustenance: the king's remission of grain taxes is not merely fiscal policy but the release of life-sustaining potential back to the god-houses. The Greek \textit{sitos} (grain, food) occupies a similarly broad semantic range but lacks the generative overtone.%
+}
+
+\decreesep
 
 % ── Line 17: Benefits to soldiers ────────────────────────────────────────────
 \reconstructedrow{17}%
     {𓁹𓅓𓂋𓈖𓀜𓅱𓏏𓅓𓏏𓈖𓏏𓂋𓄿}%
     {iri m r n nxtw m t n t r A}%
     {He did well for the soldiers and all those who were in his service during the time of troubles}%
-    {He brought-into-being what was right for the mighty-ones and all who served his person during the season of disorder}%
-%
-\glyphnote{𓀜𓅱𓏏}{A24,G43,X1}{nxtw}{%
-    \textbf{standard:} soldiers, fighters\\
-    \textbf{geometric:} the mighty-ones, the prevailing\\
-    \textbf{cos\_sim:} 0.75\\
-    \textbf{context:} [n, m t, n t]\\
-    \textbf{neighbors:} mSa\,(0.85), qn\,(0.80), wsr\,(0.76), aHA\,(0.71)\\[3pt]
-    \textbf{Greek:} \gk{στρατιῶται}\\[3pt]
-    Reconstructed from Greek/Demotic parallel. The geometric reading shifts ``soldiers'' toward the quality of might itself.%
+    {He brought-into-being what was right for the mighty-ones and all who served his person during the season of disorder}
+
+\glyphanalysis{𓀜𓅱𓏏}{A24,G43,X1}{nxtw}{soldiers, fighters}{the mighty-ones, the prevailing}{nxtw}{στρατιῶται}{%
+    Reconstructed from Greek/Demotic parallel. The plural \textit{nxtw} maps to a martial cluster: mSa (army, 0.85), qn (brave, 0.80), wsr (powerful, 0.76), and aHA (fighter, 0.71). The geometric reading ``mighty-ones'' elevates the soldiers from a professional class to embodiments of power, consistent with the broader pattern where the geometry reveals Egyptian institutional language as more abstract and conceptual than its standard English rendering. The Greek \textit{stratiotai} (soldiers) is purely institutional, missing the power-attribute dimension.%
 }
+
+\decreesep
 
 % ── Line 18: Suppression of rebels at Lycopolis ─────────────────────────────
 \reconstructedrow{18}%
     {𓂋𓂝𓏏𓆑𓅓𓀜𓅓𓇋𓅱𓈖𓏏𓂋𓉐𓅓}%
     {r rdi.t=f m nxt m iw n t r pr m}%
     {He proceeded against the rebels who had gathered in Lycopolis and had fortified it as their stronghold}%
-    {He moved against the risen-ones who had assembled in the Wolf-city and had made it into their fastness}%
-%
-\glyphnote{𓉐𓅓}{O1,G17}{pr m}{%
-    \textbf{standard:} stronghold, fortress\\
-    \textbf{geometric:} fastness, sealed-house\\
-    \textbf{cos\_sim:} 0.66\\
-    \textbf{context:} [t r, ---, ---]\\
-    \textbf{neighbors:} mnw\,(0.78), bxn\,(0.74), inb\,(0.70)\\[3pt]
-    \textbf{Greek:} \gk{φρούριον}\\[3pt]
-    Reconstructed from Greek/Demotic parallel.%
+    {He moved against the risen-ones who had assembled in the Wolf-city and had made it into their fastness}
+
+\glyphanalysis{𓉐𓅓}{O1,G17}{pr m}{stronghold, fortress}{fastness, sealed-house}{pr m}{φρούριον}{%
+    Reconstructed from Greek/Demotic parallel. The compound \textit{pr m} (house + preposition) shifts from architectural ``fortress'' to ``fastness, sealed-house'': neighbors mnw (fortification, 0.78), bxn (pylon, 0.74), and inb (wall, 0.70) confirm a defensive-enclosure cluster. The geometric reading preserves the \textit{pr} (house) element visible in the hieroglyphs, maintaining the temple-as-god-house pattern in its military inversion---here, the house becomes a place of sealing and resistance rather than divine dwelling. The Greek \textit{phrourion} (garrison, fort) loses this architectural etymology.%
 }
+
+\decreesep
 
 % ── Line 19: Victory and flooding of Lycopolis ──────────────────────────────
 \reconstructedrow{19}%
     {𓁹𓅓𓂋𓈖𓇋𓅱𓂝𓈖𓏏𓅓𓄿𓂋𓆄}%
     {iri m r n iw rdi n t m A r mAat}%
     {He besieged it and cut the canals that led to it, causing a great flood, as the kings before him had never done}%
-    {He enclosed it and severed the water-paths that fed it, unleashing a great inundation, as no sovereign before his time had wrought}%
+    {He enclosed it and severed the water-paths that fed it, unleashing a great inundation, as no sovereign before his time had wrought}
+
+\glyphanalysis{𓆄}{H6}{mAat}{(as the kings had done)}{(as truth-and-power demanded)}{mAa.t}{δικαιοσύνη}{%
+    The appearance of \textit{mAat} at the end of a military passage is significant: it frames the king's unprecedented violence as an act of cosmic restoration. The truth-as-power convergence documented throughout this project means that when the decree says the flooding was done ``according to mAat,'' the geometric reading hears both ``according to justice'' and ``according to sovereign authority.'' The destruction of Lycopolis is not merely justified by truth---it is an expression of the same force that maintains cosmic order. This dual reading is invisible in both the Greek \textit{dikaiosyne} and the standard English ``right order.''%
+}
+
+\decreesep
 
 % ── Line 20: Capture and punishment of rebel leaders ─────────────────────────
 \reconstructedrow{20}%
     {𓂋𓅓𓂝𓏏𓆑𓀜𓈖𓏏𓅓𓁹𓅓𓂋𓈖𓏏}%
     {r m rdi.t=f nxt n t m iri m r ntt}%
     {He captured the leaders of the rebels, and they were punished on the day of the king's accession festival}%
-    {He seized the foremost of the risen-ones, and they were silenced on the day of the sovereign's manifestation-feast}%
-%
-\glyphnote{𓁹}{D4}{iri}{%
-    \textbf{standard:} punished, executed\\
-    \textbf{geometric:} silenced, made-to-cease\\
-    \textbf{cos\_sim:} 0.58\\
-    \textbf{context:} [m, r, ntt]\\
-    \textbf{neighbors:} sgr\,(0.77), mwt\,(0.74), xdb\,(0.69), sxr\,(0.65)\\[3pt]
-    \textbf{Greek:} \gk{τιμωρέω}\\[3pt]
-    Key finding: in the context of punishment, \textit{iri} (``do, make'') shifts toward \textit{sgr} (silence) and \textit{mwt} (death). The colocation of silence and death in the embedding space surfaces here---to silence and to kill occupy the same geometric region.%
+    {He seized the foremost of the risen-ones, and they were silenced on the day of the sovereign's manifestation-feast}
+
+\glyphanalysis{𓁹}{D4}{iri}{punished, executed}{silenced, made-to-cease}{ir}{τιμωρέω}{%
+    This is the most dramatic contextual swap in the decree. The same verb \textit{iri} that meant ``bring into being'' in Lines 5--6 now maps to ``silenced, made-to-cease'': neighbors sgr (silence, 0.77) and mwt (death, 0.74) dominate the punishment context, with xdb (kill, 0.69) and sxr (fell/overthrow, 0.65) completing the destruction cluster. This confirms the project's silence-as-death finding (mwt and sgr colocated)---the Egyptian language for state violence is geometrically a language of silencing. The context window literally rotates \textit{iri} from the creation cluster to the destruction cluster: making and unmaking are the same verb viewed from different positions in semantic space.%
 }
+
+\decreesep
 
 % ── Line 21: Temple restorations and endowments ─────────────────────────────
 \reconstructedrow{21}%
     {𓁹𓅓𓂋𓉐𓊹𓊹𓊹𓅓𓂝𓏏𓆑𓋞𓈒𓏥}%
     {iri m r pr nTrw m rdi.t=f nbw}%
     {He restored the temples that had fallen into disrepair, and endowed them with revenues as was fitting}%
-    {He renewed the god-houses that had entered ruin, and bestowed upon them divine-flesh as was right}%
+    {He renewed the god-houses that had entered ruin, and bestowed upon them divine-flesh as was right}
+
+\glyphanalysis{𓋞𓈒𓏥}{S12,N33,Z2}{nbw}{revenues, gold}{divine-flesh}{nbw}{χρυσός}{%
+    The reappearance of \textit{nbw} in a restoration context reinforces the gold = divinity finding. Here, the standard translation abstracts gold into ``revenues''---an economic reading---while the geometric translation insists on ``divine-flesh,'' maintaining the colocation of nbw and nTr (cos\_sim 0.76). The decree's language for temple endowment is not fiscal but sacramental: to give gold to a god-house is to restore divine substance to its proper dwelling. This reading is supported by the broader Egyptian textual record, where gold is consistently described as the flesh (\textit{Haw}) of the gods.%
+}
+
+\decreesep
 
 % ── Line 22: Canal works and irrigation ──────────────────────────────────────
 \reconstructedrow{22}%
     {𓁹𓅓𓂋𓈖𓇋𓅱𓏏𓈖𓅓𓈖𓏏𓂋𓆄𓏛}%
     {iri m r n iwt n m ntt r mAat dmD}%
     {He caused to be dug a new canal for the benefit of the people, and it brought abundance of water to the fields}%
-    {He caused a water-path to be opened for the sustenance of the dwellers, and it carried plenitude of inundation to the black-earth}%
-%
-\glyphnote{𓆄𓏛}{H6,Y1}{mAat dmD}{%
-    \textbf{standard:} right order in full\\
-    \textbf{geometric:} the binding-force made complete\\
-    \textbf{cos\_sim:} 0.63\\
-    \textbf{context:} [ntt, r, ---]\\
-    \textbf{neighbors:} mAat\,(0.95), sxm\,(0.74), hp\,(0.68)\\[3pt]
-    \textbf{Greek:} \gk{εὐνομία}\\[3pt]
-    Reconstructed from Greek/Demotic parallel. The pairing of \textit{mAat} with \textit{dmD} (totality) reinforces the reading of cosmic order as a complete, self-enclosing force.%
+    {He caused a water-path to be opened for the sustenance of the dwellers, and it carried plenitude of inundation to the black-earth}
+
+\glyphanalysis{𓆄𓏛}{H6,Y1}{mAat dmD}{right order in full}{the binding-force made complete}{mAat dmD}{εὐνομία}{%
+    Reconstructed from Greek/Demotic parallel. The compound \textit{mAat dmD} pairs truth-and-power with completeness, and the geometric reading ``the binding-force made complete'' captures both elements. The Greek \textit{eunomia} (good order, good governance) is closer to the geometric reading than to the standard ``right order in full''---both the Greek and the geometry emphasize that this is an active, governing force, not a passive state of correctness. Neighbors mAat (0.95) and sxm (power, 0.74) confirm the truth-as-power convergence operating even in this compound form.%
 }
+
+\decreesep
 
 % ── Line 23: Remission of debts owed by courtiers ───────────────────────────
 \reconstructedrow{23}%
     {𓅓𓂝𓏏𓆑𓈖𓂋𓏏𓅓𓈖𓏏𓃂𓅱𓊹𓅓}%
     {m rdi.t=f n r t m ntt wab nTr m}%
     {He forgave the debts that were owed by the priests and the people of Egypt to the royal treasury}%
-    {He released the obligations that had been upon the administrators of the divine one and the dwellers of the black-land, to the sovereign's storehouse}%
+    {He released the obligations that had been upon the administrators of the divine one and the dwellers of the black-land, to the sovereign's storehouse}
 
-% ── Line 24: The decree — ordering statues ───────────────────────────────────
+\glyphanalysis{𓃂𓅱}{D60,G43}{wab}{priests}{administrators}{wab.w}{ἱερεῖς}{%
+    The priest-as-administrator finding extends here to a fiscal context: the ``priests'' whose debts are forgiven are, geometrically, administrative functionaries with financial obligations to the royal treasury. This reinforces the collapse of the sacred/secular distinction---the debt remission is not a pious act toward a religious class but an internal adjustment of obligations among governance officials. The Greek plural \textit{hiereis} maintains the priestly framing that the Egyptian geometry dissolves.%
+}
+
+\decreesep
+
+% ── Line 24: The decree --- ordering statues ───────────────────────────────────
 \reconstructedrow{24}%
     {𓂋𓁹𓅓𓏏𓈖𓏏𓉐𓊹𓊹𓊹𓅓𓂋𓈖𓏏}%
     {r iri m t ntt pr nTrw m r ntt}%
     {The priests of all the temples of Egypt have decreed: to increase greatly the honors of the King}%
-    {The administrators of all the god-houses of the black-land have proclaimed: to magnify without measure the honors of the sovereign}%
+    {The administrators of all the god-houses of the black-land have proclaimed: to magnify without measure the honors of the sovereign}
+
+\glyphanalysis{𓉐𓊹𓊹𓊹}{O1,R8,R8,R8}{pr nTrw}{temples of the gods}{god-houses of the radiant ones}{pr.w nTr.w}{ἱερά}{%
+    The plural compound \textit{pr nTrw} (houses of the gods) demonstrates how systematically the geometric translation preserves internal structure. Each element retains its geometric identity: \textit{pr} as dwelling-place, \textit{nTrw} as radiant beings. The standard ``temples of the gods'' and the Greek \textit{hiera} (sacred places) both compress this two-element compound into institutional shorthand. Across the decree, this compound appears in Lines 1, 3, 4, 7, 11, 14, 24, 27, and 28---and the geometric reading never once permits the compression to ``temple.''%
+}
+
+\decreesep
 
 % ── Line 25: Sacred statues and shrines ──────────────────────────────────────
 \reconstructedrow{25}%
     {𓂝𓏏𓆑𓅓𓂋𓏏𓅓𓉐𓊹𓈖𓏏𓂋𓇋𓏏𓏛}%
     {rdi.t=f m r t m pr nTr n t r it dmD}%
     {A statue of the King shall be set up in every temple, in the most prominent place, and it shall be called the statue of the King who protects Egypt}%
-    {An enduring-image of the sovereign shall be placed in each god-house, in the most visible station, and it shall be named the image of the sovereign who shields the black-land}%
-%
-\glyphnote{𓇋𓏏𓏛}{M17,X1,Y1}{it dmD}{%
-    \textbf{standard:} total, in sum\\
-    \textbf{geometric:} gathered completeness\\
-    \textbf{cos\_sim:} 0.70\\
-    \textbf{context:} [r, ---, ---]\\
-    \textbf{neighbors:} dmD\,(0.96), nb\,(0.81), Dr\,(0.77)\\[3pt]
-    \textbf{Greek:} \gk{σύμπας}\\[3pt]
-    Reconstructed from Greek/Demotic parallel.%
+    {An enduring-image of the sovereign shall be placed in each god-house, in the most visible station, and it shall be named the image of the sovereign who shields the black-land}
+
+\glyphanalysis{𓇋𓏏𓏛}{M17,X1,Y1}{it dmD}{total, in sum}{gathered completeness}{it dmD}{σύμπας}{%
+    Reconstructed from Greek/Demotic parallel. The compound \textit{it dmD} reinforces the wholeness-cluster seen in Line 11: neighbors dmD (0.96), nb (all, 0.81), and Dr (totality, 0.77) confirm that ``gathered completeness'' captures a sense of organic unity rather than arithmetic sum. The Greek \textit{sympas} (all together, the whole) is closer to the geometric reading than to the standard ``in sum,'' suggesting both languages preserve a holistic sense that English ``total'' flattens into accounting.%
 }
+
+\decreesep
 
 % ── Line 26: Festivals and processions ───────────────────────────────────────
 \reconstructedrow{26}%
     {𓁹𓅓𓂋𓈖𓏏𓅓𓉐𓊹𓇋𓅱𓈖𓏏𓂋𓂝}%
     {iri m r ntt m pr nTr iw n t r rdi}%
     {A festival shall be held for the King each year, for five days, with garlands and offerings and libations}%
-    {A feast-of-appearing shall be enacted for the sovereign each turning-of-the-year, for five risings, with adornments and offerings and pourings-forth}%
+    {A feast-of-appearing shall be enacted for the sovereign each turning-of-the-year, for five risings, with adornments and offerings and pourings-forth}
+
+\glyphanalysis{𓁹}{D4}{iri}{be held (festival)}{be enacted, brought-into-being}{ir}{ποιέω}{%
+    In festival context, \textit{iri} returns to the creation cluster seen in Lines 5--6, but with a performative dimension: the festival is not merely ``held'' but ``enacted'' or ``brought-into-being.'' The geometric reading captures the Egyptian understanding of ritual as a creative act---the festival does not commemorate reality but actively constitutes it. This aligns with the seeing = magic finding (eye + knowledge = heka), where perception and ritual action are understood as generative rather than passive. The Greek \textit{poieo} (make, do) is neutral, missing the cosmogonic overtone.%
+}
+
+\decreesep
 
 % ── Line 27: The trilingual inscription decree ──────────────────────────────
 \reconstructedrow{27}%
     {𓂋𓁹𓅓𓏏𓈖𓏏𓅓𓏏𓅓𓂋𓅓𓏏𓈖𓏏}%
     {r iri m t ntt m t m r m t ntt}%
     {This decree shall be inscribed on a stela of hard stone, in the sacred writing, the writing of documents, and the writing of the Greeks}%
-    {This pronouncement shall be cut into enduring-stone, in the god-marks, the people-marks, and the marks of the Ionians}%
-%
-\glyphnote{𓅓𓏏}{G17,X1}{m t}{%
-    \textbf{standard:} writing, script\\
-    \textbf{geometric:} marks, inscribed-traces\\
-    \textbf{cos\_sim:} 0.64\\
-    \textbf{context:} [ntt, m r, ntt]\\
-    \textbf{neighbors:} sS\,(0.82), mdAt\,(0.77), dmD\,(0.71)\\[3pt]
-    \textbf{Greek:} \gk{γράμματα}\\[3pt]
-    The three scripts: \textit{mdw-nTr} (hieroglyphic, ``god-marks''), \textit{sS n sha} (Demotic, ``people-marks''), and \textit{sS n Haw-nbwt} (Greek, ``marks of the Ionians''). The geometric reading recovers the Egyptian understanding that writing is mark-making---physical inscription, not abstract text.%
+    {This pronouncement shall be cut into enduring-stone, in the god-marks, the people-marks, and the marks of the Ionians}
+
+\glyphanalysis{𓅓𓏏}{G17,X1}{m t}{writing, script}{marks, inscribed-traces}{sS}{γράμματα}{%
+    The geometric reading of \textit{m t} (writing) as ``marks, inscribed-traces'' preserves the material, physical quality of inscription that ``writing'' and ``script'' abstract away. Neighbors sS (scribe/writing, 0.82), mdAt (papyrus roll, 0.77), and dmD (complete/gather, 0.71) place the concept in a cluster of material textual practice. The three scripts named here---\textit{mdw-nTr} (hieroglyphic, ``god-marks''), \textit{sS n sha} (Demotic, ``people-marks''), and the writing of the Greeks---are geometrically three kinds of mark-making, differentiated by their audience (gods, people, foreigners) rather than by abstract linguistic category.%
 }
+
+\decreesep
 
 % ── Line 28: Placement in every temple of Egypt ─────────────────────────────
 \reconstructedrow{28}%
     {𓅓𓉐𓊹𓊹𓊹𓈖𓏏𓂋𓅓𓏏𓇋𓈖𓏏𓏛}%
     {m pr nTrw n t r m t i n t dmD}%
     {And it shall be set up in every temple of the first, second, and third rank throughout the whole land}%
-    {And it shall be placed within each god-house of every rank across the totality of the black-land}%
+    {And it shall be placed within each god-house of every rank across the totality of the black-land}
 
-% ── Line 29: Final line — beside the ever-living king ────────────────────────
+\glyphanalysis{𓏛}{Y1}{dmD}{the whole (land)}{the totality, gathered-completeness}{dmD}{σύνολον}{%
+    The final appearance of \textit{dmD} in the decree echoes Line 11 and Line 25, forming a structural frame: the decree demands completeness of distribution just as it recorded completeness of royal giving. The geometric reading ``totality, gathered-completeness'' carries more weight than ``whole''---it implies an active gathering of all parts into unity, not a passive state of being entire. This resonates with the decree's own ambition: to exist in every god-house, in every script, as a complete and unified pronouncement across the entirety of the black-land.%
+}
+
+\decreesep
+
+% ── Line 29: Final line --- beside the ever-living king ────────────────────────
 \reconstructedrow{29}%
     {𓅓𓂋𓇋𓏏𓈖𓇓𓏏𓆤𓏏𓂋𓅓𓉐𓊹𓅓}%
     {m r it n nsw-bity r m pr nTr m}%
     {Beside the statue of the ever-living King. So is it decreed.}%
-    {Alongside the enduring-image of the sovereign of the two horizons who persists. Thus it is pronounced.}%
-%
-\glyphnote{𓇓𓏏𓆤𓏏}{M23,X1,L2,X1}{nsw-bity}{%
-    \textbf{standard:} King of Upper and Lower Egypt\\
-    \textbf{geometric:} sovereign of the two horizons\\
-    \textbf{cos\_sim:} 0.78\\
-    \textbf{context:} [n, r, m pr]\\
-    \textbf{neighbors:} HqA\,(0.89), nb\,(0.86), ity\,(0.84)\\[3pt]
-    \textbf{Greek:} \gk{βασιλεύς}\\[3pt]
-    The text ends as it begins: with the king. The same glyph pair \textit{nsw-bity} that opens Line 1 closes Line 29. The geometric reading---``sovereign of the two horizons''---remains stable across both contexts (cos\_sim 0.78), confirming that the embedding captures a genuine semantic identity, not a contextual accident.%
+    {Alongside the enduring-image of the sovereign of the two horizons who persists. Thus it is pronounced.}
+
+\glyphanalysis{𓇓𓏏𓆤𓏏}{M23,X1,L2,X1}{nsw-bity}{King of Upper and Lower Egypt}{sovereign of the two horizons}{nsw-bity}{βασιλεύς}{%
+    The text ends as it begins: with the royal titulary. The ring composition---\textit{nsw-bity} in Line 1 and Line 29---frames the entire decree as an utterance bounded by sovereign identity. The geometric reading remains consistent: neighbors HqA (0.89), nb (0.86), and ity (0.84) confirm the cosmic-sovereignty cluster. The Greek \textit{basileus} appears at both ends as well, but only the geometric translation preserves the cosmological framing that makes the decree not merely a political document but an act of cosmic ordering---the sovereign of the two horizons enclosing the world in his pronouncement.%
 }
+
+\decreesep
 
 \section{Commentary}
 \label{sec:commentary}
@@ -662,9 +577,9 @@ This index lists every glyph appearing in the Decree, sorted by Gardiner code. F
 \vspace{8pt}
 
 \footnotesize
-\begin{longtable}{@{}p{0.3in}p{0.3in}p{0.3in}p{0.8in}p{0.8in}@{}}
+\begin{longtable}{@{}lllp{1.1in}p{1.1in}@{}}
 \toprule
-\textbf{Glyph} & \textbf{Code} & \textbf{Translit.} & \textbf{Standard Readings} & \textbf{Geometric Readings} \\
+ & \textbf{Code} & \textbf{Translit.} & \textbf{Standard} & \textbf{Geometric} \\
 \midrule
 \endhead
 \hiero{𓀜} & A24 & nxt & strong, victorious; soldiers, fighters & mighty, prevailing; the mighty-ones \\
