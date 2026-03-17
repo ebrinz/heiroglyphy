@@ -104,6 +104,38 @@
 \section{Introduction}
 \label{sec:intro}
 
+This document presents the Decree of Memphis---the text inscribed on the Rosetta Stone in 196 BCE---translated through a method that no ancient scribe could have imagined: vector space alignment of word embeddings trained on 100,729 sentences of Ancient Egyptian text.
+
+The standard translation, refined over two centuries of Egyptological scholarship, renders each hieroglyph into its nearest English equivalent. Our \textit{geometric} translation does something different. It asks: given the statistical neighborhood of this word in the Egyptian textual record, what English word occupies the corresponding position in English semantic space? Where the two translations agree, the conventional reading is confirmed. Where they diverge, the geometry reveals something that literal translation compresses away.
+
+This is a companion document to \textit{The Geometry of Meaning}, which describes the alignment methodology in full. The present work applies that methodology to a single, celebrated text.
+
+\subsection{How to Read This Document}
+
+Each line of the Decree is presented as an interlinear stack:
+
+\begin{enumerate}[nosep]
+    \item \textbf{Hieroglyphs} --- rendered in the EgyptianHiero font.
+    \item \textbf{Transliteration} --- standard Egyptological romanization (\textit{italic}).
+    \item \textbf{Standard translation} --- the scholarly consensus reading.
+    \item {\bfseries\color{rosetta}Geometric translation} --- our vector-space reading (\textbf{bold terracotta}).
+\end{enumerate}
+
+Margin notes annotate individual glyphs where the geometric reading diverges from the standard, or where the embedding space reveals unexpected contextual behavior. Each note includes:
+
+\begin{itemize}[nosep]
+    \item The glyph, its Gardiner code, and transliteration
+    \item The standard and geometric readings with cosine similarity scores
+    \item The context window and nearest neighbors in the embedding space
+    \item Cross-references to the Demotic and Greek versions of the same passage
+\end{itemize}
+
+Lines marked \textcolor{reconstructed}{in gray with ⟦brackets⟧} are reconstructions. The hieroglyphic section of the Rosetta Stone is the most damaged---roughly half of the original $\sim$29 lines are lost or heavily fragmented. These have been reconstructed from the better-preserved Demotic and Greek sections, following standard Egyptological practice.
+
+\subsection{Source Text}
+
+The hieroglyphic transcription follows Quirke and Andrews (\textit{The Rosetta Stone}, British Museum Press, 1988) with reference to Budge's earlier edition. Line numbers correspond to the physical stone. Reconstructed passages are drawn from the Demotic and Greek sections as mediated by standard scholarship.
+
 \section{The Decree: Surviving Lines}
 \label{sec:surviving}
 
