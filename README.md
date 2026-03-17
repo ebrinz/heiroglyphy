@@ -12,6 +12,9 @@
 
 > **Read the full paper:** [Recovering the Conceptual Geometry of Ancient Egyptian Through Vector Space Alignment (PDF)](docs/paper/heiroglyphy.pdf)
 
+> **Watch a mini doc:** [The Geometry Of Hieroglyphics](https://www.youtube.com/watch?v=Ku0MXim7S1I)
+
+
 ## 🧬 The Vec2Vec Hypothesis
 
 The core challenge is to find a transformation $f$ such that:
