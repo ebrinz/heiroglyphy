@@ -43,6 +43,10 @@ ENV/
 !final_output/
 !final_output/**
 
+# Tarot data (copied from ephemeral-revolver, not committed)
+final_output/tarot_centroids_300d.npz
+final_output/tarot_centroids_metrics.json
+
 # ============================================
 # GLOBAL LARGE FILE EXCLUSIONS
 # ============================================
