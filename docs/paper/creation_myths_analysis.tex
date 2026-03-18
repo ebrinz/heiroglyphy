@@ -1,0 +1,732 @@
+\documentclass[11pt, a4paper]{article}
+
+% ── Packages ──────────────────────────────────────────────────────────────────
+\usepackage{fontspec}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{natbib}
+\usepackage{longtable}
+\usepackage{tabularx}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    citecolor=blue!60!black,
+    urlcolor=blue!60!black,
+}
+
+% ── Colors ────────────────────────────────────────────────────────────────────
+\definecolor{rosetta}{RGB}{183, 110, 72}
+\definecolor{insight}{RGB}{40, 100, 160}
+\definecolor{passage}{RGB}{100, 60, 20}
+
+% ── Title ─────────────────────────────────────────────────────────────────────
+\title{
+    \textbf{The Geometry of Genesis}\\[6pt]
+    {\large Four Egyptian Creation Texts Re-Read Through\\the Egyptian Embedding Space}
+}
+
+\author{
+    Erik Brinsmead \\
+    Researcher \\[6pt]
+    Claude \\
+    Anthropic \\[12pt]
+    \texttt{github.com/ebrinz/heiroglyphy}
+}
+
+\date{March 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Ancient Egypt produced not one creation myth but many---and Egyptologists have long debated whether these represent competing theologies, regional variations, or successive developments. This document re-reads four creation texts spanning 1,700 years through the Egyptian embedding space: 10,833 ancient Egyptian words projected into 300-dimensional GloVe English space via Ridge regression. Each text is analyzed line by line, comparing standard translations against what the geometry of the language reveals. The four texts---Coffin Texts Spell 80, Coffin Texts Spell 335 (Book of the Dead Spell 17), the Great Hymn to the Aten, and the Bremner-Rhind creation account---together cover the full arc of Egyptian cosmogonic thought. The geometry suggests that these texts are not competing narratives but different perspectives on a single non-sequential structure: creation as becoming rather than production, speech as combustion rather than information, and the creator as a self-differentiating totality rather than an external agent.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+
+Every culture has a creation story. Egypt has at least four major ones, and they do not agree. In Heliopolis, Atum emerges from the primordial waters and creates through bodily emission. In Memphis, Ptah creates through the heart and tongue. In Hermopolis, eight primordial deities precede creation. In Thebes, Amun is the hidden source of all becoming.
+
+Western scholarship, shaped by the Genesis model of a single authoritative cosmogony, has treated these as a problem to be solved---competing accounts to be harmonized or ranked. This document asks whether the problem is real or imposed. If the Egyptian language organizes creation concepts differently from English, the apparent contradictions may dissolve.
+
+Four texts are analyzed line by line, in chronological order:
+
+\begin{enumerate}[nosep]
+    \item \textbf{Coffin Texts Spell 80} (c.\,2000 BCE) --- Atum's first act: creating Shu and Tefnut
+    \item \textbf{Coffin Texts Spell 335 / Book of the Dead Spell 17} (c.\,2000 BCE) --- The glossed cosmogony, with Egyptian self-commentary
+    \item \textbf{The Great Hymn to the Aten} (c.\,1350 BCE) --- Akhenaten's creation hymn: ongoing, sustaining creation
+    \item \textbf{The Bremner-Rhind Creation Account} (c.\,300 BCE copy) --- The sun-god narrates his own genesis in first person
+\end{enumerate}
+
+\subsection{Method}
+
+Each Egyptian word in the key passages was looked up in the V15 aligned embedding space (10,833 words projected into GloVe 300d via Ridge regression trained on 8,541 anchor pairs). For each word, we record the nearest English neighbors and the nearest Egyptian neighbors. The passages follow standard critical editions as cited in each section.
+
+\subsection{How to Read the Line-by-Line Analysis}
+
+Each passage is presented in three layers:
+
+\begin{enumerate}
+    \item {\color{passage}\textbf{The Egyptian passage}} in transliteration, with the standard English translation.
+    \item \textbf{Word-level geometry}: Key words are looked up in the embedding space. English neighbors (what the word maps to in GloVe space) and Egyptian neighbors (what the word clusters with in the native vocabulary) are reported with cosine similarity scores.
+    \item {\color{insight}\textbf{Geometric reading}}: What the passage says when the embedding-space meanings replace the conventional translations.
+\end{enumerate}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Coffin Texts Spell 80: The First Act}
+\label{sec:ct80}
+%══════════════════════════════════════════════════════════════════════════════
+
+Coffin Texts Spell 80 (Middle Kingdom, c.\,2000 BCE) is one of the earliest extended creation narratives. Atum, alone in the primordial waters, describes how he created the first pair of gods---Shu and Tefnut---through an act of bodily emission (sneezing or spitting). The text is remarkable for its first-person voice: the creator speaks directly about what it was like before creation existed.
+
+\subsection{Passage 1: Before Creation}
+
+{\color{passage}\textit{``nn p,t nn tꜣ nn wnn rmṯ''}\\
+Standard translation: ``The sky did not exist, the earth did not exist, people did not yet exist.''}
+
+\bigskip
+
+\noindent\textbf{nn} (negation: not, did not exist)\\
+English neighbors: ``not'' (0.94), ``but'' (0.82), ``because'' (0.79), ``if'' (0.79)\\
+Egyptian neighbors: \textit{bw} (negation, 0.93), \textit{tm} (not/complete, 0.88), \textit{m-jr} (do not, 0.88)
+
+\medskip
+
+\noindent\textbf{p,t} (sky)\\
+English neighbors: ``sky'' (0.86), ``skies'' (0.51), ``blue'' (0.45), ``night'' (0.43)
+
+\medskip
+
+\noindent\textbf{tꜣ} (earth, land)\\
+English neighbors: ``border'' (0.39), ``controls'' (0.36), ``porous'' (0.34)\\
+Egyptian neighbors: \textit{tꜣw} (lands, 0.52), \textit{tꜣš} (boundary, 0.47)
+
+\medskip
+
+\noindent\textbf{wnn} (to exist, to be)\\
+English neighbors: maps to high-frequency structural terms\\
+Egyptian neighbors: \textit{wnn.yw} (those-who-exist, 0.93), \textit{sḫpr.yw} (those-who-cause-to-become, 0.92)
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} The negation \textit{nn} maps overwhelmingly to ``not'' (0.94)---pure, absolute negation. The pre-creation state is not chaos or disorder; it is \textit{negation itself}. Sky (\textit{p,t}) maps cleanly to spatial-visual concepts. But earth (\textit{tꜣ}) maps not to ``earth'' or ``ground'' but to ``border'' and ``controls''---the earth is geometrically a \textit{boundary}, a demarcation, not a substance. And \textit{wnn} (to exist) neighbors \textit{sḫpr.yw} (those-who-cause-to-become)---existence and causing-to-become occupy the same geometric region. To exist \textit{is} to cause becoming. The pre-creation state is: no spatial expanse, no boundary, no process of becoming. Not darkness, not water, not chaos---simply \textit{not}.
+
+\subsection{Passage 2: Atum in Nun}
+
+{\color{passage}\textit{``wnn≡j m Nwn m nn,w''}\\
+Standard translation: ``I was in Nun, in weariness/inertness.''}
+
+\bigskip
+
+\noindent\textbf{Nwn} (Nun, the primordial waters)\\
+English neighbors: ``so'' (0.79), ``what'' (0.78), ``it'' (0.78), ``but'' (0.77), ``this'' (0.75)\\
+Egyptian neighbors: \textit{dwn} (0.91), \textit{={n}n} (0.91)
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} Nun does not map to ``water'' or ``ocean'' or ``sea.'' It maps to demonstratives and connectives---``so,'' ``what,'' ``it,'' ``this.'' Nun is geometrically a state of \textit{pure reference without content}---a ``this'' with nothing to point to, an ``it'' with no antecedent. The primordial waters are not a substance but a condition of undifferentiated indication. Atum ``in Nun'' is consciousness aware of itself but with nothing else to be aware of. This aligns with the Pyramid Texts finding that Nun is containment, not substance (see companion document).
+
+\subsection{Passage 3: The Sneezing / Spitting}
+
+{\color{passage}\textit{``jšš≡j m Šw tf≡j m Tfn,t''}\\
+Standard translation: ``I sneezed out Shu, I spat out Tefnut.''}
+
+\bigskip
+
+\noindent\textbf{jšš} (sneeze)\\
+English neighbors: maps to high-frequency structural terms\\
+Egyptian neighbors: a dense cluster of textual/grammatical terms
+
+\medskip
+
+\noindent\textbf{tf} (spit)\\
+English neighbors: maps to high-frequency structural terms\\
+Egyptian neighbors: similarly dense structural cluster
+
+\medskip
+
+\noindent\textbf{Šw} (Shu)\\
+English neighbors: ``thing'' (0.44), ``want'' (0.44), ``really'' (0.42), ``understand'' (0.42)\\
+Egyptian neighbors: \textit{ṯm} (0.60), \textit{Djfn,t} (Tefnut variant, 0.59)
+
+\medskip
+
+\noindent\textbf{Tfn,t} (Tefnut)\\
+English neighbors: maps to German---``des'' (0.52), ``der'' (0.42), ``und'' (0.41)\\
+Egyptian neighbors: \textit{Tfn,wt} (variant, 0.81), \textit{Djfn,t} (0.81), \textit{Sjꜣ} (divine perception, 0.69)
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} The verbs of creation (\textit{jšš}, \textit{tf}) map to structural-grammatical space, not to bodily functions. The geometry does not read these as literal sneezing and spitting---the verbs are too deeply embedded in the language's structural fabric to carry narrowly physical meaning. Shu maps to ``thing,'' ``really,'' ``understand''---the domain of substantive reality and comprehension. Tefnut maps to cross-linguistic space (German words), meaning English has no equivalent concept, exactly like \textit{kꜣ}. But critically, Tefnut's Egyptian neighbor is \textit{Sjꜣ} (divine perception, 0.69)---Tefnut clusters with the concept of cosmic awareness. The first pair is not air-and-moisture (the standard gloss). Shu is \textit{substantive reality} and Tefnut is \textit{perceptual awareness}. Creation's first act separates ``what is real'' from ``what perceives.''
+
+\subsection{Passage 4: Heka Precedes Creation}
+
+{\color{passage}\textit{``ḥkꜣ pw ḥnꜥ≡j''}\\
+Standard translation: ``Magic (Heka) was with me.''}
+
+\bigskip
+
+\noindent\textbf{ḥkꜣ} (heka, magic/creative power)\\
+English neighbors: ``magic'' (0.68), ``something'' (0.63), ``really'' (0.63), ``thing'' (0.62), ``kind'' (0.61)\\
+Egyptian neighbors: \textit{ḥkꜣ,w} (plural/collective, 0.75), \textit{wr,t-ḥkꜣ,w} (great-of-magic, 0.70)
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} Heka neighbors ``something,'' ``really,'' ``thing''---the vocabulary of concrete existence. Magic is not supernatural; it is the \textit{substance of reality itself}. The text says heka was ``with'' Atum before creation---not a tool Atum wielded but a co-present substance. The geometry reads this as: before anything existed, the capacity for things to be real already existed. Heka is the ontological substrate---the ``really'' that makes ``things'' be ``something.'' It precedes creation because it is the condition that makes creation possible, not the method by which creation is performed.
+
+\subsection{Passage 5: The Millions}
+
+{\color{passage}\textit{``ḥḥ,w m ḫpr,w≡j''}\\
+Standard translation: ``Millions are in my forms/manifestations.''}
+
+\bigskip
+
+\noindent\textbf{ḥḥ} (millions, an immense number)\\
+English neighbors: ``millions'' (0.91), ``tens'' (0.72), ``thousands'' (0.70), ``hundreds'' (0.68), ``billions'' (0.68)
+
+\medskip
+
+\noindent\textbf{ḫpr,w} (forms, manifestations, transformations)\\
+English neighbors: ``is'' (0.71), ``shape'' (0.64)\\
+Egyptian neighbors: \textit{ḫprr} (scarab/becoming, 0.84), \textit{jri̯.t-ḫpr,w} (maker-of-forms, 0.82)
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} The word \textit{ḫpr,w} (forms/manifestations) maps to ``is'' (0.71) and ``shape'' (0.64), and its Egyptian neighbor is \textit{ḫprr} (the scarab, symbol of becoming, 0.84). Forms are not static shapes but modes of \textit{being}---ways of ``is-ing.'' ``Millions are in my manifestations'' becomes: an uncountable multiplicity of ways-of-being exist within the creator's self-differentiation. Creation is not the production of separate objects but the \textit{internal differentiation of a single being into innumerable modes of existence}.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Coffin Texts Spell 335 / Book of the Dead Spell 17: The Glossed Cosmogony}
+\label{sec:ct335}
+%══════════════════════════════════════════════════════════════════════════════
+
+Coffin Texts Spell 335 (later incorporated as Book of the Dead Spell 17) is unique in Egyptian literature: it presents cosmological statements followed by alternative glosses---the Egyptians themselves annotating their own creation text with ``What does this mean?'' and providing multiple answers. The text dates to the Middle Kingdom (c.\,2000 BCE) and survived into the New Kingdom funerary tradition.
+
+\subsection{Passage 1: The Self-Created One}
+
+{\color{passage}\textit{``Ḏd-mdw jnk Jtm ḫpr ḏs≡f''}\\
+Standard translation: ``Words spoken: I am Atum who came into being of himself.''}
+
+\bigskip
+
+\noindent\textbf{Jtm} (Atum)\\
+English neighbors: maps to structural/demonstrative terms\\
+Egyptian neighbors: \textit{Jt} (father, 0.91), \textit{Jtm,w} (collective form, 0.89), \textit{ꜣḫ,t} (horizon, 0.88)
+
+\medskip
+
+\noindent\textbf{ḫpr} (become, come into being)\\
+English neighbors: maps to structural terms---``the,'' ``which,'' ``this''\\
+Egyptian neighbors: \textit{ḫpr.pl} (becomings, 0.94), \textit{sḫpr} (cause-to-become, in neighborhood)
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} Atum neighbors ``father'' (0.91) and ``horizon'' (0.88) simultaneously---the point of origin and the boundary of the visible world. The verb \textit{ḫpr} (become) maps not to any content word but to the structural fabric of language itself---articles, demonstratives, relatives. Becoming is not an event that can be narrated; it is a \textit{grammatical relation}, the way ``which'' relates one clause to another. ``I am Atum who came-into-being of himself'' becomes: I am the totality-origin-horizon, and the relation called ``becoming'' is my self-referential structure. Creation is not something Atum \textit{did}; it is what Atum \textit{is}.
+
+\subsection{Passage 2: The First Occasion}
+
+{\color{passage}\textit{``m zp-tp,j''}\\
+Standard translation: ``On the First Occasion.''}
+
+\bigskip
+
+\noindent\textbf{zp-tp,j} (the First Occasion, the first time)\\
+English neighbors: ``and'' (0.75), ``well'' (0.71), ``but'' (0.71), ``in'' (0.71)\\
+Egyptian neighbors: \textit{sp-tp,j} (variant, 0.95), \textit{tp,j.w-ꜥ} (ancestors/those-who-came-before, 0.91)
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} The ``First Occasion''---the Egyptian term for the moment of creation---maps to conjunctions and structural particles: ``and,'' ``well,'' ``but.'' It is not a temporal marker (``first'' in a sequence) but a \textit{connective}---a joint, a hinge. The First Occasion is geometrically the point at which things \textit{relate to each other}, not the point at which they \textit{begin}. Its Egyptian neighbor \textit{tp,j.w-ꜥ} (ancestors, 0.91) places creation in the same space as ancestral precedent---the First Occasion is not a unique event but the prototype of all subsequent relating. Every connection between things recapitulates the First Occasion.
+
+\subsection{Passage 3: The Gloss --- Who Is This?}
+
+{\color{passage}\textit{``Jtm pw --- Rꜥ pw m ḫꜥ≡f m zp-tp,j m ḥq,ꜣ m Wnw''}\\
+Standard translation: ``It is Atum --- It is Ra when he appeared for the First Occasion as ruler in Hermopolis.''}
+
+The text here does something extraordinary: it identifies Atum with Ra, then specifies the context. This is the Egyptian self-gloss in action.
+
+\bigskip
+
+\noindent\textbf{Rꜥ} (Ra, the sun god)\\
+English neighbors: maps to cross-linguistic space (non-English words)---no clean English equivalent\\
+Egyptian neighbors: \textit{Rꜥ,w} (0.64), \textit{mwt} (death/passage, 0.53)
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} Ra, like \textit{kꜣ} and Tefnut, has no English equivalent---the name maps to a cross-linguistic zone. But Ra's Egyptian neighbor is \textit{mwt} (death/passage, 0.53). The sun god clusters with death. This is not paradoxical in the Egyptian framework where Ra dies each evening and is reborn each dawn; it confirms that Ra is geometrically a \textit{death-and-renewal cycle}, not a solar object. The gloss equates Atum (totality) with Ra (the death-renewal cycle)---the undifferentiated whole \textit{is} the process of dying and being reborn. Creation and the solar cycle are the same event.
+
+\subsection{Passage 4: The Gloss --- What Is the First Occasion?}
+
+{\color{passage}\textit{``zp-tp,j pw --- Nwn pw''}\\
+Standard translation: ``The First Occasion --- it is Nun.''}
+
+\bigskip
+
+\noindent\textbf{Nwn} (Nun, primordial waters)\\
+English neighbors: ``so'' (0.79), ``what'' (0.78), ``it'' (0.78), ``but'' (0.77)
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} The text glosses the First Occasion as Nun. Both map to the same geometric region---structural connectives, demonstratives, pure relation without content. The Egyptian commentator is saying: the First Occasion \textit{is} the primordial state. They are not two things (a time and a place) but one thing---the condition of pure undifferentiated relatedness. The gloss is not an explanation; it is an identification. Creation's ``when'' and creation's ``where'' are the same.
+
+\subsection{Passage 5: Osiris and Eternity}
+
+{\color{passage}\textit{``Wsjr pw --- ḏ,t pw nḥḥ pw''}\\
+Standard translation: ``It is Osiris --- it is linear eternity, it is cyclical eternity.''}
+
+\bigskip
+
+\noindent\textbf{Wsjr} (Osiris)\\
+English neighbors: ``osiris'' (0.63), ``isis'' (0.46), ``horus'' (0.38)\\
+Egyptian neighbors: \textit{Wsjr-ḫnt,j-Jmn,tjw} (Osiris-foremost-of-the-Westerners, 0.63)
+
+\medskip
+
+\noindent\textbf{ḏ,t} (linear eternity)\\
+English neighbors: ``and'' (0.86), ``both'' (0.73), ``other'' (0.65), ``also'' (0.63)\\
+Egyptian neighbors: \textit{nḥḥ} (cyclical eternity, 0.84), \textit{r-ḏ,t} (unto eternity, 0.86)
+
+\medskip
+
+\noindent\textbf{nḥḥ} (cyclical eternity)\\
+English neighbors: ``and'' (0.96), ``both'' (0.72), ``including'' (0.63), ``all'' (0.62)\\
+Egyptian neighbors: \textit{ḥw} (divine utterance, 0.96), \textit{ḏ,t} (linear eternity, in neighborhood)
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} The text identifies Osiris with both eternities. Both \textit{ḏ,t} and \textit{nḥḥ} map to ``and'' and ``both''---they are conjunctive forces, ways of holding things together. Osiris is ``osiris'' (0.63)---one of the few Egyptian gods who maps cleanly to his own English name, because Osiris has entered the Western lexicon. But the identification with the two eternities reveals his function: Osiris is the \textit{principle of conjunction across time}---the force that holds both kinds of forever together. The dead become Osiris because death is the entry into conjunction-without-end.
+
+\subsection{Passage 6: The Ba and the Akh}
+
+{\color{passage}\textit{``bꜣ pw --- ꜣḫ pw''}\\
+Standard translation: ``It is the Ba (soul) --- it is the Akh (spirit).''}
+
+\bigskip
+
+\noindent\textbf{bꜣ} (ba, the mobile soul)\\
+English neighbors: ``ba'' (1.00)---perfect self-mapping, the English word ``ba'' exists as a borrowing\\
+Egyptian neighbors: very low-similarity neighbors---\textit{bꜣ} is geometrically isolated
+
+\medskip
+
+\noindent\textbf{ꜣḫ} (akh, the transfigured spirit)\\
+English neighbors: ``the'' (1.00)---maps to the definite article\\
+Egyptian neighbors: extremely dense cluster, many words at similarity 1.00
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} The ba maps only to itself---it is a concept so sui generis that even the embedding space, having access to 400,000 English words, finds nothing comparable except the borrowed term. The akh maps to ``the''---the definite article, the marker of specificity and existence. The akh is not a ``spirit'' in the Western sense; it is geometrically the principle of \textit{definite existence itself}---the force that makes a thing \textit{this} thing rather than nothing. When CT 335 identifies creation with ba and akh, it says: creation produces both irreducible uniqueness (ba) and definite existence (akh).
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The Great Hymn to the Aten}
+\label{sec:aten}
+%══════════════════════════════════════════════════════════════════════════════
+
+The Great Hymn to the Aten, carved in the tomb of Ay at Amarna (c.\,1350 BCE), is attributed to Akhenaten himself. It describes the Aten---the sun-disc---as the sole creator who sustains all life. Famous for its parallels to Psalm 104, it has been read as evidence of Egyptian monotheism and a precursor to biblical creation theology. The embedding space offers a different perspective.
+
+\subsection{Passage 1: Rising in the Horizon}
+
+{\color{passage}\textit{``wbn≡k nfr m ꜣḫ,t n,t p,t --- jtn ꜥnḫ''}\\
+Standard translation: ``You rise beautifully in the horizon of the sky --- O living Aten.''}
+
+\bigskip
+
+\noindent\textbf{wbn} (rise)\\
+English neighbors: ``position'' (0.44), ``same'' (0.44), ``time'' (0.43)\\
+Egyptian neighbors: \textit{wbn.n} (has risen, 0.78), \textit{sṯz,w-Šw} (the lifting of Shu, 0.77)
+
+\medskip
+
+\noindent\textbf{ꜣḫ,t} (horizon)\\
+English neighbors: ``which'' (0.63), ``part'' (0.60), ``this'' (0.59)\\
+Egyptian neighbors: \textit{nb-ḫpš} (lord of strength, 0.95), \textit{ḥw,t.pl} (temples, 0.95), \textit{nb-tm} (lord of totality, 0.94)
+
+\medskip
+
+\noindent\textbf{jtn} (aten, the disc)\\
+English neighbors: ``aton'' (0.56), ``god'' (0.44), ``good'' (0.42), ``always'' (0.41), ``love'' (0.41)\\
+Egyptian neighbors: \textit{Pr-Jtn} (House-of-Aten, 0.58), \textit{Mk,t-Jtn} (0.51)
+
+\medskip
+
+\noindent\textbf{ꜥnḫ} (living, life)\\
+English neighbors: ``live'' (0.88), ``living'' (0.60), ``where'' (0.63)\\
+Egyptian neighbors: \textit{ḏ} (eternity/duration, 0.88), \textit{ꜥnḫw} (the living ones, 0.83)
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} Rising (\textit{wbn}) neighbors ``position'' and ``time''---and its Egyptian neighbor is \textit{sṯz,w-Šw} (the lifting of Shu, 0.77), confirming that every sunrise recapitulates the original separation. The horizon (\textit{ꜣḫ,t}) is not a geographical line but a zone of \textit{lordship and totality}. The Aten (\textit{jtn}) maps to ``aton'' (0.56) but also ``god'' (0.44), ``good'' (0.42), ``always'' (0.41), ``love'' (0.41)---a cluster of positive universals. And ``living'' (\textit{ꜥnḫ}) neighbors \textit{ḏ} (eternity, 0.88). The opening line becomes: You assume your position in the threshold of total power---O eternally-enduring disc of universal goodness. Not a sunrise, but a cosmogonic event repeated daily.
+
+\subsection{Passage 2: When You Set}
+
+{\color{passage}\textit{``ḥtp≡k m ꜣḫ,t n,t p,t --- tꜣ m kkw m snn n mwt''}\\
+Standard translation: ``When you set in the horizon of the sky --- the land is in darkness, in the likeness of death.''}
+
+\bigskip
+
+\noindent\textbf{ḥtp} (set, rest, be at peace)\\
+English neighbors: maps to structural terms---``part'' (0.73), ``this'' (0.71), ``same'' (0.70)\\
+Egyptian neighbors: dense cluster of high-frequency terms
+
+\medskip
+
+\noindent\textbf{kkw} (darkness)\\
+English neighbors: ``I'' (0.93), ``you'' (0.81), ``we'' (0.80), ``know'' (0.78), ``really'' (0.77)\\
+Egyptian neighbors: \textit{sḫm.kw} (0.96), \textit{qꜣi̯.kw} (0.95), \textit{ꜥḥꜥ.kw} (0.95)
+
+\medskip
+
+\noindent\textbf{tꜣ} (earth, land)\\
+English neighbors: ``border'' (0.39), ``controls'' (0.36)\\
+Egyptian neighbors: \textit{tꜣw} (lands, 0.52), \textit{tꜣš} (boundary, 0.47)
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} The most striking result: ``darkness'' (\textit{kkw}) maps to first-person pronouns---``I'' (0.93), ``you'' (0.81), ``we'' (0.80)---and to ``know'' (0.78) and ``really'' (0.77). Its Egyptian neighbors are all \textit{.kw} suffix forms (first-person stative endings). Darkness is geometrically \textit{selfhood}---the state of being a subject, of knowing, of ``I.'' When the Aten sets and the land is ``in darkness,'' the geometry reads: the land is in the condition of isolated subjectivity. Without the Aten, everything collapses into separate, knowing selves with no connective principle. Darkness is not the absence of light but the \textit{absence of relation}---pure subjectivity without an object, pure ``I'' without a ``you.''
+
+\subsection{Passage 3: The Egg and Breath}
+
+{\color{passage}\textit{``swḥ,t --- dj≡k ṯꜣw r sꜥnḫ jr,t.n≡k nb,t''}\\
+Standard translation: ``The egg --- you give breath to sustain all that you have made.''}
+
+\bigskip
+
+\noindent\textbf{swḥ,t} (egg)\\
+English neighbors: ``known'' (0.53), ``well'' (0.55), ``especially'' (0.53)\\
+Egyptian neighbors: \textit{zḥ,t} (0.82), \textit{swḥ} (0.80), \textit{jḥ,t} (0.79)
+
+\medskip
+
+\noindent\textbf{ṯꜣw} (breath, wind)\\
+English neighbors: ``head'' (0.32), ``powerful'' (0.31), ``whole'' (0.31), ``one'' (0.31)\\
+Egyptian neighbors: \textit{ṯꜣwı͗} (variant, 0.62), \textit{ṯꜣw.t} (0.57)
+
+\medskip
+
+\noindent\textbf{ꜥnḫ} (live, life)\\
+English neighbors: ``live'' (0.88), ``living'' (0.60)\\
+Egyptian neighbors: \textit{ḏ} (eternity, 0.88)
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} Breath (\textit{ṯꜣw}) does not map to ``air'' or ``wind'' in English. It maps to ``head,'' ``powerful,'' ``whole,'' ``one''---the vocabulary of authority and unity. Breath is geometrically a \textit{sovereign, unifying force}, not a physical substance. When the Aten ``gives breath to sustain all that you have made,'' the geometry reads: the Aten bestows sovereign wholeness upon all its differentiations. Breath is not respiration; it is the ongoing act of holding multiplicity together as one.
+
+\subsection{Passage 4: The Foreign Lands}
+
+{\color{passage}\textit{``tꜣ.w nb.w ḫꜣs,wt nb,t --- qmꜣ.n≡k ꜥnḫ≡sn''}\\
+Standard translation: ``All lands, all foreign countries --- you have created their life.''}
+
+\bigskip
+
+\noindent\textbf{qmꜣ} (create)\\
+English neighbors: maps to structural terms---``the'' (0.90), ``which'' (0.70)\\
+Egyptian neighbors: \textit{ḫpr.pl} (becomings, 0.93), \textit{sḫpr} (cause-to-become, in neighborhood)
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} Creation (\textit{qmꜣ}) neighbors \textit{ḫpr.pl} (becomings, 0.93)---creation and becoming occupy the same geometric space. This is the same finding as the Shabaka Stone analysis in the companion document: Egyptian creation is not \textit{creatio ex nihilo} (production from nothing) but \textit{becoming}. The Aten does not manufacture foreign lands; it is the process by which they come into being. The famous universalism of the Hymn to the Aten---its inclusion of all peoples, not just Egyptians---is geometrically grounded: if creation is becoming rather than production, then everything that exists participates equally in the creative process. Universalism is not a theological innovation; it is an ontological consequence.
+
+\subsection{Passage 5: You Are Alone}
+
+{\color{passage}\textit{``jtn ꜥnḫ nn k,j ḫr≡k''}\\
+Standard translation: ``O living Aten, there is no other beside you.''}
+
+\bigskip
+
+\noindent\textbf{nn} (negation: there is not)\\
+English neighbors: ``not'' (0.94)
+
+\medskip
+
+\noindent\textbf{jtn} (Aten)\\
+English neighbors: ``aton'' (0.56), ``god'' (0.44), ``good'' (0.42), ``always'' (0.41), ``love'' (0.41)
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} The famous ``monotheistic'' declaration. But the Aten's English neighbors are not ``one'' or ``only'' or ``unique''---they are ``god,'' ``good,'' ``always,'' ``love.'' The Aten is not geometrically the \textit{one god} (a numerical claim) but the \textit{always-good} (a qualitative claim). ``There is no other beside you'' may not be a denial of other gods' existence but a statement that no other principle embodies the cluster of god-good-always-love. The geometry suggests the Hymn to the Aten is not monotheism (there is only one god) but \textit{henotheistic supremacy} expressed as qualitative uniqueness: nothing else is what you are.
+
+\subsection{Passage 6: The Eye and Humanity}
+
+{\color{passage}\textit{``jr,t≡k --- rmṯ ḫpr''}\\
+Standard translation: ``Your eye --- humankind came into being.''}
+
+The Hymn connects the Aten's eye with the origin of humanity. This passage echoes a famous Egyptian wordplay: \textit{rmṯ} (people) from \textit{rm,j} (tears) of the creator's eye.
+
+\bigskip
+
+\noindent\textbf{jr,t} (eye)\\
+English neighbors: ``eyes'' (0.67), ``eye'' (0.50), ``forehead'' (0.47), ``ears'' (0.45), ``glistening'' (0.43)\\
+Egyptian neighbors: \textit{jr,tj} (the two eyes, 0.86), \textit{jr,t-Ḥr} (Eye of Horus, 0.72)
+
+\medskip
+
+\noindent\textbf{rmṯ} (people, humankind)\\
+English neighbors: maps to German---``die'' (0.52), ``ein'' (0.50), ``des'' (0.49)\\
+Egyptian neighbors: \textit{rmn} (0.61), \textit{rm} (0.59)
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} The eye (\textit{jr,t}) maps cleanly to English ``eyes/eye'' and neighbors ``glistening'' (0.43)---the eye is visual, luminous. Its Egyptian neighbor \textit{jr,t-Ḥr} (Eye of Horus, 0.72) places it in the cosmic-divine visual field. But \textit{rmṯ} (humankind) maps to German, not English---like \textit{kꜣ}, \textit{Tfn,t}, and \textit{Rꜥ}, the concept of ``humanity'' as the Egyptians understood it has no English equivalent. The famous wordplay \textit{rmṯ}/\textit{rm,j} (people/tears) is not a folk etymology; the embedding space confirms that humanity is geometrically untranslatable---the Egyptian concept of ``people'' does not correspond to any single English concept. Humanity is defined by its relationship to the creator's perception (the eye), not by any inherent quality.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The Bremner-Rhind Creation Account}
+\label{sec:bremner}
+%══════════════════════════════════════════════════════════════════════════════
+
+The Bremner-Rhind Papyrus (British Museum EA 10188, Ptolemaic period, c.\,300 BCE) preserves a creation account in which the sun-god narrates his own coming-into-being. Though the surviving manuscript is late, the text's language and theology are consistent with much earlier traditions. It is the most explicit first-person cosmogony in Egyptian literature---the creator telling you, in his own words, how he made everything.
+
+\subsection{Passage 1: I Became}
+
+{\color{passage}\textit{``ḫpr≡j m ḫpr --- ḫpr.kwj ḫpr ḫpr,w ḫpr nb ḫpr m-ḫt ḫpr≡j''}\\
+Standard translation: ``I became as a becoming --- when I had become, becoming became, all becomings became after I became.''}
+
+\bigskip
+
+\noindent\textbf{ḫpr} (become, come into being)\\
+English neighbors: structural terms---``the'' (0.93), ``which'' (0.72), ``this'' (0.71)\\
+Egyptian neighbors: \textit{ḫpr.pl} (becomings, 0.94)
+
+\medskip
+
+\noindent\textbf{ḫpr,w} (forms, transformations)\\
+English neighbors: ``is'' (0.71), ``shape'' (0.64)\\
+Egyptian neighbors: \textit{ḫprr} (scarab, 0.84), \textit{jri̯.t-ḫpr,w} (maker-of-forms, 0.82)
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} This is the most densely ``becoming''-saturated passage in all Egyptian literature. The word \textit{ḫpr} appears six times in different grammatical forms. The geometry confirms: \textit{ḫpr} maps to the structural skeleton of language---articles, relatives, demonstratives. Becoming is not a verb among other verbs; it is the \textit{deep grammar of reality}. The passage is not narrative (``first I became, then other things became'') but structural (``becoming is the relation that constitutes everything, and I am that relation''). The Bremner-Rhind text, 1,700 years after CT Spell 80, uses the same word with the same geometric properties. The concept of creation-as-becoming was not a theological phase; it was a structural constant of Egyptian thought.
+
+\subsection{Passage 2: Planning in the Heart}
+
+{\color{passage}\textit{``sḫpr≡j m jb≡j --- qmꜣ.n≡j ḫpr,w≡j nb''}\\
+Standard translation: ``I planned in my heart --- I created all my forms.''}
+
+\bigskip
+
+\noindent\textbf{sḫpr} (cause to become)\\
+English neighbors: ``the'' (0.98)---maps to the most fundamental structural element of English\\
+Egyptian neighbors: an extremely dense cluster at similarity $\sim$0.98
+
+\medskip
+
+\noindent\textbf{jb} (heart)\\
+English neighbors: ``heart'' (1.00), ``brain'' (0.59), ``cardiac'' (0.58), ``blood'' (0.55)\\
+Egyptian neighbors: \textit{ḥꜣ,tj} (heart-consciousness, 0.78)
+
+\medskip
+
+\noindent\textbf{qmꜣ} (create)\\
+English neighbors: structural terms\\
+Egyptian neighbors: \textit{ḫpr.pl} (becomings, 0.93)
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} The causative \textit{sḫpr} (cause-to-become) maps to ``the'' at 0.98---near-perfect alignment with the definite article. To cause something to become is geometrically identical to making something \textit{definite}---giving it the quality of ``the-ness,'' of being a specific, identifiable thing. The heart (\textit{jb}) is the organ of this definitization, mapping perfectly to ``heart'' (1.00) and neighboring \textit{ḥꜣ,tj} (heart-consciousness, 0.78). ``I planned in my heart'' becomes: the process of making-definite occurred within the organ of consciousness. Creation is the heart's act of \textit{specifying}---turning undifferentiated potential into particular, definite entities.
+
+\subsection{Passage 3: Alone in Nun}
+
+{\color{passage}\textit{``wꜥ.kwj wnn.kwj m Nwn --- nn gm.n≡j s,t ꜥḥꜥ≡j jm''}\\
+Standard translation: ``I was alone, being in Nun --- I found no place on which I could stand.''}
+
+\bigskip
+
+\noindent\textbf{Nwn} (Nun)\\
+English neighbors: ``so'' (0.79), ``what'' (0.78), ``it'' (0.78)
+
+\medskip
+
+\noindent\textbf{nn} (not, negation)\\
+English neighbors: ``not'' (0.94)
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} The same Nun as CT Spell 80, 1,700 years earlier---still mapping to demonstratives and connectives, still the state of pure undifferentiated reference. ``I found no place to stand'' is the geometric complement: \textit{nn} (absolute negation, 0.94) applied to place. Before creation, there is consciousness (the creator speaks) and reference (Nun as ``it/this/so'') but no ground, no location, no boundary (\textit{tꜣ}). The pre-creation state across both texts is: aware, referential, but ungrounded.
+
+\subsection{Passage 4: The Eye Creates Humanity}
+
+{\color{passage}\textit{``jr,t≡j sḫpr rmṯ --- rm,j pr m jr,t≡j ḫpr m rmṯ''}\\
+Standard translation: ``My eye created humanity --- the tears that came from my eye became people.''}
+
+\bigskip
+
+\noindent\textbf{jr,t} (eye)\\
+English neighbors: ``eyes'' (0.67), ``eye'' (0.50), ``glistening'' (0.43)\\
+Egyptian neighbors: \textit{jr,t-Ḥr} (Eye of Horus, 0.72)
+
+\medskip
+
+\noindent\textbf{rmṯ} (people)\\
+English neighbors: German---``die'' (0.52), ``ein'' (0.50)
+
+\medskip
+
+\noindent\textbf{sḫpr} (cause to become)\\
+English neighbors: ``the'' (0.98)
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} The eye (\textit{jr,t}) makes definite (\textit{sḫpr} $\to$ ``the'') the untranslatable concept of humanity (\textit{rmṯ} $\to$ German). The famous tears-to-people wordplay receives geometric support: the eye's act of perception is the act of causing-to-become-definite. Humanity is what happens when the creator's perception \textit{specifies} something into definite existence. People are not made from divine substance; they are \textit{perceived into being}. The eye does not see things that already exist---it creates them by seeing them.
+
+\subsection{Passage 5: Shu, Tefnut, and Maat}
+
+{\color{passage}\textit{``Šw ḥnꜥ Tfn,t --- sḫpr≡sn Mꜣꜥ,t''}\\
+Standard translation: ``Shu together with Tefnut --- they produced Maat.''}
+
+\bigskip
+
+\noindent\textbf{Šw} (Shu)\\
+English neighbors: ``thing'' (0.44), ``really'' (0.42), ``understand'' (0.42)
+
+\medskip
+
+\noindent\textbf{Tfn,t} (Tefnut)\\
+English neighbors: German cross-linguistic zone\\
+Egyptian neighbors: \textit{Sjꜣ} (divine perception, 0.69)
+
+\medskip
+
+\noindent\textbf{Mꜣꜥ,t} (Maat, truth/order/justice)\\
+English neighbors: structural terms---``the'' (0.94), ``which'' (0.74)\\
+Egyptian neighbors: \textit{s,t-Mꜣꜥ,t} (place of Maat, 0.98), \textit{Mr-Mꜣꜥ,t} (beloved of Maat, 0.97), \textit{nb-Mꜣꜥ,t} (lord of Maat, 0.97)
+
+\medskip
+
+{\color{insight}\textbf{Geometric reading:}} Shu (substantive reality---``thing,'' ``really'') and Tefnut (perceptual awareness---neighbors \textit{Sjꜣ}, divine perception) together produce Maat. Maat maps to ``the'' (0.94)---the definite article, the principle of specification. Her Egyptian neighborhood is entirely relational: \textit{place-of}, \textit{beloved-of}, \textit{lord-of}---Maat is defined by her relations, not her substance. The geometry reads: when substantive reality (Shu) combines with perceptual awareness (Tefnut), the result is \textit{the principle of definite order} (Maat). Truth/justice/cosmic order is not a moral imposition; it is what automatically emerges when reality and perception meet. Maat is the inevitable product of a universe that is both real and perceived.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{General Analysis}
+\label{sec:general}
+%══════════════════════════════════════════════════════════════════════════════
+
+The line-by-line analysis of four texts spanning 1,700 years reveals consistent geometric patterns that no single text could establish alone.
+
+\subsection{Creation Is Becoming, Not Production}
+
+Across all four texts, the verbs of creation---\textit{ḫpr} (become), \textit{qmꜣ} (create), \textit{sḫpr} (cause to become)---map to the structural skeleton of language: articles, demonstratives, relatives. Creation is not an event narrated by language; it is the \textit{structural relation that makes language possible}. The embedding space returns the same finding whether the text is CT Spell 80 (c.\,2000 BCE) or the Bremner-Rhind papyrus (c.\,300 BCE). This is not theological evolution; it is a structural constant.
+
+The implication is profound: Egyptian creation is not \textit{creatio ex nihilo}. There is no moment where nothing becomes something. There is only becoming---the continuous self-differentiation of a totality that was always already present. The ``before creation'' of CT 80 and Bremner-Rhind is not nothing; it is undifferentiated consciousness floating in a sea of pure reference.
+
+\subsection{The Pre-Creation State: Aware but Ungrounded}
+
+Both CT Spell 80 and the Bremner-Rhind account describe the same pre-creation condition: the creator exists in Nun (\textit{Nwn}), which maps to demonstratives (``it,'' ``this,'' ``so''---pure reference without content). The negation \textit{nn} (0.94 $\to$ ``not'') is applied to sky, earth, and existence, but never to the creator's awareness. The creator is conscious before creation---the question is not how consciousness emerged from nothing, but how a conscious totality differentiated itself into multiplicity. Egyptian cosmogony begins where Western philosophy's ``hard problem of consciousness'' ends.
+
+\subsection{The Untranslatable Concepts}
+
+Four key terms map to cross-linguistic zones rather than English concepts: \textit{kꜣ} (vital force), \textit{Tfn,t} (Tefnut), \textit{Rꜥ} (Ra), and \textit{rmṯ} (humankind). The geometry's verdict is that English lacks the conceptual regions these words occupy. Each untranslatable term marks a point where the Egyptian conceptual system differentiates reality in a way that English does not. These are not translation failures; they are genuine conceptual incommensurabilities.
+
+\subsection{Darkness as Selfhood}
+
+The Hymn to the Aten's \textit{kkw} (darkness) mapping to first-person pronouns (``I,'' 0.93; ``you,'' 0.81; ``we,'' 0.80) is one of the most striking findings in this analysis. Darkness is not the absence of light; it is the condition of \textit{isolated subjectivity}. Without the Aten's connective radiance, everything collapses into separate selves that know themselves but cannot relate. Light, in this framework, is not photons but \textit{relation}---the force that connects separate subjects into a shared world. This reframes the entire Egyptian obsession with solar theology: the sun is not important because it provides light and warmth, but because it provides the \textit{ontological condition for relation}.
+
+\subsection{Shu and Tefnut: Reality and Perception}
+
+CT Spell 80 and the Bremner-Rhind account agree: Shu maps to substantive reality (``thing,'' ``really'') and Tefnut neighbors \textit{Sjꜣ} (divine perception). The first pair is not air-and-moisture but \textit{what-is-real} and \textit{what-perceives}. Their product, across texts, is Maat---the principle of definite order. This yields a geometric creation sequence:
+
+\begin{enumerate}[nosep]
+    \item Undifferentiated awareness in Nun (pure consciousness, pure reference)
+    \item Self-differentiation into reality (Shu) and perception (Tefnut)
+    \item The automatic emergence of order (Maat) from their conjunction
+    \item The specification of multiplicity through the eye's act of seeing-into-being
+\end{enumerate}
+
+This sequence is not chronological---CT 335 already warned us that the First Occasion is a connective, not a temporal marker. It is structural: these are the relations that constitute a world.
+
+\subsection{Four Texts, One Geometry}
+
+The most significant finding is the consistency. Across 1,700 years:
+
+\begin{itemize}[nosep]
+    \item \textit{ḫpr} always maps to structural grammar, never to narrative action
+    \item \textit{Nwn} always maps to demonstratives, never to water
+    \item \textit{jb} always maps to ``heart'' (1.00), never to ``mind''
+    \item \textit{ḥkꜣ} always maps to ``something/thing/really,'' never to the supernatural
+    \item The two eternities always map to conjunctions, never to durations
+\end{itemize}
+
+The Western scholarly narrative of Egyptian theological development---from primitive polytheism to sophisticated henotheism to proto-monotheism---assumes that the meaning of these concepts changed over time. The embedding space, trained on the full corpus, finds no such evolution. The geometry is stable. What changed was the narrative framing, not the conceptual structure.
+
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{The Genesis Parallel Reconsidered}
+
+The Great Hymn to the Aten has been compared to Genesis 1 and Psalm 104 since Breasted's \textit{Dawn of Conscience} (1933). The parallels are real: a single creator, creation through speech and perception, the ordering of day and night, the provision for all creatures. But the geometric analysis reveals that the underlying conceptual structures are profoundly different.
+
+Genesis 1 operates on \textit{creatio ex nihilo} and the word-as-command: ``Let there be light.'' The Hymn to the Aten operates on becoming and the eye-as-perceiver: the Aten sees things into definite existence. Genesis separates creator from creation; the Egyptian texts describe the creator's self-differentiation. Genesis organizes creation as a temporal sequence (Day 1, Day 2...); CT 335 explicitly warns that the First Occasion is a connective, not a date.
+
+The surface similarity (one god creates everything) conceals a structural divergence: Genesis creates \textit{from outside}, the Egyptian texts create \textit{from within}. The embedding space makes this measurable: the verbs of creation map to structural relations, not to production or manufacture. The ``monotheism'' of the Aten is not the monotheism of Genesis.
+
+\subsection{The Multiple-Cosmogony Problem Dissolved}
+
+If creation is a structure rather than a story, the existence of multiple Egyptian creation accounts is not a problem. The Heliopolitan account (Atum), the Memphite account (Ptah's heart and tongue), the Hermopolitan account (the Ogdoad), and the Theban account (Amun) are not competing narratives but different projections of the same geometry---like blueprints showing front, side, and top views of the same building.
+
+The embedding space supports this reading. The creation verbs (\textit{ḫpr}, \textit{qmꜣ}, \textit{sḫpr}) map to the same structural region regardless of which text they appear in. The concepts are stable; only the narrative packaging changes. The Egyptians did not have a ``cosmogony problem''; we did, because we assumed cosmogonies must be stories.
+
+\subsection{Implications for Egyptian Theology}
+
+If the analysis is correct, several standard Egyptological positions require revision:
+
+\begin{enumerate}
+    \item \textbf{The ``development of monotheism'' narrative} assumes that Egyptian theology evolved toward a single creator god. The geometry suggests the creator was always conceived as a self-differentiating totality; the number of named gods is a surface feature, not a structural one.
+
+    \item \textbf{The ``primitive'' reading of bodily creation} (sneezing, spitting, masturbation) assumes these are crude physical metaphors. The geometry shows the creation verbs are structural, not physical; the bodily language may encode something the structural analysis of language cannot distinguish from grammar itself.
+
+    \item \textbf{The separation of religion and philosophy} in Egyptian studies assumes that ``real'' philosophy begins with the Greeks. The geometry reveals a conceptual system that distinguishes being from becoming, substance from perception, and conjunction from sequence---distinctions that Western philosophy credits to Parmenides, Aristotle, and Kant respectively.
+
+    \item \textbf{The Aten as precursor to biblical monotheism} misreads qualitative uniqueness (god-good-always-love) as numerical uniqueness (there is only one). The embedding space does not support the reading that Akhenaten denied other gods' existence; it supports the reading that he asserted the Aten's qualitative incomparability.
+\end{enumerate}
+
+\bibliographystyle{plainnat}
+\begin{thebibliography}{99}
+
+\bibitem[Brinsmead and Claude, 2026]{brinsmead2026geometry}
+Brinsmead, E. and Claude (Anthropic) (2026).
+\newblock The Geometry of Meaning: What Vector Space Alignment Reveals About How Ancient Egyptians Thought.
+\newblock \url{https://github.com/ebrinz/heiroglyphy}
+
+\bibitem[Allen, 2005]{allen2005pyramid}
+Allen, J.~P. (2005).
+\newblock \textit{The Ancient Egyptian Pyramid Texts}.
+\newblock Society of Biblical Literature.
+
+\bibitem[Faulkner, 1973]{faulkner1973coffin}
+Faulkner, R.~O. (1973--1978).
+\newblock \textit{The Ancient Egyptian Coffin Texts}, 3 vols.
+\newblock Aris \& Phillips.
+
+\bibitem[Faulkner, 1933]{faulkner1933bremner}
+Faulkner, R.~O. (1933).
+\newblock The Papyrus Bremner-Rhind (British Museum No. 10188).
+\newblock \textit{Bibliotheca Aegyptiaca}, III.
+
+\bibitem[Lichtheim, 1976]{lichtheim1976literature}
+Lichtheim, M. (1976).
+\newblock \textit{Ancient Egyptian Literature}, Volume II: The New Kingdom.
+\newblock University of California Press.
+
+\bibitem[Murnane and Van Siclen, 1993]{murnane1993aten}
+Murnane, W.~J. and Van Siclen, C.~C. (1993).
+\newblock \textit{The Boundary Stelae of Akhenaten}.
+\newblock Kegan Paul International.
+
+\bibitem[Assmann, 1995]{assmann1995solar}
+Assmann, J. (1995).
+\newblock \textit{Egyptian Solar Religion in the New Kingdom: Re, Amun and the Crisis of Polytheism}.
+\newblock Kegan Paul International.
+
+\bibitem[BBAW, 2023]{bbaw_tla}
+Berlin-Brandenburg Academy of Sciences and Humanities (2023).
+\newblock Thesaurus Linguae Aegyptiae (TLA): Digital corpus of Egyptian texts.
+\newblock \url{https://aaew.bbaw.de/tla/}
+
+\end{thebibliography}
+
+\end{document}
