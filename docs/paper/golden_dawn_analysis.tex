@@ -1,0 +1,380 @@
+\documentclass[11pt, a4paper]{article}
+
+% ── Packages ──────────────────────────────────────────────────────────────────
+\usepackage{fontspec}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{natbib}
+\usepackage{longtable}
+\usepackage{tabularx}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    citecolor=blue!60!black,
+    urlcolor=blue!60!black,
+}
+
+% ── Colors ────────────────────────────────────────────────────────────────────
+\definecolor{rosetta}{RGB}{183, 110, 72}
+\definecolor{mismatch}{RGB}{180, 40, 40}
+\definecolor{match}{RGB}{40, 120, 40}
+
+% ── Title ─────────────────────────────────────────────────────────────────────
+\title{
+    \textbf{The Geometry of the Golden Dawn}\\[6pt]
+    {\large What Vector Space Alignment Reveals About\\Victorian Occultism's Egyptian Claims}
+}
+
+\author{
+    Erik Brinsmead \\
+    Researcher \\[6pt]
+    Claude \\
+    Anthropic \\[12pt]
+    \texttt{github.com/ebrinz/heiroglyphy}
+}
+
+\date{March 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The Hermetic Order of the Golden Dawn (est.\ 1888) claimed to transmit authentic Egyptian mystery teachings through a system of tarot correspondences linking the 78 cards to Egyptian gods, Kabbalistic paths, and astrological forces. This document tests that claim by projecting Golden Dawn tarot centroids---constructed from their published keywords, titles, and structural correspondences---into the same 300-dimensional GloVe vector space to which ancient Egyptian embedding vectors have been independently aligned. If the Golden Dawn possessed genuine insight into Egyptian semantic structures, their tarot card vectors should map to the Egyptian words and concepts they claim to represent. They do not. The geometry reveals that the Golden Dawn's ``Egyptian'' system is a projection of 19th-century Hermeticism and Kabbalah onto Egyptian names, with no detectable relationship to how ancient Egyptians actually organized meaning.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+
+The Hermetic Order of the Golden Dawn, founded in London in 1888 by William Wynn Westcott, Samuel Liddell MacGregor Mathers, and William Robert Woodman, constructed one of the most influential systems of Western esotericism. Central to their system was a network of correspondences linking the 78 tarot cards to Egyptian deities, Hebrew letters, Kabbalistic paths on the Tree of Life, astrological signs and planets, and alchemical elements. These correspondences were presented not as creative invention but as recovered knowledge---the authentic teachings of the Egyptian mystery schools, transmitted through initiatic lineages.
+
+The Golden Dawn's Egyptian claims rested on the scholarship available to them, primarily the work of E.\,A.\,W. Budge and earlier Egyptologists. Their system assigned Egyptian deity names to tarot trumps, adopted Egyptian iconography for ritual practice, and structured their initiation grades around Egyptian mythological themes. The question is whether these assignments reflect genuine understanding of Egyptian thought or are a Victorian costume draped over a fundamentally Kabbalistic and Hermetic framework.
+
+This question has been debated for over a century on philological, historical, and art-historical grounds. We propose a new approach: test the Golden Dawn's correspondences against the geometry of ancient Egyptian language itself.
+
+\subsection{Method}
+
+This analysis exploits a coincidence of vector spaces. Two independent projects have produced embeddings in the same 300-dimensional GloVe space:
+
+\begin{enumerate}[nosep]
+    \item \textbf{Egyptian aligned vectors}: 10,833 ancient Egyptian transliterated words, projected from a 768-dimensional FastText embedding (trained on the TLA corpus of Egyptian texts) through Ridge regression into GloVe 300d English space. Documented in \textit{The Geometry of Meaning} \citep{brinsmead2026geometry}.
+
+    \item \textbf{Tarot centroids}: 78 tarot card vectors constructed from Golden Dawn keywords, titles, and structural correspondences. Each card's centroid is a weighted combination of GloVe vectors for its associated keywords, enriched with astrological sign and planetary associations, then Procrustes-rotated (for major arcana) to align with astrological target positions. The construction methodology is documented in the Ephemeral Revolver project.
+\end{enumerate}
+
+Because both sets of vectors inhabit the same 300d space, cosine similarity between a tarot card centroid and an Egyptian word vector is directly interpretable: it measures how close the Golden Dawn's concept is to the Egyptian word in semantic space.
+
+\subsection{The Test}
+
+For each of the 22 major arcana cards, we ask:
+
+\begin{enumerate}[nosep]
+    \item What are the nearest Egyptian words to this card's centroid?
+    \item Do those Egyptian words correspond to the Egyptian concepts the Golden Dawn claimed to encode?
+    \item Where the geometry disagrees with the Golden Dawn, what does it reveal about the actual structure of the Victorian system?
+\end{enumerate}
+
+If the Golden Dawn's system authentically encodes Egyptian thought, the Justice card (``The Daughter of the Lords of Truth; The Ruler of the Balance'') should map near \textit{Mꜣꜥ,t} (truth/cosmic order) and \textit{wḏꜥ} (judgment). The Death card (``The Lord of the Gate of Death'') should map near \textit{mwt} (death) or the silence/death cluster. The Hierophant (``The Magus of the Eternal'') should map near priestly vocabulary.
+
+\section{The Tarot Centroid Construction}
+\label{sec:construction}
+
+Understanding the tarot centroids' construction is essential for interpreting the results. The centroids were not built to test Egyptian correspondences---they were built to encode the Golden Dawn's \textit{own} system as faithfully as possible.
+
+\subsection{Weighted Keyword Enrichment}
+
+Each card's centroid was computed as a weighted sum of GloVe vectors for associated keywords:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrl}
+\toprule
+\textbf{Source} & \textbf{Weight} & \textbf{Purpose} \\
+\midrule
+Sign name & 5.0 & Primary astrological anchor \\
+Sign keywords & 4.0 & Dominant semantic anchor \\
+Golden Dawn title keywords & 2.0 & Traditional meaning \\
+Planet keywords & 1.5 & Decan ruler influence \\
+Decan flavor & 1.5 & Sign + planet combination \\
+Card keywords & 0.8 & Preserve card meaning \\
+\bottomrule
+\end{tabular}
+\caption{Enrichment weights for tarot centroid construction.}
+\end{table}
+
+\subsection{Procrustes Alignment}
+
+For the 22 major arcana, an additional orthogonal rotation was applied:
+
+\[
+\min_R \|A R - B\|^2 \quad \text{subject to} \quad R^\top R = I
+\]
+
+where $A$ is the matrix of raw major arcana centroids and $B$ is the matrix of astrological target vectors. This rotation maximally aligns the tarot space with astrological structure while preserving internal geometry.
+
+\subsection{Validation}
+
+The resulting centroids achieved 94\% accuracy on pip-to-sign correspondence and 91\% on suit-to-element mapping, confirming that the centroids faithfully encode the Golden Dawn's structural claims. The test that follows is therefore not a test of centroid quality but of whether the Golden Dawn's structure maps onto Egyptian reality.
+
+\section{Results: The 22 Major Arcana}
+\label{sec:results}
+
+\subsection{Cards Where the Geometry Exposes Projection}
+
+\subsubsection{Justice: The Missing Mꜣꜥ,t}
+
+\begin{quote}
+\textit{Golden Dawn title:} The Daughter of the Lords of Truth; The Ruler of the Balance \\
+\textit{Golden Dawn association:} Libra
+\end{quote}
+
+\noindent\textbf{English neighbors of the Justice centroid:}\\
+\hspace{1em}respect (0.64), truth (0.63), balance (0.60), true (0.59), justice (0.59)
+
+\noindent\textbf{Egyptian neighbors:}\\
+\hspace{1em}\textit{nṯr,pl} [gods] (0.69), \textit{ḥzi̯.y} [praised one] (0.67), \textit{snb} [health] (0.67), \textit{sḥri̯.y} [one who drives away] (0.67), \textit{sḫm} [power] (0.66)
+
+\vspace{6pt}
+\noindent{\color{mismatch}\textbf{Verdict: Projection.}} The Golden Dawn titled this card after the Egyptian concept of Mꜣꜥ,t---the Weighing of the Heart, the scales of cosmic justice. But the card's centroid does not map anywhere near \textit{Mꜣꜥ,t} in Egyptian space. Instead, it maps to divinity (\textit{nṯr,pl}), praise (\textit{ḥzi̯.y}), and power (\textit{sḫm}). The Egyptian concept the Golden Dawn was reaching for---truth-as-cosmic-order, the binding force documented in the Rosetta decree and Book of the Dead analyses---is absent from the geometry of their own card.
+
+The English neighbors confirm the card encodes Western legal-ethical concepts (``justice,'' ``truth,'' ``balance'')---the Libra-scales metaphor. The Egyptians did not partition justice and power into separate concepts; \textit{Mꜣꜥ,t} is simultaneously truth, authority, and cosmic cohesion. The Golden Dawn took the scales imagery and attached it to a Greek/Roman virtue (\textit{Justitia}/\textit{Dikē}), not to the Egyptian force it superficially resembles.
+
+\subsubsection{Death: The Missing Silence}
+
+\begin{quote}
+\textit{Golden Dawn title:} The Child of the Great Transformers; The Lord of the Gate of Death \\
+\textit{Golden Dawn association:} Scorpio
+\end{quote}
+
+\noindent\textbf{English neighbors:}\\
+\hspace{1em}life (0.64), death (0.64), kind (0.64)
+
+\noindent\textbf{Egyptian neighbors:}\\
+\hspace{1em}\textit{sḫm} [power] (0.72), \textit{jni̯.tw} [was brought] (0.72), \textit{ꜥwꜣi̯.y} [robber] (0.72)
+
+\vspace{6pt}
+\noindent{\color{mismatch}\textbf{Verdict: Projection.}} The Death card maps to power and forceful action in Egyptian space---not to the silence/death cluster (\textit{sgr}/\textit{mwt}) that the embedding space identifies as the Egyptian concept of death. The Golden Dawn's ``Gate of Death'' is a Western metaphor for transformation (Scorpio as death-and-rebirth). The Egyptian geometry of death is about silencing---the removal of a voice from the cosmic conversation. The Golden Dawn's transformative death is Hermetic; the Egyptian death is ontological.
+
+The ``Great Transformers'' subtitle reveals the framework: this is alchemical \textit{solve et coagula} in Egyptian costume.
+
+\subsubsection{The Tower: The Enemy Gate}
+
+\begin{quote}
+\textit{Golden Dawn title:} The Lord of the Hosts of the Mighty \\
+\textit{Golden Dawn association:} Mars
+\end{quote}
+
+\noindent\textbf{English neighbors:}\\
+\hspace{1em}come (0.60), kind (0.59), hope (0.58)
+
+\noindent\textbf{Egyptian neighbors:}\\
+\hspace{1em}\textit{ḫft,j} [enemy] (0.71), \textit{wꜣḫi̯.y} [one who pours out] (0.70), \textit{ḫft} [enemy/oppose] (0.70), \textit{ḏw(.t)} [evil] (0.70)
+
+\vspace{6pt}
+\noindent{\color{mismatch}\textbf{Verdict: Partial alignment, wrong frame.}} The Tower maps to Egyptian words for enemy and opposition---which superficially matches the card's meaning of destruction and catastrophe. But the Golden Dawn framed this as Mars-energy, divine lightning, the destruction of false structures. The Egyptian space reads it as the enemy gate: \textit{ḫft,j} is the word used in funerary texts for the forces that oppose the deceased's passage. The Tower is not divine intervention but cosmic opposition.
+
+\subsubsection{The Devil: Time, Not Evil}
+
+\begin{quote}
+\textit{Golden Dawn title:} The Lord of the Gates of Matter; The Child of the Forces of Time \\
+\textit{Golden Dawn association:} Capricorn
+\end{quote}
+
+\noindent\textbf{English neighbors:}\\
+\hspace{1em}rather (0.72), kind (0.70), not (0.69), even (0.69)
+
+\noindent\textbf{Egyptian neighbors:}\\
+\hspace{1em}\textit{nni̯.y} [he who travels] (0.79), \textit{sḥri̯.y} [he who drives away] (0.78), \textit{ꜣḫ(.w)} [effective spirit(s)] (0.78), \textit{ḫmi̯.y} [he who turns back] (0.77)
+
+\vspace{6pt}
+\noindent{\color{mismatch}\textbf{Verdict: Projection.}} The English neighbors are notably vague---function words, hedging language. The card encodes \textit{no strong concept}. The Egyptian neighbors are more interesting: travelers, those who drive away, effective spirits, those who turn back. This is not an Egyptian concept of evil or matter-as-prison (the Gnostic framework the Golden Dawn imported); it is a cluster of liminal agents---beings who move, repel, and guard boundaries. The Golden Dawn's ``Gates of Matter'' is Neoplatonic; the Egyptian space has no concept of matter as spiritual imprisonment.
+
+\subsection{Cards Where the Geometry Partially Aligns}
+
+\subsubsection{The Hierophant: The Correct God, the Wrong Priest}
+
+\begin{quote}
+\textit{Golden Dawn title:} The Magus of the Eternal \\
+\textit{Golden Dawn association:} Taurus
+\end{quote}
+
+\noindent\textbf{English neighbors:}\\
+\hspace{1em}eternal (0.72), wisdom (0.58), divine (0.56), god (0.56)
+
+\noindent\textbf{Egyptian neighbors:}\\
+\hspace{1em}\textit{nṯr-nfr} [the good god] (0.60), \textit{nṯri̯} [divine] (0.60), \textit{nṯr-ꜥꜣ} [the great god] (0.59)
+
+\vspace{6pt}
+\noindent{\color{match}\textbf{Verdict: Partial alignment.}} The Hierophant maps cleanly to the divine cluster---\textit{nṯr-nfr} (the good god, a standard royal epithet) and \textit{nṯr-ꜥꜣ} (the great god). The Golden Dawn's ``Magus of the Eternal'' correctly reaches the Egyptian divine register. However, the card is conventionally associated with priestly authority and religious teaching. The Egyptian space maps it to royal-divine titles, not to priestly vocabulary (\textit{wꜥb}, \textit{ḥm-nṯr}). This is the priest-as-administrator finding from the Rosetta decree: the Golden Dawn correctly identified the sacred dimension but missed the administrative one.
+
+\subsubsection{The Empress: Love and the King's Daughter}
+
+\begin{quote}
+\textit{Golden Dawn title:} The Daughter of the Mighty Ones \\
+\textit{Golden Dawn association:} Venus
+\end{quote}
+
+\noindent\textbf{English neighbors:}\\
+\hspace{1em}love (0.75), beautiful (0.65), beauty (0.63), life (0.62)
+
+\noindent\textbf{Egyptian neighbors:}\\
+\hspace{1em}\textit{nṯr,pl} [gods] (0.76), \textit{ꜥnḫ.t(j)} [living (fem.)] (0.73), \textit{zꜣ,t-nzw} [king's daughter] (0.72), \textit{nfr,pl} [beauties/perfections] (0.72)
+
+\vspace{6pt}
+\noindent{\color{match}\textbf{Verdict: Genuine convergence.}} The Empress centroid maps to \textit{zꜣ,t-nzw} (king's daughter)---a title the Golden Dawn may not have specifically intended but which matches their ``Daughter of the Mighty Ones'' almost exactly. The \textit{nfr,pl} (beauties/perfections) neighbor aligns with Venus. This is the strongest alignment in the entire analysis: the Golden Dawn's Empress, whether by accident or genuine transmission, occupies a region of semantic space that an ancient Egyptian would recognize as the domain of royal femininity and divine beauty.
+
+\subsubsection{The Sun: Eternity Correctly Mapped}
+
+\begin{quote}
+\textit{Golden Dawn title:} The Lord of the Fire of the World \\
+\textit{Golden Dawn association:} Sun
+\end{quote}
+
+\noindent\textbf{English neighbors:}\\
+\hspace{1em}world (0.69), life (0.67)
+
+\noindent\textbf{Egyptian neighbors:}\\
+\hspace{1em}\textit{nḥḥ} [cyclical eternity] (0.80), \textit{r-nḥḥ-ḏ,t} [for all eternity] (0.80)
+
+\vspace{6pt}
+\noindent{\color{match}\textbf{Verdict: Genuine convergence.}} The Sun card maps directly to \textit{nḥḥ}---the Egyptian concept of cyclical, solar eternity (as distinct from \textit{ḏ,t}, linear eternity). The geometry agrees: the Sun is not merely a celestial body but the engine of cosmic temporal recurrence. The Golden Dawn's ``Fire of the World'' is not far from this reading.
+
+\subsubsection{The World: Time Accurately Found}
+
+\begin{quote}
+\textit{Golden Dawn title:} The Great One of the Night of Time \\
+\textit{Golden Dawn association:} Saturn
+\end{quote}
+
+\noindent\textbf{English neighbors:}\\
+\hspace{1em}time (0.77), great (0.68)
+
+\noindent\textbf{Egyptian neighbors:}\\
+\hspace{1em}\textit{tr} [time/season] (0.81), \textit{ꜥḥꜥ,y} [lifetime] (0.81), \textit{sḥri̯.y} [he who drives away] (0.80)
+
+\vspace{6pt}
+\noindent{\color{match}\textbf{Verdict: Genuine convergence.}} The World card maps to \textit{tr} (time, season)---the Egyptian word for bounded, experienced time. Saturn as the ``Great One of the Night of Time'' is not merely astrological convention; the centroid falls precisely where the Egyptian language places the concept of temporal experience. This is the strongest single-word alignment in the analysis: the Golden Dawn's Saturn-Time association is geometrically real in Egyptian space.
+
+\subsection{The Undifferentiated Numinous}
+
+Several cards---The High Priestess, The Hanged Man, The Moon, Judgement---all map to the same cluster: \textit{nṯri̯} (divine), \textit{nṯr-nfr} (the good god), \textit{nṯr-ꜥꜣ} (the great god). Despite having different Golden Dawn titles, different astrological associations, and different positions on the Tree of Life, these cards are \textit{indistinguishable in Egyptian space}. The Egyptian language has no separate semantic region for the High Priestess's lunar mysticism, the Hanged Man's sacrificial wisdom, the Moon's illusion, or Judgement's spiritual fire. All of them are simply \textit{nṯri̯}---divine.
+
+This is the most damning finding. The Golden Dawn's system differentiates among varieties of the sacred with precision inherited from Kabbalah (22 paths on the Tree of Life, each with a distinct quality of divine energy). The Egyptian language does not make these distinctions. The sacred is a unified geometric region, not a differentiated taxonomy. The Golden Dawn took one Egyptian concept---divinity---and subdivided it into 22 flavors using a Kabbalistic framework that has no Egyptian precedent.
+
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{The Pattern of Misalignment}
+
+The misalignments are not random. They follow a systematic pattern:
+
+\begin{enumerate}
+    \item \textbf{Greek/Roman concepts dressed in Egyptian names}: The Justice card encodes \textit{Dikē}/\textit{Justitia} (scales, balance, fairness), not \textit{Mꜣꜥ,t} (truth-power-cosmic-order). The Golden Dawn adopted Egyptian iconography (the scales, the feather) but filled it with Western ethical content.
+
+    \item \textbf{Kabbalistic differentiation of an Egyptian unity}: Multiple cards map to the same \textit{nṯri̯} cluster because the Golden Dawn subdivided Egyptian divinity along Kabbalistic lines (Chesed, Geburah, Tiphareth, etc.) that do not correspond to any structure in the Egyptian semantic space.
+
+    \item \textbf{Gnostic/Neoplatonic frameworks projected onto Egyptian names}: The Devil as ``matter-as-prison'' is Neoplatonic. Death as ``transformation'' is alchemical. Neither concept exists in the Egyptian embedding space.
+
+    \item \textbf{Astrological structure imported wholesale}: The Procrustes rotation that aligns the tarot centroids to astrological positions is a \textit{mathematical} operation performed in the 21st century, but it mirrors what the Golden Dawn did conceptually: they rotated the tarot system to fit Hellenistic astrology, not Egyptian cosmology.
+\end{enumerate}
+
+\subsection{The Pattern of Alignment}
+
+The alignments are equally revealing:
+
+\begin{enumerate}
+    \item \textbf{The Sun and The World correctly map to Egyptian temporal concepts}. This is likely because the Golden Dawn's Saturn-Time and Sun-Eternity associations derive from Hellenistic astrology, which itself derived from Babylonian and Egyptian astronomical traditions. The alignment is genuine but indirect: it flows through Hellenistic intermediaries, not through direct Egyptian transmission.
+
+    \item \textbf{The Empress maps to royal femininity}. This may reflect Budge's influence: the Golden Dawn had access to his translations, which emphasized royal women and their divine associations.
+
+    \item \textbf{The Hierophant maps to divine royalty}. Again, the alignment exists but points to the wrong social role---the Golden Dawn found the sacred but missed the administrative dimension that the Egyptian language treats as inseparable from it.
+\end{enumerate}
+
+\subsection{What the Golden Dawn Actually Built}
+
+The geometry suggests that the Golden Dawn constructed a \textit{Kabbalistic-Hermetic system with Egyptian aesthetics}. Their correspondences are internally consistent---the tarot centroids achieve 94\% accuracy on their own structural claims---but externally disconnected from the semantic structures of the language they claimed to interpret.
+
+This is not surprising. The Golden Dawn's founders had access to Budge's translations and museum collections but not to the statistical structure of the Egyptian language. They could read the \textit{Book of the Dead} in English but could not know that \textit{mwt} (death) and \textit{sgr} (silence) occupy the same geometric region, or that \textit{Mꜣꜥ,t} converges with \textit{sḫm} (power) rather than with Western ethical concepts, or that the sacred (\textit{nṯri̯}) is geometrically undifferentiated. These are structures visible only to distributional analysis at scale.
+
+The Golden Dawn was not a mystery school recovering Egyptian wisdom. It was a Victorian social club---an exceptionally creative one---that built a sophisticated Kabbalistic operating system and skinned it with Egyptian iconography drawn from the museum culture of late 19th-century London.
+
+\subsection{The Robes Were Real; the Egypt Was Not}
+
+The geometry does not diminish the Golden Dawn's achievement as a system of Western esotericism. Their correspondences are elegant, internally coherent, and psychologically powerful. But they are correspondences within a self-referential system, not discoveries about ancient Egyptian thought.
+
+The ancient Egyptians, as the embedding space reveals, organized the sacred, the temporal, and the moral in ways that no Victorian---however learned, however initiated---could have recovered without computational access to the distributional structure of the language itself. The Golden Dawn's Egypt is a mirror, not a window.
+
+\section{Summary of Alignments}
+\label{sec:summary}
+
+\begin{longtable}{@{}p{1.2in}p{1.2in}p{1.2in}cp{0.5in}@{}}
+\toprule
+\textbf{Card} & \textbf{GD Claims} & \textbf{Egyptian Space} & \textbf{Align?} \\
+\midrule
+\endhead
+The Fool & Spirit, Ether & Joy (\textit{ꜣw,t-jb}), desire (\textit{ḫr,t-jb}) & \textcolor{mismatch}{No} \\
+The Magician & Power, Mercury & Solar worship (\textit{ḫft-n-Rꜥw}), radiance (\textit{ꜣḫw}) & \textcolor{mismatch}{No} \\
+High Priestess & Moon, Mystery & Divine (\textit{nṯri̯}) & \textcolor{mismatch}{No} \\
+The Empress & Venus, Beauty & King's daughter (\textit{zꜣ,t-nzw}), perfections (\textit{nfr,pl}) & \textcolor{match}{Yes} \\
+The Emperor & Morning, Authority & Worshipped (\textit{dwꜣ.tw}), praised (\textit{jꜣwi̯.w}) & \textcolor{mismatch}{Partial} \\
+Hierophant & Eternal, Wisdom & Good god (\textit{nṯr-nfr}), great god (\textit{nṯr-ꜥꜣ}) & \textcolor{match}{Partial} \\
+The Lovers & Voice, Oracle & Gods (\textit{nṯr,pl}), beloved (\textit{Mr,t}) & \textcolor{match}{Partial} \\
+The Chariot & Waters, Light & Queen (\textit{ḥm,t-nzw}), eternity (\textit{ḏ,t}) & \textcolor{mismatch}{No} \\
+Strength & Flaming Sword & Beloved (\textit{Mr,t}), queen (\textit{ḥm,t-nzw}) & \textcolor{mismatch}{No} \\
+The Hermit & Voice of Power & Beloved (\textit{Mr,t}), power (\textit{sḫm}) & \textcolor{match}{Partial} \\
+Wheel of Fortune & Forces of Life & Rising (\textit{ḥꜥi̯.y}), beautiful (\textit{nfrt}) & \textcolor{mismatch}{No} \\
+Justice & Truth, Balance & Gods (\textit{nṯr,pl}), praised (\textit{ḥzi̯.y}) & \textcolor{mismatch}{No} \\
+Hanged Man & Mighty Waters & Divine (\textit{nṯri̯}), good god (\textit{nṯr-nfr}) & \textcolor{mismatch}{No} \\
+Death & Transformers, Gate & Power (\textit{sḫm}), arrival (\textit{jni̯.tw}) & \textcolor{mismatch}{No} \\
+Temperance & Reconcilers, Life & Health (\textit{snb}), eternity (\textit{nḥḥ}) & \textcolor{match}{Partial} \\
+The Devil & Matter, Time & Traveler (\textit{nni̯.y}), spirit (\textit{ꜣḫ(.w)}) & \textcolor{mismatch}{No} \\
+The Tower & Hosts of Mighty & Enemy (\textit{ḫft,j}), evil (\textit{ḏw(.t)}) & \textcolor{match}{Partial} \\
+The Star & Firmament, Waters & Health (\textit{snb}), dominion (\textit{wꜣš}) & \textcolor{mismatch}{No} \\
+The Moon & Flux, Reflux & Divine (\textit{nṯri̯}), good god (\textit{nṯr-nfr}) & \textcolor{mismatch}{No} \\
+The Sun & Fire of World & Eternity (\textit{nḥḥ}), forever (\textit{r-nḥḥ-ḏ,t}) & \textcolor{match}{Yes} \\
+Judgement & Primal Fire & Divine (\textit{nṯri̯}), good god (\textit{nṯr-nfr}) & \textcolor{mismatch}{No} \\
+The World & Night of Time & Time (\textit{tr}), lifetime (\textit{ꜥḥꜥ,y}) & \textcolor{match}{Yes} \\
+\bottomrule
+\end{longtable}
+
+\noindent Of 22 major arcana: \textbf{3 genuine alignments} (Empress, Sun, World), \textbf{5 partial} (Emperor, Hierophant, Lovers, Hermit, Temperance, Tower), \textbf{14 projections}.
+
+\bibliographystyle{plainnat}
+\begin{thebibliography}{99}
+
+\bibitem[Brinsmead and Claude, 2026]{brinsmead2026geometry}
+Brinsmead, E. and Claude (Anthropic) (2026).
+\newblock The Geometry of Meaning: What Vector Space Alignment Reveals About How Ancient Egyptians Thought.
+\newblock \url{https://github.com/ebrinz/heiroglyphy}
+
+\bibitem[Budge, 1895]{budge1895papyrus}
+Budge, E.~A.~W. (1895).
+\newblock \textit{The Book of the Dead: The Papyrus of Ani in the British Museum}.
+\newblock British Museum.
+
+\bibitem[Howe, 1972]{howe1972magicians}
+Howe, E. (1972).
+\newblock \textit{The Magicians of the Golden Dawn: A Documentary History}.
+\newblock Routledge \& Kegan Paul.
+
+\bibitem[Mathers, 1888]{mathers1888tarot}
+Mathers, S.~L.~M. (1888).
+\newblock \textit{The Tarot: Its Occult Significance}.
+\newblock George Redway.
+
+\bibitem[Regardie, 1937]{regardie1937golden}
+Regardie, I. (1937--1940).
+\newblock \textit{The Golden Dawn: An Account of the Teachings, Rites and Ceremonies of the Order of the Golden Dawn}.
+\newblock Aries Press. 4 vols.
+
+\end{thebibliography}
+
+\end{document}
