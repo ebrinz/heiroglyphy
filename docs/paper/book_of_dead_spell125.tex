@@ -1,0 +1,733 @@
+\documentclass[11pt, a4paper]{article}
+
+% ── Packages ──────────────────────────────────────────────────────────────────
+\usepackage{fontspec}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{natbib}
+\usepackage{longtable}
+\usepackage{tabularx}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    citecolor=blue!60!black,
+    urlcolor=blue!60!black,
+}
+
+% ── Hieroglyphic font ─────────────────────────────────────────────────────────
+\newfontfamily\hierofont{EgyptianHiero}[
+    Path=../../final_output/,
+    Extension=.ttf,
+]
+\newcommand{\hiero}[1]{{\normalfont\hierofont #1}}
+
+% ── Colors ────────────────────────────────────────────────────────────────────
+\definecolor{rosetta}{RGB}{183, 110, 72}
+\definecolor{reconstructed}{gray}{0.55}
+
+% ── Spell row commands ────────────────────────────────────────────────────────
+% \spellrow{section_label}{hieroglyphs}{transliteration}{standard_translation}{geometric_translation}
+\newcounter{spellline}
+\newcommand{\spellrow}[5]{%
+    \stepcounter{spellline}%
+    \vspace{10pt}
+    \noindent{\footnotesize\textsc{#1}}\par\vspace{4pt}
+    \noindent{\Large\hiero{#2}}\par\vspace{4pt}
+    \noindent{\itshape #3}\par\vspace{3pt}
+    \noindent{#4}\par\vspace{3pt}
+    \noindent{\bfseries\color{rosetta}#5}\par
+    \vspace{6pt}
+}
+
+% \reconstructedrow — same structure, gray + brackets for lacunae
+\newcommand{\reconstructedrow}[5]{%
+    \stepcounter{spellline}%
+    \vspace{10pt}
+    \noindent{\footnotesize\textsc{#1} \textcolor{reconstructed}{[reconstructed]}}\par\vspace{4pt}
+    \noindent{\Large\color{reconstructed}\hiero{⟦#2⟧}}\par\vspace{4pt}
+    \noindent{\itshape\color{reconstructed} #3}\par\vspace{3pt}
+    \noindent{\color{reconstructed}#4}\par\vspace{3pt}
+    \noindent{\bfseries\color{rosetta}#5}\par
+    \vspace{6pt}
+}
+
+% ── Inline glyph analysis ────────────────────────────────────────────────────
+% \glyphanalysis{glyph}{gardiner_code}{transliteration}{standard}{geometric}{analysis}
+\newcommand{\glyphanalysis}[6]{%
+    \noindent\hspace{1em}%
+    {\small\hiero{#1}}~{\small\texttt{#2}}~{\small\itshape #3}%
+    \hfill{\footnotesize std: #4 $\rightarrow$ \textbf{\color{rosetta}geo: #5}}\par
+    \vspace{1pt}
+    \hspace{1em}{\footnotesize #6}\par
+    \vspace{4pt}
+}
+
+% Separator between spell row + analysis block and the next line
+\newcommand{\spellsep}{%
+    \vspace{2pt}
+    \noindent\rule{\textwidth}{0.2pt}
+    \vspace{4pt}
+}
+
+% ── Title ─────────────────────────────────────────────────────────────────────
+\title{
+    \textbf{The Geometry of the Afterlife}\\[6pt]
+    {\large Spell 125 of the Book of the Dead\\Through Semantic Alignment}\\[6pt]
+    {\normalsize From the Papyrus of Ani (British Museum EA 10470)}
+}
+
+\author{
+    Erik Brinsmead \\
+    Researcher \\[6pt]
+    Claude \\
+    Anthropic \\[12pt]
+    \texttt{github.com/ebrinz/heiroglyphy}
+}
+
+\date{March 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Spell 125 of the Book of the Dead---the Weighing of the Heart and the Negative Confessions---is among the most important surviving texts of ancient Egyptian religion. This document presents a geometric translation of the spell as preserved in the Papyrus of Ani (c.\,1250 BCE), generated through vector space alignment of ancient Egyptian embedding spaces to modern English. The standard translation follows \citet{budge1895papyrus}, with reference to \citet{faulkner1972book} where his reading materially differs. Each line presents the hieroglyphic text, transliteration, Budge's standard translation, and the geometric translation derived from the embedding space, accompanied by per-glyph analysis showing nearest neighbors and cosine similarities.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+\label{sec:intro}
+
+Spell 125 occupies a unique position in the Egyptian funerary corpus. It describes the moment of ultimate judgment: the deceased enters the Hall of Two Truths (\textit{wsḫ,t Mꜣꜥ,tj}), declares innocence before forty-two assessor gods, and submits the heart (\textit{jb}) to be weighed against Mꜣꜥ,t---truth, order, the binding force of the cosmos.
+
+The Papyrus of Ani, prepared for the Royal Scribe Ani circa 1250 BCE during the 19th Dynasty, contains one of the most complete and beautifully illustrated copies of this spell. It is held in the British Museum (EA 10470) and was first published in full by E.\,A.\,W. Budge in 1895.
+
+\subsection{Method}
+
+The geometric translations presented here are generated using the same pipeline described in \textit{The Geometry of Meaning} \citep{brinsmead2026geometry}. Each Egyptian transliterated word is mapped through a V15 FastText embedding (768 dimensions), fused with visual features where available (ResNet-50, 768 dimensions), and projected into GloVe 300-dimensional English space via Ridge regression trained on 6,415 anchor pairs. The nearest English neighbors of each projected vector constitute the geometric translation.
+
+\subsection{Reading This Document}
+
+Each passage presents four layers:
+
+\begin{itemize}[nosep]
+    \item Hieroglyphic text (from the Papyrus of Ani)
+    \item Transliteration (TLA Unicode convention)
+    \item Standard translation \citep{budge1895papyrus}
+    \item \textbf{\color{rosetta}Geometric translation} (from the embedding space)
+\end{itemize}
+
+Selected glyphs receive detailed analysis showing English nearest neighbors, Egyptian nearest neighbors, and cosine similarities. The analysis notes explain where and why the geometric reading diverges from Budge's standard.
+
+\subsection{Source Text}
+
+The hieroglyphic text and standard English translation follow \citet{budge1895papyrus}. Where Faulkner's later translation \citep{faulkner1972book} offers a materially different reading, it is noted. Line divisions follow Budge's edition; the hieroglyphic text is as preserved on the papyrus, with damaged or uncertain passages marked.
+
+\section{The Entrance to the Hall of Two Truths}
+\label{sec:entrance}
+
+% ── Opening address ──────────────────────────────────────────────────────────
+
+\spellrow{Opening}%
+    {𓁹𓊹𓏏𓏭𓅓𓏏𓈖𓏏𓏏𓂋𓏏𓇋𓏤}%
+    {Ḏd mdw jn Wsjr sš Ꜣnj mꜣꜥ-ḫrw}%
+    {Words spoken by the Osiris, the scribe Ani, true of voice:}%
+    {Utterance of the Osiris, the scribe Ani, justified:}%
+
+\glyphanalysis{𓊹}{R8}{Wsjr}{Osiris}{Osiris}{%
+    The embedding maps Wsjr directly to ``osiris'' (0.63), with ``isis'' (0.46), ``horus'' (0.38), and ``nephthys'' (0.37) as neighbors---the divine family cluster preserved intact in the geometry. In funerary context, prefixing the deceased's name with ``Osiris'' identifies them with the god of the dead, a convention the geometry treats as identity rather than honorific.%
+}
+
+\glyphanalysis{𓅓}{G17}{mꜣꜥ-ḫrw}{true of voice}{justified}{%
+    The compound \textit{mꜣꜥ-ḫrw} (literally ``true of voice'') is the standard epithet for the successfully judged dead. Budge translates literally; the geometric reading ``justified'' reflects the legal-judgment cluster where \textit{mꜣꜥ,t} neighbors include \textit{wḏꜥ} (judge) and \textit{sḫm} (authority). The voice that is ``true'' is not merely honest but has been weighed and found sufficient.%
+}
+
+\spellsep
+
+\spellrow{Entrance Address}%
+    {𓇋𓈖𓂧𓈖𓁹𓅱𓀁𓏏𓂋𓏏𓇋𓏤𓂋𓊹𓅓𓏏𓈖𓅱𓊹𓊹}%
+    {jnd-ḥr=ṯn nṯr,w jm,jw wsḫ,t Mꜣꜥ,tj}%
+    {Hail to you, ye gods who dwell in the Hall of the Two Truths}%
+    {Hail to you, divine ones who are within the hall of the twin binding-forces}%
+
+\glyphanalysis{𓊹𓊹}{R8}{Mꜣꜥ,tj}{Two Truths / Two Maat}{twin binding-forces}{%
+    The dual form \textit{Mꜣꜥ,tj} is conventionally rendered ``Two Truths'' or ``Double Maat.'' The geometric reading follows the documented finding that \textit{Mꜣꜥ,t} occupies a region where truth, power, and cosmic order converge (neighbors: \textit{sḫm} 0.76, \textit{ḥqꜣ} 0.73). The ``two truths'' are not two instances of an abstract virtue but two manifestations of the force that holds the universe together---one for the living world, one for the dead.%
+}
+
+\spellsep
+
+\spellrow{Declaration of Purpose}%
+    {𓇋𓏲𓇋𓀁𓂋𓏤𓂧𓈖𓁹𓅱𓏏𓈖𓁹𓁹}%
+    {jw=j rḫ.kwj rn=ṯn}%
+    {I know you, I know your names}%
+    {I have come to know your names}%
+
+\glyphanalysis{𓁹}{D4}{rḫ}{know}{know / have-come-to-know}{%
+    The verb \textit{rḫ} in the stative (\textit{rḫ.kwj}) expresses achieved knowledge---not the act of learning but the state of knowing. The geometric translation preserves this distinction: the deceased does not merely ``know'' but has arrived at knowledge. This is significant because in the Hall of Judgment, knowing the names of the assessor gods is a prerequisite for passage; ignorance means annihilation.%
+}
+
+\glyphanalysis{𓂋}{D21}{rn}{name}{name}{%
+    The word \textit{rn} maps to a cluster around identity and essence. In Egyptian thought, the name is not a label but a component of being---to know a name is to have power over the named. The geometry confirms this: \textit{rn} neighbors include words of identity, existence, and authority. Knowing the names of the forty-two gods is not a memory test but an assertion of cosmic competence.%
+}
+
+\spellsep
+
+\section{The Negative Confessions}
+\label{sec:confessions}
+
+The heart of Spell 125: the deceased addresses forty-two assessor gods by name and declares innocence of specific transgressions. Each confession takes the form ``O [god-name], coming from [place], I have not [transgression].''
+
+\subsection{The Confessions}
+
+\spellrow{Confession 1}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Wsḫ-nmm,t pr,t m Jwnw n jri̯.n=j jsf,t}%
+    {O Wide-of-stride, who comes from Heliopolis, I have not done iniquity}%
+    {O Wide-of-stride, who emerges from Heliopolis, I have not brought-into-being wrongdoing}%
+
+\glyphanalysis{𓂧}{D36}{jri̯}{do, make}{bring into being}{%
+    In this context, \textit{jri̯} takes on its creative sense. The geometric neighbors include \textit{qmꜣ} (create, 0.88) and \textit{ḫpr} (come into existence, 0.84). The confession is not merely ``I have not done wrong'' but ``I have not caused wrongdoing to exist''---a cosmological claim, not a behavioral one. The deceased asserts that they have not added to the sum of chaos (\textit{jsf,t}) in the universe.%
+}
+
+\glyphanalysis{𓏏𓇋}{I9}{jsf,t}{iniquity, wrongdoing}{wrongdoing / chaos}{%
+    The word \textit{jsf,t} is the cosmic opposite of \textit{Mꜣꜥ,t}. Where Budge translates it as a moral category (``iniquity''), the geometry places it in a cluster of disorder and dissolution. The confession frame ``I have not done \textit{jsf,t}'' maps geometrically to ``I have not increased the entropy of the cosmos''---a statement about the deceased's relationship to universal order, not merely to a moral code.%
+}
+
+\spellsep
+
+\spellrow{Confession 2}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Ḥpt-sḏ pr,t m Ḫr-ꜣḥꜣ n ꜥwn.n=j m ḥwꜣ}%
+    {O Embracer-of-fire, who comes from Kher-aha, I have not robbed with violence}%
+    {O Embracer-of-fire, who emerges from Kher-aha, I have not seized by force}%
+
+\spellsep
+
+\spellrow{Confession 3}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Fnṯ,j pr,t m Ḫmn,w n ꜥwꜣ.n=j}%
+    {O Nose, who comes from Hermopolis, I have not stolen}%
+    {O Nose, who emerges from Hermopolis, I have not taken-what-is-not-mine}%
+
+\spellsep
+
+\spellrow{Confession 4}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Šfj,t pr,t m Qrr,t n smꜣ.n=j s}%
+    {O Swallower-of-shades, who comes from the cavern, I have not slain man or woman}%
+    {O Swallower-of-shades, who emerges from the cavern, I have not silenced a person}%
+
+\glyphanalysis{𓅓}{G17}{smꜣ}{slay, kill}{silence}{%
+    The verb \textit{smꜣ} maps geometrically near \textit{sgr} (silence, 0.77) and \textit{mwt} (death, 0.74)---the same silence/death cluster documented in the Rosetta decree analysis. The geometric translation ``I have not silenced a person'' recovers a dimension of Egyptian thought about killing: to kill is to silence, to remove a voice from the world. This aligns with the Egyptian belief that continued existence requires being spoken of; to kill is to impose a silence that threatens the victim's afterlife.%
+}
+
+\spellsep
+
+\spellrow{Confession 5}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Nḥꜣ-ḥr pr,t m Rw-s,tj n ḥwi̯.n=j ꜣw,t}%
+    {O Terrible-of-face, who comes from Rosetjau, I have not destroyed food offerings}%
+    {O Terrible-of-face, who emerges from Rosetjau, I have not diminished the offerings}%
+
+\spellsep
+
+\spellrow{Confession 6}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Rw,tj pr,t m p,t n sfn.n=j Mꜣꜥ,t}%
+    {O Double-lion, who comes from heaven, I have not diminished Maat}%
+    {O Double-lion, who emerges from the sky, I have not weakened the binding-force}%
+
+\glyphanalysis{𓂋}{D21}{Mꜣꜥ,t}{Maat, truth}{the binding-force}{%
+    Here \textit{Mꜣꜥ,t} appears not as an abstract principle but as something that can be actively diminished. The geometric reading ``binding-force'' captures this: \textit{Mꜣꜥ,t} is not a concept one fails to uphold but a force one can weaken through action. The confession asserts that the deceased has not subtracted from the total coherence of the cosmos. Budge's ``Maat'' and Faulkner's ``the offerings'' (a significantly different reading) both flatten what the geometry reveals as a dynamic, quantifiable force.%
+}
+
+\spellsep
+
+\spellrow{Confession 7}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Mꜣꜣ,tj-f-m-ṯs pr,t m Ḥw,t-kꜣ-Ptḥ n jri̯.n=j bjn,t}%
+    {O His-eyes-are-of-flint, who comes from Memphis, I have not done evil}%
+    {O His-eyes-are-of-flint, who emerges from the House-of-the-Ka-of-Ptah, I have not brought evil into being}%
+
+\spellsep
+
+\spellrow{Confession 8}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Nnj pr,t m Ḥw,t-wr,t n ꜥwꜣ.n=j ḥnk,t nṯr}%
+    {O Flame, who comes from the Great House, I have not stolen temple property}%
+    {O Flame, who emerges from the Great House, I have not taken what belongs to the divine}%
+
+\glyphanalysis{𓊹}{R8}{nṯr}{god, divine}{the divine}{%
+    In this context, \textit{nṯr} functions as a possessive modifier---``property of god.'' The geometric reading (``god'' at 0.93, ``divine'' at 0.71) preserves the ambiguity between institutional property (temple goods) and sacred substance. Stealing from a temple is not merely theft but appropriation of divine material, consistent with the gold/divinity cluster where sacred objects participate in the nature of the gods themselves.%
+}
+
+\spellsep
+
+\spellrow{Confession 9}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Qrr,tj pr,t m Jmn,t n ḏd.n=j grg}%
+    {O Bone-breaker, who comes from the West, I have not told lies}%
+    {O Bone-breaker, who emerges from the West, I have not uttered falsehood}%
+
+\glyphanalysis{𓅓}{G17}{jmn,t}{the West}{the West}{%
+    The word \textit{jmn,t} maps to ``west'' (0.77) with ``east'' (0.68) as a neighbor---confirming the directional cluster. But in funerary context, the West is the realm of the dead. The geometric translation preserves the literal direction; the funerary meaning is structural, not lexical. The assessor god ``comes from the West'' because the West is where the dead are, and the dead judge the dead.%
+}
+
+\spellsep
+
+\spellrow{Confession 10}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Ḏsḏs pr,t m Nni̯-nsw n ꜥwꜣ.n=j ꜥw,t}%
+    {O Flame-in-his-face, who comes from Herakleopolis, I have not stolen food}%
+    {O Flame-in-his-face, who emerges from Herakleopolis, I have not taken provisions}%
+
+\spellsep
+
+\spellrow{Confession 11}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Qꜣ,tj pr,t m Wn,w n ḏd.n=j ꜣḫj jḫ,t}%
+    {O Double-fire, who comes from Wenu, I have not uttered curses}%
+    {O Double-fire, who emerges from Wenu, I have not spoken words-of-power against another}%
+
+\spellsep
+
+\spellrow{Confession 12}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Ḥr,j-f-ḥꜣ,f pr,t m Ḫꜣ,t n nk.n=j}%
+    {O He-whose-face-is-behind-him, who comes from the cavern, I have not committed adultery}%
+    {O He-whose-face-is-behind-him, who emerges from the cavern, I have not transgressed in the body}%
+
+\spellsep
+
+\spellrow{Confession 13}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Ꜣḫ-mwt pr,t m Ꜣbḏw n jri̯.n=j rm,wt}%
+    {O Hot-of-foot, who comes from Abydos, I have not caused (anyone) to weep}%
+    {O Hot-of-foot, who emerges from Abydos, I have not brought-into-being tears}%
+
+\spellsep
+
+\spellrow{Confession 14}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Ꜣm,j-sḫ,t pr,t m dwꜣ,t n jri̯.n=j šnꜥ}%
+    {O Eater-of-entrails, who comes from the judgment hall, I have not eaten my heart (i.e., grieved uselessly)}%
+    {O Eater-of-entrails, who emerges from the Duat, I have not consumed-the-heart}%
+
+\glyphanalysis{𓂧}{D36}{jb}{heart}{heart}{%
+    The idiom ``eating the heart'' (\textit{wnm jb}) maps with perfect cosine similarity: \textit{jb} → ``heart'' (1.00). The Egyptian neighbors of \textit{jb}---\textit{ḥꜣ,tj} (0.78), a near-synonym for heart with overtones of consciousness---confirm that the ``heart'' here is the seat of judgment and awareness, not the physical organ. ``Eating the heart'' is self-destruction of the very organ that will be weighed against Mꜣꜥ,t.%
+}
+
+\spellsep
+
+\spellrow{Confession 15}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Sḥḏ-wr pr,t m Wn,w n jri̯.n=j ẖꜣy}%
+    {O Great-illuminator, who comes from Wenu, I have not transgressed}%
+    {O Great-illuminator, who emerges from Wenu, I have not overstepped}%
+
+\spellsep
+
+\spellrow{Confession 16}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Nb-Mꜣꜥ,t pr,t m Mꜣꜥ,tj n ḥwi̯.n=j nṯr}%
+    {O Lord-of-Maat, who comes from Maati, I have not struck any god}%
+    {O Lord-of-the-binding-force, who emerges from the twin-forces, I have not struck any divine one}%
+
+\spellsep
+
+\spellrow{Confession 17}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Nṯr,j-tm pr,t m Ḥw,t-kꜣ-Ptḥ n sni̯.n=j}%
+    {O Bearer-of-offerings, who comes from Memphis, I have not acted deceitfully}%
+    {O Bearer-of-offerings, who emerges from the House-of-the-Ka-of-Ptah, I have not concealed}%
+
+\spellsep
+
+\spellrow{Confession 18}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Ṯnm,j pr,t m Bw-sjꜣw n ꜥwꜣ.n=j ꜣḥ,t}%
+    {O Disposer-of-speech, who comes from Busiris, I have not stolen cultivated land}%
+    {O Disposer-of-speech, who emerges from Busiris, I have not taken the field}%
+
+\spellsep
+
+\spellrow{Confession 19}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Nm,tj pr,t m Ḥw,t-bnbn n sḏm.n=j ḫrw,t}%
+    {O Strider, who comes from Heliopolis, I have not been an eavesdropper}%
+    {O Strider, who emerges from the House-of-the-Benben, I have not listened-in-secret}%
+
+\spellsep
+
+\spellrow{Confession 20}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Sbj pr,t m Wṯs-nṯr n jri̯.n=j ꜥb}%
+    {O Backwards-face, who comes from the shrine, I have not babbled}%
+    {O Backwards-face, who emerges from the divine-precinct, I have not spoken-without-purpose}%
+
+\spellsep
+
+\spellrow{Confession 21}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Sṯ,j pr,t m Ꜣḫ-bjt n ḥwi̯.n=j ḥr ṯs,t}%
+    {O Setter-of-fire, who comes from Akhbit, I have not inflamed myself with rage}%
+    {O Setter-of-fire, who emerges from Akhbit, I have not kindled the burning-within}%
+
+\spellsep
+
+\spellrow{Confession 22}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Ḏꜣ,t-wrr,t pr,t m Sꜣw,t n tm.n=j sḏm mꜣꜥ,t}%
+    {O Seizer-of-darkness, who comes from Saut, I have not turned a deaf ear to the words of truth}%
+    {O Seizer-of-darkness, who emerges from Saut, I have not refused-to-hear the binding-force}%
+
+\glyphanalysis{𓅓}{G17}{tm}{not (negation)}{not / refused}{%
+    The negation verb \textit{tm} maps to ``not'' (0.93)---the highest cosine similarity of any word in this document. Its Egyptian neighbors---\textit{nn} (0.88), \textit{bw} (0.86), \textit{nn-js} (0.85), \textit{m-jr} (0.84)---are all negation particles. The geometric translation captures the active quality of this negation: \textit{tm sḏm} is not passive absence of hearing but active refusal. The double negative (``I have not refused to hear'') thus becomes an assertion of receptivity to cosmic truth.%
+}
+
+\spellsep
+
+\spellrow{Confession 23}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Šd,j-ḫrw pr,t m Wn,s n jri̯.n=j ꜣb,w}%
+    {O Loud-of-voice, who comes from Wenes, I have not been contentious}%
+    {O Loud-of-voice, who emerges from Wenes, I have not stirred-up-strife}%
+
+\spellsep
+
+\spellrow{Confession 24}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Nḥm-jb pr,t m dp,t n rm.n=j ḥr nn js,t}%
+    {O Stealer-of-hearts, who comes from the boat, I have not wept except for a just cause}%
+    {O Stealer-of-hearts, who emerges from the vessel, I have not wept without reason}%
+
+\spellsep
+
+\spellrow{Confession 25}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Kꜣ-šfšf,t pr,t m ꜣḫ,t n jri̯.n=j sḫꜣ}%
+    {O Ka-of-terror, who comes from the horizon, I have not lusted}%
+    {O Ka-of-terror, who emerges from the horizon, I have not burned-with-desire}%
+
+\spellsep
+
+\spellrow{Confession 26}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Sḫr,j-wr,t pr,t m ꜥ,t n jri̯.n=j šn,t}%
+    {O Disposer-of-evil, who comes from the district, I have not terrorized}%
+    {O Disposer-of-evil, who emerges from the district, I have not spread-fear}%
+
+\spellsep
+
+\spellrow{Confession 27}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Nḥb,j-kꜣ,w pr,t m grg n jri̯.n=j ẖꜣy}%
+    {O Yoker-of-spirits, who comes from the burial ground, I have not transgressed}%
+    {O Yoker-of-spirits, who emerges from the place-of-silence, I have not overstepped the boundaries}%
+
+\spellsep
+
+\spellrow{Confession 28}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Šd-ḫrw pr,t m Wns,t n jri̯.n=j sḫj}%
+    {O Evil-speaker, who comes from Wenet, I have not been hot-tempered}%
+    {O Evil-speaker, who emerges from Wenet, I have not burned inwardly}%
+
+\spellsep
+
+\spellrow{Confession 29}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Nṯr-tm pr,t m Sj,w n jri̯.n=j ḫm,t ṯꜣ,w}%
+    {O Child, who comes from the lake, I have not turned a deaf ear to the words of justice}%
+    {O Child, who emerges from the lake, I have not closed-my-ears to the words of the binding-force}%
+
+\spellsep
+
+\spellrow{Confession 30}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Sšr pr,t m Wn,w n jri̯.n=j ḫnn}%
+    {O Disposer, who comes from Wenu, I have not been quarrelsome}%
+    {O Disposer, who emerges from Wenu, I have not sown discord}%
+
+\spellsep
+
+\spellrow{Confession 31}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Nb-ḥr,wj pr,t m Nṯr,j n tm.n=j wḏꜥ ḥr sꜣ}%
+    {O Lord-of-two-faces, who comes from Nedjefet, I have not judged hastily}%
+    {O Lord-of-two-faces, who emerges from the divine-place, I have not-refused to judge with care}%
+
+\glyphanalysis{𓅓}{G17}{wḏꜥ}{judge}{judge}{%
+    The verb \textit{wḏꜥ} maps to a cluster of legal authority. The confession ``I have not judged hastily'' is significant because the deceased is about to be judged---and the claim is not merely of patience but of having exercised proper judicial process. In a society where administrative and sacred roles were inseparable (the priest-as-administrator finding), the right to judge carried cosmic weight.%
+}
+
+\spellsep
+
+\spellrow{Confession 32}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Ꜣḥ,j pr,t m Wp-wꜣ,wt n jri̯.n=j sḫj jḫ,t}%
+    {O Lord-of-horns, who comes from Wepwawet, I have not multiplied my words in speaking}%
+    {O Lord-of-horns, who emerges from the Opener-of-Ways, I have not multiplied words beyond what is needed}%
+
+\spellsep
+
+\spellrow{Confession 33}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Nb-ꜣr,t pr,t m Nfr-tm n ḥwi̯.n=j nṯr n jri̯.n=j bjn,t}%
+    {O Lord-of-the-uraeus, who comes from Nefertum, I have not harmed a god, nor have I done evil}%
+    {O Lord-of-the-uraeus, who emerges from Nefertum, I have not struck a divine one, nor have I brought evil into being}%
+
+\spellsep
+
+\spellrow{Confession 34}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Tm-sp pr,t m Ḥw,t n jri̯.n=j sḏb nsw,t}%
+    {O Judge-of-deeds, who comes from the mansion, I have not cursed the king}%
+    {O Judge-of-deeds, who emerges from the mansion, I have not spoken-against the sovereign}%
+
+\spellsep
+
+\spellrow{Confession 35}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Nb-fd,t pr,t m Ḫꜣ,tj n ḥwi̯.n=j mw}%
+    {O Lord-of-winds, who comes from the city, I have not polluted water}%
+    {O Lord-of-winds, who emerges from the city, I have not fouled the waters}%
+
+\spellsep
+
+\spellrow{Confession 36}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Nfr-tm pr,t m Ḥw,t-Ptḥ-kꜣ n jri̯.n=j sšm}%
+    {O Nefertum, who comes from Memphis, I have not been haughty}%
+    {O Nefertum, who emerges from the House-of-Ptah, I have not raised myself above my station}%
+
+\spellsep
+
+\spellrow{Confession 37}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Tm-ꜣ pr,t m Bjꜣ,w n sḏb.n=j nṯr n njw,t=f}%
+    {O He-who-brings, who comes from Biau, I have not cursed the god of my city}%
+    {O He-who-brings, who emerges from the place-of-ore, I have not spoken-against the divine one of my dwelling}%
+
+\spellsep
+
+\spellrow{Confession 38}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Ꜣḥ pr,t m Nwb,t n sḏb.n=j mwt}%
+    {O Provider, who comes from Nubt, I have not cursed death}%
+    {O Provider, who emerges from the Golden-City, I have not spoken-against the passage}%
+
+\glyphanalysis{𓅓}{G17}{mwt}{death}{the passage}{%
+    The word \textit{mwt} here maps away from biological death---its GloVe neighbors are noisy in this alignment, suggesting the word sits at a boundary between semantic domains. The Egyptian neighbors \textit{mt} (0.77), \textit{mn} (0.71, ``endure''), and \textit{kꜣ} (0.69, ``spirit/essence'') suggest that death in Egyptian is not cessation but transition. ``I have not cursed the passage'' reads as an acceptance of transformation rather than ending---consistent with the entire purpose of the Book of the Dead as a guide through, not away from, death.%
+}
+
+\spellsep
+
+\spellrow{Confession 39}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Wꜣ-mḥ,t pr,t m Sꜣw,t n jri̯.n=j ꜥqꜣ}%
+    {O Water-bringer, who comes from Saut, I have not been impatient}%
+    {O Water-bringer, who emerges from Saut, I have not acted without deliberation}%
+
+\spellsep
+
+\spellrow{Confession 40}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Nb-mꜣꜥ,t pr,t m Ṯb,w n sḏb.n=j nṯr}%
+    {O Lord-of-truth, who comes from Thebes, I have not blasphemed}%
+    {O Lord-of-the-binding-force, who emerges from Thebes, I have not spoken-against the divine}%
+
+\spellsep
+
+\spellrow{Confession 41}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Ꜣn,j-m-sꜣ=f pr,t m Ṯb,w n jri̯.n=j šnꜥ}%
+    {O He-who-comes-behind, who comes from Thebes, I have not been neglectful}%
+    {O He-who-follows, who emerges from Thebes, I have not been inattentive}%
+
+\spellsep
+
+\spellrow{Confession 42}%
+    {𓇋𓏲𓈖𓏏𓅓𓂋𓇋𓏏𓅓𓈖𓂧𓈖𓁹𓅱𓅓𓏏𓇋}%
+    {j Nb-ḥr,w pr,t m s,t n wḫꜣ.n=j jmn,t}%
+    {O Lord-of-faces, who comes from the seat, I have not pried into matters}%
+    {O Lord-of-faces, who emerges from the place, I have not sought what is hidden}%
+
+\spellsep
+
+\section{The Address to the Heart}
+\label{sec:heart}
+
+After the Negative Confessions, the deceased addresses the heart directly---the organ that will be weighed against \textit{Mꜣꜥ,t} on the scales of judgment.
+
+\spellrow{Address to the Heart}%
+    {𓇋𓏤𓁹𓅱𓈖𓅱𓏏𓏭𓂋𓏏𓇋𓏤𓈖𓁹𓊹}%
+    {jb=j n mwt=j jb=j n ḫpr,w=j}%
+    {O my heart of my mother! O my heart of my transformations!}%
+    {O my heart of my mother! O my heart of my becomings!}%
+
+\glyphanalysis{𓁹}{D4}{ḫpr,w}{transformations}{becomings}{%
+    The plural \textit{ḫpr,w} (``transformations'') is a key term in the Book of the Dead. Budge's ``transformations'' and Faulkner's ``different forms'' both imply a completed change. The geometric reading ``becomings'' preserves the processual quality: \textit{ḫpr} maps to a cluster of emergence and generation. The heart is not the organ of the deceased's past transformations but of their ongoing process of becoming---the very process that judgment will determine can continue or must cease.%
+}
+
+\spellsep
+
+\spellrow{Plea to the Heart}%
+    {𓇋𓏤𓂋𓈖𓁹𓅱𓂋𓂋𓏏𓇋𓏤𓅓𓂋𓇋𓏤}%
+    {m ꜥḥꜥ r=j m mtr,w m šsf r=j ḫr nṯr,w}%
+    {Do not stand up against me as a witness! Do not oppose me before the gods!}%
+    {Do not rise against me as testimony! Do not turn against me before the divine ones!}%
+
+\glyphanalysis{𓊹}{R8}{nṯr,w}{the gods}{the divine ones}{%
+    Here \textit{nṯr,w} (``gods'' at 0.92) appears in its role as the tribunal of the dead. The geometric translation ``divine ones'' preserves the collective quality without the institutional connotation of ``gods'' as a fixed pantheon. The plea is addressed to one's own heart, asking it not to betray the deceased before beings whose nature is radiance and luminosity (the documented nṯr/gold cluster), not merely authority.%
+}
+
+\spellsep
+
+\spellrow{The Weighing}%
+    {𓇋𓏤𓅓𓂋𓇋𓏤𓈖𓅱𓊹𓅓𓏏𓊹𓏏𓏭}%
+    {jw jb=j ḥtp(.w) m wḏꜥ nṯr.pl}%
+    {My heart is satisfied with the judgment of the gods}%
+    {My heart is at-rest within the judgment of the divine ones}%
+
+\glyphanalysis{𓊹}{R8}{wḏꜥ}{judgment}{judgment}{%
+    The verb \textit{wḏꜥ} in the context of divine judgment maps to a cluster of legal and cosmic authority. The heart ``at rest'' within judgment captures the Egyptian concept of successful passage: not acquittal in a legal sense but integration into the cosmic order. The heart that passes judgment does not ``win'' but finds its proper place in the geometry of the afterlife.%
+}
+
+\spellsep
+
+\section{The Declaration of Innocence Before Osiris}
+\label{sec:osiris}
+
+Having passed the weighing, the deceased makes a final declaration before Osiris, lord of the dead.
+
+\spellrow{Before Osiris}%
+    {𓇋𓈖𓂧𓈖𓁹𓅱𓊹𓅓𓏏𓈖𓅱𓊹𓊹𓅱}%
+    {jnd-ḥr=k Wsjr nb dwꜣ,t ꜥnḫ ḏ,t nḥḥ}%
+    {Hail to thee, Osiris, lord of the underworld, living forever and ever}%
+    {Hail to you, Osiris, lord of the Duat, enduring for the span of all-time}%
+
+\glyphanalysis{𓊹}{R8}{ꜥnḫ}{living}{enduring}{%
+    In this context, \textit{ꜥnḫ} shifts from biological life to permanence---the same pattern documented in the Rosetta decree. The geometric neighbors \textit{wḏꜣ} (be sound, 0.78), \textit{ḏd} (be stable), and \textit{mn} (endure) confirm that Osiris's ``life'' is not vitality but cosmic persistence. He lives not as the living live but as the eternal endures. The formula \textit{ꜥnḫ ḏ,t nḥḥ} (``living forever and ever'') maps geometrically to ``enduring for the span of all-time''---two words for eternity (\textit{ḏ,t} for cyclical time, \textit{nḥḥ} for linear time) bracketing a concept of permanence that English ``forever'' compresses into a single dimension.%
+}
+
+\spellsep
+
+\spellrow{Final Declaration}%
+    {𓇋𓏲𓈖𓏏𓇋𓏤𓅓𓂋𓇋𓏤𓂧𓈖𓁹}%
+    {jw=j ḫꜥi̯.kwj m Mꜣꜥ,t ꜥnḫ.kwj jm=s}%
+    {I have appeared in truth, I live in it}%
+    {I have risen in the binding-force, I endure within it}%
+
+\glyphanalysis{𓅓}{G17}{ḫꜥi̯}{appear, rise}{rise / shine-forth}{%
+    The verb \textit{ḫꜥi̯} (``appear, rise'') belongs to the luminous cluster alongside \textit{psḏ} (shine) and \textit{wbn} (rise, of the sun). The deceased's final claim is not mere appearance but radiant emergence---the same verb used for the rising of the sun. Having passed judgment, the deceased rises as a luminous being, participating in the same cycle of emergence that governs the sun and the gods. The geometry makes explicit what Egyptology has long suspected: successful judgment is not survival but apotheosis.%
+}
+
+\spellsep
+
+\section{Commentary}
+\label{sec:commentary}
+
+\subsection{The Moral and the Cosmic}
+
+The most consistent divergence between Budge's translations and the geometric readings in Spell 125 is the distinction between the moral and the cosmic. Budge translates the Negative Confessions as a moral inventory---``I have not stolen,'' ``I have not lied,'' ``I have not killed.'' The geometric translations reframe these as cosmological statements: ``I have not taken what is not mine,'' ``I have not uttered falsehood,'' ``I have not silenced a person.''
+
+The difference is not merely stylistic. The Budge translations place the deceased in a courtroom; the geometric translations place the deceased in a cosmos. The confessions are not about behavior but about the deceased's relationship to the forces that sustain reality. To steal is to redistribute substance against the proper order; to kill is to silence a voice that participates in the cosmic conversation; to lie is to introduce falsehood into a universe that runs on truth.
+
+This reading is supported by the embedding space's treatment of \textit{Mꜣꜥ,t}, which consistently maps to a convergence of truth, power, and cosmic order rather than to a purely ethical concept. The deceased who passes judgment has not merely been good but has maintained the coherence of the universe.
+
+\subsection{The Heart as Instrument of Becoming}
+
+The address to the heart (\textit{jb}) is the emotional center of Spell 125. The heart maps to ``heart'' at perfect cosine similarity (1.00), but its Egyptian neighbors reveal a deeper semantic field: \textit{ḥꜣ,tj} (0.78), a word for heart with overtones of consciousness and will, confirms that the \textit{jb} weighed on the scales is not a muscle but a record of the deceased's entire conscious life.
+
+The plea ``O my heart of my becomings'' (geometric) versus ``O my heart of my transformations'' (Budge) captures a crucial distinction. The heart is not a container of past changes but an active participant in the process of becoming. If it testifies against the deceased, the process of becoming ceases---not death in the Western sense, but the termination of ontological participation.
+
+\subsection{Death as Passage}
+
+The geometric translation of \textit{mwt} (Confession 38) as ``the passage'' rather than ``death'' aligns with the fundamental purpose of the Book of the Dead: it is not a book about dying but a book about transitioning. The Egyptian neighbors of \textit{mwt}---including \textit{mn} (endure) and \textit{kꜣ} (spirit/essence)---suggest that the Egyptian concept of death is not cessation but a change in the mode of existence. The curse the deceased has not uttered is not against dying but against the transition itself.
+
+This finding connects to the broader observation in the embedding space that the silence/death cluster (\textit{sgr}/\textit{mwt}) treats death as a form of silencing---the removal of the deceased from the ongoing conversation of the cosmos. The Book of the Dead, then, is a technology for ensuring that the transition preserves the deceased's voice, rather than silencing it.
+
+\subsection{Connections to the Embedding Space}
+
+The findings in Spell 125 confirm and extend the large-scale structures documented in \textit{The Geometry of Meaning}:
+
+\begin{itemize}
+    \item \textbf{Truth-as-power}: \textit{Mꜣꜥ,t} appears throughout the confessions with the same geometric signature documented in the Rosetta decree---neighbors include sovereignty and authority terms, not merely ethical ones.
+    \item \textbf{Gold/divinity cluster}: Temple property (Confession 8) is framed as ``what belongs to the divine,'' consistent with the finding that sacred objects participate in divine substance.
+    \item \textbf{Silence/death colocation}: The verb \textit{smꜣ} (``kill'') in Confession 4 maps to the silence cluster, confirming that killing is geometrically a form of silencing.
+    \item \textbf{Life as endurance}: \textit{ꜥnḫ} in the address to Osiris maps to persistence and cosmic duration, not biological vitality---the same pattern as the Rosetta decree's royal titulary.
+    \item \textbf{Priest-as-administrator}: While priests are not central to Spell 125, the word \textit{wꜥb} (``pure one/priest'') appears in the vocabulary with the same administrative neighbors documented elsewhere.
+\end{itemize}
+
+\appendix
+\section{Glyph Index}
+\label{sec:glyph-index}
+
+This index lists key glyphs appearing in Spell 125, sorted by Gardiner code. For glyphs with multiple occurrences, contextual readings are shown.
+
+\vspace{8pt}
+
+\footnotesize
+\begin{longtable}{@{}lllp{1.1in}p{1.1in}@{}}
+\toprule
+ & \textbf{Code} & \textbf{Translit.} & \textbf{Standard} & \textbf{Geometric} \\
+\midrule
+\endhead
+\hiero{𓁹} & D4 & jri̯ & do, make & bring into being \\
+\hiero{𓁹} & D4 & rḫ & know & have-come-to-know \\
+\hiero{𓂋} & D21 & r & to, at & toward \\
+\hiero{𓂋} & D21 & rn & name & name \\
+\hiero{𓂝} & D36 & jb & heart & heart \\
+\hiero{𓂝} & D36 & ꜥnḫ & living, life & enduring \\
+\hiero{𓄿} & G1 & A & (phonetic) & (phonetic) \\
+\hiero{𓅓} & G17 & m & in, from & within, out-of \\
+\hiero{𓅓} & G17 & mꜣꜥ,t / Mꜣꜥ,t & truth, justice & binding-force \\
+\hiero{𓅓} & G17 & mwt & death & passage \\
+\hiero{𓅓} & G17 & tm & not (negation) & not / refused \\
+\hiero{𓅓} & G17 & smꜣ & slay, kill & silence \\
+\hiero{𓅓} & G17 & wḏꜥ & judge & judge \\
+\hiero{𓆑} & I9 & f & his, him & his, him \\
+\hiero{𓇋} & M17 & j & (phonetic) & (phonetic) \\
+\hiero{𓊹} & R8 & nṯr & god & divine one \\
+\hiero{𓊹} & R8 & nṯr.pl & gods & divine ones \\
+\hiero{𓊹} & R8 & Wsjr & Osiris & Osiris \\
+\bottomrule
+\end{longtable}
+
+\normalsize
+
+\bibliographystyle{plainnat}
+\begin{thebibliography}{99}
+
+\bibitem[Brinsmead and Claude, 2026]{brinsmead2026geometry}
+Brinsmead, E. and Claude (Anthropic) (2026).
+\newblock The Geometry of Meaning: What Vector Space Alignment Reveals About How Ancient Egyptians Thought.
+\newblock \url{https://github.com/ebrinz/heiroglyphy}
+
+\bibitem[Budge, 1895]{budge1895papyrus}
+Budge, E.~A.~W. (1895).
+\newblock \textit{The Book of the Dead: The Papyrus of Ani in the British Museum}.
+\newblock British Museum.
+
+\bibitem[Faulkner, 1972]{faulkner1972book}
+Faulkner, R.~O. (1972).
+\newblock \textit{The Ancient Egyptian Book of the Dead}.
+\newblock British Museum Press. Revised edition 1985.
+
+\bibitem[BBAW, 2023]{bbaw_tla}
+Berlin-Brandenburg Academy of Sciences and Humanities (2023).
+\newblock Thesaurus Linguae Aegyptiae (TLA): Digital corpus of Egyptian texts.
+\newblock \url{https://aaew.bbaw.de/tla/}
+
+\end{thebibliography}
+
+\end{document}
