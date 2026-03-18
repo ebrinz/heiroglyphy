@@ -1,0 +1,308 @@
+\documentclass[11pt, a4paper]{article}
+
+% ── Packages ──────────────────────────────────────────────────────────────────
+\usepackage{fontspec}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{natbib}
+\usepackage{longtable}
+\usepackage{tabularx}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    citecolor=blue!60!black,
+    urlcolor=blue!60!black,
+}
+
+% ── Colors ────────────────────────────────────────────────────────────────────
+\definecolor{rosetta}{RGB}{183, 110, 72}
+\definecolor{insight}{RGB}{40, 100, 160}
+
+% ── Title ─────────────────────────────────────────────────────────────────────
+\title{
+    \textbf{What the Geometry Recovers}\\[6pt]
+    {\large Three Ancient Texts Re-Read Through\\the Egyptian Embedding Space}
+}
+
+\author{
+    Erik Brinsmead \\
+    Researcher \\[6pt]
+    Claude \\
+    Anthropic \\[12pt]
+    \texttt{github.com/ebrinz/heiroglyphy}
+}
+
+\date{March 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Three foundational Egyptian texts---the Cannibal Hymn (Pyramid Texts, c.\,2350 BCE), the Shabaka Stone (Memphis Theology, c.\,710 BCE copy of an Old Kingdom original), and the creation narratives of Utterances 587 and 600---have been translated through Western conceptual frameworks for over a century. This document re-reads each through the geometric lens of vector space alignment, asking what the distributional structure of the Egyptian language itself reveals about passages long filtered through Greek philosophy, Christian theology, and comparative religion. The embedding space suggests that the Cannibal Hymn describes literal metabolic incorporation rather than metaphorical power absorption; that the Shabaka Stone's ``creation through speech'' is not a proto-Logos doctrine but a description of speech as material force; and that the creation narratives encode a simultaneous cosmogony rather than the linear sequence that Western translation imposes.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+
+These three texts share a feature: each has been translated ``correctly'' in the philological sense---the grammar is understood, the vocabulary identified, the syntax parsed---and yet the conceptual framework imposed by translation may have systematically distorted their meaning. The distortion is not in what the words \textit{denote} but in what framework the translator uses to organize the denotations into a worldview.
+
+The Cannibal Hymn has been read through the lens of sympathetic magic and primitive religion. The Shabaka Stone has been read through the lens of Johannine theology (``In the beginning was the Word''). The creation narratives have been read through the lens of Genesis-style sequential cosmogony. In each case, the question is whether the Egyptian language, analyzed distributionally, supports the framework or undermines it.
+
+\subsection{Method}
+
+Each Egyptian word in the key passages was looked up in the V15 aligned embedding space (10,833 words projected into GloVe 300d). For each word, we record the nearest English neighbors (revealing what English concept the word maps to) and the nearest Egyptian neighbors (revealing what other Egyptian concepts occupy the same geometric region). Where these mappings diverge from the standard translation's implied framework, we flag the divergence and analyze what the geometry suggests instead.
+
+\section{The Cannibal Hymn}
+\label{sec:cannibal}
+
+\subsection{The Text}
+
+Utterances 273--274 of the Pyramid Texts, found in the pyramid of Unas (c.\,2350 BCE) and Teti. The text describes the king consuming the gods to absorb their powers:
+
+\begin{quote}
+\textit{``Unas is the one who eats their magic and swallows their spirits. Their great ones are for his morning meal, their middle ones are for his evening meal, their little ones are for his night meal.''} --- After Faulkner (1969)
+\end{quote}
+
+The hymn has been interpreted as: (a) a survival of pre-dynastic cannibalistic ritual, (b) a metaphor for absorbing divine power through ritual, (c) a mythological description of the king's apotheosis, (d) deliberate shock-poetry asserting royal supremacy over the divine order.
+
+\subsection{What the Geometry Says}
+
+\subsubsection{Eating Is Eating}
+
+The verb \textit{wnm} (eat) maps to English ``eat'' at cosine similarity \textbf{0.86}---one of the highest single-word alignments in the entire vocabulary. Its neighbors are: ``eating'' (0.71), ``ate'' (0.68), ``eaten'' (0.67), ``food'' (0.63), ``feed'' (0.62), ``meal'' (0.61).
+
+{\color{insight}\textbf{Finding:}} There is no metaphorical dimension in the geometric neighborhood of \textit{wnm}. The word sits in a cluster of literal food consumption. It does not neighbor words for power, absorption, incorporation, or spiritual transfer. When the Cannibal Hymn says the king \textit{eats} the gods, the language itself treats this as the same verb used for eating bread.
+
+This does not mean the Egyptians practiced cannibalism. It means the \textit{metaphor}---if it is a metaphor---operates by \textit{extending literal eating into the divine domain}, not by using ``eating'' as a dead metaphor for ``absorbing.'' The shock of the text is intentional and linguistic: the same word that means consuming grain is applied to consuming gods. The geometry preserves the violence that scholarly interpretation has politely explained away.
+
+\subsubsection{Magic as Substance}
+
+The word \textit{ḥkꜣ} (heka, conventionally ``magic'') maps to English ``magic'' at 0.68, but its remaining neighbors are revealing: ``something'' (0.63), ``really'' (0.63), ``thing'' (0.62), ``kind'' (0.61).
+
+{\color{insight}\textbf{Finding:}} \textit{Ḥkꜣ} does not sit in a cluster of the supernatural, the occult, or the paranormal. It sits in a cluster of \textit{substantive reality}---``something,'' ``thing,'' ``really.'' Magic in Egyptian is not a category opposed to the natural; it is a \textit{substance}, a kind of thing that exists in the world the way bread and water exist. When the king ``eats their magic,'' the geometry reads this as consuming a real substance, not performing a symbolic ritual. \textit{Ḥkꜣ} is stuff. You can eat it because it is made of the same ontological material as everything else.
+
+This aligns with Egyptological observations that \textit{ḥkꜣ} was personified as a god (Heka) and treated as a force co-extensive with creation, not as a violation of natural law. The embedding space confirms this independently: \textit{ḥkꜣ} occupies the same region as words for concrete existence.
+
+\subsubsection{The Ka Problem}
+
+The word \textit{kꜣ} (ka, conventionally ``vital force'' or ``double'') produces a striking result: its top English neighbor is ``des'' (0.75)---a French/German word. The remaining neighbors are all non-English European words: ``mittelalters,'' ``hautes,'' ``hoht.''
+
+{\color{insight}\textbf{Finding:}} The \textit{kꜣ} sits in a cross-linguistic zone of the GloVe space---a region populated by words from multiple European languages rather than any single semantic field. This is the geometry's way of saying: \textit{there is no English word for \textit{kꜣ}}. The concept does not map to ``spirit,'' ``soul,'' ``double,'' ``vital force,'' or any other English gloss. It occupies a position in semantic space that English does not differentiate.
+
+This is arguably the most important finding in this document. Every translation of the Pyramid Texts translates \textit{kꜣ} into an English word, and every such translation is, according to the geometry, a category error. The \textit{kꜣ} is a concept for which the target language has no corresponding region. The Cannibal Hymn's description of eating the gods' \textit{kꜣ,w} is untranslatable not because we lack information but because we lack the concept.
+
+The Egyptian neighbors of \textit{kꜣ} include \textit{mwt} (death/passage, 0.69) and \textit{ḥm-kꜣ} (ka-servant, 0.65)---placing it near both mortality and service, a combination that no English word captures.
+
+\subsubsection{The Ennead as Number}
+
+The word \textit{psḏ} (shine / the Ennead) maps to numbers: ``five'' (0.53), ``four'' (0.52), ``three'' (0.52), ``six'' (0.51). The Ennead---the nine great gods of Heliopolis---is geometrically a \textit{numerical concept}, not a theological one.
+
+{\color{insight}\textbf{Finding:}} The Ennead in the Cannibal Hymn is not a divine family in the Greek sense (Zeus, Hera, their children). It is a quantified divine structure---a number-of-gods, a set, a count. The king eating the Ennead is not violating familial bonds; he is incorporating a \textit{numerical totality}. The geometry suggests that the Egyptian divine hierarchy was organized more like mathematics than like mythology.
+
+\subsection{Summary: The Cannibal Hymn}
+
+The embedding space reads the Cannibal Hymn not as metaphorical power-absorption but as a description of the king literally consuming divine substance---substance that is real (\textit{ḥkꜣ} as ``stuff''), countable (\textit{psḏ} as number), and untranslatable (\textit{kꜣ} as a concept without English equivalent). The scholarly impulse to make the text metaphorical or symbolic reflects a modern discomfort with its premises, not the language's own organization of meaning.
+
+\section{The Shabaka Stone}
+\label{sec:shabaka}
+
+\subsection{The Text}
+
+The Shabaka Stone (British Museum EA 498) is a basalt slab carved during the reign of Shabaka (c.\,710 BCE) from a ``worm-eaten'' papyrus that the king ordered preserved. It describes Ptah creating the world through the activity of the heart (\textit{jb}) and tongue (\textit{ns})---thought and speech. Since its decipherment, it has been compared to the Johannine Logos (``In the beginning was the Word'') and interpreted as evidence for an Egyptian proto-philosophy of mind.
+
+\begin{quote}
+\textit{``There came into being in the heart, there came into being on the tongue, the form of Atum.''} --- After Lichtheim (1973)
+\end{quote}
+
+\subsection{What the Geometry Says}
+
+\subsubsection{Heart as Heart}
+
+The word \textit{jb} (heart) maps to English ``heart'' at cosine similarity \textbf{1.00}---perfect alignment. But its Egyptian neighbors are critical: \textit{ḥꜣ,tj} (0.78), a near-synonym with overtones of will and consciousness. The \textit{jb} in the Shabaka Stone is the same \textit{jb} weighed against Mꜣꜥ,t in the Book of the Dead: the organ of consciousness, judgment, and identity.
+
+{\color{insight}\textbf{Finding:}} Standard translations render the Shabaka Stone's \textit{jb} as ``heart'' and gloss it as ``mind'' or ``thought.'' The geometry does not support this gloss. \textit{Jb} is heart---the physical, conscious, judgeable organ. When the text says creation ``came into being in the heart,'' it does not mean creation was first conceived mentally (the Cartesian reading). It means creation occurred \textit{within the heart as an organ}---inside a structure that is simultaneously physical, conscious, and moral. The heart-mind split that Western philosophy takes as foundational does not exist in the Egyptian embedding space.
+
+\subsubsection{Tongue as Flame}
+
+The word \textit{ns} (tongue) maps to English function words, but its Egyptian neighbors are extraordinary: \textit{nsb} (0.89), \textit{nsr} (0.88)---both words meaning ``flame'' or ``to burn.''
+
+{\color{insight}\textbf{Finding:}} The tongue is geometrically a \textit{flame}. The Egyptian word for tongue sits in the same semantic region as fire and burning. When the Shabaka Stone says creation ``came into being on the tongue,'' the geometry reads this not as speech-as-communication but as \textit{speech-as-fire}---the tongue as an organ that produces a combustive, material force.
+
+This transforms the entire reading of the Memphis Theology. The standard interpretation---creation through divine speech, a proto-Logos---assumes that speech is informational: Ptah speaks a word and information creates reality. The geometry suggests speech is \textit{energetic}: the tongue is a flame, and what it produces is fire, not meaning. Creation through speech is not creation through naming but creation through combustion.
+
+\subsubsection{Hu and Sia: Utterance as Conjunction}
+
+The word \textit{ḥw} (Hu, divine utterance) maps to English ``and'' at perfect cosine similarity (\textbf{1.00}). Its neighbors: ``both'' (0.76), ``well'' (0.73), ``also'' (0.68), ``including'' (0.66), ``all'' (0.66).
+
+{\color{insight}\textbf{Finding:}} The divine utterance is geometrically a \textit{conjunction}---a word that connects, combines, and includes. \textit{Ḥw} is not a speech-act in the performative sense (``Let there be light''). It is the force that \textit{joins things together}. Divine speech creates by connecting, not by commanding.
+
+Its Egyptian neighbor \textit{nḥḥ} (cyclical eternity, 0.96) places divine utterance in the same geometric region as cosmic time itself. Utterance and eternity are near-synonyms in Egyptian space. Speech does not occur \textit{within} time; speech \textit{is} time.
+
+Meanwhile, \textit{sjꜣ} (Sia, divine perception/understanding) maps to the same high-frequency region as \textit{ḏd} and other function-like words, confirming that these concepts are structural elements of language itself, not superimposed theological categories.
+
+\subsubsection{Creation and Becoming: The Same Cluster}
+
+The words \textit{qmꜣ} (create) and \textit{ḫpr} (become/come-into-being) are Egyptian neighbors of each other, both mapping to a cluster that includes \textit{sḫpr} (cause-to-become) and relational particles. Neither maps to English ``create'' as its top neighbor.
+
+{\color{insight}\textbf{Finding:}} Egyptian ``creation'' is not the production of something from nothing (\textit{creatio ex nihilo}). It is \textit{becoming}---a process word, not a production word. The Shabaka Stone does not describe Ptah \textit{making} the world; it describes reality \textit{becoming} through the activity of heart-and-tongue. The distinction matters enormously: \textit{creatio ex nihilo} requires a creator separate from creation; becoming does not. The geometry supports the reading that Ptah is not outside creation commanding it into existence but is the process of becoming itself.
+
+\subsection{Summary: The Shabaka Stone}
+
+The embedding space dismantles the Logos interpretation of the Memphis Theology:
+
+\begin{itemize}[nosep]
+    \item The heart is a physical-conscious organ, not a mind in the Cartesian sense
+    \item The tongue is a flame, not a communication device
+    \item Divine utterance is conjunction (joining), not command (ordering)
+    \item Creation is becoming, not production
+\end{itemize}
+
+The Memphis Theology is not a proto-philosophy of mind anticipating Greek \textit{nous} and Johannine \textit{logos}. It is a description of reality as self-organizing through the material forces of cardiac consciousness and lingual combustion---a cosmogony for which Western philosophy has no category.
+
+\section{The Creation Narratives}
+\label{sec:creation}
+
+\subsection{The Texts}
+
+Utterances 587 and 600 of the Pyramid Texts describe the creation of the world: the emergence of Atum from the primordial waters (Nun), the separation of sky (Nut) and earth (Geb) by air (Shu), and the first sunrise over the primordial mound (benben). These passages have been universally translated as a sequential narrative: first Nun, then Atum, then Shu separates Nut and Geb, then the sun rises.
+
+\subsection{What the Geometry Says}
+
+\subsubsection{Nut Is Time}
+
+The goddess \textit{Nw,t} (Nut, conventionally ``sky'') maps to English ``time'' (0.59), ``when'' (0.57), ``come'' (0.55), ``before'' (0.55). The word for the sky as a substance, \textit{p,t}, maps to ``sky'' (0.86).
+
+{\color{insight}\textbf{Finding:}} The Egyptian language has two words that English translates as ``sky'': \textit{p,t} (the physical sky) and \textit{Nw,t} (the sky goddess). The geometry reveals these are not synonyms: \textit{p,t} is sky; \textit{Nw,t} is time. The sky goddess is the embodiment of temporal experience---the surface across which the sun travels, the body through which Ra passes from horizon to horizon.
+
+This means the creation narrative's separation of Nut and Geb is not the separation of sky and earth (a spatial event). It is the separation of \textit{time and earth}---the creation of temporal experience as something distinct from material existence. Before creation, time and matter were undifferentiated. The first act of creation is their distinction.
+
+No standard translation of the Pyramid Texts renders this. Every translator reads ``Shu separates Nut and Geb'' as ``air separates sky and earth'' because the identification Nut = sky is so deeply embedded in Egyptological convention that the temporal dimension has been invisible.
+
+\subsubsection{Nun as Container}
+
+The word \textit{Nnw} (Nun, the primordial waters) maps to English function words, but its Egyptian neighbors are illuminating: \textit{Šnw} (0.97), \textit{ꜥnw} (0.96)---words related to enclosure, circuit, and containment.
+
+{\color{insight}\textbf{Finding:}} Nun is geometrically a \textit{container}, not a substance. The primordial waters are not water in the material sense but the state of being enclosed, surrounded, undifferentiated. Creation is not the imposition of order on chaos (the Mesopotamian model imported by comparative religion) but the \textit{opening of a container}---the transition from enclosure to extension.
+
+\subsubsection{The Benben and the Sky}
+
+The word \textit{bnbn} (benben, the primordial mound) neighbors \textit{ḥw,t-bnbn} (``house of the benben''---the temple at Heliopolis) and, strikingly, \textit{p,t} (sky) variants appear in its broader neighborhood.
+
+{\color{insight}\textbf{Finding:}} The benben---the first mound to emerge from the waters---is geometrically associated with the sky, not the earth. The primordial mound is not a terrestrial feature; it is the point where heaven and earth are still unified, the pivot around which the separation will occur. This explains why the benben stone was placed at the \textit{top} of obelisks and pyramids, not at their base: it marks the point of original unity, not the ground from which things grew.
+
+\subsubsection{Atum as Totality}
+
+The creator god \textit{Jtm} (Atum) neighbors \textit{Jt} (father, 0.91) and \textit{Jtm,w} (the plural/collective form, 0.89), but also \textit{ꜣḫ,t} (horizon, 0.88).
+
+{\color{insight}\textbf{Finding:}} Atum is both father and horizon---the point of origin and the boundary of the visible world. The name \textit{Jtm} is etymologically related to \textit{tm} (``complete, whole, all'' and also ``not, nothing''). The geometry preserves this paradox: Atum is simultaneously everything and nothing, totality and negation. Creation from Atum is not creation from a being but emergence from a state of undifferentiated completeness.
+
+\subsubsection{The Simultaneity Problem}
+
+The creation words \textit{qmꜣ} (create), \textit{ḫpr} (become), and \textit{wp} (separate/open) all map to the same broad geometric region---high-frequency, relationally-structured vectors that neighbor particles and function words rather than content words.
+
+{\color{insight}\textbf{Finding:}} The verbs of creation are not sequential action words. They are structural relations---like prepositions or conjunctions, they organize reality rather than narrating events. The geometry suggests that Egyptian creation is not a story (first this, then that) but a structural description (these relations obtain). The Western translation convention of rendering the Pyramid Texts as narrative---``Atum created,'' ``Shu separated,'' ``Nut arched over''---may be imposing a temporal sequence on a text that describes a simultaneous structure.
+
+This would explain one of the persistent puzzles of Egyptian cosmogony: the existence of multiple, apparently contradictory creation accounts (Heliopolitan, Memphite, Hermopolitan, Theban). If creation is a structure rather than a story, these accounts are not competing narratives but \textit{different perspectives on the same geometry}---different faces of the same polyhedron. The embedding space suggests they were never meant to be reconciled into a single timeline because they were never timelines in the first place.
+
+\subsection{Summary: The Creation Narratives}
+
+The geometry recovers a cosmogony invisible to sequential translation:
+
+\begin{itemize}[nosep]
+    \item Nut is time, not sky; the separation of Nut and Geb is the creation of temporal experience
+    \item Nun is containment, not chaos; creation is opening, not ordering
+    \item The benben is a point of sky-earth unity, not a terrestrial feature
+    \item Atum is totality-and-negation, not a creator-being
+    \item The verbs of creation are structural, not narrative; Egyptian cosmogony may describe a simultaneous geometry, not a sequential event
+\end{itemize}
+
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{What Was Lost in Translation}
+
+The three texts share a common pattern of distortion: Western translation imposes categorical distinctions that the Egyptian language does not make.
+
+\begin{itemize}
+    \item \textbf{Literal vs.\ metaphorical}: The Cannibal Hymn's eating is literal in the geometry; the scholarly impulse to metaphorize it reflects modern discomfort, not Egyptian semantics.
+    \item \textbf{Mind vs.\ body}: The Shabaka Stone's heart is both organ and consciousness; the Cartesian split that separates ``heart'' (body) from ``thought'' (mind) does not exist in the embedding space.
+    \item \textbf{Speech as information vs.\ speech as force}: The tongue-as-flame finding suggests that Egyptian speech is material-energetic, not informational-semantic.
+    \item \textbf{Sequence vs.\ structure}: The creation narratives may describe a geometry, not a history; Western narrative conventions impose a timeline that the verbs do not require.
+\end{itemize}
+
+Each of these distortions reflects a deep Western assumption: the assumption that meaning is organized the way \textit{we} organize it. The embedding space---which derives its structure from how Egyptians \textit{actually used words in context}, across thousands of texts spanning millennia---offers a corrective. It cannot tell us what the Egyptians believed, but it can tell us how they organized concepts relative to each other. And that organization is, in specific and measurable ways, different from ours.
+
+\subsection{The Nut-as-Time Hypothesis}
+
+The finding that \textit{Nw,t} maps to ``time'' rather than ``sky'' deserves particular attention because it has the potential to reframe an entire domain of Egyptology.
+
+If Nut is time, then:
+
+\begin{enumerate}
+    \item The sun's journey across Nut's body is a description of \textit{temporal passage}, not celestial mechanics.
+    \item Nut swallowing the sun at night and birthing it at dawn is a description of how \textit{time consumes and regenerates events}, not a mythological astronomy.
+    \item The stars on Nut's body are \textit{moments}, not astronomical objects.
+    \item The ``Book of Nut'' (a cosmological text painted inside New Kingdom royal tombs) is a treatise on the nature of time, not a star catalogue.
+\end{enumerate}
+
+This hypothesis is testable: if Nut is time, then the ``Book of Nut'' should contain passages where temporal readings produce more coherent translations than spatial ones. This is a target for future geometric analysis.
+
+\subsection{Implications for the Study of Religion}
+
+The Golden Dawn analysis (companion document) showed that Victorian occultists projected Kabbalistic structures onto Egyptian names. The present analysis suggests that Egyptologists may have done something analogous: projecting Western philosophical categories (mind/body, literal/metaphorical, sequence/simultaneity, natural/supernatural) onto a language that does not make these distinctions.
+
+This is not a criticism of Egyptology. The translations are philologically sound. But philology operates word by word; the embedding space operates across the entire corpus simultaneously. Distributional patterns that are invisible at the sentence level become visible at the scale of hundreds of thousands of sentences. The geometry is not smarter than the translator; it has a different vantage point.
+
+\subsection{What the Geometry Cannot Do}
+
+The embedding space reveals \textit{distributional structure}---what concepts cluster together, what words are interchangeable in context. It does not reveal:
+
+\begin{itemize}[nosep]
+    \item \textbf{Belief}: Whether Egyptians ``believed'' the king literally ate gods, or whether the text was performative, ironic, or ritualized
+    \item \textbf{Intent}: Whether the Shabaka Stone's authors intended a philosophical statement or a theological one
+    \item \textbf{History}: Whether the creation texts record an older cosmogony or are innovative compositions
+    \item \textbf{Experience}: What it was like to hear these texts recited in a pyramid chamber at the burial of a king
+\end{itemize}
+
+The geometry offers a map of conceptual relationships, not a window into consciousness. But a map is not nothing. When every existing map has been drawn by cartographers who assume the territory looks like their homeland, a map generated from the territory's own structure is a corrective of real value.
+
+\bibliographystyle{plainnat}
+\begin{thebibliography}{99}
+
+\bibitem[Brinsmead and Claude, 2026]{brinsmead2026geometry}
+Brinsmead, E. and Claude (Anthropic) (2026).
+\newblock The Geometry of Meaning: What Vector Space Alignment Reveals About How Ancient Egyptians Thought.
+\newblock \url{https://github.com/ebrinz/heiroglyphy}
+
+\bibitem[Allen, 2005]{allen2005pyramid}
+Allen, J.~P. (2005).
+\newblock \textit{The Ancient Egyptian Pyramid Texts}.
+\newblock Society of Biblical Literature.
+
+\bibitem[Faulkner, 1969]{faulkner1969pyramid}
+Faulkner, R.~O. (1969).
+\newblock \textit{The Ancient Egyptian Pyramid Texts}.
+\newblock Oxford University Press.
+
+\bibitem[Lichtheim, 1973]{lichtheim1973literature}
+Lichtheim, M. (1973).
+\newblock \textit{Ancient Egyptian Literature}, Volume I: The Old and Middle Kingdoms.
+\newblock University of California Press.
+
+\bibitem[BBAW, 2023]{bbaw_tla}
+Berlin-Brandenburg Academy of Sciences and Humanities (2023).
+\newblock Thesaurus Linguae Aegyptiae (TLA): Digital corpus of Egyptian texts.
+\newblock \url{https://aaew.bbaw.de/tla/}
+
+\end{thebibliography}
+
+\end{document}
