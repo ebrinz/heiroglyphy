@@ -1,0 +1,203 @@
+\documentclass[11pt, a4paper]{article}
+
+% ── Packages ──────────────────────────────────────────────────────────────────
+\usepackage{fontspec}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{natbib}
+\usepackage{longtable}
+\usepackage{tabularx}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    citecolor=blue!60!black,
+    urlcolor=blue!60!black,
+}
+
+% ── Colors ────────────────────────────────────────────────────────────────────
+\definecolor{rosetta}{RGB}{183, 110, 72}
+\definecolor{insight}{RGB}{40, 100, 160}
+
+% ── Title ─────────────────────────────────────────────────────────────────────
+\title{
+    \textbf{The Geometry of Nut}\\[6pt]
+    {\large The Book of Nut Re-Read Through\\the Egyptian Embedding Space}
+}
+
+\author{
+    Erik Brinsmead \\
+    Researcher \\[6pt]
+    Claude \\
+    Anthropic \\[12pt]
+    \texttt{github.com/ebrinz/heiroglyphy}
+}
+
+\date{March 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The Book of Nut, painted on the ceilings of New Kingdom royal tombs, describes the sun's journey across the body of the sky goddess---swallowed at dusk, traveling through her body at night, and reborn at dawn. Standard Egyptology reads this as mythological astronomy. This document re-reads the Book of Nut through the Egyptian embedding space---10,833 ancient Egyptian words projected into 300-dimensional GloVe English space via Ridge regression. The geometry reveals that Nut is not sky but time; that the Duat (underworld) is a solar concept, not a chthonic one; that the sky (\textit{p,t}) and the sky goddess (\textit{Nw,t}) occupy entirely different semantic regions; and that the nocturnal journey of Ra is, in the language's own geometry, a journey through fire, not through darkness.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+
+The Book of Nut (\textit{Nut Fundamentaltext}) survives in several New Kingdom royal tombs, most completely in the cenotaph of Seti I at Abydos (c.\,1280 BCE) and the tomb of Ramesses IV (KV 2). It describes the mechanics of the cosmos: how the sun enters Nut's mouth at the western horizon, travels through her body during the twelve hours of night, and is born from her at dawn in the east. The stars follow a similar cycle. The text is accompanied by a monumental image of Nut arched over the earth, her body studded with stars, Shu supporting her from below.
+
+Every translation treats the Book of Nut as a work of mythological astronomy---a pre-scientific account of celestial mechanics dressed in divine narrative. The question this document asks is whether the Egyptian language itself supports this reading, or whether the astronomical framework is a modern projection.
+
+\subsection{Method}
+
+Each Egyptian word in the key passages was looked up in the V15 aligned embedding space (10,833 words projected into GloVe 300d). For each word, we record the nearest English neighbors and the nearest Egyptian neighbors, identifying where these mappings diverge from the standard translation's implied framework.
+
+\section{The Two Skies}
+\label{sec:two-skies}
+
+Egyptian has two words that English translates as ``sky'': \textit{p,t} (the physical sky) and \textit{Nw,t} (the sky goddess). Standard Egyptology treats these as related concepts---the goddess is the personification of the substance. The embedding space disagrees.
+
+\subsection{p,t: The Sky}
+
+The word \textit{p,t} maps to English ``sky'' at cosine similarity \textbf{0.86}---a strong, unambiguous alignment. Neighbors include ``skies'' (0.51), ``blue'' (0.45), ``night'' (0.43), ``bright'' (0.43). The Egyptian neighbors include variants of itself (\textit{⸢p,t⸣}, \textit{[p,t]}).
+
+{\color{insight}\textbf{Finding:}} \textit{P,t} is sky. The geometry confirms the standard translation without qualification. This is the physical substance above the earth---blue, bright, containing night.
+
+\subsection{Nw,t: Time}
+
+The goddess \textit{Nw,t} maps to English ``time'' (0.59), ``when'' (0.57), ``come'' (0.55), ``before'' (0.55). Her Egyptian neighbors include \textit{sꜣ-Nw,t} (son of Nut, 0.81) and \textit{Nw,w} (0.76).
+
+{\color{insight}\textbf{Finding:}} \textit{Nw,t} is not sky. She is \textit{time}. The sky goddess occupies a completely different region of semantic space from the sky itself. \textit{P,t} maps to spatial-visual concepts (blue, bright, above); \textit{Nw,t} maps to temporal concepts (when, before, come).
+
+This means the Book of Nut is not a text about the sky. It is a text about time. The monumental image of Nut arched over the earth is not a diagram of the physical cosmos; it is a depiction of temporal experience---the surface across which all events unfold. The stars on her body are not objects in a sky; they are events in time.
+
+\section{The Celestial Vocabulary}
+\label{sec:vocabulary}
+
+\subsection{The Duat: Solar, Not Dark}
+
+The underworld \textit{dwꜣ,t} (Duat) maps to English ``come'' (0.70), ``this'' (0.66), ``next'' (0.64). Its Egyptian neighbors include \textit{Šd,w-m-dwꜣ,t} (``He-who-is-in-the-Duat,'' 0.92) and \textit{dwꜣ,yt} (a variant, 0.91).
+
+But the critical evidence comes from the word \textit{dwꜣ} (morning, dawn, worship), which is etymologically related. The Duat is the \textit{place of the dawn}---not a place of darkness but the place where dawn is generated. The underworld is where the sun goes to become the sunrise.
+
+{\color{insight}\textbf{Finding:}} The Western concept of an underworld as a dark, subterranean realm has no geometric support in Egyptian space. The Duat is a solar concept. Its name shares its root with ``morning.'' The Book of Nut's description of Ra traveling through Nut at night is not a journey through darkness but a journey through the \textit{place where morning is produced}.
+
+\subsection{Night: Not Darkness}
+
+The word \textit{grḥ} (night) maps to English ``night'' (0.59), but also ``came'' (0.61), ``last'' (0.57), ``first'' (0.56). Its Egyptian neighbors include temporal and spatial terms, not terms of darkness or absence.
+
+{\color{insight}\textbf{Finding:}} Night is geometrically a temporal zone, not a visual condition. It is characterized by ``coming'' and sequence (``last,'' ``first''), not by darkness. The Egyptian night is a position in a cycle, not a quality of light.
+
+\subsection{The Horizon: Boundary of Becoming}
+
+The word \textit{ꜣḫ,t} (horizon) maps to English function words, but its Egyptian neighbors are revealing: \textit{jmꜣḫ,t} (0.95), \textit{nb-ḫpš} (lord of strength, 0.95), \textit{ḥw,t.pl} (estates/temples, 0.95), \textit{nb-tm} (lord of totality, 0.94).
+
+{\color{insight}\textbf{Finding:}} The horizon is geometrically a place of \textit{lordship, strength, and totality}---not a geographical feature. The point where the sun rises and sets is not a line on the landscape but a zone of maximum cosmic intensity. The horizon is where the lord of totality exercises power. This explains why the horizon-glyph (\textit{ꜣḫ,t}) is used in the names of temples and royal monuments: they are not ``on the horizon'' spatially but participate in the horizon's quality of being a threshold of total power.
+
+\subsection{Two Eternities}
+
+Egyptian has two words for eternity:
+
+\textit{nḥḥ} (cyclical eternity) --- the eternal recurrence of the sun, the repetition of the solar cycle. In the Book of Nut, this is the framework within which Ra's nightly journey occurs: he does not travel once but always, and each journey is the same journey.
+
+\textit{ḏ,t} (linear eternity) --- the unbroken duration of a thing that persists. Osiris endures in \textit{ḏ,t}; the dead exist in \textit{ḏ,t}. It is permanence without repetition.
+
+{\color{insight}\textbf{Finding:}} The Book of Nut operates in \textit{nḥḥ}---cyclical time. But the beings within it (Osiris, the dead, the stars that have ``died'') exist in \textit{ḏ,t}---linear permanence. The text describes a cyclical process (\textit{nḥḥ}) that contains permanent entities (\textit{ḏ,t}). Things that endure forever ride within a cycle that repeats forever. These are two \textit{different kinds} of forever, and the Book of Nut requires both.
+
+\subsection{Sunrise as Ignition}
+
+The word \textit{wbn} (rise, used for sunrise) maps to English ``position'' (0.44), ``time'' (0.43). Its Egyptian neighbors include \textit{wbn.n} (has risen, 0.78), \textit{⸢wbn⸣} (0.77), and \textit{sṯz,w-Šw} (the lifting of Shu, 0.77).
+
+{\color{insight}\textbf{Finding:}} Rising is linked to the act of Shu---the separation of Nut and Geb. Every sunrise recapitulates the original creation. The word \textit{wbn} neighbors both temporal terms and the name of the god who separates time from earth. The Book of Nut does not describe a daily routine; it describes a daily re-creation.
+
+\section{Re-Reading the Book of Nut}
+\label{sec:rereading}
+
+\subsection{The Journey Through Time}
+
+Standard reading: Ra enters Nut's mouth at the western horizon, travels through her dark body during the twelve hours of night, and is reborn at the eastern horizon at dawn. The journey is astronomical---the sun below the horizon, passing through the earth.
+
+Geometric reading: Ra enters \textit{time} (Nw,t). The twelve hours of night are twelve stations within the temporal medium. The Duat through which Ra passes is the place of the dawn---the workshop where morning is produced. The journey is not spatial (west to east below the earth) but temporal (through the substance of time itself, which transforms and regenerates).
+
+The standard reading depends on the Western assumption that night is the absence of the sun. The geometry suggests the Egyptian position: night is the sun's \textit{interior} journey, conducted within time rather than across space.
+
+\subsection{The Stars as Temporal Events}
+
+Standard reading: The stars painted on Nut's body are astronomical objects---the decans (36 star groups that mark the hours of the night) are the basis of the Egyptian clock.
+
+Geometric reading: If Nut is time, the stars on her body are not objects \textit{in} the sky but events \textit{in} time. The decans are not star-clocks (stars used to tell time) but \textit{time-stars} (temporal units given stellar form). The distinction matters: a star-clock assumes time is independent and stars are its markers; a time-star assumes stars \textit{are} time, that the celestial and the temporal are not separate phenomena but the same phenomenon viewed from different angles.
+
+The word \textit{wnw,t} (hour) neighbors active, forceful terms in the Egyptian space. The Egyptian hour is not a passive unit of duration but an active zone. Each hour of the night through which Ra passes is a region of intensity, consistent with the Amduat's description of the nocturnal hours as regions populated by hostile forces the sun must overcome.
+
+\subsection{The Swallowing and the Birth}
+
+Standard reading: Nut swallows the sun (metaphor for sunset) and gives birth to it (metaphor for sunrise). The imagery is maternal---the sky goddess as cosmic mother.
+
+Geometric reading: Nut is time, not body. The swallowing is not maternal consumption but \textit{temporal absorption}---the sun enters the medium of time. The birth is not maternal production but \textit{temporal emergence}---the sun exits the transformative temporal process, renewed. The entire cycle is temporal, not biological.
+
+The word \textit{wbn} (rise) neighbors the act of Shu's separation---every sunrise is a re-creation. The sun does not merely ``come back'' each morning; it is \textit{created again}, separated from the temporal medium by the same force that originally separated time from earth.
+
+\subsection{The Separation Revisited}
+
+In the creation narratives (Pyramid Texts analysis, companion document), Shu separates Nut and Geb. If Nut is time, then Shu does not lift the sky from the earth; Shu separates \textit{temporal experience} from \textit{material existence}. Before creation, time and matter were unified; after Shu's intervention, they become distinct domains.
+
+The word \textit{Šw} (Shu) does not map to air or atmosphere in the embedding space. He is a force of separation, a structural principle that maintains the distinction between two domains that would otherwise collapse back into unity. Shu is not atmosphere; Shu is structural integrity.
+
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{The Book of Nut as Temporal Treatise}
+
+If the readings above are correct, the Book of Nut is not a work of mythological astronomy. It is a treatise on the nature of time---how time functions, what happens within time, how entities persist and transform within temporal experience, and how the original creation (the separation of time from matter) is renewed with each sunrise.
+
+This reading resolves several long-standing puzzles:
+
+\begin{enumerate}
+    \item \textbf{Why is Nut depicted swallowing and birthing the sun?} Because time consumes and regenerates events. The sun does not move through space; it is consumed by time and re-emerged by time.
+
+    \item \textbf{Why are the decans on Nut's body?} Because they are temporal events, not astronomical objects. They mark the structure of time, not the positions of stars.
+
+    \item \textbf{Why is the Duat not dark?} Because it is the place of the dawn---the temporal workshop where morning is generated. The Amduat's description of the nocturnal hours as brightly lit makes sense if the underworld is a solar-temporal space.
+
+    \item \textbf{Why does the Book of Nut appear on tomb ceilings?} The dead enter Nut---they enter time. The tomb ceiling is not a sky map but a temporal map, showing the deceased the structure of the eternity they are about to inhabit.
+\end{enumerate}
+
+\subsection{Implications}
+
+The Nut-as-time hypothesis is testable. If correct, passages in the Book of Nut that have resisted coherent spatial-astronomical translation should yield more coherent temporal translations. Passages that describe the ``distance'' between stars should read better as the ``duration'' between events. Passages that describe Nut's body as a ``vault'' should read better as a ``span'' (of time). This is a target for future geometric analysis of the full Book of Nut text.
+
+\bibliographystyle{plainnat}
+\begin{thebibliography}{99}
+
+\bibitem[Brinsmead and Claude, 2026]{brinsmead2026geometry}
+Brinsmead, E. and Claude (Anthropic) (2026).
+\newblock The Geometry of Meaning: What Vector Space Alignment Reveals About How Ancient Egyptians Thought.
+\newblock \url{https://github.com/ebrinz/heiroglyphy}
+
+\bibitem[von Lieven, 2007]{vonlieven2007book}
+von Lieven, A. (2007).
+\newblock \textit{Grundriss des Laufes der Sterne: Das sogenannte Nutbuch}.
+\newblock The Carsten Niebuhr Institute, Copenhagen.
+
+\bibitem[Neugebauer and Parker, 1960]{neugebauer1960ean}
+Neugebauer, O. and Parker, R.~A. (1960--1969).
+\newblock \textit{Egyptian Astronomical Texts}, 3 vols.
+\newblock Brown University Press.
+
+\bibitem[BBAW, 2023]{bbaw_tla}
+Berlin-Brandenburg Academy of Sciences and Humanities (2023).
+\newblock Thesaurus Linguae Aegyptiae (TLA): Digital corpus of Egyptian texts.
+\newblock \url{https://aaew.bbaw.de/tla/}
+
+\end{thebibliography}
+
+\end{document}

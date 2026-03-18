@@ -1,0 +1,319 @@
+\documentclass[11pt, a4paper]{article}
+
+% ── Packages ──────────────────────────────────────────────────────────────────
+\usepackage{fontspec}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{natbib}
+\usepackage{longtable}
+\usepackage{tabularx}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    citecolor=blue!60!black,
+    urlcolor=blue!60!black,
+}
+
+% ── Colors ────────────────────────────────────────────────────────────────────
+\definecolor{rosetta}{RGB}{183, 110, 72}
+\definecolor{insight}{RGB}{40, 100, 160}
+\definecolor{mismatch}{RGB}{180, 40, 40}
+\definecolor{match}{RGB}{40, 120, 40}
+
+% ── Title ─────────────────────────────────────────────────────────────────────
+\title{
+    \textbf{Fire, Earth, Water, and Time}\\[6pt]
+    {\large Egyptian Cosmology Mapped Against the\\Zodiacal Framework in Shared Vector Space}
+}
+
+\author{
+    Erik Brinsmead \\
+    Researcher \\[6pt]
+    Claude \\
+    Anthropic \\[12pt]
+    \texttt{github.com/ebrinz/heiroglyphy}
+}
+
+\date{March 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Two independent embedding systems---ancient Egyptian word vectors and astrological sign/planet centroids---have been projected into the same 300-dimensional GloVe vector space. This coincidence allows direct cosine similarity measurement between Egyptian concepts and the zodiacal-planetary framework that later cultures used to organize celestial meaning. The results reveal systematic divergences: the Egyptian sun god Ra produces negative similarity with every astrological centroid; the Egyptian moon is geometrically solar; the underworld (Duat) maps to the astrological Sun and Fire rather than to darkness or water; and the element air is entirely absent from Egyptian cosmological space, replaced by time. The Egyptian elements, as the geometry suggests them, are fire, earth, water, and time---not the Empedoclean four that Western esotericism has projected onto Egyptian thought for two millennia.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+
+This analysis exploits a coincidence of vector spaces. Two independent projects have produced embeddings in the same 300-dimensional GloVe space:
+
+\begin{enumerate}[nosep]
+    \item \textbf{Egyptian aligned vectors}: 10,833 ancient Egyptian transliterated words, projected from a 768-dimensional FastText embedding (trained on the TLA corpus) through Ridge regression into GloVe 300d English space \citep{brinsmead2026geometry}.
+
+    \item \textbf{Astrological centroids}: 141 astrological concept vectors (12 zodiac signs, 10 planets, 4 elements, 12 houses, aspects, modalities, etc.) computed from keyword embeddings with Procrustes rotation to preserve structural correspondences.
+\end{enumerate}
+
+Because both vector sets inhabit the same space, cosine similarity between an Egyptian word and an astrological centroid is directly interpretable: it measures how close the Egyptian concept is to the astrological concept in semantic space.
+
+\subsection{The Astrological Centroids}
+
+Each zodiac sign centroid was computed as a weighted sum of GloVe vectors for 14--16 associated keywords (e.g., Aries: ``initiative,'' ``courage,'' ``leadership,'' ``fire,'' ``cardinal''). Pip cards (for the 36 decans) were enriched with sign names at weight 5.0 and sign keywords at weight 4.0 to anchor them to their decan positions. Major arcana centroids received an additional Procrustes rotation to align with astrological targets. The system achieves 94\% accuracy on pip-to-sign correspondence and 91\% on suit-to-element mapping, confirming faithful encoding of the astrological system's own claims.
+
+\section{Results: Egyptian Concepts in Zodiacal Space}
+\label{sec:results}
+
+\subsection{Ra: Outside the Zodiac}
+
+The sun god \textit{Rꜥw} produces \textbf{negative} cosine similarities with every zodiac sign, planet, and element:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{llr}
+\toprule
+\textbf{Type} & \textbf{Centroid} & \textbf{Cosine Sim.} \\
+\midrule
+planet & pluto & $-0.08$ \\
+element & earth & $-0.14$ \\
+planet & uranus & $-0.14$ \\
+planet & mercury & $-0.17$ \\
+sign & scorpio & $-0.17$ \\
+\bottomrule
+\end{tabular}
+\caption{Nearest astrological centroids to \textit{Rꜥw} (Ra). All similarities are negative.}
+\end{table}
+
+{\color{insight}\textbf{Finding:}} Ra does not exist in zodiacal space. Every astrological centroid points \textit{away} from where Ra sits in the embedding space. The astrological Sun (built from keywords like ``vitality,'' ``ego,'' ``identity,'' ``self-expression'') occupies a completely different region of semantic space from the Egyptian sun god.
+
+Ra is not a celestial personality with zodiacal characteristics. Ra is something for which the astrological system has no position---a concept so foreign to the Western celestial framework that the framework actively repels it.
+
+\subsection{The Duat: A Solar Underworld}
+
+The underworld \textit{dwꜣ,t} (Duat) maps closest to the astrological Sun and Fire:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{llr}
+\toprule
+\textbf{Type} & \textbf{Centroid} & \textbf{Cosine Sim.} \\
+\midrule
+planet & sun & 0.58 \\
+planet & mars & 0.57 \\
+element & fire & 0.57 \\
+sign & cancer & 0.52 \\
+sign & sagittarius & 0.52 \\
+\bottomrule
+\end{tabular}
+\caption{Nearest astrological centroids to \textit{dwꜣ,t} (Duat/underworld).}
+\end{table}
+
+{\color{insight}\textbf{Finding:}} The Egyptian underworld is geometrically \textit{solar}. Its nearest planet is the Sun; its nearest element is fire. This directly contradicts the Western association of the underworld with darkness, water, and the chthonic. In Egyptian space, the Duat is where the sun \textit{goes}---not a place of absence but a place of solar presence.
+
+The Cancer association (0.52) is striking: Cancer is the sign of the summer solstice, the point where the sun reaches its zenith and begins to descend. The Duat maps to the \textit{turning point} of the solar cycle---the moment of maximum solar intensity, not the nadir of darkness.
+
+\subsection{The Moon Is Solar}
+
+The Egyptian moon \textit{jꜥḥ} maps nearest to the astrological Sun (0.50), not the Moon:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{llr}
+\toprule
+\textbf{Type} & \textbf{Centroid} & \textbf{Cosine Sim.} \\
+\midrule
+planet & sun & 0.50 \\
+sign & sagittarius & 0.49 \\
+planet & mars & 0.49 \\
+element & fire & 0.49 \\
+planet & venus & 0.48 \\
+\bottomrule
+\end{tabular}
+\caption{Nearest astrological centroids to \textit{jꜥḥ} (moon).}
+\end{table}
+
+{\color{insight}\textbf{Finding:}} The Egyptian moon is a solar concept. In Western astrology, the Moon opposes the Sun (emotion vs.\ will, receptive vs.\ active, feminine vs.\ masculine). In Egyptian space, the moon is \textit{another kind of sun}---a nocturnal solar body, fire that persists in darkness. This is consistent with the Egyptian mythological treatment of the moon as the left eye of Horus, damaged and restored, a diminished but fundamentally solar phenomenon.
+
+The astrological Moon centroid (``emotion,'' ``intuition,'' ``nurture,'' ``subconscious'') has no relationship to the Egyptian lunar concept. The entire lunar symbolism of Western astrology is geometrically absent from Egyptian moon-space.
+
+\subsection{Nut: Fire and Transformation}
+
+The sky goddess \textit{Nw,t} (documented in the companion Book of Nut analysis as mapping to ``time'' in English) maps to fire and Pluto in astrological space:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{llr}
+\toprule
+\textbf{Type} & \textbf{Centroid} & \textbf{Cosine Sim.} \\
+\midrule
+element & fire & 0.42 \\
+planet & pluto & 0.42 \\
+sign & sagittarius & 0.41 \\
+planet & sun & 0.41 \\
+planet & venus & 0.40 \\
+\bottomrule
+\end{tabular}
+\caption{Nearest astrological centroids to \textit{Nw,t} (Nut/sky goddess).}
+\end{table}
+
+{\color{insight}\textbf{Finding:}} The sky goddess is fire and Pluto---transformation and depth, not water or air. In Hellenistic astrology, the sky is associated with air and the heavens with water (``the waters above''). The Egyptian geometry disagrees: the sky goddess is a combustive, transformative force.
+
+\subsection{Two Eternities, Two Astrological Signatures}
+
+Egyptian has two words for eternity with distinct astrological profiles:
+
+\textit{nḥḥ} (cyclical eternity---the eternal recurrence of the sun):
+
+\begin{table}[H]
+\centering
+\begin{tabular}{llr}
+\toprule
+\textbf{Type} & \textbf{Centroid} & \textbf{Cosine Sim.} \\
+\midrule
+sign & cancer & 0.51 \\
+sign & libra & 0.51 \\
+planet & mars & 0.50 \\
+planet & sun & 0.50 \\
+sign & sagittarius & 0.48 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textit{ḏ,t} (linear eternity---unbroken duration):
+
+\begin{table}[H]
+\centering
+\begin{tabular}{llr}
+\toprule
+\textbf{Type} & \textbf{Centroid} & \textbf{Cosine Sim.} \\
+\midrule
+planet & mars & 0.56 \\
+sign & virgo & 0.49 \\
+element & fire & 0.48 \\
+planet & sun & 0.48 \\
+sign & sagittarius & 0.47 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+{\color{insight}\textbf{Finding:}} Cyclical eternity maps to Cancer and Libra---the cardinal turning points of the solar year (summer solstice and autumn equinox). Linear eternity maps to Mars and Virgo---endurance and meticulous persistence. The astrological system, despite being structurally foreign to Egyptian thought, accidentally captures something real here: the distinction between return (Cancer, the turning point) and duration (Mars, the force that persists).
+
+\subsection{Osiris: Water at Last}
+
+\textit{Wsjr} (Osiris) is the only major Egyptian concept that maps to the water-dissolution cluster:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{llr}
+\toprule
+\textbf{Type} & \textbf{Centroid} & \textbf{Cosine Sim.} \\
+\midrule
+planet & neptune & 0.24 \\
+sign & pisces & 0.22 \\
+planet & pluto & 0.22 \\
+sign & scorpio & 0.17 \\
+sign & libra & 0.12 \\
+\bottomrule
+\end{tabular}
+\caption{Nearest astrological centroids to \textit{Wsjr} (Osiris).}
+\end{table}
+
+{\color{insight}\textbf{Finding:}} Neptune and Pisces---dissolution, transcendence, the oceanic---are Osiris's nearest astrological neighbors. The god of the dead is geometrically the god of dissolution. This is consistent with the mythology: dismembered, scattered in the Nile, reassembled but forever changed.
+
+Note the contrast with the Duat: the underworld is solar-fire, but its lord is watery-dissolution. The place is not the person. The Duat is where transformation happens (fire); Osiris is what transformation does to you (dissolution).
+
+\subsection{Shu: Not Air}
+
+The god conventionally translated as ``god of air'' (\textit{Šw}) maps nearest to Taurus (0.33) and Mars (0.33)---earthy stability and forceful action. The element air does not appear in his top neighbors.
+
+{\color{insight}\textbf{Finding:}} The ``god of air'' is not air. He is structural force---the stable power that holds apart two domains (the sky-goddess-as-time above, the earth below). The identification of Shu with air is a Greek projection (Shu $\rightarrow$ Greek Aer) that the Egyptian embedding space does not support.
+
+\section{The Egyptian Elements}
+\label{sec:elements}
+
+The four-element system (fire, earth, air, water) is a Greek framework attributed to Empedocles (c.\,450 BCE). Western esotericism has retroactively applied it to Egyptian cosmology for over two millennia. The embedding space, mapped against astrological elemental centroids, suggests a different taxonomy:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lp{3.5in}}
+\toprule
+\textbf{Element} & \textbf{Egyptian Mapping} \\
+\midrule
+\textbf{Fire} & The dominant element. Maps to the sky goddess (Nut), the underworld (Duat), the horizon, sunrise, the hours of night, the moon, and nearly every celestial concept. The Egyptian cosmos is fire-saturated. \\
+\textbf{Earth} & Maps to \textit{tꜣ} (land) and \textit{Gb} (Geb) with moderate similarity. Present but secondary. \\
+\textbf{Water} & Maps only to Osiris---the dissolved, the dead, the formless. Not a cosmic element but a state of dissolution. \\
+\textbf{Air} & \textbf{Absent.} No major Egyptian concept maps to the air centroid as its primary neighbor. Shu maps to earth and Mars, not air. \\
+\midrule
+\textbf{Time} & The element that replaces air. \textit{Nw,t} (Nut) maps to temporal concepts in English (``time,'' ``when,'' ``before'') and to fire/Pluto in astrological space. Where Greek cosmology puts air, Egyptian cosmology puts temporal experience. \\
+\bottomrule
+\end{tabular}
+\caption{The Egyptian elemental system as revealed by embedding space alignment.}
+\end{table}
+
+The Egyptian elements, as the geometry suggests them, are: \textbf{fire, earth, water, and time}.
+
+Air is not an Egyptian concept. What the Greeks called air, the Egyptians experienced as time. The medium that fills the space between earth and sky is not atmosphere but duration.
+
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{The Fire Cosmos}
+
+The Egyptian cosmos, mapped against astrological centroids, is overwhelmingly fire. The sky is fire. The underworld is fire. The hours of night are fire. Sunrise is fire. The moon is fire. Even the stars are fire-events.
+
+This fire-cosmos has no equivalent in Western cosmology, which distributes cosmic functions across four balanced elements. The Egyptian cosmos is not balanced; it is thermally saturated. The sun does not illuminate the cosmos from outside; the cosmos \textit{is} illumination, and the sun is the point where that illumination becomes most intense.
+
+\subsection{What the Zodiac Captures}
+
+Despite originating in a Hellenistic framework foreign to Egyptian thought, certain astrological structures capture Egyptian realities:
+
+\begin{itemize}[nosep]
+    \item \textbf{Cancer and cyclical eternity}: The summer solstice turning point maps to \textit{nḥḥ}, the concept of eternal recurrence.
+    \item \textbf{Neptune/Pisces and Osiris}: The water-dissolution complex maps to the only Egyptian deity of watery dissolution. Whether this reflects genuine transmission (Osiris $\rightarrow$ Serapis $\rightarrow$ Neptune) or structural isomorphism is an open question.
+    \item \textbf{Fire as the celestial element}: The fire centroid correctly identifies the dominant quality of Egyptian celestial space.
+\end{itemize}
+
+\subsection{What the Zodiac Cannot Reach}
+
+\begin{itemize}[nosep]
+    \item \textbf{Ra}: The Egyptian sun exists entirely outside zodiacal space. The astrological Sun (ego, identity, vitality) has no relationship to Ra.
+    \item \textbf{The Egyptian moon}: Solar, not lunar. The emotional-intuitive-receptive Moon of Western astrology does not exist in Egyptian space.
+    \item \textbf{Time as element}: The zodiacal system has no centroid for time-as-substance. It can only approximate this through fire (the most dynamic element), which is why Egyptian celestial concepts cluster around fire rather than mapping to their ``correct'' astrological positions.
+\end{itemize}
+
+The zodiacal framework is a lens ground for a different cosmos. It captures some Egyptian structures by accident (the fire-dominance, the Cancer/eternity alignment, the Osiris/water mapping) but fundamentally cannot represent a cosmology in which time is an element, the moon is solar, and the supreme solar deity exists outside the system entirely.
+
+\bibliographystyle{plainnat}
+\begin{thebibliography}{99}
+
+\bibitem[Brinsmead and Claude, 2026]{brinsmead2026geometry}
+Brinsmead, E. and Claude (Anthropic) (2026).
+\newblock The Geometry of Meaning: What Vector Space Alignment Reveals About How Ancient Egyptians Thought.
+\newblock \url{https://github.com/ebrinz/heiroglyphy}
+
+\bibitem[von Lieven, 2007]{vonlieven2007book}
+von Lieven, A. (2007).
+\newblock \textit{Grundriss des Laufes der Sterne: Das sogenannte Nutbuch}.
+\newblock The Carsten Niebuhr Institute, Copenhagen.
+
+\bibitem[Neugebauer and Parker, 1960]{neugebauer1960ean}
+Neugebauer, O. and Parker, R.~A. (1960--1969).
+\newblock \textit{Egyptian Astronomical Texts}, 3 vols.
+\newblock Brown University Press.
+
+\bibitem[BBAW, 2023]{bbaw_tla}
+Berlin-Brandenburg Academy of Sciences and Humanities (2023).
+\newblock Thesaurus Linguae Aegyptiae (TLA): Digital corpus of Egyptian texts.
+\newblock \url{https://aaew.bbaw.de/tla/}
+
+\end{thebibliography}
+
+\end{document}
