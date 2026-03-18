@@ -1,0 +1,25 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Method}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}The Test}{2}{subsection.1.2}%
+\contentsline {section}{\numberline {2}The Tarot Centroid Construction}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Weighted Keyword Enrichment}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Procrustes Alignment}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Validation}{3}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Results: The 22 Major Arcana}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Cards Where the Geometry Exposes Projection}{4}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Justice: The Missing Mꜣꜥ,t}{4}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Death: The Missing Silence}{4}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}The Tower: The Enemy Gate}{4}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.4}The Devil: Time, Not Evil}{5}{subsubsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.2}Cards Where the Geometry Partially Aligns}{5}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}The Hierophant: The Correct God, the Wrong Priest}{5}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}The Empress: Love and the King's Daughter}{5}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}The Sun: Eternity Correctly Mapped}{6}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}The World: Time Accurately Found}{6}{subsubsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.3}The Undifferentiated Numinous}{6}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Discussion}{7}{section.4}%
+\contentsline {subsection}{\numberline {4.1}The Pattern of Misalignment}{7}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}The Pattern of Alignment}{7}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}What the Golden Dawn Actually Built}{7}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}The Robes Were Real; the Egypt Was Not}{8}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Summary of Alignments}{8}{section.5}%

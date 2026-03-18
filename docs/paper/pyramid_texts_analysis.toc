@@ -1,0 +1,30 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Method}{2}{subsection.1.1}%
+\contentsline {section}{\numberline {2}The Cannibal Hymn}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}The Text}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}What the Geometry Says}{3}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Eating Is Eating}{3}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Magic as Substance}{3}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}The Ka Problem}{3}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}The Ennead as Number}{3}{subsubsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.3}Summary: The Cannibal Hymn}{4}{subsection.2.3}%
+\contentsline {section}{\numberline {3}The Shabaka Stone}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}The Text}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}What the Geometry Says}{4}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Heart as Heart}{4}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Tongue as Flame}{4}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Hu and Sia: Utterance as Conjunction}{5}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Creation and Becoming: The Same Cluster}{5}{subsubsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.3}Summary: The Shabaka Stone}{5}{subsection.3.3}%
+\contentsline {section}{\numberline {4}The Creation Narratives}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}The Texts}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}What the Geometry Says}{6}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Nut Is Time}{6}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Nun as Container}{6}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}The Benben and the Sky}{6}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Atum as Totality}{6}{subsubsection.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.5}The Simultaneity Problem}{6}{subsubsection.4.2.5}%
+\contentsline {subsection}{\numberline {4.3}Summary: The Creation Narratives}{7}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Discussion}{7}{section.5}%
+\contentsline {subsection}{\numberline {5.1}What Was Lost in Translation}{7}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}The Nut-as-Time Hypothesis}{7}{subsection.5.2}%

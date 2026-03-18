@@ -1,0 +1,15 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}The Astrological Centroids}{2}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Results: Egyptian Concepts in Zodiacal Space}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Ra: Outside the Zodiac}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}The Duat: A Solar Underworld}{2}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}The Moon Is Solar}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Nut: Fire and Transformation}{3}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Two Eternities, Two Astrological Signatures}{4}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Osiris: Water at Last}{4}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Shu: Not Air}{5}{subsection.2.7}%
+\contentsline {section}{\numberline {3}The Egyptian Elements}{5}{section.3}%
+\contentsline {section}{\numberline {4}Discussion}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}The Fire Cosmos}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}What the Zodiac Captures}{6}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}What the Zodiac Cannot Reach}{7}{subsection.4.3}%

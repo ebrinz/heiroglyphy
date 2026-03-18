@@ -1,0 +1,15 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Method}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Reading This Document}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Source Text}{2}{subsection.1.3}%
+\contentsline {section}{\numberline {2}The Entrance to the Hall of Two Truths}{2}{section.2}%
+\contentsline {section}{\numberline {3}The Negative Confessions}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}The Confessions}{4}{subsection.3.1}%
+\contentsline {section}{\numberline {4}The Address to the Heart}{13}{section.4}%
+\contentsline {section}{\numberline {5}The Declaration of Innocence Before Osiris}{14}{section.5}%
+\contentsline {section}{\numberline {6}Commentary}{15}{section.6}%
+\contentsline {subsection}{\numberline {6.1}The Moral and the Cosmic}{15}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}The Heart as Instrument of Becoming}{15}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Death as Passage}{16}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Connections to the Embedding Space}{16}{subsection.6.4}%
+\contentsline {section}{\numberline {A}Glyph Index}{16}{appendix.A}%

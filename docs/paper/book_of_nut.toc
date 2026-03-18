@@ -1,0 +1,24 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Method}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}How to Read the Line-by-Line Analysis}{2}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Line-by-Line Analysis}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Passage 1: The Figure of Nut}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Passage 2: The Sun Enters Nut's Mouth}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Passage 3: The Hours of Night}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Passage 4: The Duat}{4}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Passage 5: The Horizon}{4}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Passage 6: Birth at Dawn}{5}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Passage 7: Shu Supports Nut}{5}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Passage 8: The Stars}{5}{subsection.2.8}%
+\contentsline {subsection}{\numberline {2.9}Passage 9: The Stars Enter and Exit}{6}{subsection.2.9}%
+\contentsline {subsection}{\numberline {2.10}Passage 10: The Two Eternities}{6}{subsection.2.10}%
+\contentsline {subsection}{\numberline {2.11}Passage 11: Life and the Living}{7}{subsection.2.11}%
+\contentsline {section}{\numberline {3}General Analysis}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Nut Is Time, Not Sky}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}The Duat as Dawn-Workshop}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Night as Temporal Position}{7}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Sunrise as Re-Creation}{8}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}The Horizon as Threshold of Power}{8}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Discussion}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}The Book of Nut as Temporal Treatise}{8}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Implications}{8}{subsection.4.2}%
