@@ -26,6 +26,14 @@
 \definecolor{insight}{RGB}{40, 100, 160}
 \definecolor{passage}{RGB}{100, 60, 20}
 
+% ── Hieroglyphic font ────────────────────────────────────────────────────────
+\newfontfamily\hierofont{EgyptianHiero}[
+    Path=../../final_output/,
+    Extension=.ttf,
+]
+\newcommand{\hiero}[1]{{\normalfont\hierofont #1}}
+\newcommand{\passagehiero}[1]{{\normalfont\hierofont\fontsize{14}{17}\selectfont #1}}
+
 % ── Title ─────────────────────────────────────────────────────────────────────
 \title{
     \textbf{The Geometry of Genesis}\\[6pt]
@@ -76,7 +84,7 @@ Each Egyptian word in the key passages was looked up in the V15 aligned embeddin
 Each passage is presented in three layers:
 
 \begin{enumerate}
-    \item {\color{passage}\textbf{The Egyptian passage}} in transliteration, with the standard English translation.
+    \item {\color{passage}\textbf{The Egyptian passage}} in hieroglyphic script with transliteration, and the standard English translation.
     \item \textbf{Word-level geometry}: Key words are looked up in the embedding space. English neighbors (what the word maps to in GloVe space) and Egyptian neighbors (what the word clusters with in the native vocabulary) are reported with cosine similarity scores.
     \item {\color{insight}\textbf{Geometric reading}}: What the passage says when the embedding-space meanings replace the conventional translations.
 \end{enumerate}
@@ -90,7 +98,8 @@ Coffin Texts Spell 80 (Middle Kingdom, c.\,2000 BCE) is one of the earliest exte
 
 \subsection{Passage 1: Before Creation}
 
-{\color{passage}\textit{``nn p,t nn tꜣ nn wnn rmṯ''}\\
+{\color{passage}\passagehiero{𓈖𓈖 𓇯𓏏 𓈖𓈖 𓇾 𓈖𓈖 𓃹𓈖𓈖 𓂋𓅓𓏏𓀀𓏥}\\\medskip
+\textit{\small nn p,t nn tꜣ nn wnn rmṯ}\\
 Standard translation: ``The sky did not exist, the earth did not exist, people did not yet exist.''}
 
 \bigskip
@@ -122,7 +131,8 @@ Egyptian neighbors: \textit{wnn.yw} (those-who-exist, 0.93), \textit{sḫpr.yw} 
 
 \subsection{Passage 2: Atum in Nun}
 
-{\color{passage}\textit{``wnn≡j m Nwn m nn,w''}\\
+{\color{passage}\passagehiero{𓃹𓈖𓈖𓇋 𓅓 𓈖𓅱𓈖𓈗 𓅓 𓈖𓈖𓅱}\\\medskip
+\textit{\small wnn≡j m Nwn m nn,w}\\
 Standard translation: ``I was in Nun, in weariness/inertness.''}
 
 \bigskip
@@ -137,7 +147,8 @@ Egyptian neighbors: \textit{dwn} (0.91), \textit{={n}n} (0.91)
 
 \subsection{Passage 3: The Sneezing / Spitting}
 
-{\color{passage}\textit{``jšš≡j m Šw tf≡j m Tfn,t''}\\
+{\color{passage}\passagehiero{𓇋𓈙𓈙𓇋 𓅓 𓆄𓅱 𓏏𓆑𓇋 𓅓 𓏏𓆑𓈖𓏏}\\\medskip
+\textit{\small jšš≡j m Šw tf≡j m Tfn,t}\\
 Standard translation: ``I sneezed out Shu, I spat out Tefnut.''}
 
 \bigskip
@@ -170,7 +181,8 @@ Egyptian neighbors: \textit{Tfn,wt} (variant, 0.81), \textit{Djfn,t} (0.81), \te
 
 \subsection{Passage 4: Heka Precedes Creation}
 
-{\color{passage}\textit{``ḥkꜣ pw ḥnꜥ≡j''}\\
+{\color{passage}\passagehiero{𓎛𓎡𓄿 𓊪𓅱 𓎛𓈖𓂝𓇋}\\\medskip
+\textit{\small ḥkꜣ pw ḥnꜥ≡j}\\
 Standard translation: ``Magic (Heka) was with me.''}
 
 \bigskip
@@ -185,7 +197,8 @@ Egyptian neighbors: \textit{ḥkꜣ,w} (plural/collective, 0.75), \textit{wr,t-�
 
 \subsection{Passage 5: The Millions}
 
-{\color{passage}\textit{``ḥḥ,w m ḫpr,w≡j''}\\
+{\color{passage}\passagehiero{𓁨𓏥 𓅓 𓆣𓂋𓅱𓏥𓇋}\\\medskip
+\textit{\small ḥḥ,w m ḫpr,w≡j}\\
 Standard translation: ``Millions are in my forms/manifestations.''}
 
 \bigskip
@@ -212,7 +225,8 @@ Coffin Texts Spell 335 (later incorporated as Book of the Dead Spell 17) is uniq
 
 \subsection{Passage 1: The Self-Created One}
 
-{\color{passage}\textit{``Ḏd-mdw jnk Jtm ḫpr ḏs≡f''}\\
+{\color{passage}\passagehiero{𓆓𓌃 𓇋𓈖𓎡 𓇋𓏏𓅓𓁛 𓆣𓂋 𓆓𓋴𓆑}\\\medskip
+\textit{\small Ḏd-mdw jnk Jtm ḫpr ḏs≡f}\\
 Standard translation: ``Words spoken: I am Atum who came into being of himself.''}
 
 \bigskip
@@ -233,7 +247,8 @@ Egyptian neighbors: \textit{ḫpr.pl} (becomings, 0.94), \textit{sḫpr} (cause-
 
 \subsection{Passage 2: The First Occasion}
 
-{\color{passage}\textit{``m zp-tp,j''}\\
+{\color{passage}\passagehiero{𓅓 𓊃𓊪𓁶𓏤𓇋}\\\medskip
+\textit{\small m zp-tp,j}\\
 Standard translation: ``On the First Occasion.''}
 
 \bigskip
@@ -248,7 +263,8 @@ Egyptian neighbors: \textit{sp-tp,j} (variant, 0.95), \textit{tp,j.w-ꜥ} (ances
 
 \subsection{Passage 3: The Gloss --- Who Is This?}
 
-{\color{passage}\textit{``Jtm pw --- Rꜥ pw m ḫꜥ≡f m zp-tp,j m ḥq,ꜣ m Wnw''}\\
+{\color{passage}\passagehiero{𓇋𓏏𓅓𓁛 𓊪𓅱 --- 𓇳𓏤 𓊪𓅱 𓅓 𓆼𓂝𓆑 𓅓 𓊃𓊪𓁶𓏤𓇋 𓅓 𓋾𓈎𓄿 𓅓 𓃹𓈖𓏌}\\\medskip
+\textit{\small Jtm pw --- Rꜥ pw m ḫꜥ≡f m zp-tp,j m ḥq,ꜣ m Wnw}\\
 Standard translation: ``It is Atum --- It is Ra when he appeared for the First Occasion as ruler in Hermopolis.''}
 
 The text here does something extraordinary: it identifies Atum with Ra, then specifies the context. This is the Egyptian self-gloss in action.
@@ -265,7 +281,8 @@ Egyptian neighbors: \textit{Rꜥ,w} (0.64), \textit{mwt} (death/passage, 0.53)
 
 \subsection{Passage 4: The Gloss --- What Is the First Occasion?}
 
-{\color{passage}\textit{``zp-tp,j pw --- Nwn pw''}\\
+{\color{passage}\passagehiero{𓊃𓊪𓁶𓏤𓇋 𓊪𓅱 --- 𓈖𓅱𓈖𓈗 𓊪𓅱}\\\medskip
+\textit{\small zp-tp,j pw --- Nwn pw}\\
 Standard translation: ``The First Occasion --- it is Nun.''}
 
 \bigskip
@@ -279,7 +296,8 @@ English neighbors: ``so'' (0.79), ``what'' (0.78), ``it'' (0.78), ``but'' (0.77)
 
 \subsection{Passage 5: Osiris and Eternity}
 
-{\color{passage}\textit{``Wsjr pw --- ḏ,t pw nḥḥ pw''}\\
+{\color{passage}\passagehiero{𓊨𓁹𓀭 𓊪𓅱 --- 𓆓𓏏 𓊪𓅱 𓎛𓇳𓎛 𓊪𓅱}\\\medskip
+\textit{\small Wsjr pw --- ḏ,t pw nḥḥ pw}\\
 Standard translation: ``It is Osiris --- it is linear eternity, it is cyclical eternity.''}
 
 \bigskip
@@ -306,7 +324,8 @@ Egyptian neighbors: \textit{ḥw} (divine utterance, 0.96), \textit{ḏ,t} (line
 
 \subsection{Passage 6: The Ba and the Akh}
 
-{\color{passage}\textit{``bꜣ pw --- ꜣḫ pw''}\\
+{\color{passage}\passagehiero{𓅡𓏲 𓊪𓅱 --- 𓅜𓇋𓏭 𓊪𓅱}\\\medskip
+\textit{\small bꜣ pw --- ꜣḫ pw}\\
 Standard translation: ``It is the Ba (soul) --- it is the Akh (spirit).''}
 
 \bigskip
@@ -334,7 +353,8 @@ The Great Hymn to the Aten, carved in the tomb of Ay at Amarna (c.\,1350 BCE), i
 
 \subsection{Passage 1: Rising in the Horizon}
 
-{\color{passage}\textit{``wbn≡k nfr m ꜣḫ,t n,t p,t --- jtn ꜥnḫ''}\\
+{\color{passage}\passagehiero{𓅱𓃀𓈖𓇳𓎡 𓄤 𓅓 𓈌𓏏𓉐 𓈖𓏏 𓇯𓏏 --- 𓇋𓏏𓈖𓇳 𓋹}\\\medskip
+\textit{\small wbn≡k nfr m ꜣḫ,t n,t p,t --- jtn ꜥnḫ}\\
 Standard translation: ``You rise beautifully in the horizon of the sky --- O living Aten.''}
 
 \bigskip
@@ -367,7 +387,8 @@ Egyptian neighbors: \textit{ḏ} (eternity/duration, 0.88), \textit{ꜥnḫw} (t
 
 \subsection{Passage 2: When You Set}
 
-{\color{passage}\textit{``ḥtp≡k m ꜣḫ,t n,t p,t --- tꜣ m kkw m snn n mwt''}\\
+{\color{passage}\passagehiero{𓊵𓏏𓂡𓎡 𓅓 𓈌𓏏𓉐 𓈖𓏏 𓇯𓏏 --- 𓇾 𓅓 𓎡𓎡𓇰 𓅓 𓊃𓈖𓈖 𓈖 𓅐𓏏}\\\medskip
+\textit{\small ḥtp≡k m ꜣḫ,t n,t p,t --- tꜣ m kkw m snn n mwt}\\
 Standard translation: ``When you set in the horizon of the sky --- the land is in darkness, in the likeness of death.''}
 
 \bigskip
@@ -394,7 +415,8 @@ Egyptian neighbors: \textit{tꜣw} (lands, 0.52), \textit{tꜣš} (boundary, 0.4
 
 \subsection{Passage 3: The Egg and Breath}
 
-{\color{passage}\textit{``swḥ,t --- dj≡k ṯꜣw r sꜥnḫ jr,t.n≡k nb,t''}\\
+{\color{passage}\passagehiero{𓋴𓅱𓎛𓏏𓆇 --- 𓂧𓇋𓎡 𓊡𓅱 𓂋 𓋴𓋹 𓁹𓏏𓈖𓎡 𓎟𓏏}\\\medskip
+\textit{\small swḥ,t --- dj≡k ṯꜣw r sꜥnḫ jr,t.n≡k nb,t}\\
 Standard translation: ``The egg --- you give breath to sustain all that you have made.''}
 
 \bigskip
@@ -421,7 +443,8 @@ Egyptian neighbors: \textit{ḏ} (eternity, 0.88)
 
 \subsection{Passage 4: The Foreign Lands}
 
-{\color{passage}\textit{``tꜣ.w nb.w ḫꜣs,wt nb,t --- qmꜣ.n≡k ꜥnḫ≡sn''}\\
+{\color{passage}\passagehiero{𓇾𓇾𓇾 𓎟𓅱 𓈉𓏏𓏥 𓎟𓏏 --- 𓌙𓅓𓄿𓈖𓎡 𓋹𓊃𓈖}\\\medskip
+\textit{\small tꜣ.w nb.w ḫꜣs,wt nb,t --- qmꜣ.n≡k ꜥnḫ≡sn}\\
 Standard translation: ``All lands, all foreign countries --- you have created their life.''}
 
 \bigskip
@@ -436,7 +459,8 @@ Egyptian neighbors: \textit{ḫpr.pl} (becomings, 0.93), \textit{sḫpr} (cause-
 
 \subsection{Passage 5: You Are Alone}
 
-{\color{passage}\textit{``jtn ꜥnḫ nn k,j ḫr≡k''}\\
+{\color{passage}\passagehiero{𓇋𓏏𓈖𓇳 𓋹 𓈖𓈖 𓎡𓇋 𓐍𓂋𓎡}\\\medskip
+\textit{\small jtn ꜥnḫ nn k,j ḫr≡k}\\
 Standard translation: ``O living Aten, there is no other beside you.''}
 
 \bigskip
@@ -455,7 +479,8 @@ English neighbors: ``aton'' (0.56), ``god'' (0.44), ``good'' (0.42), ``always'' 
 
 \subsection{Passage 6: The Eye and Humanity}
 
-{\color{passage}\textit{``jr,t≡k --- rmṯ ḫpr''}\\
+{\color{passage}\passagehiero{𓁹𓏏𓎡 --- 𓂋𓅓𓏏𓀀𓏥 𓆣𓂋}\\\medskip
+\textit{\small jr,t≡k --- rmṯ ḫpr}\\
 Standard translation: ``Your eye --- humankind came into being.''}
 
 The Hymn connects the Aten's eye with the origin of humanity. This passage echoes a famous Egyptian wordplay: \textit{rmṯ} (people) from \textit{rm,j} (tears) of the creator's eye.
@@ -485,7 +510,8 @@ The Bremner-Rhind Papyrus (British Museum EA 10188, Ptolemaic period, c.\,300 BC
 
 \subsection{Passage 1: I Became}
 
-{\color{passage}\textit{``ḫpr≡j m ḫpr --- ḫpr.kwj ḫpr ḫpr,w ḫpr nb ḫpr m-ḫt ḫpr≡j''}\\
+{\color{passage}\passagehiero{𓆣𓂋𓇋 𓅓 𓆣𓂋 --- 𓆣𓂋 𓆣𓂋 𓆣𓂋𓅱𓏥 𓆣𓂋 𓎟 𓆣𓂋 𓅓𓐍𓏏 𓆣𓂋𓇋}\\\medskip
+\textit{\small ḫpr≡j m ḫpr --- ḫpr.kwj ḫpr ḫpr,w ḫpr nb ḫpr m-ḫt ḫpr≡j}\\
 Standard translation: ``I became as a becoming --- when I had become, becoming became, all becomings became after I became.''}
 
 \bigskip
@@ -506,7 +532,8 @@ Egyptian neighbors: \textit{ḫprr} (scarab, 0.84), \textit{jri̯.t-ḫpr,w} (ma
 
 \subsection{Passage 2: Planning in the Heart}
 
-{\color{passage}\textit{``sḫpr≡j m jb≡j --- qmꜣ.n≡j ḫpr,w≡j nb''}\\
+{\color{passage}\passagehiero{𓋴𓆣𓂋𓇋 𓅓 𓄣𓏤𓇋 --- 𓌙𓅓𓄿𓈖𓇋 𓆣𓂋𓅱𓏥𓇋 𓎟}\\\medskip
+\textit{\small sḫpr≡j m jb≡j --- qmꜣ.n≡j ḫpr,w≡j nb}\\
 Standard translation: ``I planned in my heart --- I created all my forms.''}
 
 \bigskip
@@ -533,7 +560,8 @@ Egyptian neighbors: \textit{ḫpr.pl} (becomings, 0.93)
 
 \subsection{Passage 3: Alone in Nun}
 
-{\color{passage}\textit{``wꜥ.kwj wnn.kwj m Nwn --- nn gm.n≡j s,t ꜥḥꜥ≡j jm''}\\
+{\color{passage}\passagehiero{𓌡𓂝𓏤 𓃹𓈖𓈖 𓅓 𓈖𓅱𓈖𓈗 --- 𓈖𓈖 𓅠𓅓𓈖𓇋 𓊨𓏏 𓂝𓎛𓂝𓇋 𓇋𓅓}\\\medskip
+\textit{\small wꜥ.kwj wnn.kwj m Nwn --- nn gm.n≡j s,t ꜥḥꜥ≡j jm}\\
 Standard translation: ``I was alone, being in Nun --- I found no place on which I could stand.''}
 
 \bigskip
@@ -552,7 +580,8 @@ English neighbors: ``not'' (0.94)
 
 \subsection{Passage 4: The Eye Creates Humanity}
 
-{\color{passage}\textit{``jr,t≡j sḫpr rmṯ --- rm,j pr m jr,t≡j ḫpr m rmṯ''}\\
+{\color{passage}\passagehiero{𓁹𓏏𓇋 𓋴𓆣𓂋 𓂋𓅓𓏏𓀀𓏥 --- 𓂋𓅓𓇋𓀁 𓉐𓏤 𓅓 𓁹𓏏𓇋 𓆣𓂋 𓅓 𓂋𓅓𓏏𓀀𓏥}\\\medskip
+\textit{\small jr,t≡j sḫpr rmṯ --- rm,j pr m jr,t≡j ḫpr m rmṯ}\\
 Standard translation: ``My eye created humanity --- the tears that came from my eye became people.''}
 
 \bigskip
@@ -577,7 +606,8 @@ English neighbors: ``the'' (0.98)
 
 \subsection{Passage 5: Shu, Tefnut, and Maat}
 
-{\color{passage}\textit{``Šw ḥnꜥ Tfn,t --- sḫpr≡sn Mꜣꜥ,t''}\\
+{\color{passage}\passagehiero{𓆄𓅱 𓎛𓈖𓂝 𓏏𓆑𓈖𓏏 --- 𓋴𓆣𓂋𓊃𓈖 𓆄𓏏}\\\medskip
+\textit{\small Šw ḥnꜥ Tfn,t --- sḫpr≡sn Mꜣꜥ,t}\\
 Standard translation: ``Shu together with Tefnut --- they produced Maat.''}
 
 \bigskip

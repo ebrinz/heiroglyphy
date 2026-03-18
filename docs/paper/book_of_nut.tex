@@ -26,6 +26,14 @@
 \definecolor{insight}{RGB}{40, 100, 160}
 \definecolor{passage}{RGB}{100, 60, 20}
 
+% ── Hieroglyphic font ────────────────────────────────────────────────────────
+\newfontfamily\hierofont{EgyptianHiero}[
+    Path=../../final_output/,
+    Extension=.ttf,
+]
+\newcommand{\hiero}[1]{{\normalfont\hierofont #1}}
+\newcommand{\passagehiero}[1]{{\normalfont\hierofont\fontsize{14}{17}\selectfont #1}}
+
 % ── Title ─────────────────────────────────────────────────────────────────────
 \title{
     \textbf{The Geometry of Nut}\\[6pt]
@@ -67,7 +75,7 @@ Each Egyptian word in the key passages was looked up in the V15 aligned embeddin
 Each passage is presented in three layers:
 
 \begin{enumerate}
-    \item {\color{passage}\textbf{The Egyptian passage}} in transliteration, with the standard English translation.
+    \item {\color{passage}\textbf{The Egyptian passage}} in hieroglyphic script with transliteration, and the standard English translation.
     \item \textbf{Word-level geometry}: Key words are looked up in the embedding space. English neighbors (what the word maps to in GloVe space) and Egyptian neighbors (what the word clusters with in the native vocabulary) are reported.
     \item {\color{insight}\textbf{Geometric reading}}: What the passage says when the embedding-space meanings replace the conventional translations.
 \end{enumerate}
@@ -77,7 +85,8 @@ Each passage is presented in three layers:
 
 \subsection{Passage 1: The Figure of Nut}
 
-{\color{passage}\textit{``Nw,t tn --- p,t pw ꜥꜣ,t''}\\
+{\color{passage}\passagehiero{𓈖𓅱𓏏𓇼 𓏏𓈖 --- 𓇯𓏏 𓊪𓅱 𓂝𓄿𓏏}\\\medskip
+\textit{\small Nw,t tn --- p,t pw ꜥꜣ,t}\\
 Standard translation: ``This Nut --- she is the great sky.''}
 
 \bigskip
@@ -98,7 +107,8 @@ Egyptian neighbors: \textit{šp,t} (0.69), \textit{ḥp,t} (0.67), \textit{⸢p,
 
 \subsection{Passage 2: The Sun Enters Nut's Mouth}
 
-{\color{passage}\textit{``ꜥm Rꜥ m rꜣ≡s m jmn,t''}\\
+{\color{passage}\passagehiero{𓂝𓅓 𓇳𓏤 𓅓 𓂋𓄿𓊃 𓅓 𓇋𓅓𓈖𓏏}\\\medskip
+\textit{\small ꜥm Rꜥ m rꜣ≡s m jmn,t}\\
 Standard translation: ``Ra enters her mouth in the west.''}
 
 \bigskip
@@ -119,7 +129,8 @@ Egyptian neighbors: \textit{jmn,tt} (0.95), \textit{jmn,tj} (western, 0.93), \te
 
 \subsection{Passage 3: The Hours of Night}
 
-{\color{passage}\textit{``wnw,t 12 n,t grḥ --- nm,t≡f m-ẖnw≡s''}\\
+{\color{passage}\passagehiero{𓃹𓈖𓏌𓏏𓇼 12 𓈖𓏏 𓎼𓂋𓎛 --- 𓈖𓅓𓏏𓆑 𓅓𓄚𓈖𓉐𓊃}\\\medskip
+\textit{\small wnw,t 12 n,t grḥ --- nm,t≡f m-ẖnw≡s}\\
 Standard translation: ``The 12 hours of night --- he travels inside her.''}
 
 \bigskip
@@ -146,7 +157,8 @@ Egyptian neighbors: \textit{knm,t} (0.96), \textit{H̱nm,t.pl} (0.95), \textit{s
 
 \subsection{Passage 4: The Duat}
 
-{\color{passage}\textit{``wnn≡f m dwꜣ,t''}\\
+{\color{passage}\passagehiero{𓃹𓈖𓈖𓆑 𓅓 𓇼𓄿𓏏𓉐}\\\medskip
+\textit{\small wnn≡f m dwꜣ,t}\\
 Standard translation: ``He is in the Duat (underworld).''}
 
 \bigskip
@@ -167,7 +179,8 @@ Egyptian neighbors: \textit{dwꜣ,yt} (0.89), \textit{dwꜣ(,w)} (0.89), \textit
 
 \subsection{Passage 5: The Horizon}
 
-{\color{passage}\textit{``prr≡f m ꜣḫ,t jꜣb,t.t''}\\
+{\color{passage}\passagehiero{𓉐𓂋𓂋𓆑 𓅓 𓈌𓏏𓉐 𓇋𓄿𓃀𓏏}\\\medskip
+\textit{\small prr≡f m ꜣḫ,t jꜣb,t.t}\\
 Standard translation: ``He comes forth from the eastern horizon.''}
 
 \bigskip
@@ -194,7 +207,8 @@ Egyptian neighbors: \textit{jꜣb,tj} (eastern, 0.92), \textit{jꜣb,tt} (0.90)
 
 \subsection{Passage 6: Birth at Dawn}
 
-{\color{passage}\textit{``msj sw Nw,t m dwꜣ,w''}\\
+{\color{passage}\passagehiero{𓅓𓊃𓇋 𓋴𓅱 𓈖𓅱𓏏𓇼 𓅓 𓂧𓅱𓄿𓅱}\\\medskip
+\textit{\small msj sw Nw,t m dwꜣ,w}\\
 Standard translation: ``Nut gives birth to him in the morning.''}
 
 \bigskip
@@ -220,7 +234,8 @@ English neighbors: ``come'' (0.66), ``tomorrow'' (0.65), ``next'' (0.62)
 
 \subsection{Passage 7: Shu Supports Nut}
 
-{\color{passage}\textit{``Šw ḥr sṯz Nw,t''}\\
+{\color{passage}\passagehiero{𓆄𓅱 𓁷𓏤 𓋴𓏏𓊃 𓈖𓅱𓏏𓇼}\\\medskip
+\textit{\small Šw ḥr sṯz Nw,t}\\
 Standard translation: ``Shu supports/lifts Nut.''}
 
 \bigskip
@@ -247,7 +262,8 @@ Also appears as neighbor of \textit{wbn} (sunrise, 0.77)
 
 \subsection{Passage 8: The Stars}
 
-{\color{passage}\textit{``sbꜣ.pl ḥr nm,t ḥr ḥr,t≡s''}\\
+{\color{passage}\passagehiero{𓊃𓃀𓄿𓇼𓏥 𓁷𓏤 𓈖𓅓𓏏 𓁷𓏤 𓁷𓏏𓊃}\\\medskip
+\textit{\small sbꜣ.pl ḥr nm,t ḥr ḥr,t≡s}\\
 Standard translation: ``The stars travel upon her upper surface.''}
 
 \bigskip
@@ -267,7 +283,8 @@ Egyptian neighbors: \textit{ḥr,y} (upper, 0.82), \textit{ḥrj} (0.81)
 
 \subsection{Passage 9: The Stars Enter and Exit}
 
-{\color{passage}\textit{``ꜥm≡sn m rꜣ≡s m jmn,t --- msj≡s sn m jꜣb,t''}\\
+{\color{passage}\passagehiero{𓂝𓅓𓊃𓈖 𓅓 𓂋𓄿𓊃 𓅓 𓇋𓅓𓈖𓏏 --- 𓅓𓊃𓇋𓊃 𓊃𓈖 𓅓 𓇋𓄿𓃀𓏏}\\\medskip
+\textit{\small ꜥm≡sn m rꜣ≡s m jmn,t --- msj≡s sn m jꜣb,t}\\
 Standard translation: ``They enter her mouth in the west --- she gives birth to them in the east.''}
 
 \bigskip
@@ -280,7 +297,8 @@ This passage applies the same verbs used for Ra's journey to the stars: they are
 
 \subsection{Passage 10: The Two Eternities}
 
-{\color{passage}\textit{``nḥḥ ḏ,t''}\\
+{\color{passage}\passagehiero{𓎛𓇳𓎛 𓆓𓏏}\\\medskip
+\textit{\small nḥḥ ḏ,t}\\
 Standard translation: ``Cyclical eternity and linear eternity'' (often rendered ``forever and ever'').\newline
 Appears throughout the Book of Nut as the temporal frame of Ra's journey.}
 
@@ -302,7 +320,8 @@ Egyptian neighbors: \textit{ḥw} (0.86), \textit{nf} (0.86), \textit{r-ḏ,t} (
 
 \subsection{Passage 11: Life and the Living}
 
-{\color{passage}\textit{``ꜥnḫ Rꜥ --- wḥm msw,t≡f''}\\
+{\color{passage}\passagehiero{𓋹 𓇳𓏤 --- 𓅱𓎛𓅓 𓅓𓊃𓅱𓏏𓆑}\\\medskip
+\textit{\small ꜥnḫ Rꜥ --- wḥm msw,t≡f}\\
 Standard translation: ``Ra lives --- he repeats his birth.''}
 
 \bigskip
